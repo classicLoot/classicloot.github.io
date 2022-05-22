@@ -1,0 +1,21 @@
+.outer {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+    align-items: center;
+}
+
+.section {
+    display: flex;
+    padding: 0.875rem 0.5rem;
+
+    &.left {
+        width: 16rem;
+    }
+
+    &.middle {
+        flex: 1;
+        align-items: center;
+        margin: 0 -0.5rem;
+    }
+}
