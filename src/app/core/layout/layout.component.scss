@@ -4,3 +4,20 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+::ng-deep nb-layout .main-container {
+    padding-top: 3rem;
+
+    .scrollable {
+        padding-top: 0;
+    }
+}
+
+.headerfix {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
