@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NbLayoutModule } from '@nebular/theme';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
