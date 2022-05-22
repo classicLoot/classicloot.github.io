@@ -1,21 +1,33 @@
 <nb-layout>
 
     <nb-layout-header fixed>
-    <!-- Insert header here --> 
+        <!-- Insert header here -->
         <app-header></app-header>
     </nb-layout-header>
-  
+
+    <nb-sidebar>
+
+    </nb-sidebar>
+
+
     <nb-layout-column>
-      
-      COLUMN
-      <router-outlet></router-outlet>
-      
+
+        COLUMN
+        <router-outlet></router-outlet>
+
+        <div class="contact-us">
+            <h2>Need some help or found an issue?</h2>
+            <p>
+                Ask on <a href="https://stackoverflow.com/questions/ask">Stack Overflow</a> with tag `nebular` or
+                post an issue on <a href="https://github.com/akveo/nebular/issues/new">GitHub</a>.
+            </p>
+        </div>
+
     </nb-layout-column>
-  
+
     <nb-layout-footer fixed>
-    <!-- Insert footer here -->
-    FOOTER
+        <!-- Insert footer here -->
+        FOOTER
     </nb-layout-footer>
-  
-  </nb-layout>
-  
+
+</nb-layout>
