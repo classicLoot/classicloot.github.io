@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
+import { NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { HeaderComponent } from './header/header.component';
 
 
@@ -16,7 +16,8 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     CoreRoutingModule,
     NbLayoutModule,
-    NbSidebarModule
+    NbSidebarModule,
+    NbMenuModule
   ]
 })
 export class CoreModule { }
