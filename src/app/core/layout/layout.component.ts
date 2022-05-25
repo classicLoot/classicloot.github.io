@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NbMenuItem } from '@nebular/theme';
+import { Observable } from 'rxjs';
+import { SidebarService } from 'src/app/shared/services/sidebar.service';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  menuItems$: Observable<NbMenuItem[]>;
+
+  constructor(private sidebarService: SidebarService) {
+    this.menuItems$ = this.sidebarService.getMenuItems$();
+  }
 
   ngOnInit(): void {
   }

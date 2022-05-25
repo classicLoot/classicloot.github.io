@@ -21,29 +21,31 @@
     }
 }
 
-::ng-deep nb-menu {
-    flex: 1;
+.outer {
+    ::ng-deep nb-menu {
+        flex: 1;
 
-    .menu-items {
-        display: flex;
-        justify-content: flex-start;
+        .menu-items {
+            display: flex;
+            justify-content: flex-start;
 
-        .menu-item {
-            border: none;
+            .menu-item {
+                border: none;
 
-            a {
-               
-                display: block;
+                a {
 
-                &:hover,
-                &.active,
-                &:focus {
-                    
-                    outline: none !important;
+                    display: block;
+
+                    &:hover,
+                    &.active,
+                    &:focus {
+
+                        outline: none !important;
+                    }
                 }
             }
-        }
 
-       
+
+        }
     }
 }
