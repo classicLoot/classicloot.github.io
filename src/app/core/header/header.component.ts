@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   mainMenu: NbMenuItem[] = [
     {
       title: 'Dungeons',
-      link: '/dungeon'
+      link: '/dungeons'
     },
     {
       title: 'Raids',
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       title: 'Reputation',
-      link: '/rep'
+      link: '/reputation'
     }
   ]
 

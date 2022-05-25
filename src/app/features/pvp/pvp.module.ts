@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { PvpRoutingModule } from './pvp-routing.module';
+import { PvpComponent } from './pvp/pvp.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PvpComponent
+  ],
   imports: [
     CommonModule,
     PvpRoutingModule
