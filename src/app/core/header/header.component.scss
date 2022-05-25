@@ -1,0 +1,51 @@
+.outer {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+    align-items: center;
+}
+
+.section {
+    display: flex;
+    padding: 0.875rem 0.5rem;
+    flex-direction: row;
+
+    &.left {
+        width: 16rem;
+    }
+
+    &.middle {
+        flex: 1;
+        align-items: center;
+        margin: 0 -0.5rem;
+    }
+}
+
+.outer {
+    ::ng-deep nb-menu {
+        flex: 1;
+
+        .menu-items {
+            display: flex;
+            justify-content: flex-start;
+
+            .menu-item {
+                border: none;
+
+                a {
+
+                    display: block;
+
+                    &:hover,
+                    &.active,
+                    &:focus {
+
+                        outline: none !important;
+                    }
+                }
+            }
+
+
+        }
+    }
+}

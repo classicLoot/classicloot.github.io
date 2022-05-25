@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RaidsComponent } from './raids/raids.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('src/app/core/core.module').then(m => m.CoreModule)
+    component: RaidsComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class RaidsRoutingModule { }
