@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DungeonsRoutingModule } from './dungeons-routing.module';
 import { DungeonsComponent } from './dungeons/dungeons.component';
+import { NbCardModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DungeonsComponent } from './dungeons/dungeons.component';
   ],
   imports: [
     CommonModule,
-    DungeonsRoutingModule
+    DungeonsRoutingModule,
+    NbCardModule
   ]
 })
 export class DungeonsModule { }
