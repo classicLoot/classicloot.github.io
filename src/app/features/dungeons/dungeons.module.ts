@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DungeonsRoutingModule } from './dungeons-routing.module';
 import { DungeonsComponent } from './dungeons/dungeons.component';
 import { NbCardModule } from '@nebular/theme';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NbCardModule } from '@nebular/theme';
   imports: [
     CommonModule,
     DungeonsRoutingModule,
-    NbCardModule
+    NbCardModule,
+    SharedModule
   ]
 })
 export class DungeonsModule { }

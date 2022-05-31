@@ -12,15 +12,16 @@
 <div *ngIf="currentDungeon$ | async as current">
     <h1>{{current.name}}</h1>
 
-    <nb-card *ngFor="let boss of current.bosses">
+    <nb-card #bossList *ngFor="let boss of current.bosses">
         <nb-card-header>{{boss.name}}</nb-card-header>
         <nb-card-body>
             {{boss.loot | json}}
 
             <div *ngFor="let item of boss.loot">
-                {{item}}
-                <a href="#" rel="item={{item}}"></a>
-            </div>    
+                <a href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a>
+            </div>
+
+
         </nb-card-body>
     </nb-card>
 </div>
