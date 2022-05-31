@@ -55,8 +55,8 @@ async function fetchIDS(ids: number[]) {
     for (const id of ids) {
 
         if (checkFSItem(id)) {
-            console.log(id,'exists')
-            break;
+            console.log(id, 'exists')
+            continue;
         }
 
         const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
@@ -88,4 +88,4 @@ async function fetchIDS(ids: number[]) {
     }
 }
 
-fetchIDS(IDArray.slice(0, 2))
+fetchIDS(IDArray)
