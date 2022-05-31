@@ -1,15 +1,9 @@
-console.log('SCRAPERS')
-
-import fetch from 'node-fetch';
-import xml from 'xml-js';
-
 import fs from 'fs';
+import fetch from 'node-fetch';
 import path from 'path';
-
-import { wowItem } from '../app/shared/interfaces/item';
-
-import { dungeon } from '../app/shared/interfaces/dungeons'
 import { wotlkDungeons } from '../app/features/dungeons/data/wotlk';
+import { dungeon } from '../app/shared/interfaces/dungeons';
+
 
 // get IDs
 
@@ -27,65 +21,39 @@ dungeons.forEach(dng => {
 
 // --------------
 const perSecond = 1;
-const delay = 1000 / perSecond;
+export const delay = 1000 / perSecond;
 
-const XML_CONFIG = { compact: true };
+export const XML_CONFIG = { compact: true };
 // --------------
 
 const IDArray = Array.from(IDSet.values());
 
+export const ItemIDArray: number[] = IDArray;
+
 console.log('to scrape: ' + IDArray.length);
-for (const id of IDArray) {
 
-}
+// -------------
 
-function checkFSItem(id: number) {
-    const itemPath = path.join(__dirname, '../assets/items/', String(id) + '.json');
+
+function checkFSIcon(icon: string) {
+    const itemPath = path.join(__dirname, '../assets/icons/', icon + '.gif');
     const bExist = fs.existsSync(itemPath);
-
     return bExist;
 }
 
-function writeFSItem(item: wowItem) {
-    const itemPath = path.join(__dirname, '../assets/items/', String(item.id) + '.json');
-    fs.writeFileSync(itemPath, JSON.stringify(item));
+function writeFSIcon(icon: string) {
+    const itemPath = path.join(__dirname, '../assets/icons/', icon + '.gif');
+    fs.writeFileSync(itemPath, JSON.stringify(icon));
 }
 
-async function fetchIDS(ids: number[]) {
-    for (const id of ids) {
-
-        if (checkFSItem(id)) {
-            console.log(id, 'exists')
-            continue;
-        }
-
-        const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
-        /* https://db.rising-gods.de/
-            const response = await fetch(`https://db.rising-gods.de/?item=${id}&xml`);
-        */
-        const body = await response.text();
-
-        try {
-            const jsonStr = xml.xml2json(body, XML_CONFIG);
-            const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
-
-            const item: wowItem = {
-                id: itemJS["_attributes"]["id"],
-                name: itemJS["name"]["_cdata"],
-                quality: itemJS["quality"]["_attributes"]["id"],
-                icon: itemJS["icon"]["_text"],
-                htmlTooltip: itemJS["htmlTooltip"]["_cdata"],
-                link: itemJS["link"]["_text"]
-            }
-            writeFSItem(item);
-            console.log(item.id, item.name, item.icon);
-        } catch (error) {
-            console.log('ERROR: ' + id)
-        }
 
 
-        await new Promise(f => setTimeout(f, delay));
+
+async function fetchIcons(icons: string[], size: string) {
+    for (const icon of icons) {
+        const response = await fetch(`https://wotlkdb.com/static/images/wow/icons/${size}/${icon}.jpg`);
+
     }
 }
 
-fetchIDS(IDArray)
+fetchIcons(['spell_holy_summonchampion'], 'large')
