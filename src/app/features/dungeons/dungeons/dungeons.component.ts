@@ -5,6 +5,7 @@ import { dungeon } from 'src/app/shared/interfaces/dungeons';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { TooltipService } from 'src/app/shared/services/tooltip.service';
 import { DungeonsService } from '../data/dungeons.service';
+import { lootData } from '../data/gen';
 
 @Component({
   selector: 'app-dungeons',
@@ -35,6 +36,8 @@ export class DungeonsComponent implements OnInit, OnDestroy, AfterViewInit {
       const id = params['id'];
       this.dungeonService.setCurrentDungeonName(id);
     })
+
+   //console.log(lootData)
   }
 
   ngOnDestroy(): void {
