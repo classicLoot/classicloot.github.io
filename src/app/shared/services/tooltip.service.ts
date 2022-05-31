@@ -20,6 +20,18 @@ export class TooltipService {
     }
   }
 
+  public iterateItemlinks() {
+    const start = performance.now();
+    console.log('iterate Itemlinks...');
+
+    const docs = document.querySelectorAll('#itemlink')
+    docs.forEach(doc => {
+      //console.log( doc.getAttribute('style'))      
+    })
+    //console.log(docs.length);
+  }
+
+
   public attachScript() {
 
 
