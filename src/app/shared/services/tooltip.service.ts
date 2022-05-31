@@ -10,10 +10,13 @@ export class TooltipService {
 
   constructor() { }
 
-  public runScript(){
-    if($WowheadPower){
-      console.log('run WoWHead script...')
+  public runScript() {
+    if ($WowheadPower) {
+      const start = performance.now();
+      console.log('run WoWHead script...');
       $WowheadPower.refreshLinks();
+      const dur = performance.now() - start;
+      console.log('finished' + ' ' + dur);
     }
   }
 
