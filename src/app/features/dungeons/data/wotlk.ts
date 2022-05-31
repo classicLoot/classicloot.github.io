@@ -1,5 +1,14 @@
 import { dungeon } from "src/app/shared/interfaces/dungeons";
 
+const defaultDungeon: dungeon = {
+    name: 'name',
+    url: 'name',
+    descr: 'descr',
+    levelMin: 69,
+    levelMax: 72,
+    bosses: []
+}
+
 export const wotlkDungeons: dungeon[] = [
     {
         name: 'Utgarde Keep',
