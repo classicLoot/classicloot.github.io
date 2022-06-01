@@ -62,7 +62,7 @@ export class DungeonsComponent implements OnInit, OnDestroy, AfterViewInit {
       //item.nativeElement.setAttribute('style','test');
     })
 
-    
+
     //console.log(this.itemLinks.length);
   }
 }
