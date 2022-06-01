@@ -1,11 +1,15 @@
-.itemTooltip {
+.item .itemTooltip {
     background-color: #222431;
     border: 1px solid #36384a;
 
     max-width: 300px;
 
     text-align: left;
-    padding: 6px 8px;
+    padding: 6px 8px    
+}
+
+.item:hover .itemTooltip {
+    visibility: visible;
 }
 
 .itemTooltip table {

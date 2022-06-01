@@ -1,6 +1,11 @@
 .item {
+    position: relative;
+}
+
+.itemBase {
     display: flex;
     align-items: center;
+    max-width: 320px;
 }
 
 
@@ -13,6 +18,3 @@
     font-size: larger;
     padding-left: 0.5rem;
 }
-
-
-
