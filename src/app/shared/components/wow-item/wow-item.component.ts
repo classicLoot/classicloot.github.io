@@ -11,6 +11,7 @@ import { ItemdataService } from '../../services/itemdata.service';
 export class WowItemComponent implements OnInit, OnChanges {
 
   @Input() itemID: number = -1;
+  @Input() itemSize: string = 'large';
 
   public item$: Observable<wowItem>;
 
