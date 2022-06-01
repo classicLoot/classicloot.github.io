@@ -9,5 +9,10 @@
         </div>
     </div>
 
-    <div [innerHTML]="item.htmlTooltip" class="itemTooltip"></div>
+    <div class="itemTooltip">
+        <div style="display:flex; gap: 5px">
+            <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+            <div [innerHTML]="item.htmlTooltip" class="border wow"></div>
+        </div>
+    </div>
 </div>
