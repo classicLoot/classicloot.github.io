@@ -4,12 +4,12 @@
     font-family: "Arial", sans-serif;
     font-size: 13px;
 }
-
+/*
 .wowhead-tooltip         { visibility: hidden; z-index: 100000006; overflow: visible !important; }
 .wowhead-tooltip a       { text-decoration: none; }
 .wowhead-tooltip a:hover { text-decoration: underline; }
 
-.wowhead-tooltip table { border-spacing: 0; border-collapse: collapse; margin: 0; width: auto; } /*maybe remove width:auto*/
+.wowhead-tooltip table { border-spacing: 0; border-collapse: collapse; margin: 0; width: auto; }
 .wowhead-tooltip table, .wowhead-tooltip td, .wowhead-tooltip th, .wowhead-tooltip tbody { border: 0 !important; }
 .wowhead-tooltip td table td table { width: 100% }
 .wowhead-tooltip td, .wowhead-tooltip th { background: url(../images/wow/tooltip.png); font-family: Verdana, sans-serif; font-size: 12px; line-height: 17px; color: white; }
@@ -33,7 +33,7 @@
 
 .wowhead-tooltip ins { color: #5DF644; text-decoration: none; border-bottom: 1px dotted; }
 .wowhead-tooltip del { color: #FF8040; text-decoration: none; border-bottom: 1px dotted; }
-
+*/
 .wowhead-tooltip-powered {
     /* background: url(../images/powered.png) no-repeat; */
     width: 53px;
@@ -49,6 +49,7 @@
     color: white;
 }
 
+/*
 .moneyitem            { padding-right: 18px; }
 .moneygold            { padding-right: 15px; background-image: url(../images/icons/money-gold.gif);       }
 .moneysilver          { padding-right: 15px; background-image: url(../images/icons/money-silver.gif);     }
@@ -62,7 +63,7 @@
 .moneysocketyellow    { padding-right: 18px; background-image: url(../images/icons/socket-yellow.gif);    }
 .moneysocketblue      { padding-right: 18px; background-image: url(../images/icons/socket-blue.gif);      }
 .moneysocketprismatic { padding-right: 18px; background-image: url(../images/icons/socket-prismatic.gif); }
-
+*/
 a.moneyitem, a.moneysocketmeta, a.moneysocketred, a.moneysocketyellow, a.moneysocketblue, a.moneysocketprismatic,  a.moneyachievement{
     text-decoration: none !important;
     border-bottom: 1px solid transparent;
@@ -146,17 +147,19 @@ a span.moneyitem, a span.moneysocketmeta, a span.moneysocketred, a span.moneysoc
 /*****************/
 /* SOCKETS ICONS */
 /*****************/
-
+/*
 .socket-meta      { padding-left: 26px; background: url(../images/icons/socket-meta.gif) no-repeat left center;      }
 .socket-red       { padding-left: 26px; background: url(../images/icons/socket-red.gif) no-repeat left center;       }
 .socket-yellow    { padding-left: 26px; background: url(../images/icons/socket-yellow.gif) no-repeat left center;    }
 .socket-blue      { padding-left: 26px; background: url(../images/icons/socket-blue.gif) no-repeat left center;      }
 .socket-prismatic { padding-left: 26px; background: url(../images/icons/socket-prismatic.gif) no-repeat left center; }
+*/
+
 
 /***********/
 /* WIDGETS */
 /***********/
-
+/*
 #wowhead-bluetip {
     position: absolute;
     z-index: 99999;
@@ -193,3 +196,4 @@ a span.moneyitem, a span.moneysocketmeta, a span.moneysocketred, a span.moneysoc
     top: 5px;
     right: 5px;
 }
+*/
