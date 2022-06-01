@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "scrape": "esrun src/scraper/scraper.ts"
   },
   "private": true,
   "dependencies": {

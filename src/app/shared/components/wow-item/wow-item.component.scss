@@ -1,0 +1,18 @@
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.itemIconWrapper {
+
+}
+
+.itemIcon{
+    width: 40px;
+    height: 40px;
+}
+
+.itemName {
+    font-size: larger;
+    padding-left: 0.5rem;
+}

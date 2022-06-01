@@ -10,12 +10,27 @@ export class TooltipService {
 
   constructor() { }
 
-  public runScript(){
-    if($WowheadPower){
-      console.log('run WoWHead script...')
+  public runScript() {
+    if ($WowheadPower) {
+      const start = performance.now();
+      console.log('run WoWHead script...');
       $WowheadPower.refreshLinks();
+      const dur = performance.now() - start;
+      console.log('finished' + ' ' + dur);
     }
   }
+
+  public iterateItemlinks() {
+    const start = performance.now();
+    console.log('iterate Itemlinks...');
+
+    const docs = document.querySelectorAll('#itemlink')
+    docs.forEach(doc => {
+      //console.log( doc.getAttribute('style'))      
+    })
+    //console.log(docs.length);
+  }
+
 
   public attachScript() {
 
