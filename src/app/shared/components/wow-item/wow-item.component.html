@@ -1,3 +1,9 @@
-<div *ngIf="item$ | async as item">
-    {{item.id}} | {{item.icon}} | {{item.name}} 
+<div class="item" *ngIf="item$ | async as item">
+    <div class="itemIconWrapper">
+        <img class="itemIcon" src="../../../../assets/icons/large/{{item.icon}}.jpg">
+    </div>
+
+    <div class="itemName q{{item.quality}}">
+        {{item.name}}
+    </div>
 </div>
