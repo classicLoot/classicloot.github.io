@@ -4,7 +4,7 @@
     <nb-card #bossList *ngFor="let boss of current.bosses">
         <nb-card-header>{{boss.name}}</nb-card-header>
         <nb-card-body>
-            {{boss.loot | json}}
+            <!-- {{boss.loot | json}} -->
 
             <div *ngFor="let item of boss.loot">
                 <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
