@@ -32,7 +32,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/stylings/wow.scss"
+              "src/stylings/wow.scss",
+              "src/stylings/wowCustom.scss"
             ],
             "scripts": []
           },

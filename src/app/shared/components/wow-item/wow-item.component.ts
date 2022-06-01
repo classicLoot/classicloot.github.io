@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { ItemdataService } from '../../services/itemdata.service';
@@ -15,7 +16,7 @@ export class WowItemComponent implements OnInit, OnChanges {
 
   public item$: Observable<wowItem>;
 
-  constructor(private itemDataService: ItemdataService) {
+  constructor(private itemDataService: ItemdataService, private sanitizer: DomSanitizer) {
     this.item$ = this.itemDataService.getItemData$(-1);
   }
 
@@ -25,5 +26,4 @@ export class WowItemComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.item$ = this.itemDataService.getItemData$(this.itemID);
   }
-
 }

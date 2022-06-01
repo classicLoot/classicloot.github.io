@@ -1,0 +1,24 @@
+.itemTooltip {
+    background-color: #222431;
+    border: 1px solid #36384a;
+
+    max-width: 300px;
+
+    text-align: left;
+    padding: 6px 8px;
+}
+
+.itemTooltip table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%;
+}
+
+.itemTooltip td table td table {
+    width: 100%
+}
+
+.itemTooltip th{
+    text-align: right;
+}

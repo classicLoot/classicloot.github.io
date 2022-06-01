@@ -6,4 +6,6 @@
     <div class="itemName q{{item.quality}}">
         {{item.name}}
     </div>
+
+    <div [innerHTML]="item.htmlTooltip" class="itemTooltip"></div>  
 </div>
