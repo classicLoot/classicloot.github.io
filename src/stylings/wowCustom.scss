@@ -19,6 +19,51 @@
     width: 100%
 }
 
-.itemTooltip th{
+.itemTooltip th {
     text-align: right;
+    font-weight: 400;
+}
+
+.itemTooltip a {
+    text-decoration: none;
+}
+
+.socket-meta {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-meta.gif) no-repeat left center;
+}
+
+.socket-red {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-red.gif) no-repeat left center;
+}
+
+.socket-yellow {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-yellow.gif) no-repeat left center;
+}
+
+.socket-blue {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-blue.gif) no-repeat left center;
+}
+
+.socket-prismatic {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-prismatic.gif) no-repeat left center;
+}
+
+.moneygold {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-gold.gif);
+}
+
+.moneysilver {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-silver.gif);
+}
+
+.moneycopper {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-copper.gif);
 }
