@@ -1,0 +1,90 @@
+.item .itemTooltip {
+
+    display: none;
+    z-index: 25;
+
+    position: absolute;
+
+    width: fit-content;
+    left: 20%;
+    transform: translateX(-20%);
+    top: 65%;
+    transform: translateY(-65%)
+}
+
+.item .border {
+    background-color: #222431;
+    border: 1px solid #36384a;
+}
+
+.item .itemTooltip .wow {
+    padding: 6px 8px;
+    text-align: left;
+    max-width: 300px;
+}
+
+
+.item:hover .itemTooltip {
+    //visibility: visible;
+    display: block;
+}
+
+.itemTooltip table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0;
+    width: 100%;
+}
+
+.itemTooltip td table td table {
+    width: 100%
+}
+
+.itemTooltip th {
+    text-align: right;
+    font-weight: 400;
+}
+
+.itemTooltip a {
+    text-decoration: none;
+}
+
+.socket-meta {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-meta.gif) no-repeat left center;
+}
+
+.socket-red {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-red.gif) no-repeat left center;
+}
+
+.socket-yellow {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-yellow.gif) no-repeat left center;
+}
+
+.socket-blue {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-blue.gif) no-repeat left center;
+}
+
+.socket-prismatic {
+    padding-left: 26px;
+    background: url(../assets/icons/misc/socket-prismatic.gif) no-repeat left center;
+}
+
+.moneygold {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-gold.gif);
+}
+
+.moneysilver {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-silver.gif);
+}
+
+.moneycopper {
+    padding-right: 15px;
+    background-image: url(../assets/icons/misc/money-copper.gif);
+}

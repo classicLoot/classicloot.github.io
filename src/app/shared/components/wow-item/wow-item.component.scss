@@ -1,13 +1,15 @@
 .item {
+    position: relative;
+}
+
+.itemBase {
     display: flex;
     align-items: center;
+    max-width: 320px;
 }
 
-.itemIconWrapper {
 
-}
-
-.itemIcon{
+.itemIcon {
     width: 40px;
     height: 40px;
 }
