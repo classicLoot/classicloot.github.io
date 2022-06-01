@@ -5,11 +5,24 @@
     max-width: 300px;
 
     text-align: left;
-    padding: 6px 8px    
+    padding: 6px 8px;
+    display: none;
+
+    z-index: 25;
+
+    position: absolute;
+    
+    width: fit-content;
+    left: 20%;
+    transform: translateX(-20%);
+    top: 65%;
+    transform: translateY(-65%)
+    
 }
 
 .item:hover .itemTooltip {
-    visibility: visible;
+    //visibility: visible;
+    display: block;
 }
 
 .itemTooltip table {
