@@ -1,22 +1,18 @@
 <div class="item" *ngIf="item$ | async as item" id="item|{{uniqueID}}|{{item.id}}">
-    <div class="itemBase">
-        <div class="itemIconWrapper">
-            <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <div class="itemText" (mousemove)="onMouseMove($event)">
+        <div class="itemName q{{item.quality}}">
+            <a href="{{item.link}}">
+                {{item.name}}
+            </a>
         </div>
 
-        <div class="itemText" (mousemove)="onMouseMove($event)">
-            <div class="itemName q{{item.quality}}">
-                <a href="{{item.link}}">
-                    {{item.name}}
-                </a>
-            </div>
-
-            <div class="itemTooltip" id="tooltip|{{uniqueID}}|{{item.id}}">
-                <div style="display:flex; gap: 5px">
-                    <img class="itemIconBig border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
-                    <div [innerHTML]="item.htmlTooltip" class="border wow"></div>
-                </div>
+        <div class="itemTooltip" id="tooltip|{{uniqueID}}|{{item.id}}">
+            <div class="itemTooltipBox">
+                <img class="itemIconBig border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+                <div [innerHTML]="item.htmlTooltip" class="border wow"></div>
             </div>
         </div>
     </div>
+
 </div>

@@ -1,15 +1,8 @@
 .item .itemTooltip {
-
     display: none;
     z-index: 25;
-
     position: absolute;
-
-    width: fit-content;
-    // left: 20%;
-    // transform: translateX(-20%);
-    // top: 65%;
-    // transform: translateY(-65%)
+    width: fit-content;    
 }
 
 .item .border {
@@ -20,7 +13,7 @@
 .item .itemTooltip .wow {
     padding: 6px 8px;
     text-align: left;
-    max-width: 500px;
+    //max-width: 500px;
     width: 100%;
 }
 
