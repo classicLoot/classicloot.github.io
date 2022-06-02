@@ -1,20 +1,37 @@
 .item {
     position: relative;
-}
+    //border: 2px solid black;
 
-.itemBase {
     display: flex;
     align-items: center;
-    max-width: 320px;
+
+    max-width: 400px;
+    overflow: visible;
+    //width: fit-content;      
 }
 
+.itemTooltipBox {
+    display: flex;
+    gap: 5px;
+    max-width: 400px;
+    width: 100%;
+}
 
 .itemIcon {
     width: 40px;
     height: 40px;
 }
 
+.itemIconBig {
+    width: 60px;
+    height: 60px;
+}
+
 .itemName {
     font-size: larger;
     padding-left: 0.5rem;
+
+    a {
+        text-decoration: none;
+    }
 }
