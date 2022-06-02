@@ -1,47 +1,33 @@
 import { Injectable } from '@angular/core';
-
-declare var aowow_tooltips: any;
-declare var $WowheadPower: any;
+import { BehaviorSubject } from 'rxjs';
+import { wowItem } from '../interfaces/item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TooltipService {
 
+  private mouseEventSubject = new BehaviorSubject({ x: 0, y: 0, bShown: false });
+  private wowItemSubject = new BehaviorSubject<wowItem | null>(null);
+
   constructor() { }
 
-  public runScript() {
-    if ($WowheadPower) {
-      const start = performance.now();
-      console.log('run WoWHead script...');
-      $WowheadPower.refreshLinks();
-      const dur = performance.now() - start;
-      console.log('finished' + ' ' + dur);
-    }
-  }
-
-  public iterateItemlinks() {
-    const start = performance.now();
-    console.log('iterate Itemlinks...');
-
-    const docs = document.querySelectorAll('#itemlink')
-    docs.forEach(doc => {
-      //console.log( doc.getAttribute('style'))      
-    })
-    //console.log(docs.length);
-  }
-
-
-  public attachScript() {
-
-
-    if (aowow_tooltips === undefined) {
-      console.log('UNDEFINED');
+  public onMouseEvent(e: MouseEvent, type: 'move' | 'enter' | 'leave', item: wowItem) {
+    console.log(type, item.name);
+    if (type === 'leave') {
+      this.mouseEventSubject.next({ x: e.clientX, y: e.clientY, bShown: false });
     }
     else {
-      console.log('DEFINED');
+      this.mouseEventSubject.next({ x: e.clientX, y: e.clientY, bShown: true });
     }
-    //const test = window['aowow_tooltips'] as string;
-    // var aowow_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }
+    this.wowItemSubject.next(item);
+  }
+
+  public getMouseEvent$() {
+    return this.mouseEventSubject.asObservable();
+  }
+
+  public getWowItem$() {
+    return this.wowItemSubject.asObservable();
   }
 }
