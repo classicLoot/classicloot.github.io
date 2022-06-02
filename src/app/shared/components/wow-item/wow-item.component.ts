@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { BehaviorSubject, debounceTime, Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { ItemdataService } from '../../services/itemdata.service';
 import { TooltipService } from '../../services/tooltip.service';
