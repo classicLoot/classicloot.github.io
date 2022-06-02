@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, debounceTime } from 'rxjs';
 import { wowItem } from '../interfaces/item';
 
 @Injectable({
@@ -13,21 +13,22 @@ export class TooltipService {
   constructor() { }
 
   public onMouseEvent(e: MouseEvent, type: 'move' | 'enter' | 'leave', item: wowItem) {
-    console.log(type, item.name);
+    //console.log(type, item.name);
+    this.wowItemSubject.next(item);
+
     if (type === 'leave') {
       this.mouseEventSubject.next({ x: e.clientX, y: e.clientY, bShown: false });
     }
     else {
       this.mouseEventSubject.next({ x: e.clientX, y: e.clientY, bShown: true });
     }
-    this.wowItemSubject.next(item);
   }
 
   public getMouseEvent$() {
-    return this.mouseEventSubject.asObservable();
+    return this.mouseEventSubject.asObservable().pipe(debounceTime(1));
   }
 
   public getWowItem$() {
-    return this.wowItemSubject.asObservable();
+    return this.wowItemSubject.asObservable().pipe();
   }
 }
