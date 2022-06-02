@@ -5,6 +5,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { HeaderComponent } from './header/header.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
     CoreRoutingModule,
     NbLayoutModule,
     NbSidebarModule,
-    NbMenuModule
+    NbMenuModule,
+    SharedModule
   ]
 })
 export class CoreModule { }
