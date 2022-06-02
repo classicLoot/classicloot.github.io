@@ -1,19 +1,15 @@
 <nb-layout>
-
     <nb-layout-header fixed>
         <!-- Insert header here -->
         <div class="headerfix">
             <app-header></app-header>
+            <app-wow-item-tooltip></app-wow-item-tooltip>
         </div>
     </nb-layout-header>
-
 
     <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar">
         <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu>
     </nb-sidebar>
-
-
-
 
     <nb-layout-column>
         <router-outlet></router-outlet>
@@ -23,5 +19,5 @@
         <!-- Insert footer here -->
         FOOTER
     </nb-layout-footer>
-
 </nb-layout>
+

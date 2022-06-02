@@ -1,26 +1,13 @@
-.item .itemTooltip {
-    display: none;
-    z-index: 25;
-    position: absolute;
-    width: fit-content;    
-}
-
-.item .border {
+.border {
     background-color: #222431;
     border: 0.1rem solid #36384a;
 }
 
-.item .itemTooltip .wow {
+.wow {
     padding: 6px 8px;
     text-align: left;
     //max-width: 500px;
     width: 100%;
-}
-
-
-.itemText:hover .itemTooltip {
-    //visibility: visible;
-    display: block;
 }
 
 .itemTooltip table {
