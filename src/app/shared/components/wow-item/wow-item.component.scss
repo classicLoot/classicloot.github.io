@@ -1,13 +1,12 @@
 .item {
     position: relative;
-    max-width: 320px;
+    max-width: 350px;
     border: 2px solid black;
 }
 
 .itemBase {
     display: flex;
-    align-items: center;
-    max-width: 320px;
+    align-items: center;   
 }
 
 
@@ -24,4 +23,9 @@
 .itemName {
     font-size: larger;
     padding-left: 0.5rem;
+
+    a {
+        text-decoration: none;
+
+    }
 }

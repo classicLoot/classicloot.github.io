@@ -6,21 +6,22 @@
     position: absolute;
 
     width: fit-content;
-    left: 20%;
-    transform: translateX(-20%);
-    top: 65%;
-    transform: translateY(-65%)
+    // left: 20%;
+    // transform: translateX(-20%);
+    // top: 65%;
+    // transform: translateY(-65%)
 }
 
 .item .border {
     background-color: #222431;
-    border: 1px solid #36384a;
+    border: 0.1rem solid #36384a;
 }
 
 .item .itemTooltip .wow {
     padding: 6px 8px;
     text-align: left;
-    max-width: 300px;
+    max-width: 500px;
+    width: 100%;
 }
 
 

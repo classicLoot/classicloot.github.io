@@ -1,13 +1,13 @@
 <div *ngIf="currentDungeon$ | async as current">
     <h1>{{current.name}}</h1>
 
-    <nb-card #bossList *ngFor="let boss of current.bosses">
+    <nb-card #bossList *ngFor="let boss of current.bosses; let pos = index">
         <nb-card-header>{{boss.name}}</nb-card-header>
         <nb-card-body>
             <!-- {{boss.loot | json}} -->
-            <div *ngFor="let item of boss.loot">
+            <div *ngFor="let item of boss.loot; let pos2 = index">
                 <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
-                <app-wow-item [itemID]="item"></app-wow-item>
+                <app-wow-item [itemID]="item" [itemSize]="'large'" [uniqueID]="pos*1000 + pos2"></app-wow-item>
             </div>
         </nb-card-body>
     </nb-card>
