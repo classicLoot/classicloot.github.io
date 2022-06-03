@@ -33,19 +33,15 @@
                 border: none;
 
                 a {
-
                     display: block;
 
                     &:hover,
                     &.active,
                     &:focus {
-
                         outline: none !important;
                     }
                 }
             }
-
-
         }
     }
 }
