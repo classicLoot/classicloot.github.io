@@ -12,8 +12,7 @@ import { TooltipService } from '../../services/tooltip.service';
 export class WowItemComponent implements OnInit, OnChanges, OnDestroy {
 
   @Input() itemID: number = -1;
-  @Input() itemSize: string = 'large';
-  @Input() uniqueID: number = -1;
+  @Input() itemSize: string = 'large';  
 
   public item$: Observable<wowItem>;
 

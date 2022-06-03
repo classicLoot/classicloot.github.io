@@ -10,5 +10,6 @@ export interface dungeon {
 export interface dungeonBoss {
     name: string,
     descr?: string,
-    loot: number[]
+    loot: number[],
+    lootHeroic: number[]
 }

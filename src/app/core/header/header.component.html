@@ -1,6 +1,13 @@
-<div class="outer"> 
-    <div class="section left">Classic Loot</div>
-    
+<div class="outer">
+    <div class="section left">
+        <button nbButton ghost (click)="toggleSidebar()">
+            <nb-icon  icon="menu-2"></nb-icon>
+        </button>       
+        <div class="logo text">
+            Classic Loot
+        </div>
+    </div>
+
     <div class="section middle">
         <nb-menu [items]="mainMenu"></nb-menu>
     </div>

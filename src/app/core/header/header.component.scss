@@ -1,3 +1,11 @@
+.logo {
+    &.text {
+        font-weight: bold;
+        font-size: x-large;
+        text-decoration: none;
+    }
+}
+
 .outer {
     display: flex;
     flex: 1 0 auto;
@@ -12,12 +20,40 @@
 
     &.left {
         width: 16rem;
+
+        align-items: center;
+        gap: 0.5rem;
+
+        button {
+            display: none;
+            color: white;
+
+            padding-top: 0;
+            padding-bottom: 0;
+
+            nb-icon {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        @media(max-width: 992px) {
+            button {
+                display: inline
+            }
+        }
     }
 
     &.middle {
         flex: 1;
         align-items: center;
         margin: 0 -0.5rem;
+
+        @media(max-width: 768px){
+            nb-menu{
+                display: none;
+            }
+        }
     }
 }
 
@@ -33,19 +69,15 @@
                 border: none;
 
                 a {
-
                     display: block;
 
                     &:hover,
                     &.active,
                     &:focus {
-
                         outline: none !important;
                     }
                 }
             }
-
-
         }
     }
 }

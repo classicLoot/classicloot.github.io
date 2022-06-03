@@ -1,13 +1,14 @@
 <nb-layout>
     <nb-layout-header fixed>
         <!-- Insert header here -->
-        <div class="headerfix">
-            <app-header></app-header>
+        <div class="headerfix">          
+            <app-header></app-header>         
             <app-wow-item-tooltip></app-wow-item-tooltip>
         </div>
     </nb-layout-header>
 
-    <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar">
+    <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar" [responsive]="true"
+        [collapsedBreakpoints]="['xs','is','sm','md']" [compactedBreakpoints]="[]" [tag]="'leftSidebar'">
         <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu>
     </nb-sidebar>
 
@@ -20,4 +21,3 @@
         FOOTER
     </nb-layout-footer>
 </nb-layout>
-

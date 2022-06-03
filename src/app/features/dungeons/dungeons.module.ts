@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DungeonsRoutingModule } from './dungeons-routing.module';
 import { DungeonsComponent } from './dungeons/dungeons.component';
-import { NbCardModule } from '@nebular/theme';
+import { NbCardModule, NbIconModule } from '@nebular/theme';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -15,6 +15,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     DungeonsRoutingModule,
     NbCardModule,
+    NbIconModule,
     SharedModule
   ]
 })
