@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
-import { BehaviorSubject } from 'rxjs';
+import { NbMenuItem, NbSidebarService } from '@nebular/theme';
+import { BehaviorSubject, combineLatest, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class SidebarService {
 
   menuItemSubject = new BehaviorSubject<NbMenuItem[]>([]);
 
-  constructor() {
+  constructor(private nbSidebarService: NbSidebarService) {
     const testMenu: NbMenuItem[] = [
       {
         title: 'Docs',
@@ -33,6 +33,16 @@ export class SidebarService {
       },
     ];
     this.setMenuItems(testMenu);
+
+    const collapsed$ = combineLatest([this.nbSidebarService.onCollapse(), this.nbSidebarService.onExpand()])
+
+    collapsed$.subscribe(data => {
+      console.log('Data',data);
+    })
+
+    console.log('TEST')
+
+    
   }
 
   public getMenuItems$() {
