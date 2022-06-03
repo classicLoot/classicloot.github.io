@@ -27,7 +27,9 @@ nb-card-body {
         margin-bottom: 10px;
     }
 
-    h4, h5, h6 {
+    h4,
+    h5,
+    h6 {
         margin-top: 0;
         margin-bottom: 10px;
     }
@@ -47,6 +49,10 @@ nb-card-body {
 }
 
 @media (max-width: 768px) {
+
+    .flex-container {
+        gap: 1.25rem;
+    }
 
     .flex-item-right,
     .flex-item-left {
