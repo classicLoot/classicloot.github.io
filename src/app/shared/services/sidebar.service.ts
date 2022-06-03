@@ -33,16 +33,6 @@ export class SidebarService {
       },
     ];
     this.setMenuItems(testMenu);
-
-    const collapsed$ = combineLatest([this.nbSidebarService.onCollapse(), this.nbSidebarService.onExpand()])
-
-    collapsed$.subscribe(data => {
-      console.log('Data',data);
-    })
-
-    console.log('TEST')
-
-    
   }
 
   public getMenuItems$() {
