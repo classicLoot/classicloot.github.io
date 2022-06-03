@@ -7,7 +7,7 @@
         </div>
     </nb-layout-header>
 
-    <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar">
+    <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar" [responsive]="true">
         <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu>
     </nb-sidebar>
 
