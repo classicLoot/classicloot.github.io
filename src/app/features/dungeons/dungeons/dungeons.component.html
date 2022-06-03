@@ -5,6 +5,16 @@
         <nb-card-header>{{boss.name}}</nb-card-header>
         <nb-card-body>
             <!-- {{boss.loot | json}} -->
+
+            <!-- Heroic -->
+            <h3>Heroic</h3>
+            <div *ngFor="let item of boss.lootHeroic">
+                <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
+                <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+            </div>
+
+            <!-- Normal -->
+            <h3>Normal</h3>
             <div *ngFor="let item of boss.loot">
                 <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
                 <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
