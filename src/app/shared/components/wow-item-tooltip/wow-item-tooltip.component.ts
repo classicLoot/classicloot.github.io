@@ -50,7 +50,7 @@ export class WowItemTooltipComponent implements OnInit, OnDestroy {
         const offsetY = bounds.height / 2;
 
         const newX = mouse.x + offsetX;
-        const newY = mouse.y - offsetY;
+        const newY = mouse.y - Math.max(offsetY, 75);
 
         tooltipBase.style.left = newX + "px";
         tooltipBase.style.top = newY + "px";
