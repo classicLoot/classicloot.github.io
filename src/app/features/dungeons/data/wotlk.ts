@@ -51,7 +51,7 @@ export const wotlkDungeons: dungeon[] = [
         ]
     },
     {
-        name: 'Ahnkahet',
+        name: "Ahn'kahet",
         url: 'Ahnkahet',
         descr: 'descr',
         levelMin: 69,
@@ -66,7 +66,7 @@ export const wotlkDungeons: dungeon[] = [
         ]
     },
     {
-        name: 'DrakTharonKeep',
+        name: "Drak'Tharon Keep",
         url: 'DrakTharonKeep',
         descr: 'descr',
         levelMin: 69,
@@ -140,7 +140,7 @@ export const wotlkDungeons: dungeon[] = [
         ]
     },
     {
-        name: 'CoTStratholme',
+        name: 'CoT Stratholme',
         url: 'CoTStratholme',
         descr: 'descr',
         levelMin: 69,
@@ -169,8 +169,8 @@ export const wotlkDungeons: dungeon[] = [
         ]
     },
     {
-        name: 'Occulus',
-        url: 'Occulus',
+        name: 'The Occulus',
+        url: 'TheOcculus',
         descr: 'descr',
         levelMin: 69,
         levelMax: 72,
