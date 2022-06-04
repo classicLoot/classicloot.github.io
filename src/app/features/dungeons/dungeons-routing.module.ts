@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DungeonsStartComponent } from './dungeons-start/dungeons-start.component';
 import { DungeonsComponent } from './dungeons/dungeons.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DungeonsComponent
+    component: DungeonsStartComponent
   },
   {
     path: ':id',

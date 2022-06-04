@@ -10,17 +10,16 @@ import { DungeonsService } from '../data/dungeons.service';
   templateUrl: './dungeons.component.html',
   styleUrls: ['./dungeons.component.scss']
 })
-export class DungeonsComponent implements OnInit, OnDestroy, AfterViewInit { 
+export class DungeonsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private sub: any;
 
   currentDungeon$: Observable<dungeon>;
 
   constructor(private sidebarService: SidebarService, private dungeonService: DungeonsService, private route: ActivatedRoute) {
+    this.currentDungeon$ = this.dungeonService.getCurrentDungeon$();
     const menu = this.dungeonService.getDungeonsMenu();
     this.sidebarService.setMenuItems(menu);
-
-    this.currentDungeon$ = this.dungeonService.getCurrentDungeon$();
   }
 
   ngOnInit(): void {
