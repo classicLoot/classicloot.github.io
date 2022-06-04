@@ -93,7 +93,7 @@ export const wotlkDungeons: dungeon[] = [
             { name: 'Moragg', loot: [43387, 43382,], lootHeroic: [47241, 43410, 43408, 43409] },
             { name: 'Lavanthor', loot: [35646, 35645,], lootHeroic: [47241, 37870, 37872, 37871] },
             { name: 'Cyanigosa', loot: [35650, 35651, 35649,], lootHeroic: [47241, 37884, 37886, 43500, 37883, 37876, 37875, 37874, 37873, 41791, 43102] },
-            { name: 'Trash', loot: [35654, 35653, 35652, 35654,], lootHeroic: [37890, 37891, 35653, 37889, 35652] }
+            { name: 'Trash', loot: [35654, 35653, 35652, 35654,], lootHeroic: [37890, 37891, 35653, 37889] }
         ]
     },
     {
