@@ -10,8 +10,7 @@ import { SidebarService } from 'src/app/shared/services/sidebar.service';
 })
 export class LayoutComponent implements OnInit {
 
-  menuItems$: Observable<NbMenuItem[]>;
-  //sidebarCollapsed$: Observable<boolean>;
+  menuItems$: Observable<NbMenuItem[]>; 
 
   constructor(private sidebarService: SidebarService) {
     this.menuItems$ = this.sidebarService.getMenuItems$();    
