@@ -1,0 +1,33 @@
+{
+    "name": "The Eye of Eternity",
+    "url": "TheEyeOfEternity10",
+    "descr": "descr",
+    "size": 10,
+    "type": "A",
+    "bosses": [
+        {
+            "name": "Malygos",
+            "descr": "descr",
+            "loot": [
+                40526,
+                40519,
+                40511,
+                40486,
+                40474,
+                40491,
+                40488,
+                40489,
+                40497,
+                40475,
+                43952,
+                44569,
+                44650,
+                44658,
+                44660,
+                44659,
+                44657
+            ],
+            "lootHeroic": []
+        }
+    ]
+}
