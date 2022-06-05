@@ -1,13 +1,13 @@
-export interface raid {
+export interface wowRaid {
     name: string,
     url: string,
     descr: string,
     size: 10 | 25 | 40,
     type: 'A' | 'B' | 'C',
-    bosses: raidBoss[]
+    bosses: wowRaidBoss[]
 }
 
-export interface raidBoss {
+export interface wowRaidBoss {
     name: string,
     descr?: string,
     loot: number[],
