@@ -83,6 +83,8 @@ export function wowSlotTransform(id: number): string {
         case 18: return 'Bag';
 
         case 21: return 'Main Hand';
+        case 22: return 'Off Hand';
+
         case 25: return 'Thrown';
 
         case 28: return 'Relic';
