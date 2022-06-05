@@ -5,7 +5,7 @@ import { readFromDirAs } from './helper';
 
 
 // --------------
-const perSecond = 1;
+const perSecond = 4;
 export const delay = 1000 / perSecond;
 
 export const XML_CONFIG = { compact: true };
