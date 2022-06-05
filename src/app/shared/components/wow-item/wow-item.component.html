@@ -1,4 +1,4 @@
-<div class="item" *ngIf="item$ | async as item">
+<div class="item" *ngIf="item$ | async as item; else loading">
     <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
     <div class="itemText" (mousemove)="onMouseEvent($event,'move',item)"
         (mouseenter)="onMouseEvent($event,'enter',item)" (mouseleave)="onMouseEvent($event,'leave',item)">
@@ -9,3 +9,16 @@
         </div>
     </div>
 </div>
+
+<ng-template #loading>
+    <div class="item">
+        <div class="itemIcon border"></div>
+        <div class="itemText">
+            <div class="itemName q0">
+                <a href="">
+
+                </a>
+            </div>
+        </div>
+    </div>
+</ng-template>
