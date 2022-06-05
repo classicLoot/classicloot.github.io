@@ -2,11 +2,14 @@
     <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
     <div class="itemText" (mousemove)="onMouseEvent($event,'move',item)"
         (mouseenter)="onMouseEvent($event,'enter',item)" (mouseleave)="onMouseEvent($event,'leave',item)">
-        <div class="itemName q{{item.quality}}">
-            <a href="{{item.link}}">
+        <a href="{{item.link}}">
+            <div class="itemName q{{item.quality}}">
                 {{item.name}}
-            </a>
-        </div>
+            </div>
+            <div class="itemSubText">
+                Ring
+            </div>
+        </a>
     </div>
 </div>
 
