@@ -1,0 +1,25 @@
+{
+    "name": "Naxxramas",
+    "url": "Naxx10",
+    "descr": "descr",
+    "size": 10,
+    "type": "A",
+    "bosses": [
+        {
+            "name": "Patchwerk",
+            "descr": "descr",
+            "loot": [
+                39272,
+                39273,
+                39275,
+                39274,
+                39267,
+                39262,
+                39261,
+                39271,
+                39270
+            ],
+            "lootHeroic": []
+        }
+    ]
+}

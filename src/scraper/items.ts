@@ -3,8 +3,8 @@ import fetch from 'node-fetch';
 import path from 'path';
 import xml from 'xml-js';
 import { wowItem } from '../app/shared/interfaces/item';
-import { delay, XML_CONFIG, ItemIDArray } from './scraper';
-
+import { delay, XML_CONFIG } from './scraper';
+import progress from 'cli-progress';
 
 function checkFSItem(id: number) {
     const itemPath = path.join(__dirname, '../assets/items/', String(id) + '.json');
@@ -17,11 +17,24 @@ function writeFSItem(item: wowItem) {
     fs.writeFileSync(itemPath, JSON.stringify(item));
 }
 
-async function fetchIDS(ids: number[]) {
+export async function fetchIDS(ids: number[]) {
+    console.log(`**FETCH IDS: ${ids.length}**`);
+
+    const existsArr: number[] = [];
+    const errorArr: number[] = [];
+    const updatedArr: number[] = [];
+
+    // PROGRESS
+    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
+    bar1.start(ids.length, 0);
+    //
+
     for (const id of ids) {
 
         if (checkFSItem(id)) {
-            console.log(id, 'exists')
+            //console.log(id, 'exists')
+            existsArr.push(id);
+            bar1.increment();
             continue;
         }
 
@@ -44,14 +57,25 @@ async function fetchIDS(ids: number[]) {
                 link: itemJS["link"]["_text"]
             }
             writeFSItem(item);
+
+            updatedArr.push(id);
+            bar1.increment();
             //console.log(item.id, item.name, item.icon);
         } catch (error) {
             console.log('ERROR: ' + id)
+            errorArr.push(id);
+            bar1.increment();
+
         }
 
 
         await new Promise(f => setTimeout(f, delay));
     }
-}
+    bar1.stop();
 
-fetchIDS(ItemIDArray);
+    console.log('**FINISHED**');
+    console.log('Total ', ids.length);
+    console.log('updated ', updatedArr.length);
+    console.log('exists ', existsArr.length);
+    console.log('error ', errorArr.length);
+}

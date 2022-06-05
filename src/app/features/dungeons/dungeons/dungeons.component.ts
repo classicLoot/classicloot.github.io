@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { dungeon } from 'src/app/shared/interfaces/dungeons';
@@ -12,18 +12,14 @@ import { DungeonsService } from '../data/dungeons.service';
 })
 export class DungeonsComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  @ViewChildren('bossList') bossList!: QueryList<any>;
-  @ViewChildren('item') itemLinks!: QueryList<ElementRef>;
-
   private sub: any;
 
   currentDungeon$: Observable<dungeon>;
 
   constructor(private sidebarService: SidebarService, private dungeonService: DungeonsService, private route: ActivatedRoute) {
+    this.currentDungeon$ = this.dungeonService.getCurrentDungeon$();
     const menu = this.dungeonService.getDungeonsMenu();
     this.sidebarService.setMenuItems(menu);
-
-    this.currentDungeon$ = this.dungeonService.getCurrentDungeon$();
   }
 
   ngOnInit(): void {

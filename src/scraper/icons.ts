@@ -1,8 +1,8 @@
+import progress from 'cli-progress';
 import fs from 'fs';
 import fetch from 'node-fetch';
 import { writeFile } from 'node:fs/promises';
 import path from 'path';
-import { wowItem } from '../app/shared/interfaces/item';
 import { delay } from './scraper';
 
 function checkFSIcon(icon: string, size: string) {
@@ -11,37 +11,24 @@ function checkFSIcon(icon: string, size: string) {
     return bExist;
 }
 
-// function writeFSIcon(icon: string, size: string) {
-//     const itemPath = path.join(__dirname, '../assets/icons/', size, icon + '.jpg');
-//     fs.writeFileSync(itemPath, JSON.stringify(icon));
-// }
+export async function fetchIcons(icons: string[], size: string) {
+    console.log(`**FETCH Icons: ${icons.length}**`);
 
-async function getIconNamesFromFiles() {
-    const itemsPath = path.join(__dirname, '../assets/items/');
-    const files = fs.readdirSync(itemsPath);
+    const existsArr: string[] = [];
+    const errorArr: string[] = [];
+    const updatedArr: string[] = [];
 
-    const items: wowItem[] = [];
+    // PROGRESS
+    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
+    bar1.start(icons.length, 0);
+    //
 
-    for (const file of files) {
-        const itemPath = path.join(__dirname, '../assets/items/', file);
-
-
-        const itemRaw = fs.readFileSync(itemPath).toString();
-        const itemJson: wowItem = JSON.parse(itemRaw);
-        //console.log(itemJson);
-        items.push(itemJson);
-    }
-
-    console.log(items.length)
-
-    return items.map(item => item.icon);
-}
-
-async function fetchIcons(icons: string[], size: string) {
     for (const icon of icons) {
 
         if (checkFSIcon(icon, size)) {
-            console.log(icon, 'exists');
+            //console.log(icon, 'exists');
+            existsArr.push(icon);
+            bar1.increment();
             continue;
         }
 
@@ -51,18 +38,24 @@ async function fetchIcons(icons: string[], size: string) {
 
             const itemPath = path.join(__dirname, '../assets/icons/', size, icon + '.jpg');
             await writeFile(itemPath, buffer);
+
+            updatedArr.push(icon);
+            bar1.increment();
         } catch (error) {
             console.log('error:', icon)
+
+            errorArr.push(icon);
+            bar1.increment();
         }
 
         await new Promise(f => setTimeout(f, delay));
-
     }
+
+    bar1.stop();
+
+    console.log('**FINISHED**');
+    console.log('Total ', icons.length);
+    console.log('updated ', updatedArr.length);
+    console.log('exists ', existsArr.length);
+    console.log('error ', errorArr.length);
 }
-
-fetchIcons(['spell_holy_summonchampion'], 'large')
-
-const iconNames = await getIconNamesFromFiles();
-
-//fetchIcons(iconNames.slice(0, 50), 'large');
-fetchIcons(iconNames, 'large');

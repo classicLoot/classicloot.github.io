@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { NbMenuItem, NbSidebarService } from '@nebular/theme';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { Navigation, NavigationEnd, Router } from '@angular/router';
+import { NbMenuItem } from '@nebular/theme';
+import { BehaviorSubject, filter, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +10,8 @@ export class SidebarService {
 
   menuItemSubject = new BehaviorSubject<NbMenuItem[]>([]);
 
-  constructor(private nbSidebarService: NbSidebarService) {
-    const testMenu: NbMenuItem[] = [
-      {
-        title: 'Docs',
-        link: '/docs',
-      },
-      {
-        title: 'Components',
-        link: '/docs/components/components-overview',
-      },
-      {
-        title: 'Design System',
-        link: '/docs/design-system/eva-design-system-intro',
-      },
-      {
-        title: 'Auth',
-        link: '/docs/auth/introduction',
-      },
-      {
-        title: 'Security',
-        link: '/docs/security/introduction',
-      },
-    ];
-    this.setMenuItems(testMenu);
+  constructor(private router: Router) {
+    this.subscribeRoute();
   }
 
   public getMenuItems$() {
@@ -45,5 +24,19 @@ export class SidebarService {
 
   public setMenuItems(newItems: NbMenuItem[]) {
     this.menuItemSubject.next(newItems);
+  }
+
+  private subscribeRoute() {
+    const events$ = this.router.events;
+    const eventsFiltered$ = events$.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map(e => e as NavigationEnd)
+    );
+
+    eventsFiltered$.subscribe(e => {
+      // console.log(e)      
+      const url = e.urlAfterRedirects;
+      //console.log(url);
+    })
   }
 }
