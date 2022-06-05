@@ -10,7 +10,8 @@ import { RaidsService } from '../data/raids.service';
 export class RaidsStartComponent implements OnInit {
 
   constructor(private sidebarService: SidebarService, private raidsService: RaidsService) {
-    this.sidebarService.setMenuItems([]);
+    const menu = this.raidsService.getRaidsMenu();
+    this.sidebarService.setMenuItems(menu);
   }
 
   ngOnInit(): void {

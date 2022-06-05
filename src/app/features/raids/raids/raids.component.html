@@ -1,1 +1,4 @@
 <p>raids works!</p>
+<div *ngIf="currentRaid$ | async as current">
+    <h1>{{current.name}} ({{current.size}})</h1>
+</div>
