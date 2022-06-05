@@ -27,11 +27,22 @@
     height: 60px;
 }
 
-.itemName {
-    font-size: larger;
+.itemText {
     padding-left: 0.5rem;
 
     a {
         text-decoration: none;
     }
+}
+
+.itemName {
+    font-size: larger;
+}
+
+.itemSubText {
+    //color: #e29023;
+    //color: #ff8400;
+    // color: #ddbc73;
+    color: #cd9f3a;
+    font-size: small;
 }

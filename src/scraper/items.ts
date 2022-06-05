@@ -54,7 +54,12 @@ export async function fetchIDS(ids: number[]) {
                 quality: itemJS["quality"]["_attributes"]["id"],
                 icon: itemJS["icon"]["_text"],
                 htmlTooltip: itemJS["htmlTooltip"]["_cdata"],
-                link: itemJS["link"]["_text"]
+                link: itemJS["link"]["_text"],
+
+                ilvl: itemJS["level"]["_text"],
+                wowClass: itemJS["class"]["_attributes"]["id"],
+                wowSubClass: itemJS["subclass"]["_attributes"]["id"],
+                slot: itemJS["inventorySlot"]["_attributes"]["id"],
             }
             writeFSItem(item);
 

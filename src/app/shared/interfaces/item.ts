@@ -4,5 +4,9 @@ export interface wowItem{
     quality: number,
     icon: string,
     htmlTooltip: string,
-    link: string
+    link: string,
+    ilvl: number,
+    wowClass: number,
+    wowSubClass: number,
+    slot: number
 }
