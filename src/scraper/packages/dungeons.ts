@@ -11,6 +11,9 @@ dungeons.forEach(dng => {
         boss.loot.forEach(loot => {
             IDSet.add(loot);
         })
+        boss.lootHeroic.forEach(loot => {
+            IDSet.add(loot);
+        })
     })
 })
 
