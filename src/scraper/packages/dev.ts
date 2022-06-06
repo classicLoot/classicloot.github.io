@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import xml from 'xml-js';
 import { wowItem } from '../../app/shared/interfaces/item';
+import { readFilesFromDirAs, readIDsAsItems } from '../helper';
 import { XML_CONFIG } from './../scraper';
 
 async function testFetchFunction(testArray: number[]) {
@@ -39,3 +40,10 @@ async function testFetchFunction(testArray: number[]) {
 
 }
 //await testFetchFunction([43345]);
+
+
+const testArray = [43345, 40453];
+const items = readFilesFromDirAs<wowItem>('../assets/items/', testArray.map(id => String(id)), '.json');
+console.log(items);
+
+console.log(readIDsAsItems(testArray));

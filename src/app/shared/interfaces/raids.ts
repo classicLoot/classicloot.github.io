@@ -12,5 +12,11 @@ export interface wowRaidBoss {
     descr?: string,
     loot: number[],
     lootHeroic: number[],
+    sortedLoot?: wowRaidLootSorted[],
+    sortedLootHeroic?: wowRaidLootSorted[]
 }
 
+export interface wowRaidLootSorted {
+    title: string,
+    ids: number[]
+}
