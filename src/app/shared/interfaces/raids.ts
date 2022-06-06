@@ -18,6 +18,8 @@ export interface wowRaidBoss {
 
 export interface wowRaidLootSorted {
     armor: number[],
+    jewelry: number[],
     weapons: number[],
     misc: number[],
+    tokens: number[]
 }
