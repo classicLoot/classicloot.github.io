@@ -5,25 +5,29 @@
         <nb-card-header>
             <h2>{{boss.name}}</h2>
         </nb-card-header>
-        <nb-card-body class="flex-container">
+        <nb-card-body class="flex-container" [ngSwitch]="current.type">
             <!-- {{boss.loot | json}} -->
 
-            <!-- Heroic -->
-            <div class="flex-item-left">
-                <h6>Heroic</h6>
-                <div *ngFor="let item of boss.lootHeroic">
-                    <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
-                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+            <!-- Type A = Naxx etc -->
+            <ng-container *ngSwitchCase="'A'">
+                <!-- Normal -->
+                <div class="flex-item-right">
+                    <h6>Normal</h6>
+                    <div *ngFor="let item of boss.loot">
+                        <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
+                        <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                    </div>
                 </div>
+            </ng-container>
+
+            <!-- Type B -->
+            <div *ngSwitchCase="'B'">
+                BBBB
             </div>
 
-            <!-- Normal -->
-            <div class="flex-item-right">
-                <h6>Normal</h6>
-                <div *ngFor="let item of boss.loot">
-                    <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
-                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
-                </div>
+            <!-- Type C -->
+            <div *ngSwitchCase="'C'">
+                CCCC
             </div>
         </nb-card-body>
     </nb-card>
