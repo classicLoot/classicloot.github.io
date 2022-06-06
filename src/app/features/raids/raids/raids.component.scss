@@ -35,6 +35,13 @@ nb-card-body {
     }
 }
 
+.typeHeader {
+    font-size: medium;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
@@ -48,10 +55,17 @@ nb-card-body {
     flex: 50%;
 }
 
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
 @media (max-width: 768px) {
 
     .flex-container {
-        gap: 1.25rem;
+        gap: 40px;
     }
 
     .flex-item-right,

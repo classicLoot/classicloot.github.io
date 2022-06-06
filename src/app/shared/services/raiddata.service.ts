@@ -10,7 +10,8 @@ export class RaiddataService {
   constructor(private http: HttpClient) { }
 
   public getRaidData$(id: string) {
-    const raid$ = this.http.get<wowRaid>(`../../../assets/data/raids/wotlk/${id}.json`);
+    //const raid$ = this.http.get<wowRaid>(`../../../assets/data/raids/wotlk/${id}.json`);
+    const raid$ = this.http.get<wowRaid>(`../../../assets/data/raidsSORTED/wotlk/${id}.json`);
 
     return raid$;
   }
