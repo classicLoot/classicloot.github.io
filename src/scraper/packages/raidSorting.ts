@@ -10,36 +10,49 @@ function writeRaid(raid: wowRaid) {
     fs.writeFileSync(itemPath, JSON.stringify(raid));
 }
 
+const emptyRaidLootSorted: wowRaidLootSorted = {
+    armor: [],
+    weapons: [],
+    misc: []
+}
+
 raids.forEach(raid => {
     switch (raid.type) {
         case 'A':
             {
                 let newRaid: wowRaid = { ...raid, bosses: [] };
                 raid.bosses.forEach(boss => {
-                    let newBoss: wowRaidBoss = { ...boss, loot: [], sortedLoot: [], sortedLootHeroic: [] };
+                    let newBoss: wowRaidBoss = {
+                        ...boss, loot: [],
+                        sortedLoot: {
+                            armor: [],
+                            weapons: [],
+                            misc: []
+                        },
+                        sortedLootHeroic: {
+                            armor: [],
+                            weapons: [],
+                            misc: []
+                        }
+                    };
 
                     // normal
                     const loot = readIDsAsItems(boss.loot);
 
-                    let weapons: wowRaidLootSorted = { title: 'Weapons', ids: [] };
-                    let armor: wowRaidLootSorted = { title: 'Armor', ids: [] };
-                    let misc: wowRaidLootSorted = { title: 'Misc', ids: [] };
-
                     loot.forEach(item => {
                         // Weapon
                         if (+item.wowClass === 2) {
-                            weapons.ids.push(item.id);
+                            newBoss.sortedLoot?.weapons.push(item.id);
                         }
                         // Armor
                         else if (+item.wowClass === 4) {
-                            armor.ids.push(item.id);
+                            newBoss.sortedLoot?.armor.push(item.id);
                         }
                         // Misc
                         else {
-                            misc.ids.push(item.id);
+                            newBoss.sortedLoot?.misc.push(item.id);
                         }
                     })
-                    newBoss.sortedLoot?.push(weapons, armor, misc);
 
                     // heroic
                     // @TODO

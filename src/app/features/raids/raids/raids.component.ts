@@ -37,7 +37,7 @@ export class RaidsComponent implements OnInit, OnDestroy {
 
   private getCurrentRaid$() {
     const current$ = this.raidService.getCurrentRaid$();
-    const sorted$ = current$.pipe(map(raid => sortRaids(raid)));
+    const sorted$ = current$.pipe();
 
     return sorted$;
   }
