@@ -10,14 +10,59 @@
 
             <!-- Type A = Naxx etc -->
             <ng-container *ngSwitchCase="'A'">
-                <!-- Normal -->
-                <div class="flex-item-right">
-                    <h6>Normal</h6>
-                    <div *ngFor="let item of boss.loot">
-                        <!-- <a #item id="item" href="https://wotlkdb.com/?item={{item}}" rel="item={{item}}">loading...</a> -->
-                        <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+
+                <ng-container *ngIf="boss.sortedLoot">
+                    <div class="flex-item-left flex-column">
+                        <!-- Misc -->
+                        <ng-container *ngIf="boss.sortedLoot.misc.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLoot.misc">
+                                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Armor -->
+                        <ng-container *ngIf="boss.sortedLoot.armor.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLoot.armor">
+                                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
-                </div>
+
+                    <div class="flex-item-right flex-column">
+                        <!-- Token -->
+                        <ng-container *ngIf="boss.sortedLoot.tokens.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLoot.tokens">
+                                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Jewelry -->
+                        <ng-container *ngIf="boss.sortedLoot.jewelry.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLoot.jewelry">
+                                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Weapon -->
+                        <ng-container *ngIf="boss.sortedLoot.weapons.length > 0">
+
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLoot.weapons">
+                                    <app-wow-item [itemID]="item" [itemSize]="'large'"></app-wow-item>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </ng-container>
             </ng-container>
 
             <!-- Type B -->
