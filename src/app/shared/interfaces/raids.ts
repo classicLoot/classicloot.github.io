@@ -1,3 +1,5 @@
+import { wowItem } from "./item"
+
 export interface wowRaid {
     name: string,
     url: string,
@@ -22,4 +24,28 @@ export interface wowRaidLootSorted {
     weapons: number[],
     misc: number[],
     tokens: number[]
+}
+
+export interface wowRaidLootSortedItems {
+    armor: wowItem[],
+    jewelry: wowItem[],
+    weapons: wowItem[],
+    misc: wowItem[],
+    tokens: wowItem[]
+}
+
+export interface wowRaidBossLazy {
+    name: string,
+    descr?: string,
+    sortedLoot?: wowRaidLootSortedItems,
+    sortedLootHeroic?: wowRaidLootSortedItems
+}
+
+export interface wowRaidLazy {
+    name: string,
+    url: string,
+    descr: string,
+    size: 10 | 25 | 40,
+    type: 'A' | 'B' | 'C',
+    bosses: string[]
 }
