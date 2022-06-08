@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
+import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
 import { wowRaid } from 'src/app/shared/interfaces/raids';
 import { RaiddataService } from 'src/app/shared/services/raiddata.service';
 import { wotlkRaidsMenu } from './wotlk';
@@ -54,7 +55,7 @@ export class RaidsService {
   }
 
   public getRaidsMenu() {
-    const menu: NbMenuItem[] = wotlkRaidsMenu;
+    const menu: menuItemExtended[] = wotlkRaidsMenu;
 
     return menu;
   }

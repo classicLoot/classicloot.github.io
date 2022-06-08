@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-tooltip.component';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
+import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
+import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -10,15 +13,20 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 
     WowItemComponent,
     WowItemTooltipComponent,
-    ItemSubtextPipe
+    ItemSubtextPipe,
+    SidebarItemComponent,
+    SidebarMenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     WowItemComponent,
     WowItemTooltipComponent,
-    ItemSubtextPipe
+    ItemSubtextPipe,
+    SidebarItemComponent,
+    SidebarMenuComponent
   ]
 })
 export class SharedModule { }
