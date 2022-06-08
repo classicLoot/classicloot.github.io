@@ -23,6 +23,8 @@
     display: flex;
     align-items: center;
     padding: var(--menu-item-padding);
+
+
 }
 
 #a:hover {
@@ -35,4 +37,12 @@
     }
 
     background-color: #2e3a59;
+}
+
+#a.router-link-active {
+    background-color: var(--menu-item-active-background-color);
+
+    .menu-title {
+        color: var(--menu-item-active-text-color);
+    }
 }

@@ -5,7 +5,7 @@
 
 <ng-container *ngIf="menuItem.link && menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group">
     <a id="a" [routerLink]="menuItem.link" [class.active]="menuItem.selected" [attr.target]="menuItem.target"
-        [attr.title]="menuItem.title">
+        [attr.title]="menuItem.title" [routerLinkActive]="'router-link-active'">
         <span class="menu-title">{{ menuItem.title }}</span>
         <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
     </a>
