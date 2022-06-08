@@ -68,7 +68,7 @@ export class DungeonsService {
       const newMenuItem: menuItemExtended = {
         title: d.name,
         link: `/dungeons/${d.url}`,
-        titleTwo: '(69-72)'
+        titleTwo: `(${d.levelMin}-${d.levelMax})`
       }
       menu.push(newMenuItem);
     })
