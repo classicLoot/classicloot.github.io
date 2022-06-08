@@ -72,8 +72,15 @@ ul {
 .header {
     border: none;
     border-bottom: none !important;
+    margin-left: -20px;
 }
 
 ul.router-link-active {
     color: red;
+
+    .header {
+        .menu-title {
+            color: var(--menu-item-active-text-color);
+        }
+    }
 }

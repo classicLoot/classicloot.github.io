@@ -14,11 +14,11 @@
 
 <!-- Header with Children -->
 <ng-container *ngIf="menuItem.children">
-    <div id="a" class="header">
-        <span class="menu-title">{{ menuItem.title }}</span>
-        <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
-    </div>
     <ul [routerLinkActive]="'router-link-active'">
+        <div id="a" class="header">
+            <span class="menu-title">{{ menuItem.title }}</span>
+            <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
+        </div>
         <ng-container *ngFor="let item of menuItem.children">
             <li>
                 <a id="a" [routerLink]="item.link" [class.active]="item.selected" [attr.target]="item.target"
