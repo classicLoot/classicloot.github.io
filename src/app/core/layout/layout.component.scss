@@ -19,3 +19,23 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+#spacer-header {
+    height: 0px;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+#sidebar-header {
+    display: none;
+}
+
+@media(max-width: 768px) {
+    #spacer-header {
+        height: 30px;
+    }
+
+    #sidebar-header {
+        display: block;
+    }
+}

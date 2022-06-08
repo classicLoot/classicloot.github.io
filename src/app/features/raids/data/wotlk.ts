@@ -1,6 +1,6 @@
-import { NbMenuItem } from "@nebular/theme";
+import { menuItemExtended } from "src/app/shared/interfaces/menuItemExtended";
 
-export const wotlkRaidsMenu: NbMenuItem[] = [
+export const wotlkRaidsMenu: menuItemExtended[] = [
     {
         title: 'Naxxramas',
         expanded: true,

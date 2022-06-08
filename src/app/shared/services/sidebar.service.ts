@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Navigation, NavigationEnd, Router } from '@angular/router';
-import { NbMenuItem } from '@nebular/theme';
+import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject, filter, map } from 'rxjs';
+import { menuItemExtended } from '../interfaces/menuItemExtended';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarService {
 
-  menuItemSubject = new BehaviorSubject<NbMenuItem[]>([]);
+  menuItemSubject = new BehaviorSubject<menuItemExtended[]>([]);
 
   constructor(private router: Router) {
     this.subscribeRoute();
@@ -22,7 +22,7 @@ export class SidebarService {
     return this.menuItemSubject.getValue();
   }
 
-  public setMenuItems(newItems: NbMenuItem[]) {
+  public setMenuItems(newItems: menuItemExtended[]) {
     this.menuItemSubject.next(newItems);
   }
 

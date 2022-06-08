@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { NbMenuItem, NbSidebarService } from '@nebular/theme';
+import { Component, Input, OnInit } from '@angular/core';
+import { NbSidebarService } from '@nebular/theme';
+import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
 
 @Component({
   selector: 'app-header',
@@ -8,30 +9,10 @@ import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 })
 export class HeaderComponent implements OnInit {
 
-  mainMenu: NbMenuItem[] = [
-    {
-      title: 'Dungeons',
-      link: '/dungeons'
-    },
-    {
-      title: 'Raids',
-      link: '/raids'
-    },
-    {
-      title: 'Crafting',
-      link: '/crafting'
-    },
-    {
-      title: 'PVP',
-      link: '/pvp'
-    },
-    {
-      title: 'Reputation',
-      link: '/reputation'
-    }
-  ]
+  @Input() menuItems: menuItemExtended[] = [];
 
-  constructor(private nbSidebarService: NbSidebarService) { }
+  constructor(private nbSidebarService: NbSidebarService) {
+  }
 
   ngOnInit(): void {
   }
@@ -39,5 +20,4 @@ export class HeaderComponent implements OnInit {
   public toggleSidebar() {
     this.nbSidebarService.toggle(false, 'leftSidebar');
   }
-
 }

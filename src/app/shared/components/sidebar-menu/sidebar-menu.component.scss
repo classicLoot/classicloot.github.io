@@ -1,0 +1,27 @@
+:host ::ng-deep {
+    display: block;
+}
+
+.menu-items {
+    padding: 0;
+
+    margin-top: 0px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 0px;
+
+
+    $divider: var(--menu-item-divider-width) var(--menu-item-divider-style) var(--menu-item-divider-color);
+
+    .menu-item {
+        border-bottom: $divider;
+        
+        &:first-child {
+            border-top: none;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        } 
+    }
+}

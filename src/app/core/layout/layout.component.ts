@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NbMenuItem, NbSidebarService } from '@nebular/theme';
 import { Observable } from 'rxjs';
+import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
+import { HeaderService } from 'src/app/shared/services/header.service';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 
 @Component({
@@ -10,13 +11,15 @@ import { SidebarService } from 'src/app/shared/services/sidebar.service';
 })
 export class LayoutComponent implements OnInit {
 
-  menuItems$: Observable<NbMenuItem[]>; 
+  menuItems$: Observable<menuItemExtended[]>;
+  headerItems$: Observable<menuItemExtended[]>;
 
-  constructor(private sidebarService: SidebarService) {
-    this.menuItems$ = this.sidebarService.getMenuItems$();    
+  constructor(private sidebarService: SidebarService, private headerService: HeaderService) {
+    this.menuItems$ = this.sidebarService.getMenuItems$();
+    this.headerItems$ = this.headerService.getHeader$();
   }
 
   ngOnInit(): void {
-  } 
+  }
 
 }
