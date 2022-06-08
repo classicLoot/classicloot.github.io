@@ -1,9 +1,12 @@
-<a *ngIf="menuItem.link && !menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group"
-    [routerLink]="menuItem.link" [class.active]="menuItem.selected">
-    <span class="menu-title">{{ menuItem.title }}</span>
-</a>
-
 <!-- "Default" = single links -->
+<ng-container *ngIf="menuItem.link && !menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group">
+    <a id="a" [routerLink]="menuItem.link" [class.active]="menuItem.selected" [attr.target]="menuItem.target"
+        [attr.title]="menuItem.title" [routerLinkActive]="'router-link-active'">
+        <span class="menu-title">{{ menuItem.title }}</span>
+    </a>
+</ng-container>
+
+<!-- Single Links with TitleTwo-->
 <ng-container *ngIf="menuItem.link && menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group">
     <a id="a" [routerLink]="menuItem.link" [class.active]="menuItem.selected" [attr.target]="menuItem.target"
         [attr.title]="menuItem.title" [routerLinkActive]="'router-link-active'">
@@ -24,7 +27,7 @@
                 <a id="a" [routerLink]="item.link" [class.active]="item.selected" [attr.target]="item.target"
                     [attr.title]="item.title" [routerLinkActive]="'router-link-active'">
                     <span class="menu-title">{{ item.title }}</span>
-                    <span class="menu-titleTwo">{{item.titleTwo}}(24-40)</span>
+                    <span *ngIf="menuItem.titleTwo" class="menu-titleTwo">{{item.titleTwo}}(24-40)</span>
                 </a>
             </li>
         </ng-container>

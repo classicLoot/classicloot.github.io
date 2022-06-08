@@ -1,34 +1,40 @@
 import { Injectable } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject } from 'rxjs';
+import { menuItemExtended } from '../interfaces/menuItemExtended';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeaderService {
 
-  private headerItems$ = new BehaviorSubject<NbMenuItem[]>([]);
+  private headerItems$ = new BehaviorSubject<menuItemExtended[]>([]);
 
-  private mainMenu: NbMenuItem[] = [
+  private mainMenu: menuItemExtended[] = [
     {
       title: 'Dungeons',
-      link: '/dungeons'
+      link: '/dungeons',
+      titleTwo: ''
     },
     {
       title: 'Raids',
-      link: '/raids'
+      link: '/raids',
+      titleTwo: ''
     },
     {
       title: 'Crafting',
-      link: '/crafting'
+      link: '/crafting',
+      titleTwo: ''
     },
     {
       title: 'PVP',
-      link: '/pvp'
+      link: '/pvp',
+      titleTwo: ''
     },
     {
-      title: 'Reputation',
-      link: '/reputation'
+      title: 'Reputations',
+      link: '/reputation',
+      titleTwo: ''
     }
   ];
 

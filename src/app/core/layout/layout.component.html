@@ -12,9 +12,10 @@
         <!-- <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu> -->
 
         <!-- 2nd Header if small display -->
-        <app-header-sidebar *ngIf="headerItems$ | async as headerItems" [menuItems]="headerItems">
-        </app-header-sidebar>
+        <app-sidebar-menu *ngIf="headerItems$ | async as headerItems" [items]="headerItems" id="sidebar-header">
+        </app-sidebar-menu>
 
+        <div id="spacer-header"></div>
         <!-- "main" Sidebar -->
         <app-sidebar-menu [items]="menuItems"></app-sidebar-menu>
     </nb-sidebar>
