@@ -9,7 +9,7 @@
 
     <nb-sidebar *ngIf="menuItems$ | async as menuItems" class="menu-sidebar" [responsive]="true"
         [collapsedBreakpoints]="['xs','is','sm','md']" [compactedBreakpoints]="[]" [tag]="'leftSidebar'">
-        <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu>
+        <!-- <nb-menu [items]="menuItems" tag="leftMenu"></nb-menu> -->
         <app-sidebar-menu [items]="menuItems"></app-sidebar-menu>
     </nb-sidebar>
 

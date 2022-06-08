@@ -58,7 +58,7 @@ ul {
 
         border-bottom: $divider;
 
-        &:first-child {
+        &:nth-child(2) {
             border-top: $divider;
         }
 
