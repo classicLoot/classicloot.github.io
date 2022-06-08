@@ -6,12 +6,14 @@ import { LayoutComponent } from './layout/layout.component';
 import { NbButtonModule, NbIconModule, NbLayoutModule, NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from '../shared/shared.module';
+import { HeaderSidebarComponent } from './header-sidebar/header-sidebar.component';
 
 
 @NgModule({
   declarations: [
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderSidebarComponent
   ],
   imports: [
     CommonModule,
