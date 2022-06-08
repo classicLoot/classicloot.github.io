@@ -103,3 +103,11 @@ export function wowMiscTransform(item: wowItem): string {
         default: return 'Misc - NYI';
     }
 }
+
+export function wowConsumableTransform(item: wowItem): string {
+    // Ulduar Fix, e.g. 'Freya's Sigil'
+    if ([45506, 45786, 45784, 45788, 45787, 45038, 45857].includes(+item.id)) {
+        return 'Quest Item'
+    }
+    return 'Consumable';
+}
