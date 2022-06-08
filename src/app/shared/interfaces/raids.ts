@@ -47,5 +47,10 @@ export interface wowRaidLazy {
     descr: string,
     size: 10 | 25 | 40,
     type: 'A' | 'B' | 'C',
-    bosses: string[]
+    bosses: wowRaidBossNameLazy[]
+}
+
+export interface wowRaidBossNameLazy {
+    name: string,
+    url: string
 }

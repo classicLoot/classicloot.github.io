@@ -2,11 +2,20 @@ import { Injectable } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
 import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
-import { wowRaid } from 'src/app/shared/interfaces/raids';
+import { wowRaid, wowRaidLazy } from 'src/app/shared/interfaces/raids';
 import { RaiddataService } from 'src/app/shared/services/raiddata.service';
 import { wotlkRaidsMenu } from './wotlk';
 
 const emptyRaid: wowRaid = {
+  name: 'EMPTY',
+  url: '',
+  descr: '',
+  size: 10,
+  type: 'A',
+  bosses: []
+}
+
+const emptyRaidLazy: wowRaidLazy = {
   name: 'EMPTY',
   url: '',
   descr: '',
@@ -46,6 +55,23 @@ export class RaidsService {
         }
 
         const raid$ = this.raidDataService.getRaidData$(name);
+
+        return raid$;
+      })
+    )
+
+    return current$;
+  }
+
+  public getCurrentRaidLazy$(): Observable<wowRaidLazy> {
+    const name$ = this.getCurrentRaidName$();
+    const current$ = name$.pipe(
+      switchMap(name => {
+        if (name === '' || name === 'EMPTY') {
+          return of(emptyRaidLazy);
+        }
+
+        const raid$ = this.raidDataService.getRaidDataLazy$(name);
 
         return raid$;
       })

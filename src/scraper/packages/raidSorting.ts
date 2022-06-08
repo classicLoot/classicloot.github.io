@@ -149,7 +149,12 @@ raids.forEach(raid => {
                     url: newRaid.url,
                     size: newRaid.size,
                     type: newRaid.type,
-                    bosses: newRaid.bosses.map(boss => sanitizeName(boss.name))
+                    bosses: newRaid.bosses.map(boss => {
+                        return {
+                            name: boss.name,
+                            url: sanitizeName(boss.name)
+                        }
+                    })
                 }
                 writeLazyRaid(newRaidLazy);
                 break;
