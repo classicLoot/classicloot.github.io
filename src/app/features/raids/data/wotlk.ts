@@ -3,7 +3,6 @@ import { menuItemExtended } from "src/app/shared/interfaces/menuItemExtended";
 export const wotlkRaidsMenu: menuItemExtended[] = [
     {
         title: 'Naxxramas',
-        expanded: true,
         children: [
             {
                 title: '10-man',
@@ -17,7 +16,6 @@ export const wotlkRaidsMenu: menuItemExtended[] = [
     },
     {
         title: 'The Eye of Eternity',
-        expanded: true,
         children: [
             {
                 title: '10-man',
@@ -31,7 +29,6 @@ export const wotlkRaidsMenu: menuItemExtended[] = [
     },
     {
         title: 'Obsidian Sanctum',
-        expanded: true,
         children: [
             {
                 title: '10-man',
@@ -40,6 +37,20 @@ export const wotlkRaidsMenu: menuItemExtended[] = [
             {
                 title: '25-man',
                 link: '/raids/ObsidianSanctum25'
+            },
+        ]
+    }
+    ,
+    {
+        title: 'Ulduar',
+        children: [
+            {
+                title: '10-man',
+                link: '/raids/Ulduar10'
+            },
+            {
+                title: '25-man',
+                link: '/raids/Ulduar25'
             },
         ]
     }

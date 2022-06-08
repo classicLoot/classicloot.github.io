@@ -47,7 +47,7 @@ export function wowArmorTransform(item: wowItem): string {
         // other
         case 6: return wowSlotTransform(item.slot) + ', Shield';
         case 7: return wowSlotTransform(item.slot) + ', Libram';
-
+        case 8: return wowSlotTransform(item.slot) + ', Idol';
         case 9: return wowSlotTransform(item.slot) + ', Totem';
 
 
@@ -102,4 +102,12 @@ export function wowMiscTransform(item: wowItem): string {
 
         default: return 'Misc - NYI';
     }
+}
+
+export function wowConsumableTransform(item: wowItem): string {
+    // Ulduar Fix, e.g. 'Freya's Sigil'
+    if ([45506, 45786, 45784, 45788, 45787, 45038, 45857].includes(+item.id)) {
+        return 'Quest Item'
+    }
+    return 'Consumable';
 }
