@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { wowRaid } from 'src/app/shared/interfaces/raids';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { RaidsService } from '../data/raids.service';
-import { sortRaids } from '../data/raidsorting';
 
 @Component({
   selector: 'app-raids',

@@ -1,5 +1,5 @@
 <div class="item" *ngIf="item$ | async as item; else loading">
-    <img class="itemIcon border" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
     <div class="itemText" (mousemove)="onMouseEvent($event,'move',item)"
         (mouseenter)="onMouseEvent($event,'enter',item)" (mouseleave)="onMouseEvent($event,'leave',item)">
         <a href="{{item.link}}&xml">

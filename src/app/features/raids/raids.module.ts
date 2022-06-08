@@ -6,12 +6,14 @@ import { RaidsComponent } from './raids/raids.component';
 import { RaidsStartComponent } from './raids-start/raids-start.component';
 import { NbCardModule, NbIconModule } from '@nebular/theme';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RaidbossLazyComponent } from './raidboss-lazy/raidboss-lazy.component';
 
 
 @NgModule({
   declarations: [
     RaidsComponent,
-    RaidsStartComponent
+    RaidsStartComponent,
+    RaidbossLazyComponent
   ],
   imports: [
     CommonModule,
