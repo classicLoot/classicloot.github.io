@@ -67,7 +67,8 @@ export class DungeonsService {
     dungeons.forEach(d => {
       const newMenuItem: menuItemExtended = {
         title: d.name,
-        link: `/dungeons/${d.url}`
+        link: `/dungeons/${d.url}`,
+        titleTwo: '(69-72)'
       }
       menu.push(newMenuItem);
     })

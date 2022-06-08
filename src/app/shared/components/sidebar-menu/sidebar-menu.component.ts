@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { menuItemExtended } from '../../interfaces/menuItemExtended';
 
 @Component({
   selector: 'app-sidebar-menu',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-menu.component.scss']
 })
 export class SidebarMenuComponent implements OnInit {
+
+  @Input() items: menuItemExtended[] = [];
 
   constructor() { }
 

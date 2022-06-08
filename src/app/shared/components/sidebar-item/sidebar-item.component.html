@@ -1,1 +1,12 @@
-<p>sidebar-item works!</p>
+<a *ngIf="menuItem.link && !menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group"
+    [routerLink]="menuItem.link" [class.active]="menuItem.selected">
+    <span class="menu-title">{{ menuItem.title }}</span>
+</a>
+
+<ng-container *ngIf="menuItem.link && menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group">
+    <a id="a" [routerLink]="menuItem.link" [class.active]="menuItem.selected" [attr.target]="menuItem.target"
+        [attr.title]="menuItem.title">
+        <span class="menu-title">{{ menuItem.title }}</span>
+        <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
+    </a>
+</ng-container>

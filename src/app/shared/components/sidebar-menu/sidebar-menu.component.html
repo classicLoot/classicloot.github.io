@@ -1,1 +1,6 @@
-<p>sidebar-menu works!</p>
+<ul class="menu-items">
+    <ng-container *ngFor="let item of items">
+        <li app-sidebar-item [menuItem]="item" class="menu-item">
+        </li>
+    </ng-container>
+</ul>

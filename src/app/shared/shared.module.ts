@@ -5,6 +5,7 @@ import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.com
     SidebarMenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     WowItemComponent,
