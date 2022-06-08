@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject, empty, map, Observable } from 'rxjs';
 import { dungeon } from 'src/app/shared/interfaces/dungeons';
+import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
 import { wotlkDungeons } from './wotlk';
 
 const emptyDungeon: dungeon = {
@@ -60,11 +61,11 @@ export class DungeonsService {
   }
 
   public getDungeonsMenu() {
-    const menu: NbMenuItem[] = [];
+    const menu: menuItemExtended[] = [];
 
     const dungeons = wotlkDungeons;
     dungeons.forEach(d => {
-      const newMenuItem: NbMenuItem = {
+      const newMenuItem: menuItemExtended = {
         title: d.name,
         link: `/dungeons/${d.url}`
       }
