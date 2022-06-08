@@ -14,13 +14,13 @@
 
     .menu-item {
         border-bottom: $divider;
-
+        
         &:first-child {
             border-top: none;
         }
 
         &:last-child {
             border-bottom: none;
-        }
+        } 
     }
 }

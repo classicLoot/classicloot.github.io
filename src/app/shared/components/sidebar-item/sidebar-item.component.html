@@ -3,10 +3,30 @@
     <span class="menu-title">{{ menuItem.title }}</span>
 </a>
 
+<!-- "Default" = single links -->
 <ng-container *ngIf="menuItem.link && menuItem.titleTwo && !menuItem.url && !menuItem.children && !menuItem.group">
     <a id="a" [routerLink]="menuItem.link" [class.active]="menuItem.selected" [attr.target]="menuItem.target"
         [attr.title]="menuItem.title" [routerLinkActive]="'router-link-active'">
         <span class="menu-title">{{ menuItem.title }}</span>
         <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
     </a>
+</ng-container>
+
+<!-- Header with Children -->
+<ng-container *ngIf="menuItem.children">
+    <div id="a" class="header">
+        <span class="menu-title">{{ menuItem.title }}</span>
+        <span class="menu-titleTwo">{{menuItem.titleTwo}}</span>
+    </div>
+    <ul [routerLinkActive]="'router-link-active'">
+        <ng-container *ngFor="let item of menuItem.children">
+            <li>
+                <a id="a" [routerLink]="item.link" [class.active]="item.selected" [attr.target]="item.target"
+                    [attr.title]="item.title" [routerLinkActive]="'router-link-active'">
+                    <span class="menu-title">{{ item.title }}</span>
+                    <span class="menu-titleTwo">{{item.titleTwo}}(24-40)</span>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
 </ng-container>
