@@ -21,6 +21,7 @@ export class ItemSubtextPipe implements PipeTransform {
       case 9: return wowRecipeTransform(value);
       case 10: return 'Currency';
       case 12: return 'Quest Item';
+      case 13: return 'Key';
       case 15: return wowMiscTransform(value);
 
       default: return 'NYI - ' + debug;

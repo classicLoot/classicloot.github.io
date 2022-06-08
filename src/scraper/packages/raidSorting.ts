@@ -36,7 +36,7 @@ raids.forEach(raid => {
                         // Armor
                         else if (+item.wowClass === 4) {
                             // Shield, Libram, Totem, Off-Hand => Weapon
-                            if ([6, 7, 9, -5].includes(+item.wowSubClass)) {
+                            if ([6, 7, 8, 9, -5].includes(+item.wowSubClass)) {
                                 //newBoss.sortedLoot?.weapons.push(item.id); 
                                 weapons.push(item);
                             }
