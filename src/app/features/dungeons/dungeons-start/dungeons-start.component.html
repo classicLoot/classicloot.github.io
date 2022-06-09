@@ -20,15 +20,15 @@
                         {{dungeon.ilvlMax}}
                     </ng-container>
                     <ng-container *ngIf="dungeon.ilvlMin < dungeon.ilvlMax">
-                        {{dungeon.ilvlMin}}-{{dungeon.ilvlMax}}
+                        {{dungeon.ilvlMin}} - {{dungeon.ilvlMax}}
                     </ng-container>
                 </td>
                 <td class="center cLvl">
                     <ng-container *ngIf="dungeon.levelMin == dungeon.levelMax">
-                        {{dungeon.levelMax}} ({{dungeon.levelEnter}})
+                        {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
                     </ng-container>
                     <ng-container *ngIf="dungeon.levelMin < dungeon.levelMax">
-                        {{dungeon.levelMin}}-{{dungeon.levelMax}} ({{dungeon.levelEnter}})
+                        {{dungeon.levelMin}} - {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
                     </ng-container>
                 </td>
             </tr>

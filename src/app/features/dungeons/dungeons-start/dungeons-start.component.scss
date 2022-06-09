@@ -24,14 +24,20 @@ nb-card-body {
                 text-decoration: none;
                 //color: var(--menu-text-color)
             }
+
+            span {
+                color: grey;
+            }
+
         }
 
         // P1 -> P3
         tr:nth-child(13) {
             border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
         }
-         // P3 -> P4
-         tr:nth-child(14) {
+
+        // P3 -> P4
+        tr:nth-child(14) {
             border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
         }
 
@@ -47,6 +53,8 @@ nb-card-body {
         .tableRow:hover td {
             background-color: #2e3a59;
         }
+
+
 
 
     }
