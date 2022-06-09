@@ -2,20 +2,28 @@ import { dungeon } from "src/app/shared/interfaces/dungeons";
 //47241
 const defaultDungeon: dungeon = {
     name: 'name',
-    url: 'name',
+    link: 'name',
     descr: 'descr',
     levelMin: 69,
     levelMax: 72,
+    levelEnter: 67,
+    ilvlMin: 200,
+    ilvlMax: 226,
+    phase: 1,
     bosses: []
 }
 
 export const wotlkDungeons: dungeon[] = [
     {
         name: 'Utgarde Keep',
-        url: 'UtgardeKeep',
+        link: 'UtgardeKeep',
         descr: '',
         levelMin: 69,
         levelMax: 72,
+        levelEnter: 67,
+        ilvlMin: 155,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Keleseth', loot: [35572, 35571, 35570,], lootHeroic: [47241, 37180, 37178, 37179, 37177] },
             { name: 'Skarvald', loot: [35575, 35574, 35573,], lootHeroic: [47241, 37183, 37184, 37182, 37181] },
@@ -25,10 +33,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'The Nexus',
-        url: 'TheNexus',
+        link: 'TheNexus',
         descr: '',
         levelMin: 69,
         levelMax: 73,
+        levelEnter: 67,
+        ilvlMin: 159,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Ormorok', loot: [35602, 35603, 35601,], lootHeroic: [47241, 37153, 37155, 37152, 37151] },
             { name: 'Anomalus', loot: [35599, 35600, 35598,], lootHeroic: [47241, 37149, 37144, 37150, 37141] },
@@ -39,10 +51,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Azjol-Nerub',
-        url: 'AzjolNerub',
+        link: 'AzjolNerub',
         descr: 'descr',
         levelMin: 72,
         levelMax: 74,
+        levelEnter: 70,
+        ilvlMin: 163,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Krikthir', loot: [35657, 35656, 35655,], lootHeroic: [47241, 37218, 37219, 37217, 37216] },
             { name: 'Hadronox', loot: [35660, 35659, 35658,], lootHeroic: [47241, 37222, 37230, 37221, 37220] },
@@ -52,10 +68,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: "Ahn'kahet",
-        url: 'Ahnkahet',
+        link: 'Ahnkahet',
         descr: 'descr',
         levelMin: 73,
         levelMax: 75,
+        levelEnter: 71,
+        ilvlMin: 167,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Nadox', loot: [35607, 35608, 35606,], lootHeroic: [47241, 37594, 37593, 37592, 37591] },
             { name: 'Taldaram', loot: [35611, 35610, 35609,], lootHeroic: [47241, 37613, 37614, 37612, 37595] },
@@ -67,10 +87,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: "Drak'Tharon Keep",
-        url: 'DrakTharonKeep',
+        link: 'DrakTharonKeep',
         descr: 'descr',
         levelMin: 74,
         levelMax: 76,
+        levelEnter: 72,
+        ilvlMin: 171,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Trollgore', loot: [35620, 35619, 35618,], lootHeroic: [47241, 37715, 37714, 37717, 37712] },
             { name: 'Novos', loot: [35632, 35631, 35630,], lootHeroic: [47241, 37722, 37718, 37721] },
@@ -81,10 +105,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Violet Hold',
-        url: 'VioletHold',
+        link: 'VioletHold',
         descr: 'descr',
         levelMin: 75,
         levelMax: 77,
+        levelEnter: 73,
+        ilvlMin: 175,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Erekem', loot: [43363, 43375,], lootHeroic: [47241, 43406, 43405, 43407] },
             { name: 'Zuramat', loot: [43353, 43358,], lootHeroic: [47241, 43403, 43402, 43404] },
@@ -98,10 +126,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Gundrak',
-        url: 'Gundrak',
+        link: 'Gundrak',
         descr: 'descr',
         levelMin: 76,
         levelMax: 78,
+        levelEnter: 73,
+        ilvlMin: 179,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Sladran', loot: [35584, 35585, 35583,], lootHeroic: [47241, 37629, 37628, 37627, 37626] },
             { name: 'Colossus', loot: [35591, 35592, 35590,], lootHeroic: [47241, 37637, 37636, 37634, 37635] },
@@ -113,10 +145,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Halls of Stone',
-        url: 'HallsofStone',
+        link: 'HallsofStone',
         descr: 'descr',
         levelMin: 77,
         levelMax: 79,
+        levelEnter: 73,
+        ilvlMin: 183,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Maiden', loot: [38614, 38613, 38611,], lootHeroic: [47241, 38616, 38615, 38617, 38618] },
             { name: 'Krystallus', loot: [35673, 35672, 35670,], lootHeroic: [47241, 37652, 37650, 37651] },
@@ -127,10 +163,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Halls of Lightning',
-        url: 'HallsofLightning',
+        link: 'HallsofLightning',
         descr: 'descr',
         levelMin: 78,
         levelMax: 80,
+        levelEnter: 75,
+        ilvlMin: 187,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Bjarngrim', loot: [36982, 36979, 36980, 36981,], lootHeroic: [47241, 37825, 37818, 37814, 37826] },
             { name: 'Volkhan', loot: [36983, 36985, 36986, 36984,], lootHeroic: [47241, 37840, 37843, 37842, 37841] },
@@ -141,10 +181,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'CoT Stratholme',
-        url: 'CoTStratholme',
+        link: 'CoTStratholme',
         descr: 'descr',
         levelMin: 78,
         levelMax: 80,
+        levelEnter: 75,
+        ilvlMin: 187,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Meathook', loot: [37083, 37082, 37079, 37081,], lootHeroic: [47241, 37680, 37678, 37679, 37675] },
             { name: 'Salramm', loot: [37084, 37095, 37088, 37086,], lootHeroic: [47241, 37684, 37682, 37683, 37681] },
@@ -156,10 +200,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Utgarde Pinnacle',
-        url: 'UtgardePinnacle',
+        link: 'UtgardePinnacle',
         descr: 'descr',
         levelMin: 79,
         levelMax: 80,
+        levelEnter: 75,
+        ilvlMin: 187,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Sorrowgrave', loot: [37043, 37040, 37037, 37038,], lootHeroic: [47241, 37370, 37369, 37368, 37367] },
             { name: 'Palehoof', loot: [37048, 37052, 37051, 37050,], lootHeroic: [47241, 37374, 37373, 37376, 37371] },
@@ -170,10 +218,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'The Occulus',
-        url: 'TheOcculus',
+        link: 'TheOcculus',
         descr: 'descr',
         levelMin: 79,
         levelMax: 80,
+        levelEnter: 75,
+        ilvlMin: 187,
+        ilvlMax: 200,
+        phase: 1,
         bosses: [
             { name: 'Drakos', loot: [36945, 36946, 36943, 36944,], lootHeroic: [47241, 37258, 37256, 37257, 37255] },
             { name: 'Cloudstrider', loot: [36947, 36949, 36948, 36950,], lootHeroic: [47241, 37261, 37262, 37263, 37260] },
@@ -184,10 +236,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Trial of the Champion',
-        url: 'TrialOfTheChampion',
+        link: 'TrialOfTheChampion',
         descr: 'descr',
         levelMin: 80,
         levelMax: 80,
+        levelEnter: 80,
+        ilvlMin: 200,
+        ilvlMax: 219,
+        phase: 3,
         bosses: [
             {
                 name: 'Champions', loot: [47173, 47170, 47174, 47175, 47172, 47171,], lootHeroic: [47241, 47249, 47248, 47250, 47244, 47243, 47493, 44990]
@@ -205,10 +261,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Forge of Souls',
-        url: 'ForgeOfSouls',
+        link: 'ForgeOfSouls',
         descr: 'descr',
         levelMin: 78,
         levelMax: 80,
+        levelEnter: 78,
+        ilvlMin: 219,
+        ilvlMax: 232,
+        phase: 4,
         bosses: [
             {
                 name: 'Bronjahm', loot: [49788, 49785, 49786, 49787, 49784, 49783, 50317, 50316,], lootHeroic: [50193, 50197, 50194, 50196, 50191, 50169, 50317, 50316]
@@ -220,10 +280,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Pit of Saron',
-        url: 'PitOfSaron',
+        link: 'PitOfSaron',
         descr: 'descr',
         levelMin: 78,
         levelMax: 80,
+        levelEnter: 78,
+        ilvlMin: 219,
+        ilvlMax: 232,
+        phase: 4,
         bosses: [
             {
                 name: 'Garfrost', loot: [49805, 49806, 49804, 49803, 49802, 49801,], lootHeroic: [50233, 50234, 50230, 50229, 50228, 50227]
@@ -238,10 +302,14 @@ export const wotlkDungeons: dungeon[] = [
     },
     {
         name: 'Halls of Reflection',
-        url: 'HallsOfReflection',
+        link: 'HallsOfReflection',
         descr: 'descr',
         levelMin: 78,
         levelMax: 80,
+        levelEnter: 78,
+        ilvlMin: 219,
+        ilvlMax: 232,
+        phase: 4,
         bosses: [
             {
                 name: 'Falric', loot: [49832, 49828, 49830, 49831, 49829, 49827,], lootHeroic: [50292, 50293, 50295, 50294, 50290, 50291]
