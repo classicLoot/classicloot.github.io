@@ -1,10 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { wowRaid } from 'src/app/shared/interfaces/raids';
+import { Observable } from 'rxjs';
+import { wowRaid, wowRaidLazy } from 'src/app/shared/interfaces/raids';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { RaidsService } from '../data/raids.service';
-import { sortRaids } from '../data/raidsorting';
 
 @Component({
   selector: 'app-raids',
@@ -16,9 +15,11 @@ export class RaidsComponent implements OnInit, OnDestroy {
   private sub: any;
 
   currentRaid$: Observable<wowRaid>;
+  currentRaidLazy$: Observable<wowRaidLazy>;
 
   constructor(private sidebarService: SidebarService, private raidService: RaidsService, private route: ActivatedRoute) {
     this.currentRaid$ = this.getCurrentRaid$();
+    this.currentRaidLazy$ = this.raidService.getCurrentRaidLazy$();
 
     const menu = this.raidService.getRaidsMenu();
     this.sidebarService.setMenuItems(menu);

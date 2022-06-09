@@ -1,0 +1,14 @@
+<div class="item">
+    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
+        (mouseleave)="onMouseEvent($event,'leave')">
+        <a href="{{item.link}}&xml">
+            <div class="itemName q{{item.quality}}">
+                {{item.name}}
+            </div>
+            <div class="itemSubText">
+                {{item | itemSubtext}}
+            </div>
+        </a>
+    </div>
+</div>

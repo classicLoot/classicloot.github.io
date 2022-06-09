@@ -6,6 +6,7 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
 import { RouterModule } from '@angular/router';
+import { WowItemLazyComponent } from './components/wow-item-lazy/wow-item-lazy.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     WowItemTooltipComponent,
     ItemSubtextPipe,
     SidebarItemComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    WowItemLazyComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { RouterModule } from '@angular/router';
     WowItemTooltipComponent,
     ItemSubtextPipe,
     SidebarItemComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    WowItemLazyComponent
   ]
 })
 export class SharedModule { }
