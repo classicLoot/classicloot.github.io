@@ -1,9 +1,13 @@
 export interface dungeon {
     name: string,
-    url: string,
+    link: string,
     descr: string,
     levelMin: number,
     levelMax: number,
+    levelEnter: number,
+    ilvlMin: number,
+    ilvlMax: number,
+    phase: number,
     bosses: dungeonBoss[]
 }
 

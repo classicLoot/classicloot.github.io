@@ -1,1 +1,37 @@
-<p>dungeons-start works!</p>
+<h1>Dungeons</h1>
+
+<nb-card>
+    <nb-card-header>
+        <h2>Overview</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <table>
+            <tr class="tableRow">
+                <th class="left">Raid</th>
+                <th class="center">Phase</th>
+                <th class="center">Loot Item Level</th>
+                <th class="center">Level</th>
+            </tr>
+            <tr *ngFor="let dungeon of wowDungeonsList" class="tableRow">
+                <td class="left cRaid"> <a [routerLink]="dungeon.link">{{dungeon.name}}</a></td>
+                <td class="center cPhase">P{{dungeon.phase}}</td>
+                <td class="center ciLvl">
+                    <ng-container *ngIf="dungeon.ilvlMin == dungeon.ilvlMax">
+                        {{dungeon.ilvlMax}}
+                    </ng-container>
+                    <ng-container *ngIf="dungeon.ilvlMin < dungeon.ilvlMax">
+                        {{dungeon.ilvlMin}}-{{dungeon.ilvlMax}}
+                    </ng-container>
+                </td>
+                <td class="center cLvl">
+                    <ng-container *ngIf="dungeon.levelMin == dungeon.levelMax">
+                        {{dungeon.levelMax}} ({{dungeon.levelEnter}})
+                    </ng-container>
+                    <ng-container *ngIf="dungeon.levelMin < dungeon.levelMax">
+                        {{dungeon.levelMin}}-{{dungeon.levelMax}} ({{dungeon.levelEnter}})
+                    </ng-container>
+                </td>
+            </tr>
+        </table>
+    </nb-card-body>
+</nb-card>

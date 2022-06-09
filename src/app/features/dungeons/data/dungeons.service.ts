@@ -7,10 +7,14 @@ import { wotlkDungeons } from './wotlk';
 
 const emptyDungeon: dungeon = {
   name: 'EMPTY',
-  url: '',
+  link: '',
   descr: '',
   levelMin: 0,
   levelMax: 0,
+  levelEnter: 0,
+  ilvlMin: 0,
+  ilvlMax: 0,
+  phase: 1,
   bosses: []
 };
 
@@ -44,7 +48,7 @@ export class DungeonsService {
 
         const data = this.getDungeonsData();
 
-        const found = data.find(d => d.url === name);
+        const found = data.find(d => d.link === name);
         if (!found) {
           return emptyDungeon;
         }
@@ -67,7 +71,7 @@ export class DungeonsService {
     dungeons.forEach(d => {
       const newMenuItem: menuItemExtended = {
         title: d.name,
-        link: `/dungeons/${d.url}`,
+        link: `/dungeons/${d.link}`,
         titleTwo: `(${d.levelMin}-${d.levelMax})`
       }
       menu.push(newMenuItem);
