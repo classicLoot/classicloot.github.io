@@ -1,0 +1,52 @@
+.item {
+    position: relative;
+    //border: 2px solid black;
+
+    display: flex;
+    align-items: center;
+
+    max-width: 400px;
+    overflow: visible;
+    //width: fit-content;      
+}
+
+.itemTooltipBox {
+    display: flex;
+    gap: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.itemIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.itemIconBig {
+    width: 60px;
+    height: 60px;
+}
+
+.itemText {
+    padding-left: 0.5rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.item:hover{
+    background-color: #2e3a59;
+}
+
+.itemName {
+    font-size: larger;
+}
+
+.itemSubText {
+    //color: #e29023;
+    //color: #ff8400;
+    // color: #ddbc73;
+    color: #cd9f3a;
+    font-size: small;
+}

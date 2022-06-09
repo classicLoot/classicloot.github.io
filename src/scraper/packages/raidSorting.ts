@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { wowItem } from '../../app/shared/interfaces/item';
-import { wowRaid, wowRaidBoss, wowRaidLootSorted } from "../../app/shared/interfaces/raids";
+import { wowRaid, wowRaidBoss, wowRaidBossLazy, wowRaidLazy, wowRaidLootSorted } from "../../app/shared/interfaces/raids";
 import { readFromDirAs, readIDsAsItems } from "../helper";
 
 const raids: wowRaid[] = readFromDirAs<wowRaid>('../assets/data/raids/wotlk');
@@ -9,6 +9,26 @@ const raids: wowRaid[] = readFromDirAs<wowRaid>('../assets/data/raids/wotlk');
 function writeRaid(raid: wowRaid) {
     const itemPath = path.join(__dirname, '../../assets/data/raidsSORTED/wotlk/', String(raid.url) + '.json');
     fs.writeFileSync(itemPath, JSON.stringify(raid));
+}
+
+function writeLazyRaid(raid: wowRaidLazy) {
+    const itemPath = path.join(__dirname, '../../assets/data/raidsLAZY/wotlk/', String(raid.url) + '.json');
+    fs.writeFileSync(itemPath, JSON.stringify(raid));
+}
+
+function writeLazyRaidboss(boss: wowRaidBossLazy, raidUrl: string) {
+    const raidPath = path.join(__dirname, '../../assets/data/raidsLAZY/wotlk/', raidUrl)
+
+    if (!fs.existsSync(raidPath)) {
+        fs.mkdirSync(raidPath);
+    }
+    const itemPath = path.join(__dirname, '../../assets/data/raidsLAZY/wotlk/', raidUrl, sanitizeName(boss.name) + '.json');
+    fs.writeFileSync(itemPath, JSON.stringify(boss));
+}
+
+function sanitizeName(str: string) {
+    let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "");
+    return newStr;
 }
 
 raids.forEach(raid => {
@@ -93,6 +113,26 @@ raids.forEach(raid => {
                         }
                     };
 
+                    let newBossLazy: wowRaidBossLazy = {
+                        name: boss.name,
+                        descr: boss.descr,
+                        sortedLoot: {
+                            armor: armor,
+                            weapons: weapons,
+                            misc: misc,
+                            jewelry: jewelry,
+                            tokens: tokens
+                        },
+                        sortedLootHeroic: {
+                            armor: [],
+                            weapons: [],
+                            misc: [],
+                            jewelry: [],
+                            tokens: []
+                        }
+                    }
+                    writeLazyRaidboss(newBossLazy, raid.url);
+
 
                     //console.log(newBoss);
                     newRaid.bosses.push(newBoss);
@@ -102,6 +142,21 @@ raids.forEach(raid => {
 
                 //console.log(newRaid);
                 writeRaid(newRaid);
+
+                const newRaidLazy: wowRaidLazy = {
+                    name: newRaid.name,
+                    descr: newRaid.descr,
+                    url: newRaid.url,
+                    size: newRaid.size,
+                    type: newRaid.type,
+                    bosses: newRaid.bosses.map(boss => {
+                        return {
+                            name: boss.name,
+                            url: sanitizeName(boss.name)
+                        }
+                    })
+                }
+                writeLazyRaid(newRaidLazy);
                 break;
             }
 
