@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { dungeon } from 'src/app/shared/interfaces/dungeons';
+import { Observable } from 'rxjs';
+import { wowInstance } from 'src/app/shared/interfaces/instance';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { DungeonsService } from '../data/dungeons.service';
-import { wotlkDungeons } from '../data/wotlk';
 
 @Component({
   selector: 'app-dungeons-start',
@@ -11,11 +11,13 @@ import { wotlkDungeons } from '../data/wotlk';
 })
 export class DungeonsStartComponent implements OnInit {
 
-  public wowDungeonsList: dungeon[] = wotlkDungeons;
+  public dungeonsMeta$: Observable<wowInstance[]>;
 
   constructor(private sidebarService: SidebarService, private dungeonService: DungeonsService) {
     const menu = this.dungeonService.getDungeonsMenu();
     this.sidebarService.setMenuItems(menu);
+
+    this.dungeonsMeta$ = this.dungeonService.getDungeonsMeta$('wotlk');
   }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, map } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable, of, switchMap } from 'rxjs';
+import { DungeonsService } from 'src/app/features/dungeons/data/dungeons.service';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
 
 @Injectable({
@@ -10,7 +11,9 @@ export class SidebarService {
 
   menuItemSubject = new BehaviorSubject<menuItemExtended[]>([]);
 
-  constructor(private router: Router) {
+  menuItemSubjectObs = new BehaviorSubject<Observable<menuItemExtended[]>>(of([]));
+
+  constructor(private router: Router, private dungeonsService: DungeonsService) {
     this.subscribeRoute();
   }
 
@@ -36,7 +39,45 @@ export class SidebarService {
     eventsFiltered$.subscribe(e => {
       // console.log(e)      
       const url = e.urlAfterRedirects;
-      //console.log(url);
+
+      console.log(url);
     })
+  }
+
+  public getMenuItemsNEW$() {
+    const events$ = this.router.events;
+    const eventsFiltered$ = events$.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map(e => e as NavigationEnd)
+    );
+
+    const menu$ = eventsFiltered$.pipe(
+      switchMap(e => {
+        const url = e.urlAfterRedirects;
+        console.log('test')
+        if (url.startsWith('/home')) {
+          return of([]);
+        }
+        if (url.startsWith('/dungeons')) {
+          return this.dungeonsService.getDungeonsMenu$('wotlk');
+        }
+        if (url.startsWith('/raids')) {
+          return of([]);
+        }
+        if (url.startsWith('/crafting')) {
+          return of([]);
+        }
+        if (url.startsWith('/pvp')) {
+          return of([]);
+        }
+        if (url.startsWith('/reputation')) {
+          return of([]);
+        }
+
+        return of([]);
+      })
+    )
+
+    return menu$;
   }
 }

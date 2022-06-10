@@ -11,12 +11,13 @@ import { SidebarService } from 'src/app/shared/services/sidebar.service';
 })
 export class LayoutComponent implements OnInit {
 
-  menuItems$: Observable<menuItemExtended[]>;
   headerItems$: Observable<menuItemExtended[]>;
+  menuItems$: Observable<menuItemExtended[]>;
 
   constructor(private sidebarService: SidebarService, private headerService: HeaderService) {
-    this.menuItems$ = this.sidebarService.getMenuItems$();
     this.headerItems$ = this.headerService.getHeader$();
+
+    this.menuItems$ = this.sidebarService.getMenuItems$();
   }
 
   ngOnInit(): void {

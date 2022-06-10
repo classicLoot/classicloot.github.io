@@ -3,6 +3,8 @@ import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject, empty, map, Observable } from 'rxjs';
 import { dungeon } from 'src/app/shared/interfaces/dungeons';
 import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
+import { InstancedataService } from 'src/app/shared/services/instancedata.service';
+import { wowAddon } from 'src/app/shared/types/addon';
 import { wotlkDungeons } from './wotlk';
 
 const emptyDungeon: dungeon = {
@@ -25,7 +27,7 @@ export class DungeonsService {
 
   currentDungeonName = new BehaviorSubject<string>('EMPTY');
 
-  constructor() { }
+  constructor(private instanceDataService: InstancedataService) { }
 
   public getCurrentDungeonName$() {
     return this.currentDungeonName.asObservable();
@@ -78,5 +80,31 @@ export class DungeonsService {
     })
 
     return menu;
+  }
+
+  public getDungeonsMeta$(addon: wowAddon) {
+    return this.instanceDataService.getDungeonsMeta$(addon);
+  }
+
+  public getDungeonsMenu$(addon: wowAddon) {
+    const meta$ = this.getDungeonsMeta$(addon);
+    const menu$ = meta$.pipe(
+      map(meta => {
+        const menu: menuItemExtended[] = [];
+
+        meta.forEach(d => {
+          const newMenuItem: menuItemExtended = {
+            title: d.name,
+            link: `/dungeons/${d.link}`,
+            titleTwo: `(${d.levelMin}-${d.levelMax})`
+          }
+          menu.push(newMenuItem);
+        })
+
+        return menu;
+      })
+    )
+
+    return menu$;
   }
 }
