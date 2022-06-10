@@ -1,8 +1,13 @@
 {
     "name": "Naxxramas",
+    "link": "Naxx10",
     "descr": "descr",
     "size": 10,
+    "phase": 1,
     "type": "A",
+    "ilvlMin": 200,
+    "ilvlMax": 213,
+    "tier": "Tier 7",
     "bosses": [
         {
             "name": "Patchwerk",
@@ -279,7 +284,5 @@
             ],
             "lootHeroic": []
         }
-    ],
-    "link": "Naxx10",
-    "phase": 1
+    ]
 }

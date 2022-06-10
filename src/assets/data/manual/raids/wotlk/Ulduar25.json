@@ -1,8 +1,13 @@
 {
     "name": "Ulduar",
+    "link": "Ulduar25",
     "descr": "descr",
     "size": 25,
     "type": "A",
+    "phase": 1,
+    "ilvlMin": 226,
+    "ilvlMax": 239,
+    "tier": "Tier 8",
     "bosses": [
         {
             "name": "Leviathan",
@@ -390,7 +395,5 @@
             ],
             "lootHeroic": []
         }
-    ],
-    "link": "Ulduar25",
-    "phase": 1
+    ]
 }

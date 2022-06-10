@@ -28,3 +28,4 @@ function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
 }
 
 processInstances('dungeons', 'wotlk');
+processInstances('raids', 'wotlk');

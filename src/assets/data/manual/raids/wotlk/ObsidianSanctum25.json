@@ -1,8 +1,13 @@
 {
     "name": "Obsidian Sanctum",
+    "link": "ObsidianSanctum25",
     "descr": "descr",
     "size": 25,
     "type": "A",
+    "phase": 1,
+    "ilvlMin": 213,
+    "ilvlMax": 226,
+    "tier": "Tier 7",
     "bosses": [
         {
             "name": "Sartharion",
@@ -36,7 +41,5 @@
             ],
             "lootHeroic": []
         }
-    ],
-    "link": "ObsidianSanctum25",
-    "phase": 1
+    ]
 }

@@ -1,8 +1,13 @@
 {
     "name": "The Eye of Eternity",
+    "link": "TheEyeOfEternity25",
     "descr": "descr",
     "size": 25,
     "type": "A",
+    "phase": 1,
+    "ilvlMin": 226,
+    "ilvlMax": 226,
+    "tier": "Tier 7",
     "bosses": [
         {
             "name": "Malygos",
@@ -38,7 +43,5 @@
             ],
             "lootHeroic": []
         }
-    ],
-    "link": "TheEyeOfEternity25",
-    "phase": 1
+    ]
 }
