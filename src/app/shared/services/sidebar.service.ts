@@ -38,7 +38,7 @@ export class SidebarService {
       // console.log(e)      
       const url = e.urlAfterRedirects;
 
-      console.log(url);
+      //console.log(url);
     })
   }
 
