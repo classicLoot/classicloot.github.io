@@ -4,7 +4,7 @@
     <nb-card-header>
         <h2>Overview</h2>
     </nb-card-header>
-    <nb-card-body *ngIf="dungeonsMeta$ | async as meta">
+    <nb-card-body *ngIf="dungeonsMeta as meta">
         <table>
             <tr class="tableRow">
                 <th class="left">Raid</th>

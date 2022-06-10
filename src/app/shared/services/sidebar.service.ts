@@ -11,8 +11,6 @@ export class SidebarService {
 
   menuItemSubject = new BehaviorSubject<menuItemExtended[]>([]);
 
-  menuItemSubjectObs = new BehaviorSubject<Observable<menuItemExtended[]>>(of([]));
-
   constructor(private router: Router, private dungeonsService: DungeonsService) {
     this.subscribeRoute();
   }
@@ -44,40 +42,4 @@ export class SidebarService {
     })
   }
 
-  public getMenuItemsNEW$() {
-    const events$ = this.router.events;
-    const eventsFiltered$ = events$.pipe(
-      filter(e => e instanceof NavigationEnd),
-      map(e => e as NavigationEnd)
-    );
-
-    const menu$ = eventsFiltered$.pipe(
-      switchMap(e => {
-        const url = e.urlAfterRedirects;
-        console.log('test')
-        if (url.startsWith('/home')) {
-          return of([]);
-        }
-        if (url.startsWith('/dungeons')) {
-          return this.dungeonsService.getDungeonsMenu$('wotlk');
-        }
-        if (url.startsWith('/raids')) {
-          return of([]);
-        }
-        if (url.startsWith('/crafting')) {
-          return of([]);
-        }
-        if (url.startsWith('/pvp')) {
-          return of([]);
-        }
-        if (url.startsWith('/reputation')) {
-          return of([]);
-        }
-
-        return of([]);
-      })
-    )
-
-    return menu$;
-  }
 }
