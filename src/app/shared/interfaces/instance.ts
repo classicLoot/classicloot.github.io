@@ -12,7 +12,7 @@ export interface wowInstance {
     phase: number,
     size: 5 | 10 | 25 | 40,
     type?: 'A' | 'B' | 'C',
-    bosses: wowInstanceBoss[]
+    bosses?: wowInstanceBoss[]
 }
 
 export interface wowInstanceBoss {
