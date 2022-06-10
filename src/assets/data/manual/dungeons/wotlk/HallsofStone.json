@@ -1,0 +1,92 @@
+{
+    "name": "Halls of Stone",
+    "link": "HallsofStone",
+    "descr": "descr",
+    "levelMin": 77,
+    "levelMax": 79,
+    "levelEnter": 73,
+    "ilvlMin": 183,
+    "ilvlMax": 200,
+    "phase": 1,
+    "bosses": [
+        {
+            "name": "Maiden",
+            "loot": [
+                38614,
+                38613,
+                38611
+            ],
+            "lootHeroic": [
+                47241,
+                38616,
+                38615,
+                38617,
+                38618
+            ]
+        },
+        {
+            "name": "Krystallus",
+            "loot": [
+                35673,
+                35672,
+                35670
+            ],
+            "lootHeroic": [
+                47241,
+                37652,
+                37650,
+                37651
+            ]
+        },
+        {
+            "name": "Tribunal",
+            "loot": [
+                35677,
+                35676,
+                35675
+            ],
+            "lootHeroic": [
+                47241,
+                37655,
+                37656,
+                37654,
+                37653
+            ]
+        },
+        {
+            "name": "Sjonnir",
+            "loot": [
+                35679,
+                35678,
+                35680
+            ],
+            "lootHeroic": [
+                47241,
+                37669,
+                37668,
+                37670,
+                37667,
+                37666,
+                37658,
+                37657,
+                37660,
+                41792,
+                43102
+            ]
+        },
+        {
+            "name": "Trash",
+            "loot": [
+                35682,
+                35683,
+                35681
+            ],
+            "lootHeroic": [
+                37673,
+                37672,
+                37671
+            ]
+        }
+    ],
+    "size": 5
+}

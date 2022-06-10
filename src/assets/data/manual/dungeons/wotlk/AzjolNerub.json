@@ -1,0 +1,75 @@
+{
+    "name": "Azjol-Nerub",
+    "link": "AzjolNerub",
+    "descr": "descr",
+    "levelMin": 72,
+    "levelMax": 74,
+    "levelEnter": 70,
+    "ilvlMin": 163,
+    "ilvlMax": 200,
+    "phase": 1,
+    "bosses": [
+        {
+            "name": "Krikthir",
+            "loot": [
+                35657,
+                35656,
+                35655
+            ],
+            "lootHeroic": [
+                47241,
+                37218,
+                37219,
+                37217,
+                37216
+            ]
+        },
+        {
+            "name": "Hadronox",
+            "loot": [
+                35660,
+                35659,
+                35658
+            ],
+            "lootHeroic": [
+                47241,
+                37222,
+                37230,
+                37221,
+                37220
+            ]
+        },
+        {
+            "name": "Anubarak",
+            "loot": [
+                35663,
+                35662,
+                35661,
+                43411
+            ],
+            "lootHeroic": [
+                47241,
+                37242,
+                37240,
+                37241,
+                37238,
+                37236,
+                37237,
+                37232,
+                37235,
+                41796,
+                43102
+            ]
+        },
+        {
+            "name": "Trash",
+            "loot": [],
+            "lootHeroic": [
+                37243,
+                37625,
+                37624
+            ]
+        }
+    ],
+    "size": 5
+}
