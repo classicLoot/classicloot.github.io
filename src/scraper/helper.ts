@@ -43,3 +43,8 @@ export function readFilesFromDirAs<T>(pathStr: string, files: string[], ending: 
 export function readIDsAsItems(ids: number[]) {
     return readFilesFromDirAs<wowItem>('../assets/items/', ids.map(id => String(id)), '.json');
 }
+
+export function writeToFileAs<T>(file: T, filepath: string) {
+    const writePath = path.join(__dirname, filepath);
+    fs.writeFileSync(writePath, JSON.stringify(file));
+}

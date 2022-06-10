@@ -5,7 +5,8 @@ import xml from 'xml-js';
 import { wotlkDungeons } from '../../app/features/dungeons/data/wotlk';
 import { wowInstance } from '../../app/shared/interfaces/instance';
 import { wowItem } from '../../app/shared/interfaces/item';
-import { readFilesFromDirAs, readIDsAsItems } from '../helper';
+import { wowRaid } from '../../app/shared/interfaces/raids';
+import { readFilesFromDirAs, readFromDirAs, readIDsAsItems } from '../helper';
 import { XML_CONFIG } from './../scraper';
 
 
@@ -70,4 +71,23 @@ function copyOverDungeons() {
 }
 
 //copyOverDungeons();
+
+function copyOverRaids() {
+    const raids: wowRaid[] = readFromDirAs<wowRaid>('../assets/data/raids/wotlk');
+
+    raids.forEach(r => {
+        let newR: any = {
+            ...r,
+            link: r.url,
+            phase: 1
+        }
+        delete newR['url'];
+
+        const newI: wowInstance = { ...newR };
+
+        const itemPath = path.join(__dirname, '../../assets/data/manual/raids/wotlk/', String(newI.link) + '.json');
+        fs.writeFileSync(itemPath, JSON.stringify(newI));
+    })
+}
+//copyOverRaids();
 
