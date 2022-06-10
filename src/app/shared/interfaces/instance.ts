@@ -9,6 +9,7 @@ export interface wowInstance {
     levelEnter?: number,
     ilvlMin?: number,
     ilvlMax?: number,
+    tier?: string,
     phase: number,
     size: 5 | 10 | 25 | 40,
     type?: 'A' | 'B' | 'C',
