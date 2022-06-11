@@ -20,9 +20,6 @@ export class RaidsComponent implements OnInit, OnDestroy {
   constructor(private sidebarService: SidebarService, private raidService: RaidsService, private route: ActivatedRoute) {
     this.currentRaid$ = this.getCurrentRaid$();
     this.currentRaidLazy$ = this.raidService.getCurrentRaidLazy$();
-
-    const menu = this.raidService.getRaidsMenu();
-    this.sidebarService.setMenuItems(menu);
   }
 
   ngOnInit(): void {
