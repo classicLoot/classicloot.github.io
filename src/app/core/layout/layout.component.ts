@@ -17,7 +17,7 @@ export class LayoutComponent implements OnInit {
   constructor(private sidebarService: SidebarService, private headerService: HeaderService) {
     this.headerItems$ = this.headerService.getHeader$();
 
-    this.menuItems$ = this.sidebarService.getMenuItems$();
+    this.menuItems$ = this.sidebarService.menuItems$;
   }
 
   ngOnInit(): void {
