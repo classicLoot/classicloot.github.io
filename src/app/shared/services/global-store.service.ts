@@ -60,7 +60,7 @@ export class GlobalStoreService {
       const url = e.urlAfterRedirects;
 
       let route = this.router.routerState.root;
-      console.log(route)
+      //console.log(route)
       while (route.firstChild) {
         route = route.firstChild
       }
