@@ -1,7 +1,8 @@
-import { wowInstance, wowInstanceBossLink } from "../../app/shared/interfaces/instance";
-import { readFromDirAs, sanitizeName, writeToFileAs } from "../helper";
+import { wowInstance, wowInstanceBoss, wowInstanceBossLink, wowInstanceLootSorted, wowInstanceLootSortedItems } from "../../app/shared/interfaces/instance";
+import { readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFileAsAndCreateDir } from "../helper";
 import fs from 'fs';
 import path from 'path';
+import { wowItem } from "../../app/shared/interfaces/item";
 
 
 processInstances('dungeons', 'wotlk');
@@ -38,6 +39,8 @@ function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
 
     writeMeta(instances, type, addon);
     writeMetaIndividual(instances, type, addon);
+    // TODO GET ITEMS
+    sortAndWriteInstance(instances, type, addon);
 }
 
 function writeMetaIndividual(instances: wowInstance[], type: 'dungeons' | 'raids', addon: 'wotlk') {
@@ -63,4 +66,109 @@ function writeMetaIndividual(instances: wowInstance[], type: 'dungeons' | 'raids
             writeToFileAs<wowInstance>(meta, filePath);
         }
     })
+}
+
+function sortAndWriteInstance(instances: wowInstance[], type: 'dungeons' | 'raids', addon: 'wotlk') {
+    for (const i of instances) {
+        if (!i.bosses) {
+            continue;
+        }
+
+        i.bosses.forEach(boss => {
+            const newBoss = sortBoss(boss);
+            const filePath = `../assets/data/gen/${type}/${addon}/${i.link}/`;
+            writeToFileAsAndCreateDir<wowInstanceBoss>(newBoss, filePath, `${sanitizeName(boss.name)}.json`);
+        })
+    }
+}
+
+function sortBoss(boss: wowInstanceBoss): wowInstanceBoss {
+    const lootNormal = readIDsAsItems(boss.loot ? boss.loot : []);
+    const sortedNormal = sortBossLoot(lootNormal);
+
+    const lootHeroic = readIDsAsItems(boss.lootHeroic ? boss.lootHeroic : []);
+    const sortedHeroic = sortBossLoot(lootHeroic);
+
+    const newBoss: wowInstanceBoss = {
+        ...boss,
+        sortedLoot: sortSortedLootIntoArray(sortedNormal),
+        sortedLootItems: sortedNormal,
+        sortedLootHeroic: sortSortedLootIntoArray(sortedHeroic),
+        sortedLootHeroicItems: sortedHeroic
+    }
+
+    return newBoss;
+}
+
+function sortBossLoot(items: wowItem[]): wowInstanceLootSortedItems {
+
+    let armor: wowItem[] = [];
+    let jewelry: wowItem[] = [];
+    let weapons: wowItem[] = [];
+    let tokens: wowItem[] = [];
+    let misc: wowItem[] = [];
+
+    items.forEach(item => {
+        // Weapon
+        if (+item.wowClass === 2) {
+            weapons.push(item);
+        }
+        // Armor
+        else if (+item.wowClass === 4) {
+            // Shield, Libram, Totem, Off-Hand => Weapon
+            if ([6, 7, 8, 9, -5].includes(+item.wowSubClass)) {
+                weapons.push(item);
+            }
+            // Ring, Neck or Trinket => Jewelry
+            else if ([-2, -3, -4].includes(+item.wowSubClass)) {
+                jewelry.push(item);
+            }
+            else {
+
+                armor.push(item);
+            }
+        }
+        // Misc
+        else {
+            // Tier Token
+            if (+item.wowSubClass === -2) {
+                tokens.push(item);
+
+            }
+            else {
+                misc.push(item);
+            }
+        }
+    })
+
+    armor.sort((a, b) => +a.wowSubClass - +b.wowSubClass);
+    jewelry.sort((a, b) => a.wowSubClass - +b.wowSubClass);
+    weapons.sort((a, b) => +a.wowSubClass - +b.wowSubClass);
+    tokens.sort((a, b) => +a.id - +b.id);
+
+    const sorted: wowInstanceLootSortedItems = {
+        armor: armor,
+        jewelry: jewelry,
+        weapons: weapons,
+        tokens: tokens,
+        misc: misc
+    }
+
+    return sorted;
+}
+
+function sortSortedLootIntoArray(sorted: wowInstanceLootSortedItems): wowInstanceLootSorted {
+    const misc = sorted.misc.map(i => i.id);
+    const armor = sorted.armor.map(i => i.id);
+    const tokens = sorted.tokens.map(i => i.id);
+    const jewelry = sorted.jewelry.map(i => i.id);
+    const weapons = sorted.weapons.map(i => i.id);
+
+    return {
+        armor: armor,
+        jewelry: jewelry,
+        weapons: weapons,
+        misc: misc,
+        tokens: tokens
+    };
 }
