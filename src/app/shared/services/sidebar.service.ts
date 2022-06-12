@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
+import { wowAddon } from '../types/addon';
+import { GlobalStoreService } from './global-store.service';
+import { InstancedataService } from './instancedata.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +12,10 @@ export class SidebarService {
 
   menuItemSubject = new BehaviorSubject<menuItemExtended[]>([]);
 
-  constructor(private router: Router) {
-    this.subscribeRoute();
+  menuItems$: Observable<menuItemExtended[]>;
+
+  constructor(private globalStore: GlobalStoreService, private instanceDataService: InstancedataService) {
+    this.menuItems$ = this.setupMenuItems$();
   }
 
   public getMenuItems$() {
@@ -26,17 +30,73 @@ export class SidebarService {
     this.menuItemSubject.next(newItems);
   }
 
-  private subscribeRoute() {
-    const events$ = this.router.events;
-    const eventsFiltered$ = events$.pipe(
-      filter(e => e instanceof NavigationEnd),
-      map(e => e as NavigationEnd)
-    );
+  private setupMenuItems$(): Observable<menuItemExtended[]> {
+    const route$ = this.globalStore.route$;
+    const addon$ = this.globalStore.addon$;
+    const menu$ = combineLatest([route$, addon$]).pipe(
+      switchMap(([route, addon]) => {
+        if (route.startsWith('/dungeon')) {
+          return this.dungeonsMenu$(addon);
+        }
+        if (route.startsWith('/raids')) {
+          return this.raidsMenu$(addon);
+        }
 
-    eventsFiltered$.subscribe(e => {
-      // console.log(e)      
-      const url = e.urlAfterRedirects;
-      //console.log(url);
-    })
+        return of([]);
+      })
+    )
+
+
+    return menu$;
   }
+
+  private dungeonsMenu$(addon: wowAddon): Observable<menuItemExtended[]> {
+    const meta$ = this.instanceDataService.getDungeonsMeta$(addon);
+    const dungMenu$ = meta$.pipe(
+      map(meta => {
+        const arr: menuItemExtended[] = [];
+        meta.forEach(d => {
+          const newItem: menuItemExtended = {
+            title: d.name,
+            link: `/dungeons/${d.link}`,
+            titleTwo: `(${d.levelMin}-${d.levelMax})`
+          }
+          arr.push(newItem);
+        })
+        return arr;
+      })
+    )
+
+    return dungMenu$;
+  }
+
+  private raidsMenu$(addon: wowAddon): Observable<menuItemExtended[]> {
+    const meta$ = this.instanceDataService.getRaidsMeta$(addon);
+    const raidMenu$ = meta$.pipe(
+      map(meta => {
+        const arr: menuItemExtended[] = [];
+
+        ['Naxx', 'TheEyeOfEternity', 'ObsidianSanctum', 'Ulduar'].forEach(start => {
+          const filter = meta.filter(r => r.link.startsWith(start))
+
+          if (filter.length === 2) {
+            arr.push({
+              title: filter[0].name,
+              children: filter.map(r => {
+                return {
+                  title: r.size === 10 ? '10-man' : '25-man',
+                  link: `/raids/${r.link}`
+                }
+              })
+            })
+          }
+        })
+
+        return arr;
+      })
+    )
+
+    return raidMenu$;
+  }
+
 }

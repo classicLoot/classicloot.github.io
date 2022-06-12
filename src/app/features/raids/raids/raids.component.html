@@ -1,6 +1,0 @@
-<div *ngIf="currentRaidLazy$ | async as current">
-    <h1>{{current.name}}</h1>
-    <app-raidboss-lazy *ngFor="let boss of current.bosses" [bossNameLazy]="boss" [raid]="current.url"
-        [raidType]="current.type">
-    </app-raidboss-lazy>
-</div>
