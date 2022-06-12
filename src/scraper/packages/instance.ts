@@ -3,6 +3,7 @@ import { readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFile
 import fs from 'fs';
 import path from 'path';
 import { wowItem } from "../../app/shared/interfaces/item";
+import { fetchIDS } from "../items";
 
 
 processInstances('dungeons', 'wotlk');
@@ -39,7 +40,7 @@ function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
 
     writeMeta(instances, type, addon);
     writeMetaIndividual(instances, type, addon);
-    // TODO GET ITEMS
+    fetchItems(instances);
     sortAndWriteInstance(instances, type, addon);
 }
 
@@ -171,4 +172,22 @@ function sortSortedLootIntoArray(sorted: wowInstanceLootSortedItems): wowInstanc
         misc: misc,
         tokens: tokens
     };
+}
+
+function fetchItems(instances: wowInstance[]) {
+    let toFetch = new Set<number>();
+
+    instances.forEach(i => {
+        i.bosses?.forEach(boss => {
+            boss.loot?.forEach(loot => {
+                toFetch.add(loot);
+            })
+            boss.lootHeroic?.forEach(loot => {
+                toFetch.add(loot)
+            })
+        })
+    })
+
+    const ItemIDArray: number[] = Array.from(toFetch.values());
+    fetchIDS(ItemIDArray);
 }
