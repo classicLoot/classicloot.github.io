@@ -31,4 +31,8 @@ export class TooltipService {
   public getWowItem$() {
     return this.wowItemSubject.asObservable().pipe();
   }
+
+  public hideTooltip() {
+    this.mouseEventSubject.next({ x: 0, y: 0, bShown: false });
+  }
 }
