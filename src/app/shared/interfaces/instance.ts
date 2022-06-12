@@ -13,7 +13,8 @@ export interface wowInstance {
     phase: number,
     size: 5 | 10 | 25 | 40,
     type?: 'A' | 'B' | 'C',
-    bosses?: wowInstanceBoss[]
+    bosses?: wowInstanceBoss[],
+    bossLinks?: wowInstanceBossLink[]
 }
 
 export interface wowInstanceBoss {
@@ -25,6 +26,11 @@ export interface wowInstanceBoss {
     sortedLootHeroic?: wowInstanceLootSorted,
     sortedLootItems?: wowInstanceLootSortedItems,
     sortedLootHeroicItems?: wowInstanceLootSortedItems
+}
+
+export interface wowInstanceBossLink {
+    name: string,
+    link: string
 }
 
 export interface wowInstanceLootSorted {
