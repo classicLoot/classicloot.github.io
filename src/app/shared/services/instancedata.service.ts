@@ -38,23 +38,13 @@ export class InstancedataService {
   public getCurrentInstance$(): Observable<wowInstance> {
     if (!this.currentInstance$) {
       const state$ = this.globalStore.state$;
-      const startType$ = this.globalStore.startType$;
 
-      const combined$ = combineLatest([state$, startType$]).pipe(
-        filter(data => data[1] != 'RIP'),
-        filter(data => data[0].id != ''),
-        switchMap(data => {
-          if (data[1] === 'dungeons') {
-            return this.http.get<wowInstance>(`../../../assets/data/gen/${data[0].addon}/dungeons/${data[0].id}.json`);
-          }
-          else {
-            return this.http.get<wowInstance>(`../../../assets/data/gen/${data[0].addon}/raids/${data[0].id}.json`);
-          }
-        }),
-        shareReplay(1)
-      );
-
-      this.currentInstance$ = combined$;
+      const current$ = state$.pipe(
+        switchMap(state => {
+          return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${state.route}.json`);
+        })
+      )
+      this.currentInstance$ = current$;
     }
 
     return this.currentInstance$;
