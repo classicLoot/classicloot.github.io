@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: 'dungeons',
-        loadChildren: () => import('src/app/features/dungeons/dungeons.module').then(m => m.DungeonsModule)
+        loadChildren: () => import('src/app/features/instance/instance.module').then(m => m.InstanceModule)
       },
       {
         path: 'home',
@@ -31,7 +31,7 @@ const routes: Routes = [
       },
       {
         path: 'raids',
-        loadChildren: () => import('src/app/features/raids/raids.module').then(m => m.RaidsModule)
+        loadChildren: () => import('src/app/features/instance/instance.module').then(m => m.InstanceModule)
       },
       {
         path: 'reputation',
