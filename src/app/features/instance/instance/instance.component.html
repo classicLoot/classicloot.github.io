@@ -1,7 +1,7 @@
 <p>instance works!</p>
 <div *ngIf="currentInstance$ | async as current">
     <h1>{{current.name}}</h1>
-    <app-instanceboss-card *ngFor="let boss of current.bossLinks" [bossLink]="boss">
+    <app-instanceboss-card *ngFor="let boss of current.bossLinks" [bossLink]="boss" [instanceType]="current.type!">
 
     </app-instanceboss-card>
 </div>

@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
-import { wowInstanceBoss, wowInstanceBossLink } from 'src/app/shared/interfaces/instance';
+import { wowBossType, wowInstanceBoss, wowInstanceBossLink } from 'src/app/shared/interfaces/instance';
 import { InstancedataService } from 'src/app/shared/services/instancedata.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { InstancedataService } from 'src/app/shared/services/instancedata.servic
 export class InstancebossCardComponent implements OnInit, OnChanges {
 
   @Input() bossLink!: wowInstanceBossLink;
+  @Input() instanceType!: wowBossType;
 
   boss$!: Observable<wowInstanceBoss>;
 

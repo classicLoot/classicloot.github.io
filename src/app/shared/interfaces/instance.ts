@@ -12,10 +12,12 @@ export interface wowInstance {
     tier?: string,
     phase: number,
     size: 5 | 10 | 25 | 40,
-    type?: 'A' | 'B' | 'C',
+    type?: wowBossType,
     bosses?: wowInstanceBoss[],
     bossLinks?: wowInstanceBossLink[]
 }
+
+export type wowBossType = 'A' | 'B' | 'C' | 'DD';
 
 export interface wowInstanceBoss {
     name: string,
