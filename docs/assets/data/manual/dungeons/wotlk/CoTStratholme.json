@@ -1,0 +1,106 @@
+{
+    "name": "CoT Stratholme",
+    "link": "CoTStratholme",
+    "descr": "descr",
+    "levelMin": 78,
+    "levelMax": 80,
+    "levelEnter": 75,
+    "ilvlMin": 187,
+    "ilvlMax": 200,
+    "phase": 1,
+    "type": "DD",
+    "bosses": [
+        {
+            "name": "Meathook",
+            "loot": [
+                37083,
+                37082,
+                37079,
+                37081
+            ],
+            "lootHeroic": [
+                47241,
+                37680,
+                37678,
+                37679,
+                37675
+            ]
+        },
+        {
+            "name": "Salramm",
+            "loot": [
+                37084,
+                37095,
+                37088,
+                37086
+            ],
+            "lootHeroic": [
+                47241,
+                37684,
+                37682,
+                37683,
+                37681
+            ]
+        },
+        {
+            "name": "Epoch",
+            "loot": [
+                37106,
+                37105,
+                37096,
+                37099
+            ],
+            "lootHeroic": [
+                47241,
+                37687,
+                37686,
+                37688,
+                37685
+            ]
+        },
+        {
+            "name": "InfiniteCorruptorHEROIC",
+            "loot": [],
+            "lootHeroic": [
+                47241,
+                43951
+            ]
+        },
+        {
+            "name": "MalGanis",
+            "loot": [
+                37113,
+                37114,
+                37110,
+                37109,
+                37111,
+                37108,
+                37112,
+                37107
+            ],
+            "lootHeroic": [
+                47241,
+                37696,
+                37695,
+                37694,
+                37693,
+                43085,
+                37691,
+                37690,
+                37689,
+                37692,
+                43102
+            ]
+        },
+        {
+            "name": "Trash",
+            "loot": [
+                37117,
+                37116,
+                37115
+            ],
+            "lootHeroic": []
+        }
+    ],
+    "size": 5
+}

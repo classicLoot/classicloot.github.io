@@ -70,6 +70,12 @@ SOFTWARE.
 
 
 
+@ngneat/elf
+MIT
+
+@ngneat/elf-devtools
+MIT
+
 eva-icons
 MIT
 
