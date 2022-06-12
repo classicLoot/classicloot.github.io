@@ -48,6 +48,7 @@ export function writeToFileAs<T>(file: T, filepath: string) {
     const writePath = path.join(__dirname, filepath);
     fs.writeFileSync(writePath, JSON.stringify(file));
 }
+
 export function writeToFileAsAndCreateDir<T>(file: T, dir: string, filename: string) {
     const writePath = path.join(__dirname, dir);
     if (!fs.existsSync(writePath)) {
