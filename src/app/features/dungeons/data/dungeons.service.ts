@@ -3,6 +3,9 @@ import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject, empty, map, Observable } from 'rxjs';
 import { dungeon } from 'src/app/shared/interfaces/dungeons';
 import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
+import { InstancedataService } from 'src/app/shared/services/instancedata.service';
+import { wowAddon } from 'src/app/shared/types/addon';
+import { wotlkdungeonsMeta } from 'src/assets/data/gen/dungeons/wotlk/meta';
 import { wotlkDungeons } from './wotlk';
 
 const emptyDungeon: dungeon = {
@@ -25,7 +28,7 @@ export class DungeonsService {
 
   currentDungeonName = new BehaviorSubject<string>('EMPTY');
 
-  constructor() { }
+  constructor(private instanceDataService: InstancedataService) { }
 
   public getCurrentDungeonName$() {
     return this.currentDungeonName.asObservable();
@@ -67,7 +70,7 @@ export class DungeonsService {
   public getDungeonsMenu() {
     const menu: menuItemExtended[] = [];
 
-    const dungeons = wotlkDungeons;
+    const dungeons = wotlkdungeonsMeta;
     dungeons.forEach(d => {
       const newMenuItem: menuItemExtended = {
         title: d.name,
@@ -79,4 +82,6 @@ export class DungeonsService {
 
     return menu;
   }
+
+
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalStoreService } from './shared/services/global-store.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'classicloot';
+
+  constructor(private globalStore: GlobalStoreService) {
+
+  }
 }

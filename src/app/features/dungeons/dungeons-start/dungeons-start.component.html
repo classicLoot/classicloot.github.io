@@ -4,7 +4,7 @@
     <nb-card-header>
         <h2>Overview</h2>
     </nb-card-header>
-    <nb-card-body>
+    <nb-card-body *ngIf="dungeonsMeta as meta">
         <table>
             <tr class="tableRow">
                 <th class="left">Raid</th>
@@ -12,14 +12,14 @@
                 <th class="center">Loot Item Level</th>
                 <th class="center">Level</th>
             </tr>
-            <tr *ngFor="let dungeon of wowDungeonsList" class="tableRow">
+            <tr *ngFor="let dungeon of meta" class="tableRow">
                 <td class="left cRaid"> <a [routerLink]="dungeon.link">{{dungeon.name}}</a></td>
                 <td class="center cPhase">P{{dungeon.phase}}</td>
                 <td class="center ciLvl">
                     <ng-container *ngIf="dungeon.ilvlMin == dungeon.ilvlMax">
                         {{dungeon.ilvlMax}}
                     </ng-container>
-                    <ng-container *ngIf="dungeon.ilvlMin < dungeon.ilvlMax">
+                    <ng-container *ngIf="dungeon.ilvlMin! < dungeon.ilvlMax!">
                         {{dungeon.ilvlMin}} - {{dungeon.ilvlMax}}
                     </ng-container>
                 </td>
@@ -27,7 +27,7 @@
                     <ng-container *ngIf="dungeon.levelMin == dungeon.levelMax">
                         {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
                     </ng-container>
-                    <ng-container *ngIf="dungeon.levelMin < dungeon.levelMax">
+                    <ng-container *ngIf="dungeon.levelMin! < dungeon.levelMax!">
                         {{dungeon.levelMin}} - {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
                     </ng-container>
                 </td>

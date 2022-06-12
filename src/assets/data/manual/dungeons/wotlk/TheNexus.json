@@ -1,0 +1,94 @@
+{
+    "name": "The Nexus",
+    "link": "TheNexus",
+    "descr": "",
+    "levelMin": 69,
+    "levelMax": 73,
+    "levelEnter": 67,
+    "ilvlMin": 159,
+    "ilvlMax": 200,
+    "phase": 1,
+    "type": "DD",
+    "bosses": [
+        {
+            "name": "Ormorok",
+            "loot": [
+                35602,
+                35603,
+                35601
+            ],
+            "lootHeroic": [
+                47241,
+                37153,
+                37155,
+                37152,
+                37151
+            ]
+        },
+        {
+            "name": "Anomalus",
+            "loot": [
+                35599,
+                35600,
+                35598
+            ],
+            "lootHeroic": [
+                47241,
+                37149,
+                37144,
+                37150,
+                37141
+            ]
+        },
+        {
+            "name": "Telestra",
+            "loot": [
+                35605,
+                35604,
+                35617,
+                21524
+            ],
+            "lootHeroic": [
+                47241,
+                37139,
+                37138,
+                37135,
+                37134,
+                21524
+            ]
+        },
+        {
+            "name": "KolurgStoutbeardHEROIC",
+            "loot": [],
+            "lootHeroic": [
+                47241,
+                37728,
+                37731,
+                37730,
+                37729
+            ]
+        },
+        {
+            "name": "Keristrasza",
+            "loot": [
+                35596,
+                35595,
+                35597
+            ],
+            "lootHeroic": [
+                47241,
+                37172,
+                37170,
+                37171,
+                37169,
+                37165,
+                37167,
+                37166,
+                37162,
+                41794,
+                43102
+            ]
+        }
+    ],
+    "size": 5
+}

@@ -4,7 +4,7 @@ import { BehaviorSubject, map, Observable, of, switchMap } from 'rxjs';
 import { menuItemExtended } from 'src/app/shared/interfaces/menuItemExtended';
 import { wowRaid, wowRaidLazy } from 'src/app/shared/interfaces/raids';
 import { RaiddataService } from 'src/app/shared/services/raiddata.service';
-import { wotlkRaidsMenu } from './wotlk';
+
 
 const emptyRaid: wowRaid = {
   name: 'EMPTY',
@@ -78,11 +78,5 @@ export class RaidsService {
     )
 
     return current$;
-  }
-
-  public getRaidsMenu() {
-    const menu: menuItemExtended[] = wotlkRaidsMenu;
-
-    return menu;
   }
 }
