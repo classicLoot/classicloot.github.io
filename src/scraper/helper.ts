@@ -48,3 +48,8 @@ export function writeToFileAs<T>(file: T, filepath: string) {
     const writePath = path.join(__dirname, filepath);
     fs.writeFileSync(writePath, JSON.stringify(file));
 }
+
+export function sanitizeName(str: string) {
+    let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "");
+    return newStr;
+}
