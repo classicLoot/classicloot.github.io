@@ -1,1 +1,79 @@
 <p>instance-start works!</p>
+
+<ng-container *ngIf="startType$ | async as type">
+
+    <!-- Dungeons -->
+    <ng-container *ngIf="type === 'Dungeons'">
+        <h1>Dungeons</h1>
+
+        <nb-card>
+            <nb-card-header>
+                <h2>Overview</h2>
+            </nb-card-header>
+            <nb-card-body *ngIf="dungeonsMeta$ | async as meta">
+                <table>
+                    <tr class="tableRow">
+                        <th class="left">Raid</th>
+                        <th class="center">Phase</th>
+                        <th class="center">Loot Item Level</th>
+                        <th class="center">Level</th>
+                    </tr>
+                    <tr *ngFor="let dungeon of meta" class="tableRow">
+                        <td class="left cRaid"> <a [routerLink]="dungeon.link">{{dungeon.name}}</a></td>
+                        <td class="center cPhase">P{{dungeon.phase}}</td>
+                        <td class="center ciLvl">
+                            <ng-container *ngIf="dungeon.ilvlMin == dungeon.ilvlMax">
+                                {{dungeon.ilvlMax}}
+                            </ng-container>
+                            <ng-container *ngIf="dungeon.ilvlMin! < dungeon.ilvlMax!">
+                                {{dungeon.ilvlMin}} - {{dungeon.ilvlMax}}
+                            </ng-container>
+                        </td>
+                        <td class="center cLvl">
+                            <ng-container *ngIf="dungeon.levelMin == dungeon.levelMax">
+                                {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
+                            </ng-container>
+                            <ng-container *ngIf="dungeon.levelMin! < dungeon.levelMax!">
+                                {{dungeon.levelMin}} - {{dungeon.levelMax}} <span>({{dungeon.levelEnter}})</span>
+                            </ng-container>
+                        </td>
+                    </tr>
+                </table>
+            </nb-card-body>
+        </nb-card>
+    </ng-container>
+
+    <!-- Raids -->
+    <ng-container *ngIf="type === 'Raids'">
+        <h1>Raids</h1>
+
+        <nb-card>
+            <nb-card-header>
+                <h2>Overview</h2>
+            </nb-card-header>
+            <nb-card-body *ngIf="raidsMeta$ | async as meta">
+                <table>
+                    <tr class="tableRow">
+                        <th class="left">Raid</th>
+                        <th class="center">Phase</th>
+                        <th class="center">Loot Item Level</th>
+                        <th class="center">Raid Tier</th>
+                    </tr>
+                    <tr *ngFor="let raid of meta" class="tableRow">
+                        <td class="left cRaid"> <a [routerLink]="raid.link">{{raid.name}} ({{raid.size}})</a></td>
+                        <td class="center cPhase">P{{raid.phase}}</td>
+                        <td class="center cLvl">
+                            <ng-container *ngIf="raid.ilvlMin == raid.ilvlMax">
+                                {{raid.ilvlMax}}
+                            </ng-container>
+                            <ng-container *ngIf="raid.ilvlMin! < raid.ilvlMax!">
+                                {{raid.ilvlMin}}-{{raid.ilvlMax}}
+                            </ng-container>
+                        </td>
+                        <td class="center cTier"> {{raid.tier}}</td>
+                    </tr>
+                </table>
+            </nb-card-body>
+        </nb-card>
+    </ng-container>
+</ng-container>
