@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { combineLatest, filter, map, Observable, share, shareReplay, switchMap } from 'rxjs';
+import { map, Observable, shareReplay, switchMap } from 'rxjs';
 import { wowInstance, wowInstanceBoss } from '../interfaces/instance';
 import { wowAddon } from '../types/addon';
 import { GlobalStoreService } from './global-store.service';
