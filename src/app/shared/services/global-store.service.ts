@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
-import { filter, map } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { wowAddon } from '../types/addon';
 
 
 interface GlobalProps {
   route: string,
+  id: string,
   addon: wowAddon
 }
 
@@ -18,16 +19,34 @@ export class GlobalStoreService {
 
   private store = createStore(
     { name: 'global' },
-    withProps<GlobalProps>({ route: '', addon: 'wotlk' })
+    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk' })
   )
+  public state$ = this.store.pipe(select((state) => state));
 
   public route$ = this.store.pipe(select((state) => state.route));
+  public id$ = this.store.pipe(select((state) => state.id));
+  public routeAndId$ = this.store.pipe(select((state) => [state.route, state.id]));
+
   public addon$ = this.store.pipe(select((state) => state.addon));
 
+  public startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
     devTools();
     this.subscribeRoute();
+
+    this.startType$ = this.route$.pipe(
+      map(r => {
+        if (r.startsWith('/dungeon')) {
+          return 'dungeons';
+        }
+        if (r.startsWith('/raids')) {
+          return 'raids';
+        }
+
+        return 'RIP';
+      })
+    )
   }
 
   private subscribeRoute() {
@@ -39,9 +58,18 @@ export class GlobalStoreService {
 
     eventsFiltered$.subscribe(e => {
       const url = e.urlAfterRedirects;
+
+      let route = this.router.routerState.root;
+      console.log(route)
+      while (route.firstChild) {
+        route = route.firstChild
+      }
+      const id = route.snapshot.paramMap.get('id') || '';
+
       this.store.update((state) => ({
         ...state,
-        route: url
+        route: url,
+        id: id
       }))
     })
   }

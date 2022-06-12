@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { wowInstance } from 'src/app/shared/interfaces/instance';
+import { InstancedataService } from 'src/app/shared/services/instancedata.service';
 
 @Component({
   selector: 'app-instance',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstanceComponent implements OnInit {
 
-  constructor() { }
+  currentInstance$: Observable<wowInstance>;
+
+  constructor(private instanceDataService: InstancedataService) {
+    this.currentInstance$ = this.getInstance$();
+  }
 
   ngOnInit(): void {
   }
 
+  private getInstance$(): Observable<wowInstance> {
+    return this.instanceDataService.getCurrentInstance$();
+  }
 }

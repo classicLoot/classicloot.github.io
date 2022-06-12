@@ -17,10 +17,10 @@ function writeMeta(instances: wowInstance[], type: 'dungeons' | 'raids', addon: 
         return newInstance;
     })
 
-    const filePath = `../assets/data/gen/${type}/${addon}/meta.json`;
+    const filePath = `../assets/data/gen/${addon}/${type}/meta.json`;
     writeToFileAs<wowInstance[]>(removeUseless, filePath);
 
-    const filePathTS = `../../assets/data/gen/${type}/${addon}/meta.ts`;
+    const filePathTS = `../../assets/data/gen/${addon}/${type}/meta.ts`;
     const fileTS = `
     import { wowInstance } from "../../../../../app/shared/interfaces/instance";
 
@@ -63,7 +63,7 @@ function writeMetaIndividual(instances: wowInstance[], type: 'dungeons' | 'raids
                 bossLinks: bossLinks
             }
 
-            const filePath = `../assets/data/gen/${type}/${addon}/${i.link}.json`;
+            const filePath = `../assets/data/gen/${addon}/${type}/${i.link}.json`;
             writeToFileAs<wowInstance>(meta, filePath);
         }
     })
@@ -77,7 +77,7 @@ function sortAndWriteInstance(instances: wowInstance[], type: 'dungeons' | 'raid
 
         i.bosses.forEach(boss => {
             const newBoss = sortBoss(boss);
-            const filePath = `../assets/data/gen/${type}/${addon}/${i.link}/`;
+            const filePath = `../assets/data/gen/${addon}/${type}/${i.link}/`;
             writeToFileAsAndCreateDir<wowInstanceBoss>(newBoss, filePath, `${sanitizeName(boss.name)}.json`);
         })
     }

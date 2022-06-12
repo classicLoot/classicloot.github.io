@@ -14,25 +14,14 @@ export class InstanceStartComponent implements OnInit {
   dungeonsMeta$: Observable<wowInstance[]>;
   raidsMeta$: Observable<wowInstance[]>;
 
-  startType$: Observable<'Dungeons' | 'Raids' | 'RIP'>;
+  startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
 
 
   constructor(private globalStoreService: GlobalStoreService, private instanceDataService: InstancedataService) {
     this.dungeonsMeta$ = this.instanceDataService.getDungeonsMeta$('wotlk');
     this.raidsMeta$ = this.instanceDataService.getRaidsMeta$('wotlk');
 
-    this.startType$ = this.globalStoreService.route$.pipe(
-      map(r => {
-        if (r.startsWith('/dungeon')) {
-          return 'Dungeons';
-        }
-        if (r.startsWith('/raids')) {
-          return 'Raids';
-        }
-
-        return 'RIP';
-      })
-    )
+    this.startType$ = this.globalStoreService.startType$
   }
 
   ngOnInit(): void {

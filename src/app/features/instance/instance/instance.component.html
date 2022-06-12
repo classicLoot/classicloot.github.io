@@ -1,1 +1,4 @@
 <p>instance works!</p>
+<div *ngIf="currentInstance$ |async as current">
+    {{current.name}}
+</div>
