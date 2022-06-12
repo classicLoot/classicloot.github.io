@@ -8,6 +8,7 @@
     "ilvlMin": 171,
     "ilvlMax": 200,
     "phase": 1,
+    "type": "DD",
     "bosses": [
         {
             "name": "Trollgore",

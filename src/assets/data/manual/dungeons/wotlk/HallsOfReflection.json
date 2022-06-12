@@ -8,6 +8,7 @@
     "ilvlMin": 219,
     "ilvlMax": 232,
     "phase": 4,
+    "type": "DD",
     "bosses": [
         {
             "name": "Falric",

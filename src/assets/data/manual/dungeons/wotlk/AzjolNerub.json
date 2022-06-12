@@ -8,6 +8,7 @@
     "ilvlMin": 163,
     "ilvlMax": 200,
     "phase": 1,
+    "type": "DD",
     "bosses": [
         {
             "name": "Krikthir",

@@ -1,1 +1,1 @@
-{"name":"The Occulus","link":"TheOcculus","descr":"descr","phase":1,"size":5,"bossLinks":[{"name":"Drakos","link":"Drakos"},{"name":"Cloudstrider","link":"Cloudstrider"},{"name":"Urom","link":"Urom"},{"name":"Eregos","link":"Eregos"},{"name":"Trash","link":"Trash"}]}
+{"name":"The Occulus","link":"TheOcculus","descr":"descr","phase":1,"size":5,"type":"DD","bossLinks":[{"name":"Drakos","link":"Drakos"},{"name":"Cloudstrider","link":"Cloudstrider"},{"name":"Urom","link":"Urom"},{"name":"Eregos","link":"Eregos"},{"name":"Trash","link":"Trash"}]}

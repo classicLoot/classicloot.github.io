@@ -60,6 +60,7 @@ function writeMetaIndividual(instances: wowInstance[], type: 'dungeons' | 'raids
                 descr: i.descr,
                 phase: i.phase,
                 size: i.size,
+                type: i.type,
                 bossLinks: bossLinks
             }
 

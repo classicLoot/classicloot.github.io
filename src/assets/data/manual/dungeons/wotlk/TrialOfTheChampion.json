@@ -8,6 +8,7 @@
     "ilvlMin": 200,
     "ilvlMax": 219,
     "phase": 3,
+    "type": "DD",
     "bosses": [
         {
             "name": "Champions",
