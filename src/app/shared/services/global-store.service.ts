@@ -73,4 +73,8 @@ export class GlobalStoreService {
       }))
     })
   }
+
+  public getStoreValue() {
+    return this.store.value;
+  }
 }

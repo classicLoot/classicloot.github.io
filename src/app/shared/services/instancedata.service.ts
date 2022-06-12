@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { combineLatest, filter, map, Observable, share, shareReplay, switchMap } from 'rxjs';
-import { wowInstance } from '../interfaces/instance';
+import { wowInstance, wowInstanceBoss } from '../interfaces/instance';
 import { wowAddon } from '../types/addon';
 import { GlobalStoreService } from './global-store.service';
 
@@ -48,5 +48,13 @@ export class InstancedataService {
     }
 
     return this.currentInstance$;
+  }
+
+  public getCurrentInstanceBoss$(boss: string): Observable<wowInstanceBoss> {
+    const state = this.globalStore.getStoreValue();
+
+    const current$ = this.http.get<wowInstanceBoss>(`../../../assets/data/gen/${state.addon}${state.route}/${boss}.json`);
+
+    return current$;
   }
 }
