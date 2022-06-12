@@ -4,6 +4,7 @@ import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
 import { filter, map, Observable } from 'rxjs';
 import { wowAddon } from '../types/addon';
+import { TooltipService } from './tooltip.service';
 
 
 interface GlobalProps {
@@ -31,7 +32,7 @@ export class GlobalStoreService {
 
   public startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private tooltipService: TooltipService) {
     devTools();
     this.subscribeRoute();
 
@@ -56,6 +57,7 @@ export class GlobalStoreService {
       map(e => e as NavigationEnd)
     );
 
+
     eventsFiltered$.subscribe(e => {
       const url = e.urlAfterRedirects;
 
@@ -71,6 +73,8 @@ export class GlobalStoreService {
         route: url,
         id: id
       }))
+
+      this.tooltipService.hideTooltip();
     })
   }
 
