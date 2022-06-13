@@ -41,7 +41,26 @@
                 44665,
                 44661
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "The Spellweaver's Downfall (25 player)",
+                    "id": 623
+                },
+                {
+                    "name": "You Don't Have an Eternity (25 player)",
+                    "id": 1875
+                },
+                {
+                    "name": "A Poke in the Eye (25 player)",
+                    "id": 1870
+                },
+                {
+                    "name": "Denyin' the Scion (25 player)",
+                    "id": 2149
+                }
+            ]
         }
     ]
 }
