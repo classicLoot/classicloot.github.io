@@ -5,7 +5,7 @@
     flex-direction: row;
 
     margin-top: 0.5rem;
-    margin-bottom: 0.5rem
+    //margin-bottom: 0.5rem
 }
 
 .center {
@@ -46,16 +46,51 @@
 
 .icon-right {
     margin: 0.5rem;
-}
-
-nbicon {
-    margin: 0.5rem;
-    font-size: 56px;
+    height: 80px;
+    position: relative;
 }
 
 svg {
     margin: 0.5rem;
-
     width: 70px;
+}
 
+.av-box {
+    position: relative;
+
+    .points {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+
+        padding-bottom: 10px;
+        padding-right: 3px;
+    }
+}
+
+.bonus {
+    //margin-left: 3%;
+    //margin-right: 3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+    img {
+        height: 30px;
+        width: 30px;
+    }
+
+    span {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }

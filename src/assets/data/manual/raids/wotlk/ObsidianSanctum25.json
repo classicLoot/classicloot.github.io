@@ -51,17 +51,17 @@
             "hardmode": [
                 {
                     "name": "1 Drake up",
-                    "descr": "bonus lvl 200 Item",
+                    "descr": "1x  ilvl 213 Item",
                     "id": 2052
                 },
                 {
                     "name": "2 Drake up",
-                    "descr": "bonus lvl 213 Item and bonus lvl 226 Item",
+                    "descr": "1x  ilvl 213 Item, 1x  ilvl 226 Item",
                     "id": 2053
                 },
                 {
                     "name": "3 Drake up",
-                    "descr": "bonus lvl 213 Item, bonus lvl 226 Item and Mount",
+                    "descr": "1x  ilvl 213 Item, 1x  ilvl 226 Item, 1x Mount",
                     "id": 2054
                 }
             ]
