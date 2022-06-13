@@ -15,7 +15,8 @@
                         <ng-container *ngIf="boss.sortedLootItems.misc.length > 0">
                             <div class="">
                                 <div *ngFor="let item of boss.sortedLootItems!.misc">
-                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
                                     </app-wow-item-lazy>
                                 </div>
                             </div>
