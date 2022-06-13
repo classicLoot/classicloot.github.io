@@ -8,6 +8,7 @@ import { WowItemLazyComponent } from './components/wow-item-lazy/wow-item-lazy.c
 import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-tooltip.component';
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
+import { WowAchievementComponent } from './components/wow-achievement/wow-achievement.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     ItemSubtextPipe,
     SidebarItemComponent,
     SidebarMenuComponent,
-    WowItemLazyComponent
+    WowItemLazyComponent,
+    WowAchievementComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     ItemSubtextPipe,
     SidebarItemComponent,
     SidebarMenuComponent,
-    WowItemLazyComponent
+    WowItemLazyComponent,
+    WowAchievementComponent
   ]
 })
 export class SharedModule { }
