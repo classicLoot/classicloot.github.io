@@ -36,7 +36,31 @@
                 43993,
                 43986
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [
+                43995,
+                43998,
+                43996,
+                43994,
+                43993,
+                43986,
+                40433,
+                43986
+            ],
+            "hardmode": [
+                {
+                    "name": "1 Drake",
+                    "descr": "bonus lvl 200 Item"
+                },
+                {
+                    "name": "2 Drake",
+                    "descr": "bonus lvl 200 Item and bonus lvl 213 Item"
+                },
+                {
+                    "name": "3 Drake",
+                    "descr": "bonus lvl 200 Item, bonus lvl 213 Item and Mount"
+                }
+            ]
         }
     ]
 }
