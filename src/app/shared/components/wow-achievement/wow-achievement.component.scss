@@ -19,6 +19,11 @@
         padding: 0.5rem;
         //color: #ffd100;
         color: #cd9f3a;
+        text-decoration: none;
+    }
+
+    .name:hover {
+        text-decoration: underline;
     }
 
     .descr {
