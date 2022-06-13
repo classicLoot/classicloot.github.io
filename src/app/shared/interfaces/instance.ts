@@ -28,6 +28,8 @@ export interface wowInstanceBoss {
     sortedLootHeroic?: wowInstanceLootSorted,
     sortedLootItems?: wowInstanceLootSortedItems,
     sortedLootHeroicItems?: wowInstanceLootSortedItems
+    hardmode?: wowInstanceHardmode[],
+    hardmodeLoot?: number[]
 }
 
 export interface wowInstanceBossLink {
@@ -49,4 +51,11 @@ export interface wowInstanceLootSortedItems {
     weapons: wowItem[],
     misc: wowItem[],
     tokens: wowItem[]
+}
+
+export interface wowInstanceHardmode {
+    name: string,
+    descr?: string,
+    icon?: string,
+    id?: number
 }
