@@ -62,3 +62,9 @@ export function sanitizeName(str: string) {
     let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "");
     return newStr;
 }
+
+export function checkFSExists(filepath: string, filenName: string) {
+    const itemPath = path.join(__dirname, filepath, filenName);
+    const bExist = fs.existsSync(itemPath);
+    return bExist;
+}

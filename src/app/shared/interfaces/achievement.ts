@@ -9,4 +9,13 @@ export interface wowAchievement {
     points: number,
     iconID: number,
     reward: string,
+
+    iconName?: string,
+    tooltip?: string
+}
+
+export interface wowAchievementPower {
+    name_enus: string,
+    icon: string,
+    tooltip_enus: string
 }
