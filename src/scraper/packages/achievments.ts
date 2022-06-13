@@ -52,7 +52,7 @@ function writeAchievements(avs: wowAchievement[]) {
 }
 
 async function processAchievements() {
-    const avs = await readAchievements('../../assets/_external/achievement.csv', { headers: true, maxRows: 15 });
+    const avs = await readAchievements('../../assets/_external/achievement.csv', { headers: true });
     writeAchievements(avs);
-    console.log(avs)
+    //console.log(avs)
 }
