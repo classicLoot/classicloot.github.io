@@ -11,6 +11,8 @@ export class WowItemLazyComponent implements OnInit {
 
   @Input() item!: wowItem;
   @Input() itemSize: string = 'large';
+  @Input() hardmode: boolean = false;
+  @Input() showLevel: boolean = false;
 
   constructor(private tooltipService: TooltipService) { }
 

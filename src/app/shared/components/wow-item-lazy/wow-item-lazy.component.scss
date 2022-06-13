@@ -35,7 +35,7 @@
     }
 }
 
-.item:hover{
+.item:hover {
     background-color: #2e3a59;
 }
 
@@ -49,4 +49,15 @@
     // color: #ddbc73;
     color: #cd9f3a;
     font-size: small;
+}
+
+.hardmode {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-bottom: -4px;
+}
+
+nb-icon {
+    font-size: 18px;
 }

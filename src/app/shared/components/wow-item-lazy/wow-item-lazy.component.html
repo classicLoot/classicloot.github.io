@@ -5,9 +5,10 @@
         <a href="{{item.link}}&xml">
             <div class="itemName q{{item.quality}}">
                 {{item.name}}
+                <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
             </div>
             <div class="itemSubText">
-                {{item | itemSubtext}}
+                {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
             </div>
         </a>
     </div>
