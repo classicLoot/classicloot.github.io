@@ -1,12 +1,7 @@
-import fs from 'fs';
 import fetch from 'node-fetch';
-import path from 'path';
 import xml from 'xml-js';
-import { wotlkDungeons } from '../../app/features/dungeons/data/wotlk';
-import { wowInstance } from '../../app/shared/interfaces/instance';
 import { wowItem } from '../../app/shared/interfaces/item';
-import { wowRaid } from '../../app/shared/interfaces/raids';
-import { readFilesFromDirAs, readFromDirAs, readIDsAsItems } from '../helper';
+import { readFilesFromDirAs } from '../helper';
 import { XML_CONFIG } from './../scraper';
 
 
@@ -53,7 +48,7 @@ const items = readFilesFromDirAs<wowItem>('../assets/items/', testArray.map(id =
 //console.log(items);
 
 //console.log(readIDsAsItems(testArray));
-
+/* 
 
 
 function copyOverDungeons() {
@@ -90,4 +85,4 @@ function copyOverRaids() {
     })
 }
 //copyOverRaids();
-
+ */
