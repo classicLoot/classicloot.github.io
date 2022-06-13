@@ -1,10 +1,11 @@
+import progress from 'cli-progress';
 import * as csv from 'fast-csv';
 import fs from 'fs';
+import fetch from 'node-fetch';
 import path from 'path';
 import { wowAchievement, wowAchievementPower } from "../../app/shared/interfaces/achievement";
-import { checkFSExists, writeToFileAs } from '../helper';
-import progress from 'cli-progress';
-import fetch from 'node-fetch';
+import { checkFSExists, readFromDirAs, readFromDirAsSingle, writeToFileAs } from '../helper';
+import { fetchIcons } from '../icons';
 import { delay } from '../scraper';
 
 
@@ -61,7 +62,9 @@ async function processAchievements() {
     writeAchievements(avs);
 
     const usedAVs = getUsedAchievements();
-    fetchAchievementsPower(usedAVs);
+    await fetchAchievementsPower(usedAVs);
+
+    await fetchAchievementsIcons();
     //console.log(avs)
 }
 
@@ -70,6 +73,7 @@ function getUsedAchievements(): number[] {
 }
 
 async function fetchAchievementsPower(avs: number[]) {
+    console.log('\n')
     console.log(`**FETCH AV Power: ${avs.length}**`);
 
     const existsArr: number[] = [];
@@ -83,7 +87,7 @@ async function fetchAchievementsPower(avs: number[]) {
 
     for (const av of avs) {
 
-        if (checkFSExists('../../assets/achievements/power', `${av}.json`)) {
+        if (checkFSExists('../assets/achievements/power', `${av}.json`)) {
             existsArr.push(av);
             bar1.increment();
             continue;
@@ -103,7 +107,15 @@ async function fetchAchievementsPower(avs: number[]) {
                 tooltip_enus: tooltipMatch,
             };
 
-            writeToFileAs<wowAchievementPower>(power, `../assets/achievements/power/${av}.json`)
+            const raw: wowAchievement = readFromDirAsSingle<wowAchievement>(`../assets/achievements/raw/${av}.json`);
+
+            const newAV: wowAchievement = {
+                ...raw,
+                iconName: power.icon,
+                tooltip: power.tooltip_enus
+            }
+
+            writeToFileAs<wowAchievement>(newAV, `../assets/achievements/power/${av}.json`)
 
             updatedArr.push(av);
             bar1.increment();
@@ -127,6 +139,10 @@ async function fetchAchievementsPower(avs: number[]) {
 
 }
 
-async function updateFromPower() {
+async function fetchAchievementsIcons() {
+    const avs = readFromDirAs<wowAchievement>('../assets/achievements/power');
 
+    const avIconNames = avs.map(av => av.iconName!);
+
+    await fetchIcons(avIconNames, 'large');
 }

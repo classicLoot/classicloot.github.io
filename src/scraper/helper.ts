@@ -21,6 +21,14 @@ export function readFromDirAs<T>(pathStr: string): T[] {
     return array;
 }
 
+export function readFromDirAsSingle<T>(pathStr: string): T {
+    const filePath = path.join(__dirname, pathStr);
+    const fileRaw = fs.readFileSync(filePath).toString();
+    const fileJson: T = JSON.parse(fileRaw);
+
+    return fileJson;
+}
+
 export function readFilesFromDirAs<T>(pathStr: string, files: string[], ending: string): T[] {
 
     const typePath = path.join(__dirname, pathStr);
