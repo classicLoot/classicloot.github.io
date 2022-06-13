@@ -49,17 +49,29 @@
             ],
             "hardmode": [
                 {
-                    "name": "1 Drake up",
+                    "name": "Besting the Black Dragonflight (10 player)",
+                    "id": 1876
+                },
+                {
+                    "name": "Gonna Go When the Volcano Blows (10 player)",
+                    "id": 2047
+                },
+                {
+                    "name": "Less Is More (10 player)",
+                    "id": 624
+                },
+                {
+                    "name": "Twilight Assist (10 player)",
                     "descr": "1x  ilvl 200 Item",
                     "id": 2049
                 },
                 {
-                    "name": "2 Drake up",
+                    "name": "Twilight Duo (10 player)",
                     "descr": "1x  ilvl 200 Item, 1x  ilvl 213 Item",
                     "id": 2050
                 },
                 {
-                    "name": "3 Drake up",
+                    "name": "The Twilight Zone (10 player)",
                     "descr": "1x  ilvl 200 Item, 1x  ilvl 213 Item, 1x Mount",
                     "id": 2051
                 }
