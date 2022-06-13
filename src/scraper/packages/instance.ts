@@ -148,6 +148,11 @@ function sortBossLoot(items: wowItem[]): wowInstanceLootSortedItems {
     weapons.sort((a, b) => +a.wowSubClass - +b.wowSubClass);
     tokens.sort((a, b) => +a.id - +b.id);
 
+    armor.sort((a, b) => +a.ilvl - +b.ilvl);
+    jewelry.sort((a, b) => +a.ilvl - +b.ilvl);
+    weapons.sort((a, b) => +a.ilvl - +b.ilvl);
+    tokens.sort((a, b) => +a.ilvl - +b.ilvl);
+
     const sorted: wowInstanceLootSortedItems = {
         armor: armor,
         jewelry: jewelry,
