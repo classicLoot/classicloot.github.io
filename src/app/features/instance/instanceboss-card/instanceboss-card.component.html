@@ -70,6 +70,12 @@
                         </ng-container>
                     </div>
 
+                    <div class="flex-item-left hardmode" *ngIf="boss.hardmode">
+                        <ng-container *ngFor="let hm of boss.hardmode">
+                            <app-wow-achievement [avID]="hm.id!" [descr]="hm.descr!"> </app-wow-achievement>
+                        </ng-container>
+                    </div>
+
                 </ng-container>
             </ng-container>
 

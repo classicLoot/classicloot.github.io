@@ -37,7 +37,13 @@
                 40266,
                 40265
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Make Quick Werk of Him (25 player)",
+                    "id": 1857
+                }
+            ]
         },
         {
             "name": "Grobbulus",
@@ -143,7 +149,17 @@
                 40635,
                 40636
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Shocking! (25 player)",
+                    "id": 2179
+                },
+                {
+                    "name": "Subtraction (25 player)",
+                    "id": 2181
+                }
+            ]
         },
         {
             "name": "Anub Rekhan",
@@ -204,7 +220,13 @@
                 39728,
                 39730
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Momma Said Knock You Out (25 player)",
+                    "id": 2140
+                }
+            ]
         },
         {
             "name": "Maexxna",
@@ -235,7 +257,13 @@
                 39763,
                 39758
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Arachnophobia (25 player)",
+                    "id": 1859
+                }
+            ]
         },
         {
             "name": "Razuvious",
@@ -315,7 +343,13 @@
                 40626,
                 40627
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "And They Would All Go Down Together (25 player)",
+                    "id": 2177
+                }
+            ]
         },
         {
             "name": "Noth",
@@ -376,7 +410,13 @@
                 40208,
                 40233
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "The Safety Dance (25 player)",
+                    "id": 2139
+                }
+            ]
         },
         {
             "name": "Loatheb",
@@ -396,7 +436,13 @@
                 40638,
                 40639
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Spore Loser (25 player)",
+                    "id": 2183
+                }
+            ]
         },
         {
             "name": "Sapphiron",
@@ -425,7 +471,17 @@
                 44577,
                 44581
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Sapphiron's Demise (25 player)",
+                    "id": 573
+                },
+                {
+                    "name": "The Hundred Club (25 player)",
+                    "id": 2147
+                }
+            ]
         },
         {
             "name": "Kel Thuzad",
@@ -450,7 +506,17 @@
                 40632,
                 40633
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "name": "Just Can't Get Enough (25 player)",
+                    "id": 2185
+                },
+                {
+                    "name": "Kel'Thuzad's Defeat (25 player)",
+                    "id": 575
+                }
+            ]
         }
     ]
 }

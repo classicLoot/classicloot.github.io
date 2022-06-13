@@ -62,6 +62,10 @@ nb-card-body {
     gap: 40px;
 }
 
+.hardmode {
+    margin-top: 40px;
+}
+
 @media (max-width: 768px) {
 
     .flex-container {
@@ -71,5 +75,9 @@ nb-card-body {
     .flex-item-right,
     .flex-item-left {
         flex: 100%;
+    }
+
+    .hardmode {
+        margin-top: 0;
     }
 }

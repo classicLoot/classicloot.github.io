@@ -21,6 +21,14 @@ export function readFromDirAs<T>(pathStr: string): T[] {
     return array;
 }
 
+export function readFromDirAsSingle<T>(pathStr: string): T {
+    const filePath = path.join(__dirname, pathStr);
+    const fileRaw = fs.readFileSync(filePath).toString();
+    const fileJson: T = JSON.parse(fileRaw);
+
+    return fileJson;
+}
+
 export function readFilesFromDirAs<T>(pathStr: string, files: string[], ending: string): T[] {
 
     const typePath = path.join(__dirname, pathStr);
@@ -61,4 +69,10 @@ export function writeToFileAsAndCreateDir<T>(file: T, dir: string, filename: str
 export function sanitizeName(str: string) {
     let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "");
     return newStr;
+}
+
+export function checkFSExists(filepath: string, filenName: string) {
+    const itemPath = path.join(__dirname, filepath, filenName);
+    const bExist = fs.existsSync(itemPath);
+    return bExist;
 }
