@@ -4,12 +4,15 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 import { wowAchievement, wowAchievementPower } from "../../app/shared/interfaces/achievement";
-import { checkFSExists, readFromDirAs, readFromDirAsSingle, writeToFileAs } from '../helper';
+import { wowInstance } from '../../app/shared/interfaces/instance';
+import { checkFSExists, readFilesFromDirAs, readFromDirAs, readFromDirAsSingle, writeToFileAs } from '../helper';
 import { fetchIcons } from '../icons';
 import { delay } from '../scraper';
 
 
 await processAchievements();
+//const avs = getUsedAchievements();
+//console.log(avs)
 
 interface rawRow {
     [key: string]: string | number
@@ -69,7 +72,35 @@ async function processAchievements() {
 }
 
 function getUsedAchievements(): number[] {
-    return [2051];
+
+    const avIDArray: number[] = [];
+
+    const raids = readFromDirAs<wowInstance>('../assets/data/manual/raids/wotlk');
+    const dungeons = readFromDirAs<wowInstance>('../assets/data/manual/dungeons/wotlk');
+
+    raids.forEach(r => {
+        r.bosses?.forEach(b => {
+            b.hardmode?.forEach(h => {
+                if (h.id) {
+                    avIDArray.push(h.id);
+                }
+            })
+        })
+    })
+
+    dungeons.forEach(d => {
+        d.bosses?.forEach(b => {
+            b.hardmode?.forEach(h => {
+                if (h.id) {
+                    avIDArray.push(h.id);
+                }
+            })
+        })
+    })
+
+
+
+    return avIDArray;
 }
 
 async function fetchAchievementsPower(avs: number[]) {
