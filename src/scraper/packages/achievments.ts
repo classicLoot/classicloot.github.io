@@ -1,8 +1,8 @@
+import * as csv from 'fast-csv';
 import fs from 'fs';
 import path from 'path';
-import * as csv from 'fast-csv';
 import { wowAchievement } from "../../app/shared/interfaces/achievement";
-import { writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
+import { writeToFileAs } from '../helper';
 
 await processAchievements();
 
