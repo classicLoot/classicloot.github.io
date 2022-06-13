@@ -1,4 +1,4 @@
-export interface wowAchievment {
+export interface wowAchievement {
     id: number,
     instanceID: number,
     faction: number,
