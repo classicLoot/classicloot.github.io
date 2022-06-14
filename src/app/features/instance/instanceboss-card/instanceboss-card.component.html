@@ -80,14 +80,81 @@
             </ng-container>
 
             <!-- Type B -->
-            <div *ngSwitchCase="'B'">
-                BBBB
-            </div>
+            <ng-container *ngSwitchCase="'B'">
+                <ng-container *ngIf="boss.sortedLootItems">
+                    <div class="flex-item-left flex-column">
+                        <!-- Misc -->
+                        <ng-container *ngIf="boss.sortedLootItems.misc.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLootItems!.misc">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
+                                    </app-wow-item-lazy>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Armor -->
+                        <ng-container *ngIf="boss.sortedLootItems.armor.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLootItems!.armor">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
+                                    </app-wow-item-lazy>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="flex-item-right flex-column">
+                        <!-- Token -->
+                        <ng-container *ngIf="boss.sortedLootItems.tokens.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLootItems.tokens">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
+                                    </app-wow-item-lazy>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Jewelry -->
+                        <ng-container *ngIf="boss.sortedLootItems.jewelry.length > 0">
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLootItems.jewelry">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
+                                    </app-wow-item-lazy>
+                                </div>
+                            </div>
+                        </ng-container>
+
+                        <!-- Weapon -->
+                        <ng-container *ngIf="boss.sortedLootItems.weapons.length > 0">
+
+                            <div class="">
+                                <div *ngFor="let item of boss.sortedLootItems.weapons">
+                                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                                        [hardmode]="boss.hardmodeLoot?.includes(+item.id) || false">
+                                    </app-wow-item-lazy>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                    <div class="flex-item-left hardmode" *ngIf="boss.hardmode">
+                        <ng-container *ngFor="let hm of boss.hardmode">
+                            <app-wow-achievement [avID]="hm.id!" [descr]="hm.descr!"> </app-wow-achievement>
+                        </ng-container>
+                    </div>
+
+                </ng-container>
+            </ng-container>
 
             <!-- Type C -->
-            <div *ngSwitchCase="'C'">
+            <ng-container *ngSwitchCase="'C'">
                 CCCC
-            </div>
+            </ng-container>
 
             <!-- Type DD = Dungeons -->
             <ng-container *ngSwitchCase="'DD'">
