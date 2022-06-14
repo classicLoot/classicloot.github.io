@@ -30,7 +30,13 @@
                 45296
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45293,
+                45300,
+                45295,
+                45297,
+                45296
+            ],
             "hardmode": [
                 {
                     "name": "Unbroken (10 player)",
@@ -147,7 +153,13 @@
                 45870
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45869,
+                45867,
+                45871,
+                45868,
+                45870
+            ],
             "hardmode": [
                 {
                     "name": "Nerf Engineering (10 player)",
@@ -193,7 +205,14 @@
                 45506
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45455,
+                45447,
+                45456,
+                45449,
+                45448,
+                45506
+            ],
             "hardmode": [
                 {
                     "name": "But I'm On Your Side (10 player)",
@@ -347,7 +366,14 @@
                 45786
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45888,
+                45876,
+                45886,
+                45887,
+                45877,
+                45786
+            ],
             "hardmode": [
                 {
                     "name": "Cheese the Freeze (10 player)",
@@ -391,7 +417,14 @@
                 45784
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45928,
+                45933,
+                45931,
+                45929,
+                45930,
+                45784
+            ],
             "hardmode": [
                 {
                     "name": "Don't Stand in the Lightning (10 player)",
@@ -436,7 +469,14 @@
                 45788
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45943,
+                45945,
+                45946,
+                45947,
+                45294,
+                45788
+            ],
             "hardmode": [
                 {
                     "name": "Con-speed-atory (10 player)",
@@ -488,7 +528,14 @@
                 45787
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                45993,
+                45989,
+                45982,
+                45988,
+                45990,
+                45787
+            ],
             "hardmode": [
                 {
                     "name": "Not-So-Friendly Fire (10 player)",
@@ -526,7 +573,13 @@
                 46033
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                46032,
+                46034,
+                46036,
+                46035,
+                46033
+            ],
             "hardmode": [
                 {
                     "name": "Shadowdodger (10 player)",
@@ -563,7 +616,14 @@
                 46312
             ],
             "lootHeroic": [],
-            "hardmodeLoot": [],
+            "hardmodeLoot": [
+                46068,
+                46095,
+                46096,
+                46097,
+                46067,
+                46312
+            ],
             "hardmode": [
                 {
                     "name": "Kiss and Make Up (10 player)",
