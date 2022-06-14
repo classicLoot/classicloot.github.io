@@ -36,7 +36,42 @@
                 45133,
                 45132
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Unbroken (25 player)",
+                    "id": 2906
+                },
+                {
+                    "name": "Three Car Garage (25 player)",
+                    "id": 2908
+                },
+                {
+                    "name": "Take Out Those Turrets (25 player)",
+                    "id": 2910
+                },
+                {
+                    "name": "Shutout (25 player)",
+                    "id": 2912
+                },
+                {
+                    "name": "Orbital Bombardment (25 player)",
+                    "id": 2918
+                },
+                {
+                    "name": "Orbital Devastation (25 player)",
+                    "id": 2916
+                },
+                {
+                    "name": "Nuked from Orbit (25 player)",
+                    "id": 2917
+                },
+                {
+                    "name": "Orbit-uary (25 player)",
+                    "id": 3057
+                }
+            ]
         },
         {
             "name": "Razorscale",
@@ -60,7 +95,18 @@
                 45147,
                 45137
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "A Quick Shave (25 player)",
+                    "id": 292
+                },
+                {
+                    "name": "Iron Dwarf, Medium Rare (25 player)",
+                    "id": 2924
+                }
+            ]
         },
         {
             "name": "Ignis",
@@ -84,7 +130,22 @@
                 45171,
                 45170
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Shattered (25 player)",
+                    "id": 2926
+                },
+                {
+                    "name": "Hot Pocket (25 player)",
+                    "id": 2928
+                },
+                {
+                    "name": "Stokin' the Furnace (25 player)",
+                    "id": 2929
+                }
+            ]
         },
         {
             "name": "Deconstructor",
@@ -113,7 +174,30 @@
                 45443,
                 45442
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Nerf Engineering (25 player)",
+                    "id": 2932
+                },
+                {
+                    "name": "Nerf Scrapbots (25 player)",
+                    "id": 2935
+                },
+                {
+                    "name": "Nerf Gravity Bombs (25 player)",
+                    "id": 2936
+                },
+                {
+                    "name": "Must Deconstruct Faster (25 player)",
+                    "id": 2938
+                },
+                {
+                    "name": "Heartbreaker (25 player)",
+                    "id": 3059
+                }
+            ]
         },
         {
             "name": "Iron Council",
@@ -144,7 +228,30 @@
                 45607,
                 45857
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "But I'm On Your Side (25 player)",
+                    "id": 2946
+                },
+                {
+                    "name": "Can't Do That While Stunned (25 player)",
+                    "id": 2948
+                },
+                {
+                    "name": "I Choose You, Runemaster Molgeim (25 player)",
+                    "id": 2942
+                },
+                {
+                    "name": "I Choose You, Stormcaller Brundir (25 player)",
+                    "id": 2943
+                },
+                {
+                    "name": "I Choose You, Steelbreaker (25 player)",
+                    "id": 2944
+                }
+            ]
         },
         {
             "name": "Kologarn",
@@ -168,7 +275,26 @@
                 45266,
                 45261
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Disarmed (25 player)",
+                    "id": 2954
+                },
+                {
+                    "name": "If Looks Could Kill (25 player)",
+                    "id": 2956
+                },
+                {
+                    "name": "Rubble and Roll (25 player)",
+                    "id": 2960
+                },
+                {
+                    "name": "With Open Arms (25 player)",
+                    "id": 2952
+                }
+            ]
         },
         {
             "name": "Algalon",
@@ -196,7 +322,26 @@
                 45608,
                 45614
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "He Feeds On Your Tears (25 player)",
+                    "id": 3005
+                },
+                {
+                    "name": "Observed (25 player)",
+                    "id": 3037
+                },
+                {
+                    "name": "Supermassive (25 player)",
+                    "id": 3002
+                },
+                {
+                    "name": "Realm First! Celestial Defender",
+                    "id": 3259
+                }
+            ]
         },
         {
             "name": "Auriaya",
@@ -220,7 +365,18 @@
                 45315,
                 45327
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Nine Lives (25 player)",
+                    "id": 3077
+                },
+                {
+                    "name": "Crazy Cat Lady (25 player)",
+                    "id": 3007
+                }
+            ]
         },
         {
             "name": "Hodir",
@@ -244,7 +400,30 @@
                 45457,
                 45815
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Cheese the Freeze (25 player)",
+                    "id": 2962
+                },
+                {
+                    "name": "Getting Cold in Here (25 player)",
+                    "id": 2968
+                },
+                {
+                    "name": "I Have the Coolest Friends (25 player)",
+                    "id": 2965
+                },
+                {
+                    "name": "Staying Buffed All Winter (25 player)",
+                    "id": 2970
+                },
+                {
+                    "name": "I Could Say That This Cache Was Rare (25 player)",
+                    "id": 3184
+                }
+            ]
         },
         {
             "name": "Thorim",
@@ -268,7 +447,30 @@
                 45470,
                 45817
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Don't Stand in the Lightning (25 player)",
+                    "id": 2972
+                },
+                {
+                    "name": "I'll Take You All On (25 player)",
+                    "id": 2974
+                },
+                {
+                    "name": "Siffed (25 player)",
+                    "id": 2978
+                },
+                {
+                    "name": "Who Needs Bloodlust? (25 player)",
+                    "id": 2976
+                },
+                {
+                    "name": "Lose Your Illusion (25 player)",
+                    "id": 3183
+                }
+            ]
         },
         {
             "name": "Freya",
@@ -293,7 +495,38 @@
                 45613,
                 45814
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Con-speed-atory (25 player)",
+                    "id": 2981
+                },
+                {
+                    "name": "Deforestation (25 player)",
+                    "id": 2984
+                },
+                {
+                    "name": "Getting Back to Nature (25 player)",
+                    "id": 2983
+                },
+                {
+                    "name": "Lumberjacked (25 player)",
+                    "id": 3118
+                },
+                {
+                    "name": "Knock on Wood (25 player)",
+                    "id": 3185
+                },
+                {
+                    "name": "Knock, Knock on Wood (25 player)",
+                    "id": 3186
+                },
+                {
+                    "name": "Knock, Knock, Knock on Wood (25 player)",
+                    "id": 3187
+                }
+            ]
         },
         {
             "name": "Mimiron",
@@ -317,7 +550,22 @@
                 45620,
                 45816
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Not-So-Friendly Fire (25 player)",
+                    "id": 2995
+                },
+                {
+                    "name": "Set Up Us the Bomb (25 player)",
+                    "id": 3237
+                },
+                {
+                    "name": "Firefighter (25 player)",
+                    "id": 3189
+                }
+            ]
         },
         {
             "name": "Vezax",
@@ -346,7 +594,18 @@
                 45518,
                 45516
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Shadowdodger (25 player)",
+                    "id": 2997
+                },
+                {
+                    "name": "I Love the Smell of Saronite in the Morning (25 player)",
+                    "id": 3188
+                }
+            ]
         },
         {
             "name": "Yogg Saron",
@@ -374,7 +633,50 @@
                 45533,
                 45693
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": [
+                {
+                    "name": "Kiss and Make Up (25 player)",
+                    "id": 3011
+                },
+                {
+                    "name": "Drive Me Crazy (25 player)",
+                    "id": 3010
+                },
+                {
+                    "name": "He's Not Getting Any Older (25 player)",
+                    "id": 3013
+                },
+                {
+                    "name": "They're Coming Out of the Walls (25 player)",
+                    "id": 3017
+                },
+                {
+                    "name": "In His House He Waits Dreaming (25 player)",
+                    "id": 3016
+                },
+                {
+                    "name": "Three Lights in the Darkness (25 player)",
+                    "id": 3161
+                },
+                {
+                    "name": "Two Lights in the Darkness (25 player)",
+                    "id": 3162
+                },
+                {
+                    "name": "One Light in the Darkness (25 player)",
+                    "id": 3163
+                },
+                {
+                    "name": "Alone in the Darkness (25 player)",
+                    "id": 3164
+                },
+                {
+                    "name": "Realm First! Death's Demise",
+                    "id": 3117
+                }
+            ]
         },
         {
             "name": "Trash",
@@ -393,7 +695,9 @@
                 46138,
                 45605
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmodeLoot": [],
+            "hardmode": []
         }
     ]
 }
