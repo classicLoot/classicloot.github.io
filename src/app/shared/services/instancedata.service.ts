@@ -30,7 +30,11 @@ export class InstancedataService {
 
   public getRaidsMeta$(addon: wowAddon) {
     if (!this.raidssMeta$) {
-      this.raidssMeta$ = this.http.get<wowInstance[]>(`../../../assets/data/gen/${addon}/raids/meta.json`).pipe(shareReplay(1));
+      this.raidssMeta$ = this.http.get<wowInstance[]>(`../../../assets/data/gen/${addon}/raids/meta.json`).pipe(
+        shareReplay(1),
+        map(arr => arr.sort((a, b) => a.levelMin! - b.levelMin!)),
+        map(arr => arr.sort((a, b) => a.phase - b.phase))
+      );
     }
     return this.raidssMeta$;
   }
