@@ -1,9 +1,11 @@
 import { wowInstance, wowInstanceBoss, wowInstanceBossLink, wowInstanceLootSorted, wowInstanceLootSortedItems } from "../../app/shared/interfaces/instance";
-import { readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFileAsAndCreateDir } from "../helper";
+import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFileAsAndCreateDir } from "../helper";
 import fs from 'fs';
 import path from 'path';
 import { wowItem } from "../../app/shared/interfaces/item";
 import { fetchIDS } from "../items";
+import { fetchIcons } from "../icons";
+
 
 
 await processInstances('dungeons', 'wotlk');
@@ -41,6 +43,7 @@ async function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
     writeMeta(instances, type, addon);
     writeMetaIndividual(instances, type, addon);
     await fetchItems(instances);
+    await fetchIconsFrom(instances);
     sortAndWriteInstance(instances, type, addon);
 }
 
@@ -196,4 +199,23 @@ async function fetchItems(instances: wowInstance[]) {
 
     const ItemIDArray: number[] = Array.from(toFetch.values());
     await fetchIDS(ItemIDArray);
+}
+
+async function fetchIconsFrom(instances: wowInstance[]) {
+    let toFetch = new Set<string>();
+
+    instances.forEach(i => {
+        i.bosses?.forEach(boss => {
+            boss.loot?.forEach(loot => {
+                toFetch.add(loot.toString());
+            })
+            boss.lootHeroic?.forEach(loot => {
+                toFetch.add(loot.toString());
+            })
+        })
+    })
+    const fetchArray = Array.from(toFetch.values());
+    const items = readFilesFromDirAs<wowItem>(`../assets/items/`, fetchArray, '.json');
+
+    await fetchIcons(items.map(i => i.icon), 'large');
 }
