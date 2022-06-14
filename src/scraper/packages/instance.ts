@@ -6,8 +6,8 @@ import { wowItem } from "../../app/shared/interfaces/item";
 import { fetchIDS } from "../items";
 
 
-processInstances('dungeons', 'wotlk');
-processInstances('raids', 'wotlk');
+await processInstances('dungeons', 'wotlk');
+await processInstances('raids', 'wotlk');
 
 
 function writeMeta(instances: wowInstance[], type: 'dungeons' | 'raids', addon: 'wotlk') {
@@ -32,7 +32,7 @@ function writeMeta(instances: wowInstance[], type: 'dungeons' | 'raids', addon: 
     console.log('..wrote meta.json @ ' + filePath);
 }
 
-function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
+async function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
     const filePath = `../assets/data/manual/${type}/${addon}/`;
     const instances: wowInstance[] = readFromDirAs<wowInstance>(filePath);
     console.log(`Process ${type} from ${addon} @ ${filePath}`);
@@ -40,7 +40,7 @@ function processInstances(type: 'dungeons' | 'raids', addon: 'wotlk') {
 
     writeMeta(instances, type, addon);
     writeMetaIndividual(instances, type, addon);
-    fetchItems(instances);
+    await fetchItems(instances);
     sortAndWriteInstance(instances, type, addon);
 }
 
@@ -180,7 +180,7 @@ function sortSortedLootIntoArray(sorted: wowInstanceLootSortedItems): wowInstanc
     };
 }
 
-function fetchItems(instances: wowInstance[]) {
+async function fetchItems(instances: wowInstance[]) {
     let toFetch = new Set<number>();
 
     instances.forEach(i => {
@@ -195,5 +195,5 @@ function fetchItems(instances: wowInstance[]) {
     })
 
     const ItemIDArray: number[] = Array.from(toFetch.values());
-    fetchIDS(ItemIDArray);
+    await fetchIDS(ItemIDArray);
 }
