@@ -80,7 +80,7 @@
             </ng-container>
 
             <!-- Type B -->
-            <div *ngSwitchCase="'B'">
+            <ng-container *ngSwitchCase="'B'">
                 <ng-container *ngIf="boss.sortedLootItems">
                     <div class="flex-item-left flex-column">
                         <!-- Misc -->
@@ -149,12 +149,12 @@
                     </div>
 
                 </ng-container>
-            </div>
+            </ng-container>
 
             <!-- Type C -->
-            <div *ngSwitchCase="'C'">
+            <ng-container *ngSwitchCase="'C'">
                 CCCC
-            </div>
+            </ng-container>
 
             <!-- Type DD = Dungeons -->
             <ng-container *ngSwitchCase="'DD'">
