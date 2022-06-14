@@ -4,13 +4,14 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 import { wowAchievement, wowAchievementPower } from "../../app/shared/interfaces/achievement";
-import { wowInstance } from '../../app/shared/interfaces/instance';
-import { checkFSExists, readFilesFromDirAs, readFromDirAs, readFromDirAsSingle, writeToFileAs } from '../helper';
+import { wowInstance, wowInstanceHardmode } from '../../app/shared/interfaces/instance';
+import { checkFSExists, readFromDirAs, readFromDirAsSingle, writeToFileAs } from '../helper';
 import { fetchIcons } from '../icons';
 import { delay } from '../scraper';
 
 
 await processAchievements();
+await writeAchievementsPerInstanceID([603]);
 //const avs = getUsedAchievements();
 //console.log(avs)
 
@@ -61,7 +62,7 @@ function writeAchievements(avs: wowAchievement[]) {
 }
 
 async function processAchievements() {
-    const avs = await readAchievements('../../assets/_external/achievement.csv', { headers: true });
+    const avs = await readAchievements('../../assets/external/achievement.csv', { headers: true });
     writeAchievements(avs);
 
     const usedAVs = getUsedAchievements();
@@ -176,4 +177,23 @@ async function fetchAchievementsIcons() {
     const avIconNames = avs.map(av => av.iconName!);
 
     await fetchIcons(avIconNames, 'large');
+}
+
+async function writeAchievementsPerInstanceID(instances: number[]) {
+    const avs = await readAchievements('../../assets/external/achievement.csv', { headers: true });
+
+    instances.forEach(instance => {
+        const filtered = avs.filter(av => av.instanceID === instance)
+        const small = filtered.map(i => {
+            return {
+                name: i.name,
+                id: i.id
+            } as wowInstanceHardmode
+        });
+        writeToFileAs<wowInstanceHardmode[]>(small, `../assets/achievements/list/${instance}.json`)
+        writeToFileAs<wowAchievement[]>(filtered, `../assets/achievements/list/${instance}-raw.json`)
+
+
+    })
+
 }
