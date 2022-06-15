@@ -42,9 +42,6 @@ export async function fetchIDS(ids: number[]) {
     //
 
     for (const id of idsToUpdate) {
-
-
-
         const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
         /* https://db.rising-gods.de/
             const response = await fetch(`https://db.rising-gods.de/?item=${id}&xml`);
