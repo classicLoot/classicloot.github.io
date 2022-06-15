@@ -7,7 +7,7 @@
     </ng-container>
 
 
-    <ng-container *ngIf="bDifficulty">
+    <ng-container *ngIf="bDifficulty; else noDiff">
         <nb-button-group *ngIf="difficulty$ | async as diff" size="tiny" outline="true" status="warning">
             <button nbButtonToggle [pressed]="diff === 'Normal'" value="Normal"
                 (click)="updateDifficulty('Normal', diff)">Normal</button>
@@ -16,7 +16,7 @@
         </nb-button-group>
     </ng-container>
 
-    <ng-container *ngIf="bFaction">
+    <ng-container *ngIf="bFaction; else noFaction">
         <nb-button-group *ngIf="faction$ | async as faction" size="tiny" outline="true" status="warning">
             <button nbButtonToggle [pressed]="faction === 'Alliance'" value="Alliance"
                 (click)="updateFaction('Alliance', faction)">Alliance</button>
@@ -25,3 +25,17 @@
         </nb-button-group>
     </ng-container>
 </div>
+
+<ng-template #noFaction>
+    <nb-button-group size="tiny" outline="true" status="basic">
+        <button nbButton disabled pressed="false">Alliance</button>
+        <button nbButton disabled pressed="false">Horde</button>
+    </nb-button-group>
+</ng-template>
+
+<ng-template #noDiff>
+    <nb-button-group size="tiny" outline="true" status="basic">
+        <button nbButton disabled>Normal</button>
+        <button nbButton disabled>Heroic</button>
+    </nb-button-group>
+</ng-template>

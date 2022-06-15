@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NbButtonGroupModule, NbIconModule } from '@nebular/theme';
+import { NbButtonGroupModule, NbButtonModule, NbIconModule } from '@nebular/theme';
 import { OptionsButtonsComponent } from './components/options-buttons/options-buttons.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
@@ -28,7 +28,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     CommonModule,
     RouterModule,
     NbIconModule,
-    NbButtonGroupModule
+    NbButtonGroupModule,
+    NbButtonModule
   ],
   exports: [
     WowItemComponent,

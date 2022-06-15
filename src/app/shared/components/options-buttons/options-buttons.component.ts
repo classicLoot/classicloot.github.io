@@ -11,9 +11,9 @@ import { wowDifficulty, wowFaction, wowSize } from '../../types/options';
 })
 export class OptionsButtonsComponent implements OnInit {
 
-  @Input() bFaction: boolean = true;
+  @Input() bFaction: boolean = false;
   @Input() bSize: boolean = true;
-  @Input() bDifficulty: boolean = true;
+  @Input() bDifficulty: boolean = false;
 
 
   faction$: Observable<wowFaction>;
