@@ -35,6 +35,12 @@ nb-card-body {
     }
 }
 
+nb-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .typeHeader {
     font-size: medium;
     font-weight: 600;

@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NbIconModule } from '@nebular/theme';
+import { NbButtonGroupModule, NbIconModule } from '@nebular/theme';
+import { OptionsButtonsComponent } from './components/options-buttons/options-buttons.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { WowAchievementComponent } from './components/wow-achievement/wow-achievement.component';
 import { WowItemLazyComponent } from './components/wow-item-lazy/wow-item-lazy.component';
 import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-tooltip.component';
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
-import { WowAchievementComponent } from './components/wow-achievement/wow-achievement.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,15 @@ import { WowAchievementComponent } from './components/wow-achievement/wow-achiev
     SidebarItemComponent,
     SidebarMenuComponent,
     WowItemLazyComponent,
-    WowAchievementComponent
+    WowAchievementComponent,
+    OptionsButtonsComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule,
-    NbIconModule
+    NbIconModule,
+    NbButtonGroupModule
   ],
   exports: [
     WowItemComponent,
@@ -33,7 +37,8 @@ import { WowAchievementComponent } from './components/wow-achievement/wow-achiev
     SidebarItemComponent,
     SidebarMenuComponent,
     WowItemLazyComponent,
-    WowAchievementComponent
+    WowAchievementComponent,
+    OptionsButtonsComponent
   ]
 })
 export class SharedModule { }
