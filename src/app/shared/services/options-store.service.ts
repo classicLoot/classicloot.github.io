@@ -49,4 +49,8 @@ export class OptionsStoreService {
       size: newSize
     }))
   }
+
+  public getSize() {
+    return this.store.getValue().size;
+  }
 }

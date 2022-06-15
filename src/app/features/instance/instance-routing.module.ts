@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InstanceGuard } from 'src/app/shared/guards/instance.guard';
 import { InstanceStartComponent } from './instance-start/instance-start.component';
 import { InstanceComponent } from './instance/instance.component';
 
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: InstanceComponent
+    component: InstanceComponent,
+    canActivate: [InstanceGuard]
   }
 ];
 

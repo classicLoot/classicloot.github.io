@@ -1,0 +1,22 @@
+nb-button-group {
+    outline: none;
+
+    button {
+        outline: none;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.flex-item-left {
+    flex: 50%;
+}
+
+.flex-item-right {
+    flex: 50%;
+}
