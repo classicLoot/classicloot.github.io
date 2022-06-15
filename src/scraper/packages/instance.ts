@@ -88,18 +88,31 @@ function sortAndWriteInstance(instances: wowInstance[], type: 'dungeons' | 'raid
 }
 
 function sortBoss(boss: wowInstanceBoss): wowInstanceBoss {
+    // Ally
     const lootNormal = readIDsAsItems(boss.loot ? boss.loot : []);
     const sortedNormal = sortBossLoot(lootNormal);
 
     const lootHeroic = readIDsAsItems(boss.lootHeroic ? boss.lootHeroic : []);
     const sortedHeroic = sortBossLoot(lootHeroic);
 
+    // Horde
+    const lootNormalHorde = readIDsAsItems(boss.lootHorde ? boss.lootHorde : []);
+    const sortedNormalHorde = sortBossLoot(lootNormalHorde);
+
+    const lootHeroicHorde = readIDsAsItems(boss.lootHeroicHorde ? boss.lootHeroicHorde : []);
+    const sortedHeroicHorde = sortBossLoot(lootHeroicHorde);
+
     const newBoss: wowInstanceBoss = {
         ...boss,
         sortedLoot: sortSortedLootIntoArray(sortedNormal),
         sortedLootItems: sortedNormal,
         sortedLootHeroic: sortSortedLootIntoArray(sortedHeroic),
-        sortedLootHeroicItems: sortedHeroic
+        sortedLootHeroicItems: sortedHeroic,
+
+        sortedLootHorde: sortSortedLootIntoArray(sortedNormalHorde),
+        sortedLootItemsHorde: sortedNormalHorde,
+        sortedLootHeroicHorde: sortSortedLootIntoArray(sortedHeroicHorde),
+        sortedLootHeroicItemsHorde: sortedHeroicHorde
     }
 
     return newBoss;
@@ -194,6 +207,13 @@ async function fetchItems(instances: wowInstance[]) {
             boss.lootHeroic?.forEach(loot => {
                 toFetch.add(loot)
             })
+
+            boss.lootHorde?.forEach(loot => {
+                toFetch.add(loot);
+            })
+            boss.lootHeroicHorde?.forEach(loot => {
+                toFetch.add(loot)
+            })
         })
     })
 
@@ -210,6 +230,13 @@ async function fetchIconsFrom(instances: wowInstance[]) {
                 toFetch.add(loot.toString());
             })
             boss.lootHeroic?.forEach(loot => {
+                toFetch.add(loot.toString());
+            })
+
+            boss.lootHorde?.forEach(loot => {
+                toFetch.add(loot.toString());
+            })
+            boss.lootHeroicHorde?.forEach(loot => {
                 toFetch.add(loot.toString());
             })
         })
