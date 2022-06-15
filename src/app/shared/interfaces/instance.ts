@@ -22,12 +22,21 @@ export type wowBossType = 'A' | 'B' | 'C' | 'DD';
 export interface wowInstanceBoss {
     name: string,
     descr?: string,
+
     loot?: number[],
     lootHeroic?: number[],
     sortedLoot?: wowInstanceLootSorted,
     sortedLootHeroic?: wowInstanceLootSorted,
     sortedLootItems?: wowInstanceLootSortedItems,
     sortedLootHeroicItems?: wowInstanceLootSortedItems
+
+    lootHorde?: number[],
+    lootHeroicHorde?: number[],
+    sortedLootHorde?: wowInstanceLootSorted,
+    sortedLootHeroicHorde?: wowInstanceLootSorted,
+    sortedLootItemsHorde?: wowInstanceLootSortedItems,
+    sortedLootHeroicItemsHorde?: wowInstanceLootSortedItems
+
     hardmode?: wowInstanceHardmode[],
     hardmodeLoot?: number[]
 }
