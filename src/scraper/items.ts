@@ -24,19 +24,26 @@ export async function fetchIDS(ids: number[]) {
     const errorArr: number[] = [];
     const updatedArr: number[] = [];
 
-    // PROGRESS
-    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
-    bar1.start(ids.length, 0);
-    //
+    const idsToUpdate: number[] = [];
+
 
     for (const id of ids) {
-
         if (checkFSItem(id)) {
-            //console.log(id, 'exists')
             existsArr.push(id);
-            bar1.increment();
-            continue;
         }
+        else {
+            idsToUpdate.push(id)
+        }
+    }
+
+    // PROGRESS
+    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
+    bar1.start(ids.length, existsArr.length);
+    //
+
+    for (const id of idsToUpdate) {
+
+
 
         const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
         /* https://db.rising-gods.de/
