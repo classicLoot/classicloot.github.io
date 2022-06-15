@@ -34,87 +34,80 @@
     </div>
 </ng-template>
 
+<ng-template #loot let-boss="boss" let-sortedLoot="sortedLoot">
+    <div class="flex-item-left flex-column">
+        <!-- Misc -->
+        <ng-container *ngIf="sortedLoot.misc.length > 0" [ngTemplateOutlet]="itemList"
+            [ngTemplateOutletContext]="{boss:boss, array: sortedLoot.misc}">
+        </ng-container>
+
+        <!-- Armor -->
+        <ng-container *ngIf="sortedLoot.armor.length > 0" [ngTemplateOutlet]="itemList"
+            [ngTemplateOutletContext]="{boss:boss, array: sortedLoot.armor}">
+        </ng-container>
+    </div>
+
+    <div class="flex-item-right flex-column">
+        <!-- Token -->
+        <ng-container *ngIf="sortedLoot.tokens.length > 0" [ngTemplateOutlet]="itemList"
+            [ngTemplateOutletContext]="{boss:boss, array: sortedLoot.tokens}">
+        </ng-container>
+
+        <!-- Jewelry -->
+        <ng-container *ngIf="sortedLoot.jewelry.length > 0" [ngTemplateOutlet]="itemList"
+            [ngTemplateOutletContext]="{boss:boss, array: sortedLoot.jewelry}">
+        </ng-container>
+
+        <!-- Weapon -->
+        <ng-container *ngIf="sortedLoot.weapons.length > 0" [ngTemplateOutlet]="itemList"
+            [ngTemplateOutletContext]="{boss:boss, array:sortedLoot.weapons}">
+        </ng-container>
+    </div>
+
+    <div class="flex-item-left hardmode" *ngIf="boss.hardmode">
+        <ng-container *ngFor="let hm of boss.hardmode">
+            <app-wow-achievement [avID]="hm.id!" [descr]="hm.descr!"> </app-wow-achievement>
+        </ng-container>
+    </div>
+</ng-template>
+
 <ng-template #typeA>
     <ng-container *ngIf="boss$ | async as boss">
-        <ng-container *ngIf="boss.sortedLootItems">
-            <div class="flex-item-left flex-column">
-                <!-- Misc -->
-                <ng-container *ngIf="boss.sortedLootItems.misc.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.misc}">
-                </ng-container>
-
-                <!-- Armor -->
-                <ng-container *ngIf="boss.sortedLootItems.armor.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.armor}">
-                </ng-container>
-            </div>
-
-            <div class="flex-item-right flex-column">
-                <!-- Token -->
-                <ng-container *ngIf="boss.sortedLootItems.tokens.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.tokens}">
-                </ng-container>
-
-                <!-- Jewelry -->
-                <ng-container *ngIf="boss.sortedLootItems.jewelry.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.jewelry}">
-                </ng-container>
-
-                <!-- Weapon -->
-                <ng-container *ngIf="boss.sortedLootItems.weapons.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.weapons}">
-                </ng-container>
-            </div>
-
-            <div class="flex-item-left hardmode" *ngIf="boss.hardmode">
-                <ng-container *ngFor="let hm of boss.hardmode">
-                    <app-wow-achievement [avID]="hm.id!" [descr]="hm.descr!"> </app-wow-achievement>
-                </ng-container>
-            </div>
-
-        </ng-container>
+        <ng-container *ngIf="boss.sortedLootItems" [ngTemplateOutlet]="loot"
+            [ngTemplateOutletContext]="{boss:boss, sortedLoot: boss.sortedLootItems}"> </ng-container>
     </ng-container>
 </ng-template>
 
 <ng-template #typeB>
     <ng-container *ngIf="boss$ | async as boss">
-        <ng-container *ngIf="boss.sortedLootItems">
-            <div class="flex-item-left flex-column">
-                <!-- Misc -->
-                <ng-container *ngIf="boss.sortedLootItems.misc.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.misc}">
-                </ng-container>
+        <ng-container *ngIf="options$ | async as options" [ngSwitch]="options">
 
-                <!-- Armor -->
-                <ng-container *ngIf="boss.sortedLootItems.armor.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.armor}">
+            <ng-container *ngSwitchCase="'Normal-Alliance'">
+                <ng-container *ngIf="boss.sortedLootItems" [ngTemplateOutlet]="loot"
+                    [ngTemplateOutletContext]="{boss:boss, sortedLoot: boss.sortedLootItems}">
                 </ng-container>
-            </div>
+            </ng-container>
 
-            <div class="flex-item-right flex-column">
-                <!-- Token -->
-                <ng-container *ngIf="boss.sortedLootItems.tokens.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.tokens}">
+            <ng-container *ngSwitchCase="'Normal-Horde'">
+                <ng-container *ngIf="boss.sortedLootItemsHorde" [ngTemplateOutlet]="loot"
+                    [ngTemplateOutletContext]="{boss:boss, sortedLoot: boss.sortedLootItemsHorde}">
                 </ng-container>
+            </ng-container>
 
-                <!-- Jewelry -->
-                <ng-container *ngIf="boss.sortedLootItems.jewelry.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.jewelry}">
+            <ng-container *ngSwitchCase="'Heroic-Alliance'">
+                <ng-container *ngIf="boss.sortedLootHeroicItems" [ngTemplateOutlet]="loot"
+                    [ngTemplateOutletContext]="{boss:boss, sortedLoot: boss.sortedLootHeroicItems}">
                 </ng-container>
+            </ng-container>
 
-                <!-- Weapon -->
-                <ng-container *ngIf="boss.sortedLootItems.weapons.length > 0" [ngTemplateOutlet]="itemList"
-                    [ngTemplateOutletContext]="{boss:boss, array: boss.sortedLootItems!.weapons}">
+            <ng-container *ngSwitchCase="'Heroic-Horde'">
+                <ng-container *ngIf="boss.sortedLootHeroicItemsHorde" [ngTemplateOutlet]="loot"
+                    [ngTemplateOutletContext]="{boss:boss, sortedLoot: boss.sortedLootHeroicItemsHorde}">
                 </ng-container>
-            </div>
-
-            <div class="flex-item-left hardmode" *ngIf="boss.hardmode">
-                <ng-container *ngFor="let hm of boss.hardmode">
-                    <app-wow-achievement [avID]="hm.id!" [descr]="hm.descr!"> </app-wow-achievement>
-                </ng-container>
-            </div>
+            </ng-container>
 
         </ng-container>
+
     </ng-container>
 </ng-template>
 
