@@ -37,30 +37,19 @@ export class OptionsButtonsComponent implements OnInit {
 
   public updateSize(value: wowSize, old: wowSize): void {
     if (value != old) {
-      this.optionsStore.updateSize(value);
-
-      const size = this.optionsStore.getSize();
 
       // 10 <=> 25
       const url = this.router.routerState.snapshot.url;
 
       // e.g. Naxx10
       if (url.endsWith('10')) {
-        if (size === 10) {
-        }
-        else if (size === 25) {
-          const newURL = url.replace('10', '25');
-          this.router.navigate([newURL]);
-        }
+        const newURL = url.replace('10', '25');
+        this.router.navigate([newURL]);
       }
       // e.g. Naxx25
       else if (url.endsWith('25')) {
-        if (size === 25) {
-        }
-        else if (size === 10) {
-          const newURL = url.replace('25', '10');
-          this.router.navigate([newURL]);
-        }
+        const newURL = url.replace('25', '10');
+        this.router.navigate([newURL]);
       }
     }
   }
