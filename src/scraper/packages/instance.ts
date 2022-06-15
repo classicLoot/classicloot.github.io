@@ -80,14 +80,14 @@ function sortAndWriteInstance(instances: wowInstance[], type: 'dungeons' | 'raid
         }
 
         i.bosses.forEach(boss => {
-            const newBoss = sortBoss(boss);
+            const newBoss = sortBoss(boss, type);
             const filePath = `../assets/data/gen/${addon}/${type}/${i.link}/`;
             writeToFileAsAndCreateDir<wowInstanceBoss>(newBoss, filePath, `${sanitizeName(boss.name)}.json`);
         })
     }
 }
 
-function sortBoss(boss: wowInstanceBoss): wowInstanceBoss {
+function sortBoss(boss: wowInstanceBoss, type: 'dungeons' | 'raids'): wowInstanceBoss {
     // Ally
     const lootNormal = readIDsAsItems(boss.loot ? boss.loot : []);
     const sortedNormal = sortBossLoot(lootNormal);
@@ -113,6 +113,13 @@ function sortBoss(boss: wowInstanceBoss): wowInstanceBoss {
         sortedLootItemsHorde: sortedNormalHorde,
         sortedLootHeroicHorde: sortSortedLootIntoArray(sortedHeroicHorde),
         sortedLootHeroicItemsHorde: sortedHeroicHorde
+    }
+
+    if (lootNormalHorde.length === 0 && lootHeroicHorde.length === 0) {
+        delete newBoss.sortedLootHorde;
+        delete newBoss.sortedLootItemsHorde;
+        delete newBoss.sortedLootHeroicHorde;
+        delete newBoss.sortedLootHeroicItemsHorde;
     }
 
     return newBoss;
