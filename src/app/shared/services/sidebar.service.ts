@@ -76,10 +76,11 @@ export class SidebarService {
       map(meta => {
         const arr: menuItemExtended[] = [];
 
-        ['Naxx', 'TheEyeOfEternity', 'ObsidianSanctum', 'Ulduar', 'TrialOfTheCrusader', 'TrialOfTheGrandCrusader'].forEach(start => {
+        ['Naxx', 'TheEyeOfEternity', 'ObsidianSanctum', 'Ulduar', 'TrialOfTheCrusader'].forEach(start => {
           const filter = meta.filter(r => r.link.startsWith(start))
 
           if (filter.length === 2) {
+            /*
             arr.push({
               title: filter[0].name,
               children: filter.map(r => {
@@ -88,6 +89,12 @@ export class SidebarService {
                   link: `/raids/${r.link}`
                 }
               })
+            })
+            */
+
+            arr.push({
+              title: filter[0].name,
+              link: `/raids/${filter[0].link}`
             })
           }
         })
