@@ -31,7 +31,7 @@ export async function fetchIcons(icons: string[], size: string) {
 
     // PROGRESS
     const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
-    bar1.start(icons.length, iconsToUpdate.length);
+    bar1.start(icons.length, existsArr.length);
     //
 
     for (const icon of iconsToUpdate) {
