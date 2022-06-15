@@ -1,7 +1,8 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{bossLink.name}}</h2>
-        <app-options-buttons *ngIf="(instanceType === 'A') || (instanceType === 'B')" class="flex-item-right">
+        <app-options-buttons *ngIf="(instanceType === 'A') || (instanceType === 'B')" [bFaction]="instanceType === 'B'"
+            [bDifficulty]="instanceType === 'B'" class="flex-item-right">
         </app-options-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container" [ngSwitch]="instanceType">
