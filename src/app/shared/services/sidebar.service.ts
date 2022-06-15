@@ -94,7 +94,8 @@ export class SidebarService {
 
             arr.push({
               title: filter[0].name,
-              link: `/raids/${filter[0].link}`
+              link: `/raids/${filter[0].link}`,
+              linkTwo: `/raids/${filter[1].link}`
             })
           }
         })
