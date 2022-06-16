@@ -76,7 +76,7 @@ export class SidebarService {
       map(meta => {
         const arr: menuItemExtended[] = [];
 
-        ['Naxx', 'TheEyeOfEternity', 'ObsidianSanctum', 'Ulduar', 'TrialOfTheCrusader', 'Onyxia', 'IcecrownCitadel', 'TheRubySanctum'].forEach(start => {
+        ['Naxx', 'TheEyeOfEternity', 'ObsidianSanctum', 'Ulduar', 'TrialOfTheCrusader', 'Onyxia', 'IcecrownCitadel', 'TheRubySanctum', 'VaultOfArchavon'].forEach(start => {
           const filter = meta.filter(r => r.link.startsWith(start))
 
           if (filter.length === 2) {

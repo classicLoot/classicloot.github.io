@@ -1,8 +1,9 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{bossLink.name}}</h2>
-        <app-options-buttons *ngIf="(instanceType === 'A') || (instanceType === 'B')" [bFaction]="instanceType === 'B'"
-            [bDifficulty]="instanceType === 'B'" class="flex-item-right">
+        <app-options-buttons *ngIf="['A','B','C','D'].includes(instanceType)"
+            [bFaction]="['B','D'].includes(instanceType)" [bDifficulty]="['B','C'].includes(instanceType)"
+            class="flex-item-right">
         </app-options-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container" [ngSwitch]="instanceType">
@@ -10,11 +11,14 @@
         <!-- Type A = Naxx etc -->
         <ng-container *ngSwitchCase="'A'" [ngTemplateOutlet]="typeA"> </ng-container>
 
-        <!-- Type B -->
+        <!-- Type B TotC -->
         <ng-container *ngSwitchCase="'B'" [ngTemplateOutlet]="typeB"> </ng-container>
 
-        <!-- Type C -->
+        <!-- Type C ICC/Halion -->
         <ng-container *ngSwitchCase="'C'" [ngTemplateOutlet]="typeC"> </ng-container>
+
+        <!-- Type D VaultOfArchavon -->
+        <ng-container *ngSwitchCase="'D'" [ngTemplateOutlet]="typeD"> </ng-container>
 
         <!-- Type DD = Dungeons -->
         <ng-container *ngSwitchCase="'DD'" [ngTemplateOutlet]="typeDD"> </ng-container>
@@ -114,6 +118,12 @@
 <ng-template #typeC>
     <ng-container *ngIf="boss$ | async as boss">
         CCC
+    </ng-container>
+</ng-template>
+
+<ng-template #typeD>
+    <ng-container *ngIf="boss$ | async as boss">
+        DDD
     </ng-container>
 </ng-template>
 
