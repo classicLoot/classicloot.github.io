@@ -32,3 +32,15 @@ Pit of Saron
 Halls of Reflection
 Toravon
 Season 8
+
+
+Phase "69"
+Archavon => 1/2/3/4
+
+-------------------------------
+Type A:  10 + 25 + Hardmode(optional) (Naxx/Malygos/Sartharion) + (Ulduar) + (Onyxia)
+Type B:  10/10hc ally/horde + 25/25hc ally/horde (TotC)
+Type C:  10/10hc + 20/25hc (ICC/Halion)
+Type D:  10/25 ally/horde (VaultOfArchavon)
+
+Type DD: Dungeons
