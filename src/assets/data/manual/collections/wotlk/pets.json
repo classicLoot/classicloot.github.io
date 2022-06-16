@@ -1,0 +1,47 @@
+{
+    "name": "Pets",
+    "subCollections": [
+        {
+            "name": "Pets Merchant",
+            "prefixes": [
+                "PetsMerchant"
+            ]
+        },
+        {
+            "name": "Pets Quest/Crafted",
+            "prefixes": [
+                "PetsQuestCrafted"
+            ]
+        },
+        {
+            "name": "Pets Rare",
+            "prefixes": [
+                "PetsRare"
+            ]
+        },
+        {
+            "name": "Pets Event",
+            "prefixes": [
+                "PetsEvent"
+            ]
+        },
+        {
+            "name": "Pets Promotional",
+            "prefixes": [
+                "PetsPromotional"
+            ]
+        },
+        {
+            "name": "Pets Store",
+            "prefixes": [
+                "PetsPetStore"
+            ]
+        },
+        {
+            "name": "Pets Accessories",
+            "prefixes": [
+                "PetsAccessories"
+            ]
+        }
+    ]
+}

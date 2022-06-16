@@ -1,0 +1,29 @@
+{
+    "name": "Emblems",
+    "subCollections": [
+        {
+            "name": "Emblem of Heroism",
+            "prefixes": [
+                "EmblemofHeroism"
+            ]
+        },
+        {
+            "name": "Emblem of Valor",
+            "prefixes": [
+                "EmblemofValor"
+            ]
+        },
+        {
+            "name": "Emblem of Triumph",
+            "prefixes": [
+                "EmblemofTriumph"
+            ]
+        },
+        {
+            "name": "Emblem of Frost",
+            "prefixes": [
+                "EmblemofFrost"
+            ]
+        }
+    ]
+}

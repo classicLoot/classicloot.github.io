@@ -67,7 +67,7 @@ export function writeToFileAsAndCreateDir<T>(file: T, dir: string, filename: str
 }
 
 export function sanitizeName(str: string) {
-    let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "");
+    let newStr = str.replaceAll(" ", "").replaceAll("'", "").replaceAll("-", "").replaceAll("/", "");
     return newStr;
 }
 
