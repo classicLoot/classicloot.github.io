@@ -19,7 +19,6 @@ export class InstancebossCardComponent implements OnInit, OnChanges {
 
   faction$: Observable<wowFaction>;
   difficulty$: Observable<wowDifficulty>
-
   options$: Observable<string>;
 
   constructor(private instanceDataService: InstancedataService, private optionsStore: OptionsStoreService) {
