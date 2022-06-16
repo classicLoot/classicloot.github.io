@@ -43,13 +43,23 @@ nb-card-body {
         }
 
         // raids
-        // P1 -> P3
+        // P1 -> P2
         .borderR:nth-child(7) {
             border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
         }
 
+        // P2 -> P3
+        .borderR:nth-child(11) {
+            border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
+        }
+
         // P3 -> P4
-        .borderR:nth-child(9) {
+        .borderR:nth-child(13) {
+            border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
+        }
+
+        // P4 -> P6
+        .borderR:nth-child(17) {
             border-bottom: var(--card-divider-width) var(--card-divider-style) var(--card-divider-color);
         }
 
