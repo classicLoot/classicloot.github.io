@@ -1,0 +1,35 @@
+{
+    "name": "Special Items",
+    "subCollections": [
+        {
+            "name": "Legendaries",
+            "prefixes": [
+                "Legendaries"
+            ]
+        },
+        {
+            "name": "World Epics",
+            "prefixes": [
+                "WorldEpicsWrath"
+            ]
+        },
+        {
+            "name": "Heirlooms",
+            "prefixes": [
+                "Heirloom"
+            ]
+        },
+        {
+            "name": "Card Game",
+            "prefixes": [
+                "CardGame"
+            ]
+        },
+        {
+            "name": "Wotlk Sets",
+            "prefixes": [
+                "WOTLKSets"
+            ]
+        }
+    ]
+}
