@@ -96,7 +96,7 @@ export function wowSlotTransform(id: number): string {
 export function wowMiscTransform(item: wowItem): string {
     switch (+item.wowSubClass) {
         case 0: return 'Misc, Junk';
-
+        case 4: return 'Armor Token';
         case -2: return 'Armor Token';
         case -7: return 'Flying Mount';
 

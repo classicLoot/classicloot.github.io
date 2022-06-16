@@ -20,12 +20,9 @@
 <!-- Single Links with LinkTwo-->
 <ng-container *ngIf="menuItem.link && menuItem.linkTwo && !menuItem.url && !menuItem.children && !menuItem.group">
     <ng-container *ngIf="size$ | async as size">
-        <ng-container *ngIf="size === 10" [ngTemplateOutlet]="singleLinkWithLinkTwo"
-            [ngTemplateOutletContext]="{link:menuItem.link}"> </ng-container>
-        <ng-container *ngIf="size === 25" [ngTemplateOutlet]="singleLinkWithLinkTwo"
-            [ngTemplateOutletContext]="{link:menuItem.linkTwo}"> </ng-container>
+        <ng-container [ngTemplateOutlet]="singleLinkWithLinkTwo"
+            [ngTemplateOutletContext]="{link: size === 10? menuItem.link : menuItem.linkTwo}"> </ng-container>
     </ng-container>
-
 </ng-container>
 
 <ng-template #singleLinkWithLinkTwo let-link="link">

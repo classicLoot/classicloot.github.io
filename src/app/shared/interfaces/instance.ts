@@ -17,7 +17,7 @@ export interface wowInstance {
     bossLinks?: wowInstanceBossLink[]
 }
 
-export type wowBossType = 'A' | 'B' | 'C' | 'DD';
+export type wowBossType = 'A' | 'B' | 'C' | 'D' | 'DD';
 
 export interface wowInstanceBoss {
     name: string,
