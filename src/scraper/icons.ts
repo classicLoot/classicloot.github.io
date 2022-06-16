@@ -18,20 +18,23 @@ export async function fetchIcons(icons: string[], size: string) {
     const errorArr: string[] = [];
     const updatedArr: string[] = [];
 
-    // PROGRESS
-    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
-    bar1.start(icons.length, 0);
-    //
+    const iconsToUpdate: string[] = [];
 
     for (const icon of icons) {
-
         if (checkFSIcon(icon, size)) {
-            //console.log(icon, 'exists');
             existsArr.push(icon);
-            bar1.increment();
-            continue;
         }
+        else {
+            iconsToUpdate.push(icon);
+        }
+    }
 
+    // PROGRESS
+    const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
+    bar1.start(icons.length, existsArr.length);
+    //
+
+    for (const icon of iconsToUpdate) {
         try {
             const response = await fetch(`https://wotlkdb.com/static/images/wow/icons/${size}/${icon}.jpg`);
             const buffer = await response.buffer();
