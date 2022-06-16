@@ -1,0 +1,18 @@
+<nb-card #bossList>
+    <nb-card-header>
+        <h2 class="flex-item-left">{{subLink.name}}</h2>
+    </nb-card-header>
+    <nb-card-body class="flex-container">
+        <ng-container *ngIf="sub$ | async as sub">
+
+
+            <div *ngFor="let item of sub.itemData">
+                <app-wow-item-lazy [item]="item" [itemSize]="'large'">
+                </app-wow-item-lazy>
+            </div>
+        </ng-container>
+
+
+
+    </nb-card-body>
+</nb-card>
