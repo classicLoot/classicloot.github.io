@@ -21,3 +21,23 @@ h2 {
     flex-wrap: wrap;
     gap: 40px;
 }
+
+@media (max-width: 768px) {
+
+    .flex-container {
+        gap: 40px;
+    }
+
+    .flex-item-right,
+    .flex-item-left {
+        flex: 100%;
+    }
+
+    .hardmode {
+        margin-top: 0;
+    }
+
+    nb-card-header {
+        gap: 5px
+    }
+}
