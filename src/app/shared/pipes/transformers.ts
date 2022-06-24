@@ -49,6 +49,8 @@ export function wowArmorTransform(item: wowItem): string {
         case 7: return wowSlotTransform(item.slot) + ', Libram';
         case 8: return wowSlotTransform(item.slot) + ', Idol';
         case 9: return wowSlotTransform(item.slot) + ', Totem';
+        case 10: return wowSlotTransform(item.slot) + ', Sigil';
+
 
 
         case -2: return 'Ring';
@@ -96,7 +98,9 @@ export function wowSlotTransform(id: number): string {
 export function wowMiscTransform(item: wowItem): string {
     switch (+item.wowSubClass) {
         case 0: return 'Misc, Junk';
+        case 2: return 'Pet'
         case 4: return 'Armor Token';
+        case 5: return 'Mount';
         case -2: return 'Armor Token';
         case -7: return 'Flying Mount';
 
