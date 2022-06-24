@@ -165,7 +165,7 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
         ];
 
         left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
-        right = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+        right = right.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
 
         mid = [];
     }
