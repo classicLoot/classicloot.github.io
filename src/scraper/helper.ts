@@ -94,7 +94,7 @@ export function sortBossLoot(items: wowItem[]): wowInstanceLootSortedItems {
         // Armor
         else if (+item.wowClass === 4) {
             // Shield, Libram, Totem, Off-Hand => Weapon
-            if ([6, 7, 8, 9, -5].includes(+item.wowSubClass)) {
+            if ([6, 7, 8, 9, 10, -5].includes(+item.wowSubClass)) {
                 weapons.push(item);
             }
             // Ring, Neck or Trinket => Jewelry

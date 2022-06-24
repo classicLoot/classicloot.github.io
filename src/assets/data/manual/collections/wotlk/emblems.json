@@ -24,19 +24,6 @@
             "prefixes": [
                 "EmblemofFrost"
             ]
-        },
-        {
-            "name": "Test",
-            "groups": [
-                {
-                    "name": "testGroup ",
-                    "ids": [
-                        51534,
-                        49086,
-                        45983
-                    ]
-                }
-            ]
         }
     ]
 }
