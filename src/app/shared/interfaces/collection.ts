@@ -11,7 +11,6 @@ export interface wowCollection {
 export interface wowSubCollection {
     name: string,
     descr?: string,
-    prefixes?: string[],
     ids?: number[],
     itemData?: wowItem[],
     groups?: wowSubCollectionGroup[],

@@ -1,7 +1,5 @@
 import { wowCollection, wowCollectionSubLink, wowCollectionType, wowSubCollection, wowSubCollectionGroup } from "../../app/shared/interfaces/collection";
 import { wowItem } from '../../app/shared/interfaces/item';
-import { wowAtlas } from "../../assets/external/atlasWotlk";
-import { getAtlas } from "../atlas";
 import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
 import { fetchIDS } from '../items';
@@ -32,29 +30,10 @@ export async function processCollections(type: wowCollectionType, addon: 'wotlk'
 }
 
 function processIndividual(coll: wowCollection) {
-    //console.log('Collection: ', coll.name)
+    //console.log('Collection: ', coll.name)   
 
-    let newColl: wowCollection = { ...coll };
-
-    let subCollectionArray: wowSubCollection[] = [];
-
-    coll.subCollections?.forEach(sub => {
-        let idArray: number[] = [];
-        sub.prefixes?.forEach(pre => {
-            //console.log('-> ', pre)
-            const ids = getFromAtlas('wotlk', pre);
-            idArray = [...idArray, ...ids];
-        })
-
-        subCollectionArray.push({
-            ...sub,
-            ids: idArray
-        })
-    })
-
-    newColl = {
-        ...newColl,
-        subCollections: subCollectionArray,
+    const newColl = {
+        ...coll,
         link: sanitizeName(coll.name)
     };
 
@@ -181,8 +160,6 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
 
     delete newSub.groups;
     delete newSub.ids;
-    delete newSub.prefixes;
-
 
     return newSub;
 }
@@ -228,20 +205,4 @@ async function fetchIconsFrom(colls: wowCollection[]) {
     const items = readFilesFromDirAs<wowItem>(`../assets/items/`, fetchArray, '.json');
 
     await fetchIcons(items.map(i => i.icon), 'large');
-}
-
-
-function getFromAtlas(addon: 'wotlk' = 'wotlk', pre: string): number[] {
-    const atlas = getAtlas();
-    const keys = Object.keys(atlas);
-    const matching = keys.filter(k => k.startsWith(pre));
-
-
-    let ids: number[] = [];
-    matching.forEach(m => {
-        const matchingIds: number[] = atlas[m];
-        ids = [...ids, ...matchingIds];
-    })
-
-    return ids;
 }
