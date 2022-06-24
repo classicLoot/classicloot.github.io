@@ -1,5 +1,5 @@
 import { wowInstance, wowInstanceBoss, wowInstanceBossLink, wowInstanceLootSorted, wowInstanceLootSortedItems } from "../../app/shared/interfaces/instance";
-import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFileAsAndCreateDir } from "../helper";
+import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from "../helper";
 import fs from 'fs';
 import path from 'path';
 import { wowItem } from "../../app/shared/interfaces/item";
@@ -125,67 +125,7 @@ function sortBoss(boss: wowInstanceBoss, type: 'dungeons' | 'raids'): wowInstanc
     return newBoss;
 }
 
-function sortBossLoot(items: wowItem[]): wowInstanceLootSortedItems {
 
-    let armor: wowItem[] = [];
-    let jewelry: wowItem[] = [];
-    let weapons: wowItem[] = [];
-    let tokens: wowItem[] = [];
-    let misc: wowItem[] = [];
-
-    items.forEach(item => {
-        // Weapon
-        if (+item.wowClass === 2) {
-            weapons.push(item);
-        }
-        // Armor
-        else if (+item.wowClass === 4) {
-            // Shield, Libram, Totem, Off-Hand => Weapon
-            if ([6, 7, 8, 9, -5].includes(+item.wowSubClass)) {
-                weapons.push(item);
-            }
-            // Ring, Neck or Trinket => Jewelry
-            else if ([-2, -3, -4].includes(+item.wowSubClass)) {
-                jewelry.push(item);
-            }
-            else {
-
-                armor.push(item);
-            }
-        }
-        // Misc
-        else {
-            // Tier Token
-            if (+item.wowSubClass === -2) {
-                tokens.push(item);
-
-            }
-            else {
-                misc.push(item);
-            }
-        }
-    })
-
-    armor.sort((a, b) => +a.wowSubClass - +b.wowSubClass);
-    jewelry.sort((a, b) => a.wowSubClass - +b.wowSubClass);
-    weapons.sort((a, b) => +a.wowSubClass - +b.wowSubClass);
-    tokens.sort((a, b) => +a.id - +b.id);
-
-    armor.sort((a, b) => +a.ilvl - +b.ilvl);
-    jewelry.sort((a, b) => +a.ilvl - +b.ilvl);
-    weapons.sort((a, b) => +a.ilvl - +b.ilvl);
-    tokens.sort((a, b) => +a.ilvl - +b.ilvl);
-
-    const sorted: wowInstanceLootSortedItems = {
-        armor: armor,
-        jewelry: jewelry,
-        weapons: weapons,
-        tokens: tokens,
-        misc: misc
-    }
-
-    return sorted;
-}
 
 function sortSortedLootIntoArray(sorted: wowInstanceLootSortedItems): wowInstanceLootSorted {
     const misc = sorted.misc.map(i => i.id);

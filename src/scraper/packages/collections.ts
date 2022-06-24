@@ -1,9 +1,10 @@
-import { wowCollection, wowCollectionSubLink, wowCollectionType, wowSubCollection } from "../../app/shared/interfaces/collection";
+import { wowCollection, wowCollectionSubLink, wowCollectionType, wowSubCollection, wowSubCollectionGroup } from "../../app/shared/interfaces/collection";
 import { wowItem } from '../../app/shared/interfaces/item';
 import { wowAtlas } from "../../assets/external/atlasWotlk";
-import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
+import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
 import { fetchIDS } from '../items';
+
 
 
 await processCollections('collections', 'wotlk');
@@ -109,10 +110,78 @@ function sortAndWriteCollections(colls: wowCollection[], type: wowCollectionType
 function sortSubCollection(sub: wowSubCollection): wowSubCollection {
     const itemData = readIDsAsItems(sub.ids ? sub.ids : []);
 
+    let grps: wowSubCollectionGroup[] = [];
+    let left: wowSubCollectionGroup[] = [];
+    let mid: wowSubCollectionGroup[] = [];
+    let right: wowSubCollectionGroup[] = [];
+
+    if (sub.groups) {
+
+        grps = sub.groups.map(grp => {
+            const itemDataGroup = readIDsAsItems(grp.ids ? grp.ids : []);
+            return {
+                ...grp,
+                itemData: itemDataGroup,
+                pos: grp.pos ? grp.pos : 'mid'
+            }
+        })
+
+        left = grps.filter(grp => grp.pos === 'left');
+        mid = grps.filter(grp => grp.pos === 'mid');
+        right = grps.filter(grp => grp.pos === 'right');
+    }
+
+    // group/sort manually
+    else {
+
+        const groupBy: string = sub.groupBy ? sub.groupBy : 'default';
+
+        const sorted = sortBossLoot(itemData);
+
+        left = [
+            {
+                name: 'misc',
+                itemData: sorted.misc
+            },
+            {
+                name: 'armor',
+                itemData: sorted.armor
+            }
+        ];
+
+        right = [
+            {
+                name: 'tokens',
+                itemData: sorted.tokens
+            },
+            {
+                name: 'jewelry',
+                itemData: sorted.jewelry
+            },
+            {
+                name: 'weapons',
+                itemData: sorted.weapons
+            }
+        ];
+
+        left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+        right = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+        mid = [];
+    }
+
+
     const newSub: wowSubCollection = {
         ...sub,
-        itemData: itemData
+        left: left,
+        mid: mid,
+        right: right,
     }
+
+    delete newSub.groups;
+    delete newSub.ids;
+    delete newSub.prefixes;
+
 
     return newSub;
 }
@@ -125,7 +194,13 @@ async function fetchItems(colls: wowCollection[]) {
             sub.ids?.forEach(id => {
                 toFetch.add(id);
             })
+            sub.groups?.forEach(grp => {
+                grp.ids?.forEach(id => {
+                    toFetch.add(id);
+                })
+            })
         })
+
     })
 
     const ItemIDArray: number[] = Array.from(toFetch.values());
@@ -139,6 +214,11 @@ async function fetchIconsFrom(colls: wowCollection[]) {
         coll.subCollections?.forEach(sub => {
             sub.ids?.forEach(id => {
                 toFetch.add(id.toString());
+            })
+            sub.groups?.forEach(grp => {
+                grp.ids?.forEach(id => {
+                    toFetch.add(id.toString());
+                })
             })
         })
     })
