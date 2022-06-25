@@ -37,7 +37,7 @@
 <!-- Templates -->
 
 <ng-template #itemList let-array="array">
-    <div>
+    <div *ngIf="array.length > 0">
         <div *ngFor="let item of array">
             <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
         </div>

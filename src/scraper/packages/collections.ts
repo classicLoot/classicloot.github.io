@@ -7,6 +7,7 @@ import { fetchIDS } from '../items';
 
 
 await processCollections('collections', 'wotlk');
+await processCollections('reputation', 'wotlk');
 
 export async function processCollections(type: wowCollectionType, addon: 'wotlk') {
     const filePath = `../assets/data/manual/${type}/${addon}/`;

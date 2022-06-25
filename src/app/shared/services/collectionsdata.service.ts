@@ -11,6 +11,8 @@ import { GlobalStoreService } from './global-store.service';
 export class CollectionsdataService {
 
   private collectionsMeta$!: Observable<wowCollection[]>;
+  private reputationMeta$!: Observable<wowCollection[]>;
+
 
   private currentCollection$!: Observable<wowCollection>;
 
@@ -24,6 +26,16 @@ export class CollectionsdataService {
     }
 
     return this.collectionsMeta$;
+  }
+
+  public getReputationMeta$(addon: wowAddon) {
+    if (!this.reputationMeta$) {
+      this.reputationMeta$ = this.http.get<wowCollection[]>(`../../../assets/data/gen/${addon}/reputation/meta.json`).pipe(
+        shareReplay(1)
+      )
+    }
+
+    return this.reputationMeta$;
   }
 
   public getCurrentCollection$(): Observable<wowCollection> {

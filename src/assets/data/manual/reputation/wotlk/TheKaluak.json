@@ -1,0 +1,58 @@
+{
+    "name": "Kalu'ak",
+    "subCollections": [
+        {
+            "name": "Neutral",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [
+                        41568,
+                        44049
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [
+                        44061,
+                        44062,
+                        44054,
+                        44055,
+                        44059,
+                        44060,
+                        44057,
+                        44058,
+                        44511,
+                        41574
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        44051,
+                        44052,
+                        44053,
+                        44509,
+                        45774
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44050,
+                        44723
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}

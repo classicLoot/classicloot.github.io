@@ -34,4 +34,4 @@ export interface wowCollectionSubLink {
     link: string
 }
 
-export type wowCollectionType = 'collections';
+export type wowCollectionType = 'collections' | 'reputation';

@@ -39,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'reputation',
-        loadChildren: () => import('src/app/features/reputation/reputation.module').then(m => m.ReputationModule)
+        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
       },
       {
         path: '*',

@@ -1,0 +1,56 @@
+{
+    "name": "Kirin Tor",
+    "subCollections": [
+        {
+            "name": "Reputation",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [
+                        43157
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [
+                        44167,
+                        44170,
+                        44171,
+                        44166,
+                        44141
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        44179,
+                        44176,
+                        44173,
+                        44174,
+                        44159
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44180,
+                        44181,
+                        44182,
+                        44183,
+                        41718,
+                        42188
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}

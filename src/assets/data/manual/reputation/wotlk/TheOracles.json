@@ -1,0 +1,50 @@
+{
+    "name": "The Oracles",
+    "subCollections": [
+        {
+            "name": "Neutral",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [
+                        41567,
+                        44065
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        39878,
+                        44104,
+                        44106,
+                        44110,
+                        44109,
+                        44112,
+                        44111,
+                        44108,
+                        41724
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44074
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}
