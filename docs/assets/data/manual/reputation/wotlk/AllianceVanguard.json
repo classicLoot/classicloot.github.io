@@ -1,0 +1,47 @@
+{
+    "name": "Alliance Vanguard",
+    "subCollections": [
+        {
+            "name": "Reputation",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        38459,
+                        38465,
+                        38455,
+                        38463,
+                        38453,
+                        38457,
+                        38464
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44503,
+                        44937,
+                        44701
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}
