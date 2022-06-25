@@ -1,0 +1,47 @@
+{
+    "name": "Mounts",
+    "subCollections": [
+        {
+            "name": "Alliance",
+            "prefixes": [
+                "MountsAlliance"
+            ]
+        },
+        {
+            "name": "Horde",
+            "prefixes": [
+                "MountsHorde"
+            ]
+        },
+        {
+            "name": "Reputation",
+            "prefixes": [
+                "MountsFaction"
+            ]
+        },
+        {
+            "name": "PVP",
+            "prefixes": [
+                "MountsPvP"
+            ]
+        },
+        {
+            "name": "Rare",
+            "prefixes": [
+                "MountsRare"
+            ]
+        },
+        {
+            "name": "Crafted/Quests/Promotion",
+            "prefixes": [
+                "MountsCraftQuestPromotion"
+            ]
+        },
+        {
+            "name": "Events",
+            "prefixes": [
+                "MountsEvent"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+<nb-card #bossList>
+    <nb-card-header>
+        <h2 class="flex-item-left">{{subLink.name}}</h2>
+    </nb-card-header>
+    <nb-card-body class="flex-container">
+        <ng-container *ngIf="sub$ | async as sub">
+            <div class="flex-item-left flex-column">
+                <ng-container *ngFor="let entry of sub.left">
+                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
+                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <div class="flex-item-right flex-column">
+                <ng-container *ngFor="let entry of sub.right">
+                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
+                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <div class="flex-column">
+                <ng-container *ngFor="let entry of sub.mid">
+                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
+                        [ngTemplateOutletContext]="{array: entry.itemData, title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+
+
+
+    </nb-card-body>
+</nb-card>
+
+<!-- Templates -->
+
+<ng-template #itemList let-array="array" let-title="title">
+    <div *ngIf="array.length > 0">
+        <span>{{title}}</span>
+        <div *ngFor="let item of array">
+            <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
+        </div>
+    </div>
+</ng-template>

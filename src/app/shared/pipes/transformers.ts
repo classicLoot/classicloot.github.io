@@ -3,6 +3,11 @@ import { wowItem } from "../interfaces/item";
 export function wowRecipeTransform(item: wowItem): string {
     const base = 'Recipe -'
     switch (+item.wowSubClass) {
+        case 1: return base + ' Leatherworking';
+        case 2: return base + ' Tailoring';
+        case 3: return base + ' Engineering';
+        case 4: return base + ' Blacksmithing';
+
         case 10: return base + ' Jewelcrafting';
 
 
@@ -31,6 +36,7 @@ export function wowWeaponTransform(item: wowItem): string {
 
         case 18: return 'Ranged, Crossbow';
         case 19: return 'Ranged, Wand';
+        case 20: return 'Fishing Pole';
 
         default: return 'Weapon - NYI';
     }
@@ -49,6 +55,8 @@ export function wowArmorTransform(item: wowItem): string {
         case 7: return wowSlotTransform(item.slot) + ', Libram';
         case 8: return wowSlotTransform(item.slot) + ', Idol';
         case 9: return wowSlotTransform(item.slot) + ', Totem';
+        case 10: return wowSlotTransform(item.slot) + ', Sigil';
+
 
 
         case -2: return 'Ring';
@@ -56,6 +64,7 @@ export function wowArmorTransform(item: wowItem): string {
         case -4: return 'Trinket';
         case -5: return 'Held In Off-Hand';
         case -6: return 'Cloak';
+        case -7: return 'Tabard';
 
         default: return '*Armor* - NYI';
     }
@@ -96,7 +105,9 @@ export function wowSlotTransform(id: number): string {
 export function wowMiscTransform(item: wowItem): string {
     switch (+item.wowSubClass) {
         case 0: return 'Misc, Junk';
+        case 2: return 'Pet'
         case 4: return 'Armor Token';
+        case 5: return 'Mount';
         case -2: return 'Armor Token';
         case -7: return 'Flying Mount';
 

@@ -17,6 +17,7 @@ export class ItemSubtextPipe implements PipeTransform {
       case 0: return wowConsumableTransform(value);
       case 1: return 'Container';
       case 2: return wowWeaponTransform(value);
+      case 3: return 'Gem';
       case 4: return wowArmorTransform(value);
       case 7: return 'Trade Goods';
       case 9: return wowRecipeTransform(value);
