@@ -2,7 +2,7 @@
     "name": "The Wyrmrest Accord",
     "subCollections": [
         {
-            "name": "Neutral",
+            "name": "Reputation",
             "groups": [
                 {
                     "name": "neutral",

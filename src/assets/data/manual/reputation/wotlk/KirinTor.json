@@ -5,7 +5,7 @@
             "name": "Reputation",
             "groups": [
                 {
-                    "name": "neutral",
+                    "name": "Reputation",
                     "ids": [],
                     "pos": "left"
                 },

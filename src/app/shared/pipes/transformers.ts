@@ -3,6 +3,11 @@ import { wowItem } from "../interfaces/item";
 export function wowRecipeTransform(item: wowItem): string {
     const base = 'Recipe -'
     switch (+item.wowSubClass) {
+        case 1: return base + ' Leatherworking';
+        case 2: return base + ' Tailoring';
+        case 3: return base + ' Engineering';
+        case 4: return base + ' Blacksmithing';
+
         case 10: return base + ' Jewelcrafting';
 
 
@@ -31,6 +36,7 @@ export function wowWeaponTransform(item: wowItem): string {
 
         case 18: return 'Ranged, Crossbow';
         case 19: return 'Ranged, Wand';
+        case 20: return 'Fishing Pole';
 
         default: return 'Weapon - NYI';
     }
@@ -58,6 +64,7 @@ export function wowArmorTransform(item: wowItem): string {
         case -4: return 'Trinket';
         case -5: return 'Held In Off-Hand';
         case -6: return 'Cloak';
+        case -7: return 'Tabard';
 
         default: return '*Armor* - NYI';
     }
