@@ -1,0 +1,150 @@
+{
+    "name": "Tier 10",
+    "subCollections": [
+        {
+            "name": "Deathknight",
+            "groups": [
+                {
+                    "name": "DPS",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Tank",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Druid",
+            "groups": [
+                {
+                    "name": "Feral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Restoration",
+                    "ids": [],
+                    "pos": "right"
+                },
+                {
+                    "name": "Balance",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Hunter",
+            "groups": [
+                {
+                    "name": "DPS",
+                    "ids": [],
+                    "pos": "left"
+                }
+            ]
+        },
+        {
+            "name": "Mage",
+            "groups": [
+                {
+                    "name": "DPS",
+                    "ids": [],
+                    "pos": "left"
+                }
+            ]
+        },
+        {
+            "name": "Paladin",
+            "groups": [
+                {
+                    "name": "Holy",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Retribution",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Protection",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Priest",
+            "groups": [
+                {
+                    "name": "Shadow",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Holy",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Rogue",
+            "groups": [
+                {
+                    "name": "DPS",
+                    "ids": [],
+                    "pos": "left"
+                }
+            ]
+        },
+        {
+            "name": "Shaman",
+            "groups": [
+                {
+                    "name": "Restoration",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Enhancement",
+                    "ids": [],
+                    "pos": "right"
+                },
+                {
+                    "name": "Elemental",
+                    "ids": [],
+                    "pos": "left"
+                }
+            ]
+        },
+        {
+            "name": "Warlock",
+            "groups": [
+                {
+                    "name": "DPS",
+                    "ids": [],
+                    "pos": "left"
+                }
+            ]
+        },
+        {
+            "name": "Warrior",
+            "groups": [
+                {
+                    "name": "Fury",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "Protection",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}

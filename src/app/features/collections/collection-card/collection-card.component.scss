@@ -1,0 +1,43 @@
+h2 {
+    margin: 0;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item-left {
+    flex: 50%;
+}
+
+.flex-item-right {
+    flex: 50%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+@media (max-width: 768px) {
+
+    .flex-container {
+        gap: 40px;
+    }
+
+    .flex-item-right,
+    .flex-item-left {
+        flex: 100%;
+    }
+
+    .hardmode {
+        margin-top: 0;
+    }
+
+    nb-card-header {
+        gap: 5px
+    }
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
 import { wowAddon } from '../types/addon';
+import { CollectionsdataService } from './collectionsdata.service';
 import { GlobalStoreService } from './global-store.service';
 import { InstancedataService } from './instancedata.service';
 
@@ -14,7 +15,7 @@ export class SidebarService {
 
   menuItems$: Observable<menuItemExtended[]>;
 
-  constructor(private globalStore: GlobalStoreService, private instanceDataService: InstancedataService) {
+  constructor(private globalStore: GlobalStoreService, private instanceDataService: InstancedataService, private collectionsDataService: CollectionsdataService) {
     this.menuItems$ = this.setupMenuItems$();
   }
 
@@ -40,6 +41,12 @@ export class SidebarService {
         }
         if (route.startsWith('/raids')) {
           return this.raidsMenu$(addon);
+        }
+        if (route.startsWith('/collections')) {
+          return this.collectionsMenu$(addon);
+        }
+        if (route.startsWith('/reputation')) {
+          return this.reputationMenu$(addon);
         }
 
         return of([]);
@@ -105,6 +112,46 @@ export class SidebarService {
     )
 
     return raidMenu$;
+  }
+
+  private collectionsMenu$(addon: wowAddon): Observable<menuItemExtended[]> {
+    const meta$ = this.collectionsDataService.getCollectionsMeta$(addon);
+    const collMenu$ = meta$.pipe(
+      map(meta => {
+        const arr: menuItemExtended[] = [];
+
+        meta.forEach(d => {
+          const newItem: menuItemExtended = {
+            title: d.name,
+            link: `/collections/${d.link}`
+          }
+          arr.push(newItem);
+        })
+        return arr;
+      })
+    );
+
+    return collMenu$;
+  }
+
+  private reputationMenu$(addon: wowAddon): Observable<menuItemExtended[]> {
+    const meta$ = this.collectionsDataService.getReputationMeta$(addon);
+    const repuMenu$ = meta$.pipe(
+      map(meta => {
+        const arr: menuItemExtended[] = [];
+
+        meta.forEach(d => {
+          const newItem: menuItemExtended = {
+            title: d.name,
+            link: `/reputation/${d.link}`
+          }
+          arr.push(newItem);
+        })
+        return arr;
+      })
+    );
+
+    return repuMenu$;
   }
 
 }

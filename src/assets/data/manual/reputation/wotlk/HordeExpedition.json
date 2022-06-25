@@ -1,0 +1,47 @@
+{
+    "name": "Horde Expedition",
+    "subCollections": [
+        {
+            "name": "Reputation",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        38458,
+                        38461,
+                        38454,
+                        38452,
+                        38462,
+                        38456,
+                        38460
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44502,
+                        44938,
+                        44702
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}

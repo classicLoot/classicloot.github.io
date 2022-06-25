@@ -35,6 +35,11 @@ export class HeaderService {
       title: 'Reputations',
       link: '/reputation',
       titleTwo: ''
+    },
+    {
+      title: 'Collections',
+      link: '/collections',
+      titleTwo: ''
     }
   ];
 

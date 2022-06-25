@@ -1,0 +1,4 @@
+<div *ngIf="currentCollection$ | async as current">
+    <h1>{{current.name}}</h1>
+    <app-collection-card *ngFor="let sub of current.subLinks" [subLink]="sub"></app-collection-card>
+</div>

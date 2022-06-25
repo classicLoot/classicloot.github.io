@@ -18,6 +18,10 @@ const routes: Routes = [
         loadChildren: () => import('src/app/features/crafting/crafting.module').then(m => m.CraftingModule)
       },
       {
+        path: 'collections',
+        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
+      },
+      {
         path: 'dungeons',
         loadChildren: () => import('src/app/features/instance/instance.module').then(m => m.InstanceModule)
       },
@@ -35,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: 'reputation',
-        loadChildren: () => import('src/app/features/reputation/reputation.module').then(m => m.ReputationModule)
+        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
       },
       {
         path: '*',
