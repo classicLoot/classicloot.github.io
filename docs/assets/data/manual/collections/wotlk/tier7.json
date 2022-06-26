@@ -1,5 +1,6 @@
 {
     "name": "Tier 7",
+    "type": "A",
     "subCollections": [
         {
             "name": "Deathknight",
@@ -13,7 +14,8 @@
                         39618,
                         39620
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Tank 10",
@@ -24,7 +26,8 @@
                         39624,
                         39626
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "DPS 25",
@@ -35,7 +38,8 @@
                         40552,
                         40556
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Tank 25",
@@ -46,7 +50,8 @@
                         40563,
                         40567
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -62,7 +67,8 @@
                         39557,
                         39555
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Restoration 10",
@@ -73,7 +79,8 @@
                         39543,
                         39539
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Balance 10",
@@ -84,7 +91,8 @@
                         39544,
                         39546
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Feral 25",
@@ -95,7 +103,8 @@
                         40472,
                         40493
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Restoration 25",
@@ -106,7 +115,8 @@
                         40460,
                         40462
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 },
                 {
                     "name": "Balance 25",
@@ -117,7 +127,8 @@
                         40466,
                         40468
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -133,7 +144,8 @@
                         39582,
                         39580
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "DPS 25",
@@ -144,7 +156,8 @@
                         40504,
                         40506
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -160,7 +173,8 @@
                         39495,
                         39493
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "DPS 25",
@@ -171,7 +185,8 @@
                         40415,
                         40417
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -187,7 +202,8 @@
                         39632,
                         39630
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Holy 25",
@@ -198,7 +214,8 @@
                         40570,
                         40572
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Retribution 10",
@@ -209,7 +226,8 @@
                         39634,
                         39636
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Retribution 25",
@@ -220,7 +238,8 @@
                         40575,
                         40577
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Protection 10",
@@ -231,7 +250,8 @@
                         39639,
                         39641
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Protection 25",
@@ -242,7 +262,8 @@
                         40580,
                         40583
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -258,7 +279,8 @@
                         39530,
                         39528
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Shadow 25",
@@ -269,7 +291,8 @@
                         40454,
                         40457
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Holy 10",
@@ -280,7 +303,8 @@
                         39519,
                         39517
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Holy 25",
@@ -291,7 +315,8 @@
                         40445,
                         40448
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -307,7 +332,8 @@
                         39560,
                         39564
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "DPS 25",
@@ -318,7 +344,8 @@
                         40496,
                         40500
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -334,7 +361,8 @@
                         39591,
                         39589
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Restoration 25",
@@ -345,7 +373,8 @@
                         40509,
                         40512
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Enhancement 10",
@@ -356,7 +385,8 @@
                         39601,
                         39603
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Enhancement 25",
@@ -367,7 +397,8 @@
                         40520,
                         40522
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 },
                 {
                     "name": "Elemental 10",
@@ -378,7 +409,8 @@
                         39593,
                         39595
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Elemental 25",
@@ -389,7 +421,8 @@
                         40515,
                         40517
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -405,7 +438,8 @@
                         39500,
                         39498
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "DPS 25",
@@ -416,7 +450,8 @@
                         40420,
                         40422
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -432,7 +467,8 @@
                         39609,
                         39607
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
                     "name": "Fury 25",
@@ -443,7 +479,8 @@
                         40527,
                         40529
                     ],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
                     "name": "Protection 10",
@@ -454,7 +491,8 @@
                         39622,
                         39612
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
                     "name": "Protection 25",
@@ -465,7 +503,8 @@
                         40545,
                         40547
                     ],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         }

@@ -1,0 +1,47 @@
+<div class="flex-container">
+    <ng-container *ngIf="bSize">
+        <nb-button-group *ngIf="size$ | async as size" size="tiny" outline="true" status="warning">
+            <button nbButtonToggle [pressed]="size === 10" value=10 (click)="updateSize(10, size)">10</button>
+            <button nbButtonToggle [pressed]="size === 25" value=25 (click)="updateSize(25, size)">25</button>
+        </nb-button-group>
+    </ng-container>
+
+
+    <ng-container *ngIf="bDifficulty; else noDiff">
+        <nb-button-group *ngIf="difficulty$ | async as diff" size="tiny" outline="true" status="warning">
+            <button nbButtonToggle [pressed]="diff === 'Normal'" value="Normal"
+                (click)="updateDifficulty('Normal', diff)">Normal</button>
+            <button nbButtonToggle [pressed]="diff === 'Heroic'" value="Heroic"
+                (click)="updateDifficulty('Heroic', diff)">Heroic</button>
+        </nb-button-group>
+    </ng-container>
+
+    <ng-container *ngIf="bFaction; else noFaction">
+        <nb-button-group *ngIf="faction$ | async as faction" size="tiny" outline="true" status="warning">
+            <button nbButtonToggle [pressed]="faction === 'Alliance'" value="Alliance"
+                (click)="updateFaction('Alliance', faction)">Alliance</button>
+            <button nbButtonToggle [pressed]="faction === 'Horde'" value="Horde"
+                (click)="updateFaction('Horde', faction)">Horde</button>
+        </nb-button-group>
+    </ng-container>
+</div>
+<ng-template #noSize>
+    <nb-button-group size="tiny" outline="true" status="basic">
+        <button nbButton disabled pressed="false">10</button>
+        <button nbButton disabled pressed="false">25</button>
+    </nb-button-group>
+</ng-template>
+
+<ng-template #noFaction>
+    <nb-button-group size="tiny" outline="true" status="basic">
+        <button nbButton disabled pressed="false">Alliance</button>
+        <button nbButton disabled pressed="false">Horde</button>
+    </nb-button-group>
+</ng-template>
+
+<ng-template #noDiff>
+    <nb-button-group size="tiny" outline="true" status="basic">
+        <button nbButton disabled>Normal</button>
+        <button nbButton disabled>Heroic</button>
+    </nb-button-group>
+</ng-template>
