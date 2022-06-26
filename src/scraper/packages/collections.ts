@@ -118,38 +118,98 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
 
         const groupBy: string = sub.groupBy ? sub.groupBy : 'default';
 
-        const sorted = sortBossLoot(itemData);
+        switch (groupBy) {
+            case 'tier9':
+                const levelOne = 232;
+                const levelTwo = 245;
+                const levelThree = 258;
 
-        left = [
-            {
-                name: 'misc',
-                itemData: sorted.misc
-            },
-            {
-                name: 'armor',
-                itemData: sorted.armor
-            }
-        ];
+                sub.mid?.forEach(m => {
+                    const itemData = readIDsAsItems(m.ids ? m.ids : []);
 
-        right = [
-            {
-                name: 'tokens',
-                itemData: sorted.tokens
-            },
-            {
-                name: 'jewelry',
-                itemData: sorted.jewelry
-            },
-            {
-                name: 'weapons',
-                itemData: sorted.weapons
-            }
-        ];
+                    const normal10 = itemData.filter(i => Number(i.ilvl) === levelOne);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal10,
+                            filter: "10-Normal-" + m.filter
 
-        left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
-        right = right.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+                        }
+                    );
 
-        mid = [];
+                    const normal25 = itemData.filter(i => Number(i.ilvl) === levelTwo);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal25,
+                            filter: "25-Normal-" + m.filter
+                        },
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal25,
+                            filter: "10-Heroic-" + m.filter
+                        }
+                    );
+
+                    const heroic25 = itemData.filter(i => Number(i.ilvl) === levelThree);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: heroic25,
+                            filter: "25-Heroic-" + m.filter
+                        }
+                    );
+
+
+                })
+
+                left = grps.filter(grp => grp.pos === 'left');
+                mid = grps.filter(grp => grp.pos === 'mid');
+                right = grps.filter(grp => grp.pos === 'right');
+
+                break;
+
+            default:
+                const sorted = sortBossLoot(itemData);
+
+                left = [
+                    {
+                        name: 'misc',
+                        itemData: sorted.misc
+                    },
+                    {
+                        name: 'armor',
+                        itemData: sorted.armor
+                    }
+                ];
+
+                right = [
+                    {
+                        name: 'tokens',
+                        itemData: sorted.tokens
+                    },
+                    {
+                        name: 'jewelry',
+                        itemData: sorted.jewelry
+                    },
+                    {
+                        name: 'weapons',
+                        itemData: sorted.weapons
+                    }
+                ];
+
+                left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+                right = right.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                mid = [];
+                break;
+        }
+
+
     }
 
 
@@ -162,6 +222,7 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
 
     delete newSub.groups;
     delete newSub.ids;
+    delete newSub.groupBy;
 
     return newSub;
 }
@@ -175,6 +236,11 @@ async function fetchItems(colls: wowCollection[]) {
                 toFetch.add(id);
             })
             sub.groups?.forEach(grp => {
+                grp.ids?.forEach(id => {
+                    toFetch.add(id);
+                })
+            })
+            sub.mid?.forEach(grp => {
                 grp.ids?.forEach(id => {
                     toFetch.add(id);
                 })

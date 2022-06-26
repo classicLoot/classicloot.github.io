@@ -128,6 +128,26 @@ export class SidebarService {
           arr.push(newItem);
         })
         return arr;
+      }),
+      map(metaArr => {
+
+        function tierCompare(a: menuItemExtended, b: menuItemExtended): number {
+          const aTier = Number(a.title.split(' ')[1]);
+          const bTier = Number(b.title.split(' ')[1]);
+          if (aTier > bTier) {
+            return 1;
+          }
+          else if (aTier < bTier) {
+            return -1;
+          }
+
+          return 0;
+        }
+
+        const tiers = metaArr.filter(m => m.title.startsWith('Tier')).sort(tierCompare);
+        const nonTiers = metaArr.filter(m => !m.title.startsWith('Tier'));
+
+        return [...tiers, ...nonTiers];
       })
     );
 
