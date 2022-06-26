@@ -44,7 +44,7 @@
 
 <ng-template #itemList let-array="array" let-title="title" let-filterStr="filterStr">
     <div *ngIf="array.length > 0">
-        <span>{{title}}</span>
+        <span *ngIf="['A','B','C','D'].includes(collectionType)">{{title}}</span>
         <div *ngFor="let item of array">
             <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
         </div>
