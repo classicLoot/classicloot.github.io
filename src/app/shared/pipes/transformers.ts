@@ -122,3 +122,10 @@ export function wowConsumableTransform(item: wowItem): string {
     }
     return 'Consumable';
 }
+
+export function wowProjectileTransform(item: wowItem): string {
+    switch (+item.wowSubClass) {
+        case 2: return 'Projectile - Arrow';
+    }
+    return 'Projectile - NYI';
+}
