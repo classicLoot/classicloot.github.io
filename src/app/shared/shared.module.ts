@@ -10,6 +10,7 @@ import { WowItemLazyComponent } from './components/wow-item-lazy/wow-item-lazy.c
 import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-tooltip.component';
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
+import { FilterButtonsComponent } from './components/filter-buttons/filter-buttons.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     WowItemLazyComponent,
     WowAchievementComponent,
     OptionsButtonsComponent,
+    FilterButtonsComponent,
 
   ],
   imports: [
@@ -39,7 +41,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     SidebarMenuComponent,
     WowItemLazyComponent,
     WowAchievementComponent,
-    OptionsButtonsComponent
+    OptionsButtonsComponent,
+    FilterButtonsComponent
   ]
 })
 export class SharedModule { }
