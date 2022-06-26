@@ -1,1 +1,1 @@
-{"name":"Priest","left":[{"name":"Shadow","ids":[],"pos":"left","itemData":[]}],"mid":[],"right":[{"name":"Holy","ids":[],"pos":"right","itemData":[]}]}
+{"name":"Priest","left":[{"name":"Shadow 10","ids":[],"pos":"left","filter":"10","itemData":[]},{"name":"Shadow 25","ids":[],"pos":"left","filter":"25","itemData":[]}],"mid":[],"right":[{"name":"Holy 10","ids":[],"pos":"right","filter":"10","itemData":[]},{"name":"Holy 25","ids":[],"pos":"right","filter":"25","itemData":[]}]}

@@ -1,1 +1,1 @@
-{"name":"Warlock","left":[{"name":"DPS","ids":[],"pos":"left","itemData":[]}],"mid":[],"right":[]}
+{"name":"Warlock","left":[{"name":"DPS 10","ids":[],"pos":"left","filter":"10","itemData":[]},{"name":"DPS 25","ids":[],"pos":"left","filter":"25","itemData":[]}],"mid":[],"right":[]}

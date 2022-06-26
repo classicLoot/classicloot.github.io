@@ -118,38 +118,48 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
 
         const groupBy: string = sub.groupBy ? sub.groupBy : 'default';
 
-        const sorted = sortBossLoot(itemData);
+        switch (groupBy) {
+            case 'tier9':
+                console.log('TIER9', sub.name)
+                break;
 
-        left = [
-            {
-                name: 'misc',
-                itemData: sorted.misc
-            },
-            {
-                name: 'armor',
-                itemData: sorted.armor
-            }
-        ];
+            default:
+                const sorted = sortBossLoot(itemData);
 
-        right = [
-            {
-                name: 'tokens',
-                itemData: sorted.tokens
-            },
-            {
-                name: 'jewelry',
-                itemData: sorted.jewelry
-            },
-            {
-                name: 'weapons',
-                itemData: sorted.weapons
-            }
-        ];
+                left = [
+                    {
+                        name: 'misc',
+                        itemData: sorted.misc
+                    },
+                    {
+                        name: 'armor',
+                        itemData: sorted.armor
+                    }
+                ];
 
-        left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
-        right = right.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+                right = [
+                    {
+                        name: 'tokens',
+                        itemData: sorted.tokens
+                    },
+                    {
+                        name: 'jewelry',
+                        itemData: sorted.jewelry
+                    },
+                    {
+                        name: 'weapons',
+                        itemData: sorted.weapons
+                    }
+                ];
 
-        mid = [];
+                left = left.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+                right = right.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                mid = [];
+                break;
+        }
+
+
     }
 
 

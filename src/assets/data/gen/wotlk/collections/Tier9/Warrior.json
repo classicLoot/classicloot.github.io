@@ -1,1 +1,1 @@
-{"name":"Warrior","left":[{"name":"Fury","ids":[],"pos":"left","itemData":[]}],"mid":[],"right":[{"name":"Protection","ids":[],"pos":"right","itemData":[]}]}
+{"name":"Warrior","left":[{"name":"Fury 10","ids":[],"pos":"left","filter":"10","itemData":[]},{"name":"Fury 25","ids":[],"pos":"left","filter":"25","itemData":[]}],"mid":[],"right":[{"name":"Protection 10","ids":[],"pos":"right","filter":"10","itemData":[]},{"name":"Protection 25","ids":[],"pos":"right","filter":"25","itemData":[]}]}

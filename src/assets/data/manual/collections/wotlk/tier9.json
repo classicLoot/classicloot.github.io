@@ -4,16 +4,51 @@
     "subCollections": [
         {
             "name": "Deathknight",
-            "groups": [
+            "groupBy": "tier9",
+            "mid": [
                 {
                     "name": "DPS",
-                    "ids": [],
-                    "pos": "left"
+                    "ids": [
+                        48472,
+                        48478,
+                        48474,
+                        48480,
+                        48476,
+                        48483,
+                        48485,
+                        48481,
+                        48482,
+                        48484,
+                        48488,
+                        48486,
+                        48490,
+                        48489,
+                        48487
+                    ],
+                    "pos": "left",
+                    "filter": "alliance"
                 },
                 {
                     "name": "Tank",
-                    "ids": [],
-                    "pos": "right"
+                    "ids": [
+                        48529,
+                        48535,
+                        48531,
+                        48537,
+                        48533,
+                        48540,
+                        48542,
+                        48538,
+                        48539,
+                        48541,
+                        48545,
+                        48543,
+                        48547,
+                        48546,
+                        48544
+                    ],
+                    "pos": "right",
+                    "filter": "alliance"
                 }
             ]
         },
@@ -21,19 +56,40 @@
             "name": "Druid",
             "groups": [
                 {
-                    "name": "Feral",
+                    "name": "Feral 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
-                    "name": "Restoration",
+                    "name": "Restoration 10",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
                 },
                 {
-                    "name": "Balance",
+                    "name": "Balance 10",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Feral 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Restoration 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
+                },
+                {
+                    "name": "Balance 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -41,9 +97,16 @@
             "name": "Hunter",
             "groups": [
                 {
-                    "name": "DPS",
+                    "name": "DPS 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -51,9 +114,16 @@
             "name": "Mage",
             "groups": [
                 {
-                    "name": "DPS",
+                    "name": "DPS 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -61,19 +131,40 @@
             "name": "Paladin",
             "groups": [
                 {
-                    "name": "Holy",
+                    "name": "Holy 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
-                    "name": "Retribution",
+                    "name": "Holy 25",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
-                    "name": "Protection",
+                    "name": "Retribution 10",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Retribution 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Protection 10",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Protection 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -81,14 +172,28 @@
             "name": "Priest",
             "groups": [
                 {
-                    "name": "Shadow",
+                    "name": "Shadow 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
-                    "name": "Holy",
+                    "name": "Shadow 25",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Holy 10",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Holy 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         },
@@ -96,9 +201,16 @@
             "name": "Rogue",
             "groups": [
                 {
-                    "name": "DPS",
+                    "name": "DPS 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -106,19 +218,40 @@
             "name": "Shaman",
             "groups": [
                 {
-                    "name": "Restoration",
+                    "name": "Restoration 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
-                    "name": "Enhancement",
+                    "name": "Restoration 25",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "left",
+                    "filter": "25"
                 },
                 {
-                    "name": "Elemental",
+                    "name": "Enhancement 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Enhancement 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
+                },
+                {
+                    "name": "Elemental 10",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Elemental 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -126,9 +259,16 @@
             "name": "Warlock",
             "groups": [
                 {
-                    "name": "DPS",
+                    "name": "DPS 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [],
+                    "pos": "left",
+                    "filter": "25"
                 }
             ]
         },
@@ -136,14 +276,28 @@
             "name": "Warrior",
             "groups": [
                 {
-                    "name": "Fury",
+                    "name": "Fury 10",
                     "ids": [],
-                    "pos": "left"
+                    "pos": "left",
+                    "filter": "10"
                 },
                 {
-                    "name": "Protection",
+                    "name": "Fury 25",
                     "ids": [],
-                    "pos": "right"
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Protection 10",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Protection 25",
+                    "ids": [],
+                    "pos": "right",
+                    "filter": "25"
                 }
             ]
         }
