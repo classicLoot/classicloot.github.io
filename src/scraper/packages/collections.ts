@@ -31,7 +31,7 @@ export async function processCollections(type: wowCollectionType, addon: 'wotlk'
 }
 
 function processIndividual(coll: wowCollection) {
-    //console.log('Collection: ', coll.name)   
+    //console.log('Collection: ', coll.type)   
 
     const newColl = {
         ...coll,
@@ -65,6 +65,7 @@ function writeMetaIndividual(colls: wowCollection[], type: wowCollectionType, ad
                 name: coll.name,
                 link: coll.link,
                 descr: coll.descr,
+                type: coll.type,
                 subLinks: subCollSubLinks
             }
 

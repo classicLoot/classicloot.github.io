@@ -1,43 +1,48 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{subLink.name}}</h2>
-        <app-filter-buttons class="flex-item-right"></app-filter-buttons>
+        <app-filter-buttons *ngIf="['A','B','C','D'].includes(collectionType)"
+            [bFaction]="['B','D'].includes(collectionType)" [bDifficulty]="['B','C'].includes(collectionType)"
+            class="flex-item-right">
+        </app-filter-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container">
         <ng-container *ngIf="sub$ | async as sub">
-            <div class="flex-item-left flex-column">
-                <ng-container *ngFor="let entry of sub.left">
-                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
-                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+            <ng-container *ngIf="filter$ | async as filter">
+                <div class="flex-item-left flex-column">
+                    <ng-container *ngFor="let entry of sub.left">
+                        <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                            [ngTemplateOutlet]="itemList"
+                            [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                        </ng-container>
                     </ng-container>
-                </ng-container>
-            </div>
+                </div>
 
-            <div class="flex-item-right flex-column">
-                <ng-container *ngFor="let entry of sub.right">
-                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
-                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                <div class="flex-item-right flex-column">
+                    <ng-container *ngFor="let entry of sub.right">
+                        <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                            [ngTemplateOutlet]="itemList"
+                            [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                        </ng-container>
                     </ng-container>
-                </ng-container>
-            </div>
+                </div>
 
-            <div class="flex-column">
-                <ng-container *ngFor="let entry of sub.mid">
-                    <ng-container *ngIf="entry.itemData" [ngTemplateOutlet]="itemList"
-                        [ngTemplateOutletContext]="{array: entry.itemData, title: entry.name}">
+                <div class="flex-column">
+                    <ng-container *ngFor="let entry of sub.mid">
+                        <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                            [ngTemplateOutlet]="itemList"
+                            [ngTemplateOutletContext]="{array: entry.itemData, title: entry.name}">
+                        </ng-container>
                     </ng-container>
-                </ng-container>
-            </div>
+                </div>
+            </ng-container>
         </ng-container>
-
-
-
     </nb-card-body>
 </nb-card>
 
 <!-- Templates -->
 
-<ng-template #itemList let-array="array" let-title="title">
+<ng-template #itemList let-array="array" let-title="title" let-filterStr="filterStr">
     <div *ngIf="array.length > 0">
         <span>{{title}}</span>
         <div *ngFor="let item of array">

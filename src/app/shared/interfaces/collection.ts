@@ -29,6 +29,7 @@ export interface wowSubCollectionGroup {
     itemData?: wowItem[],
     sortBy?: string,
     pos?: 'left' | 'mid' | 'right',
+    filter?: string
 }
 
 export interface wowCollectionSubLink {

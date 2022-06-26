@@ -1,5 +1,6 @@
 {
     "name": "Tier 10",
+    "type": "C",
     "subCollections": [
         {
             "name": "Deathknight",

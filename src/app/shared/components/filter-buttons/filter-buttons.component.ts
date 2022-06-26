@@ -11,7 +11,7 @@ import { wowDifficulty, wowFaction, wowSize } from '../../types/options';
 export class FilterButtonsComponent implements OnInit {
 
   @Input() bFaction: boolean = false;
-  @Input() bSize: boolean = false;
+  @Input() bSize: boolean = true;
   @Input() bDifficulty: boolean = false;
 
   faction$!: Observable<wowFaction>;
@@ -25,6 +25,25 @@ export class FilterButtonsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+
+  public updateDifficulty(value: wowDifficulty, old: wowDifficulty): void {
+    if (value != old) {
+      this.filterStore.updateDifficulty(value);
+    }
+  }
+
+  public updateSize(value: wowSize, old: wowSize): void {
+    if (value != old) {
+      this.filterStore.updateSize(value);
+    }
+  }
+
+  public updateFaction(value: wowFaction, old: wowFaction): void {
+    if (value != old) {
+      this.filterStore.updateFaction(value);
+    }
   }
 
 }
