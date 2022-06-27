@@ -74,13 +74,16 @@ export async function fetchIDS(ids: number[]) {
                 };
 
                 let tmpArray: any[] = [];
-                const reagentsRaw = spellRaw["reagent"];
 
-                if (Array.isArray(reagentsRaw)) {
-                    tmpArray = reagentsRaw;
+                // e.g. 37704
+                if (!spellRaw["reagent"]) {
+                    tmpArray = [];
+                }
+                else if (Array.isArray(spellRaw["reagent"])) {
+                    tmpArray = spellRaw["reagent"];
                 }
                 else {
-                    tmpArray = [reagentsRaw];
+                    tmpArray = [spellRaw["reagent"]];
                 }
 
                 let reagents: wowReagent[] = [];

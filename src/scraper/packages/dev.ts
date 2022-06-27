@@ -41,13 +41,16 @@ async function testFetchFunction(testArray: number[]) {
                 };
 
                 let tmpArray: any[] = [];
-                const reagentsRaw = spellRaw["reagent"];
 
-                if (Array.isArray(reagentsRaw)) {
-                    tmpArray = reagentsRaw;
+                // e.g. 37704
+                if (!spellRaw["reagent"]) {
+                    tmpArray = [];
+                }
+                else if (Array.isArray(spellRaw["reagent"])) {
+                    tmpArray = spellRaw["reagent"];
                 }
                 else {
-                    tmpArray = [reagentsRaw];
+                    tmpArray = [spellRaw["reagent"]];
                 }
 
                 let reagents: wowReagent[] = [];
@@ -95,7 +98,8 @@ async function testFetchFunction(testArray: number[]) {
 
 
 }
-await testFetchFunction([44330, 40070, 6371, 22574, 40195]);
+//await testFetchFunction([44330, 40070, 6371, 22574, 40195]); 37704
+await testFetchFunction([37704, 22575]);
 
 
 const testArray = [43345, 40453];
