@@ -11,7 +11,7 @@ await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
 await processCollections('crafting', 'wotlk', true);
 
-await fetchReagents();
+await fetchReagents(true);
 
 export async function processCollections(type: wowCollectionType, addon: 'wotlk', forceDL: boolean = false) {
     const filePath = `../assets/data/manual/${type}/${addon}/`;

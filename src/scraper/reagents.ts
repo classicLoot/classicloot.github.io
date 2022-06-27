@@ -5,7 +5,7 @@ import { fetchIDS } from "./items";
 
 //fetchReagents();
 
-export async function fetchReagents() {
+export async function fetchReagents(forceDL: boolean = false) {
     const filePath = `../assets/items/`;
     const items = readFromDirAs<wowItem>(filePath);
     //console.log(items.length);
@@ -15,19 +15,16 @@ export async function fetchReagents() {
 
 
     items.forEach(item => {
-        if (item.createdBy) {
-            if (item.createdBy.length > 1) {
-                const reagents = item.createdBy.slice(1);
-                reagents.forEach(r => {
-                    IDsToFetch.add(r.id);
-                    IconsToFetch.add(r.icon);
-                })
-            }
-        }
+        item.createdBy?.forEach(spell => {
+            spell.reagents?.forEach(r => {
+                IDsToFetch.add(r.id);
+                IconsToFetch.add(r.icon);
+            })
+        })
     })
     const ItemIDArray: number[] = Array.from(IDsToFetch.values());
     const fetchArray = Array.from(IconsToFetch.values());
 
-    await fetchIDS(ItemIDArray);
+    await fetchIDS(ItemIDArray, forceDL);
     await fetchIcons(fetchArray, 'large');
 }
