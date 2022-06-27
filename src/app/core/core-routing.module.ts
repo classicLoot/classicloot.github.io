@@ -15,7 +15,7 @@ const routes: Routes = [
 
       {
         path: 'crafting',
-        loadChildren: () => import('src/app/features/crafting/crafting.module').then(m => m.CraftingModule)
+        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
       },
       {
         path: 'collections',

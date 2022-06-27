@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import xml from 'xml-js';
-import { wowItem } from '../../app/shared/interfaces/item';
+import { wowItem, wowReagent } from '../../app/shared/interfaces/item';
 import { readFilesFromDirAs } from '../helper';
 import { XML_CONFIG } from './../scraper';
 
@@ -16,7 +16,35 @@ async function testFetchFunction(testArray: number[]) {
         try {
             const jsonStr = xml.xml2json(body, XML_CONFIG);
             const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
-            console.log(itemJS)
+            //console.log(itemJS)
+
+            let createdBy: wowReagent[] = [];
+
+            if (itemJS["createdBy"]) {
+                let spell: wowReagent = itemJS["createdBy"]["spell"]["_attributes"]
+                spell = {
+                    ...spell,
+                    id: Number(spell.id),
+                    minCount: Number(spell.minCount),
+                    maxCount: Number(spell.maxCount),
+                };
+                const reagents: wowReagent[] = itemJS["createdBy"]["spell"]["reagent"].map((raw: { [x: string]: any; }) => {
+                    const inner = raw["_attributes"];
+                    return {
+                        id: Number(inner["id"]),
+                        name: inner["name"],
+                        icon: inner["icon"],
+                        quality: Number(inner["quality"]),
+                        count: Number(inner["count"]),
+                    } as wowReagent
+                });
+
+                createdBy = [spell, ...reagents];
+            }
+
+
+            //console.log(createdBy)
+
             const item: wowItem = {
                 id: itemJS["_attributes"]["id"],
                 name: itemJS["name"]["_cdata"],
@@ -29,8 +57,14 @@ async function testFetchFunction(testArray: number[]) {
                 wowClass: itemJS["class"]["_attributes"]["id"],
                 wowSubClass: itemJS["subclass"]["_attributes"]["id"],
                 slot: itemJS["inventorySlot"]["_attributes"]["id"],
+
+                createdBy: createdBy
             }
 
+            if (createdBy.length < 1) {
+                delete item.createdBy;
+            }
+            console.log(item)
 
             //console.log(item.id, item.name, item.icon);
         } catch (error) {
@@ -40,7 +74,7 @@ async function testFetchFunction(testArray: number[]) {
 
 
 }
-//await testFetchFunction([43345]);
+await testFetchFunction([44330, 39619]);
 
 
 const testArray = [43345, 40453];

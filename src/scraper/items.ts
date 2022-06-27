@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 import xml from 'xml-js';
-import { wowItem } from '../app/shared/interfaces/item';
+import { wowItem, wowReagent } from '../app/shared/interfaces/item';
 import { delay, XML_CONFIG } from './scraper';
 import progress from 'cli-progress';
 
@@ -52,6 +52,29 @@ export async function fetchIDS(ids: number[]) {
             const jsonStr = xml.xml2json(body, XML_CONFIG);
             const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
 
+            let createdBy: wowReagent[] = [];
+            if (itemJS["createdBy"]) {
+                let spell: wowReagent = itemJS["createdBy"]["spell"]["_attributes"]
+                spell = {
+                    ...spell,
+                    id: Number(spell.id),
+                    minCount: Number(spell.minCount),
+                    maxCount: Number(spell.maxCount),
+                };
+                const reagents: wowReagent[] = itemJS["createdBy"]["spell"]["reagent"].map((raw: { [x: string]: any; }) => {
+                    const inner = raw["_attributes"];
+                    return {
+                        id: Number(inner["id"]),
+                        name: inner["name"],
+                        icon: inner["icon"],
+                        quality: Number(inner["quality"]),
+                        count: Number(inner["count"]),
+                    } as wowReagent
+                });
+
+                createdBy = [spell, ...reagents];
+            }
+
             const item: wowItem = {
                 id: itemJS["_attributes"]["id"],
                 name: itemJS["name"]["_cdata"],
@@ -64,7 +87,15 @@ export async function fetchIDS(ids: number[]) {
                 wowClass: itemJS["class"]["_attributes"]["id"],
                 wowSubClass: itemJS["subclass"]["_attributes"]["id"],
                 slot: itemJS["inventorySlot"]["_attributes"]["id"],
+
+
+                createdBy: createdBy
             }
+
+            if (createdBy.length < 1) {
+                delete item.createdBy;
+            }
+
             writeFSItem(item);
 
             updatedArr.push(id);

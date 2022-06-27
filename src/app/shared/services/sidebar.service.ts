@@ -48,7 +48,9 @@ export class SidebarService {
         if (route.startsWith('/reputation')) {
           return this.reputationMenu$(addon);
         }
-
+        if (route.startsWith('/crafting')) {
+          return this.craftingMenu$(addon);
+        }
         return of([]);
       })
     )
@@ -148,6 +150,26 @@ export class SidebarService {
         const nonTiers = metaArr.filter(m => !m.title.startsWith('Tier'));
 
         return [...tiers, ...nonTiers];
+      })
+    );
+
+    return collMenu$;
+  }
+
+  private craftingMenu$(addon: wowAddon): Observable<menuItemExtended[]> {
+    const meta$ = this.collectionsDataService.getCraftingMeta$(addon);
+    const collMenu$ = meta$.pipe(
+      map(meta => {
+        const arr: menuItemExtended[] = [];
+
+        meta.forEach(d => {
+          const newItem: menuItemExtended = {
+            title: d.name,
+            link: `/crafting/${d.link}`
+          }
+          arr.push(newItem);
+        })
+        return arr;
       })
     );
 

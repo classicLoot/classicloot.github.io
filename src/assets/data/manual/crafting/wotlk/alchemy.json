@@ -1,0 +1,37 @@
+{
+    "name": "Alchemy",
+    "subCollections": [
+        {
+            "name": "hwaGASG",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [
+                        44330
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}
