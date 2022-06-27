@@ -3,13 +3,17 @@ import { wowItem } from '../../app/shared/interfaces/item';
 import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
 import { fetchIDS } from '../items';
+import { fetchReagents } from "../reagents";
 
 
 
 await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
+await processCollections('crafting', 'wotlk', true);
 
-export async function processCollections(type: wowCollectionType, addon: 'wotlk') {
+await fetchReagents(true);
+
+export async function processCollections(type: wowCollectionType, addon: 'wotlk', forceDL: boolean = false) {
     const filePath = `../assets/data/manual/${type}/${addon}/`;
     const collections: wowCollection[] = readFromDirAs<wowCollection>(filePath);
     console.log(`Process ${type} from ${addon} @ ${filePath}`);
@@ -24,7 +28,7 @@ export async function processCollections(type: wowCollectionType, addon: 'wotlk'
     writeMeta(newCollections, type, addon);
     writeMetaIndividual(newCollections, type, addon);
 
-    await fetchItems(newCollections);
+    await fetchItems(newCollections, forceDL);
     await fetchIconsFrom(newCollections);
 
     sortAndWriteCollections(newCollections, type, addon);
@@ -286,7 +290,7 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
     return newSub;
 }
 
-async function fetchItems(colls: wowCollection[]) {
+async function fetchItems(colls: wowCollection[], forceDL: boolean = false) {
     let toFetch = new Set<number>();
 
     colls.forEach(coll => {
@@ -309,7 +313,7 @@ async function fetchItems(colls: wowCollection[]) {
     })
 
     const ItemIDArray: number[] = Array.from(toFetch.values());
-    await fetchIDS(ItemIDArray);
+    await fetchIDS(ItemIDArray, forceDL);
 }
 
 async function fetchIconsFrom(colls: wowCollection[]) {

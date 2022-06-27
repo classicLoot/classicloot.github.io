@@ -5,7 +5,7 @@
     top: 100px;
     left: 0px;
 
-    display: none;  
+    display: none;
 }
 
 .itemTooltipBox {
@@ -32,4 +32,40 @@
     a {
         text-decoration: none;
     }
+}
+
+.createdBy {
+    margin-top: 1px;
+
+
+}
+
+.flexColumn {
+    display: flex;
+    gap: 1px;
+    flex-direction: column;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.spellList {
+    margin-left: 10px;
+}
+
+.reagent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.itemIconSmall {
+    width: 20px;
+    height: 20px;
+
+    margin-left: 3px;
+    margin-right: 3px;
 }

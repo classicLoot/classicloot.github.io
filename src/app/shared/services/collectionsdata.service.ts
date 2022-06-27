@@ -12,6 +12,7 @@ export class CollectionsdataService {
 
   private collectionsMeta$!: Observable<wowCollection[]>;
   private reputationMeta$!: Observable<wowCollection[]>;
+  private craftingMeta$!: Observable<wowCollection[]>;
 
 
   private currentCollection$!: Observable<wowCollection>;
@@ -36,6 +37,16 @@ export class CollectionsdataService {
     }
 
     return this.reputationMeta$;
+  }
+
+  public getCraftingMeta$(addon: wowAddon) {
+    if (!this.craftingMeta$) {
+      this.craftingMeta$ = this.http.get<wowCollection[]>(`../../../assets/data/gen/${addon}/crafting/meta.json`).pipe(
+        shareReplay(1)
+      )
+    }
+
+    return this.craftingMeta$;
   }
 
   public getCurrentCollection$(): Observable<wowCollection> {

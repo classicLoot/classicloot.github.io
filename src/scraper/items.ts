@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 import xml from 'xml-js';
-import { wowItem } from '../app/shared/interfaces/item';
+import { wowCraftingSpell, wowItem, wowReagent } from '../app/shared/interfaces/item';
 import { delay, XML_CONFIG } from './scraper';
 import progress from 'cli-progress';
 
@@ -17,7 +17,7 @@ function writeFSItem(item: wowItem) {
     fs.writeFileSync(itemPath, JSON.stringify(item));
 }
 
-export async function fetchIDS(ids: number[]) {
+export async function fetchIDS(ids: number[], forceDL: boolean = false) {
     console.log(`**FETCH IDS: ${ids.length}**`);
 
     const existsArr: number[] = [];
@@ -30,6 +30,9 @@ export async function fetchIDS(ids: number[]) {
     for (const id of ids) {
         if (checkFSItem(id)) {
             existsArr.push(id);
+            if (forceDL) {
+                idsToUpdate.push(id)
+            }
         }
         else {
             idsToUpdate.push(id)
@@ -38,7 +41,7 @@ export async function fetchIDS(ids: number[]) {
 
     // PROGRESS
     const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
-    bar1.start(ids.length, existsArr.length);
+    bar1.start(ids.length, forceDL ? 0 : existsArr.length);
     //
 
     for (const id of idsToUpdate) {
@@ -52,6 +55,21 @@ export async function fetchIDS(ids: number[]) {
             const jsonStr = xml.xml2json(body, XML_CONFIG);
             const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
 
+            let spellArr: wowCraftingSpell[] = [];
+
+            if (itemJS["createdBy"]) {
+
+                //console.log(itemJS["createdBy"]);
+
+                let spellRaw: any = itemJS["createdBy"]["spell"];
+                if (Array.isArray(spellRaw)) {
+                    spellArr = spellRaw.map(handleCraftingSpell);
+                }
+                else {
+                    spellArr = [handleCraftingSpell(spellRaw)];
+                }
+            }
+
             const item: wowItem = {
                 id: itemJS["_attributes"]["id"],
                 name: itemJS["name"]["_cdata"],
@@ -64,7 +82,14 @@ export async function fetchIDS(ids: number[]) {
                 wowClass: itemJS["class"]["_attributes"]["id"],
                 wowSubClass: itemJS["subclass"]["_attributes"]["id"],
                 slot: itemJS["inventorySlot"]["_attributes"]["id"],
+
+                createdBy: spellArr
             }
+
+            if (spellArr.length < 1) {
+                delete item.createdBy;
+            }
+
             writeFSItem(item);
 
             updatedArr.push(id);
@@ -87,4 +112,48 @@ export async function fetchIDS(ids: number[]) {
     console.log('updated ', updatedArr.length);
     console.log('exists ', existsArr.length);
     console.log('error ', errorArr.length);
+}
+
+function handleCraftingSpell(raw: any): wowCraftingSpell {
+    const spellAttr = raw["_attributes"];
+
+    let spell: wowCraftingSpell = {
+        name: spellAttr.name,
+        icon: spellAttr.icon,
+        id: Number(spellAttr.id),
+        minCount: Number(spellAttr.minCount),
+        maxCount: Number(spellAttr.maxCount),
+    }
+
+    let tmpArray: any[] = [];
+
+    // e.g. 37704
+    if (!raw["reagent"]) {
+        tmpArray = [];
+    }
+    else if (Array.isArray(raw["reagent"])) {
+        tmpArray = raw["reagent"];
+    }
+    else {
+        tmpArray = [raw["reagent"]];
+    }
+
+    let reagents: wowReagent[] = [];
+    reagents = tmpArray.map((raw: { [x: string]: any; }) => {
+        const inner = raw["_attributes"];
+        return {
+            id: Number(inner["id"]),
+            name: inner["name"],
+            icon: inner["icon"],
+            quality: Number(inner["quality"]),
+            count: Number(inner["count"]),
+        } as wowReagent
+    });
+
+    spell = {
+        ...spell,
+        reagents: reagents
+    }
+
+    return spell;
 }

@@ -37,4 +37,4 @@ export interface wowCollectionSubLink {
     link: string
 }
 
-export type wowCollectionType = 'collections' | 'reputation';
+export type wowCollectionType = 'collections' | 'reputation' | 'crafting';
