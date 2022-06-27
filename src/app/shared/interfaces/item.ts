@@ -9,7 +9,7 @@ export interface wowItem {
     wowClass: number,
     wowSubClass: number,
     slot: number,
-    createdBy?: wowReagent[]
+    createdBy?: wowCraftingSpell[]
 }
 
 export interface wowReagent {
@@ -18,6 +18,13 @@ export interface wowReagent {
     quality?: number,
     icon: string,
     count?: number,
+}
+
+export interface wowCraftingSpell {
+    id: number,
+    name: string,
+    icon: string,
     minCount?: number,
-    maxCount?: number
+    maxCount?: number,
+    reagents?: wowReagent[]
 }

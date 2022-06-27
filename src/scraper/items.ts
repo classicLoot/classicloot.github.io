@@ -2,7 +2,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import path from 'path';
 import xml from 'xml-js';
-import { wowItem, wowReagent } from '../app/shared/interfaces/item';
+import { wowCraftingSpell, wowItem, wowReagent } from '../app/shared/interfaces/item';
 import { delay, XML_CONFIG } from './scraper';
 import progress from 'cli-progress';
 
@@ -55,53 +55,19 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
             const jsonStr = xml.xml2json(body, XML_CONFIG);
             const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
 
-            let createdBy: wowReagent[] = [];
+            let spellArr: wowCraftingSpell[] = [];
+
             if (itemJS["createdBy"]) {
 
                 //console.log(itemJS["createdBy"]);
-                let spellRaw: any;
-                if (Array.isArray(itemJS["createdBy"]["spell"])) {
-                    spellRaw = itemJS["createdBy"]["spell"][0];
+
+                let spellRaw: any = itemJS["createdBy"]["spell"];
+                if (Array.isArray(spellRaw)) {
+                    spellArr = spellRaw.map(handleCraftingSpell);
                 }
                 else {
-                    spellRaw = itemJS["createdBy"]["spell"];
+                    spellArr = [handleCraftingSpell(spellRaw)];
                 }
-
-                const spellAttr = spellRaw["_attributes"]
-
-                const spell: wowReagent = {
-                    ...spellAttr,
-                    id: Number(spellAttr.id),
-                    minCount: Number(spellAttr.minCount),
-                    maxCount: Number(spellAttr.maxCount),
-                };
-
-                let tmpArray: any[] = [];
-
-                // e.g. 37704
-                if (!spellRaw["reagent"]) {
-                    tmpArray = [];
-                }
-                else if (Array.isArray(spellRaw["reagent"])) {
-                    tmpArray = spellRaw["reagent"];
-                }
-                else {
-                    tmpArray = [spellRaw["reagent"]];
-                }
-
-                let reagents: wowReagent[] = [];
-                reagents = tmpArray.map((raw: { [x: string]: any; }) => {
-                    const inner = raw["_attributes"];
-                    return {
-                        id: Number(inner["id"]),
-                        name: inner["name"],
-                        icon: inner["icon"],
-                        quality: Number(inner["quality"]),
-                        count: Number(inner["count"]),
-                    } as wowReagent
-                });
-
-                createdBy = [spell, ...reagents];
             }
 
             const item: wowItem = {
@@ -117,11 +83,10 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                 wowSubClass: itemJS["subclass"]["_attributes"]["id"],
                 slot: itemJS["inventorySlot"]["_attributes"]["id"],
 
-
-                createdBy: createdBy
+                createdBy: spellArr
             }
 
-            if (createdBy.length < 1) {
+            if (spellArr.length < 1) {
                 delete item.createdBy;
             }
 
@@ -147,4 +112,48 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
     console.log('updated ', updatedArr.length);
     console.log('exists ', existsArr.length);
     console.log('error ', errorArr.length);
+}
+
+function handleCraftingSpell(raw: any): wowCraftingSpell {
+    const spellAttr = raw["_attributes"];
+
+    let spell: wowCraftingSpell = {
+        name: spellAttr.name,
+        icon: spellAttr.icon,
+        id: Number(spellAttr.id),
+        minCount: Number(spellAttr.minCount),
+        maxCount: Number(spellAttr.maxCount),
+    }
+
+    let tmpArray: any[] = [];
+
+    // e.g. 37704
+    if (!raw["reagent"]) {
+        tmpArray = [];
+    }
+    else if (Array.isArray(raw["reagent"])) {
+        tmpArray = raw["reagent"];
+    }
+    else {
+        tmpArray = [raw["reagent"]];
+    }
+
+    let reagents: wowReagent[] = [];
+    reagents = tmpArray.map((raw: { [x: string]: any; }) => {
+        const inner = raw["_attributes"];
+        return {
+            id: Number(inner["id"]),
+            name: inner["name"],
+            icon: inner["icon"],
+            quality: Number(inner["quality"]),
+            count: Number(inner["count"]),
+        } as wowReagent
+    });
+
+    spell = {
+        ...spell,
+        reagents: reagents
+    }
+
+    return spell;
 }
