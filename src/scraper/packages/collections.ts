@@ -3,13 +3,17 @@ import { wowItem } from '../../app/shared/interfaces/item';
 import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
 import { fetchIDS } from '../items';
+import { fetchReagents } from "../reagents";
 
 
 
 await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
+await processCollections('crafting', 'wotlk', true);
 
-export async function processCollections(type: wowCollectionType, addon: 'wotlk') {
+await fetchReagents(true);
+
+export async function processCollections(type: wowCollectionType, addon: 'wotlk', forceDL: boolean = false) {
     const filePath = `../assets/data/manual/${type}/${addon}/`;
     const collections: wowCollection[] = readFromDirAs<wowCollection>(filePath);
     console.log(`Process ${type} from ${addon} @ ${filePath}`);
@@ -24,7 +28,7 @@ export async function processCollections(type: wowCollectionType, addon: 'wotlk'
     writeMeta(newCollections, type, addon);
     writeMetaIndividual(newCollections, type, addon);
 
-    await fetchItems(newCollections);
+    await fetchItems(newCollections, forceDL);
     await fetchIconsFrom(newCollections);
 
     sortAndWriteCollections(newCollections, type, addon);
@@ -119,7 +123,7 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
         const groupBy: string = sub.groupBy ? sub.groupBy : 'default';
 
         switch (groupBy) {
-            case 'tier9':
+            case 'tier9': {
                 const levelOne = 232;
                 const levelTwo = 245;
                 const levelThree = 258;
@@ -172,6 +176,65 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
                 right = grps.filter(grp => grp.pos === 'right');
 
                 break;
+            }
+
+
+            case 'tier10':
+                {
+                    const levelOne = 251;
+                    const levelTwo = 264;
+                    const levelThree = 277;
+
+                    sub.mid?.forEach(m => {
+                        const itemData = readIDsAsItems(m.ids ? m.ids : []);
+
+                        const normal10 = itemData.filter(i => Number(i.ilvl) === levelOne);
+                        grps.push(
+                            {
+                                name: m.name,
+                                pos: m.pos,
+                                itemData: normal10,
+                                filter: "10-Normal"
+
+                            }
+                        );
+
+                        const normal25 = itemData.filter(i => Number(i.ilvl) === levelTwo);
+                        grps.push(
+                            {
+                                name: m.name,
+                                pos: m.pos,
+                                itemData: normal25,
+                                filter: "25-Normal"
+                            },
+                            {
+                                name: m.name,
+                                pos: m.pos,
+                                itemData: normal25,
+                                filter: "10-Heroic"
+                            }
+                        );
+
+                        const heroic25 = itemData.filter(i => Number(i.ilvl) === levelThree);
+                        grps.push(
+                            {
+                                name: m.name,
+                                pos: m.pos,
+                                itemData: heroic25,
+                                filter: "25-Heroic"
+                            }
+                        );
+
+
+                    })
+
+                    left = grps.filter(grp => grp.pos === 'left');
+                    mid = grps.filter(grp => grp.pos === 'mid');
+                    right = grps.filter(grp => grp.pos === 'right');
+
+                    break;
+                }
+
 
             default:
                 const sorted = sortBossLoot(itemData);
@@ -227,7 +290,7 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
     return newSub;
 }
 
-async function fetchItems(colls: wowCollection[]) {
+async function fetchItems(colls: wowCollection[], forceDL: boolean = false) {
     let toFetch = new Set<number>();
 
     colls.forEach(coll => {
@@ -250,7 +313,7 @@ async function fetchItems(colls: wowCollection[]) {
     })
 
     const ItemIDArray: number[] = Array.from(toFetch.values());
-    await fetchIDS(ItemIDArray);
+    await fetchIDS(ItemIDArray, forceDL);
 }
 
 async function fetchIconsFrom(colls: wowCollection[]) {
@@ -262,6 +325,11 @@ async function fetchIconsFrom(colls: wowCollection[]) {
                 toFetch.add(id.toString());
             })
             sub.groups?.forEach(grp => {
+                grp.ids?.forEach(id => {
+                    toFetch.add(id.toString());
+                })
+            })
+            sub.mid?.forEach(grp => {
                 grp.ids?.forEach(id => {
                     toFetch.add(id.toString());
                 })

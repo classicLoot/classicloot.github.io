@@ -1,0 +1,59 @@
+{
+    "name": "Knights of the Ebon Blade",
+    "subCollections": [
+        {
+            "name": "Reputation",
+            "groups": [
+                {
+                    "name": "neutral",
+                    "ids": [],
+                    "pos": "left"
+                },
+                {
+                    "name": "friendly",
+                    "ids": [
+                        41562,
+                        43155
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "honored",
+                    "ids": [
+                        44242,
+                        44243,
+                        44241,
+                        44512,
+                        44138
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "revered",
+                    "ids": [
+                        44256,
+                        44258,
+                        44257,
+                        44250,
+                        44249,
+                        41721,
+                        44149,
+                        42183
+                    ],
+                    "pos": "right"
+                },
+                {
+                    "name": "exalted",
+                    "ids": [
+                        44302,
+                        44303,
+                        44305,
+                        44306,
+                        41725
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}
