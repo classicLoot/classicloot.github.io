@@ -17,7 +17,7 @@ function writeFSItem(item: wowItem) {
     fs.writeFileSync(itemPath, JSON.stringify(item));
 }
 
-export async function fetchIDS(ids: number[]) {
+export async function fetchIDS(ids: number[], forceDL: boolean = false) {
     console.log(`**FETCH IDS: ${ids.length}**`);
 
     const existsArr: number[] = [];
@@ -30,6 +30,9 @@ export async function fetchIDS(ids: number[]) {
     for (const id of ids) {
         if (checkFSItem(id)) {
             existsArr.push(id);
+            if (forceDL) {
+                idsToUpdate.push(id)
+            }
         }
         else {
             idsToUpdate.push(id)
@@ -38,7 +41,7 @@ export async function fetchIDS(ids: number[]) {
 
     // PROGRESS
     const bar1 = new progress.SingleBar({}, progress.Presets.shades_classic);
-    bar1.start(ids.length, existsArr.length);
+    bar1.start(ids.length, forceDL ? 0 : existsArr.length);
     //
 
     for (const id of idsToUpdate) {
