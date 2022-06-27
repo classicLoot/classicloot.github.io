@@ -3,6 +3,7 @@ import { wowItem } from '../../app/shared/interfaces/item';
 import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
 import { fetchIDS } from '../items';
+import { fetchReagents } from "../reagents";
 
 
 
@@ -10,6 +11,7 @@ await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
 await processCollections('crafting', 'wotlk');
 
+await fetchReagents();
 
 export async function processCollections(type: wowCollectionType, addon: 'wotlk') {
     const filePath = `../assets/data/manual/${type}/${addon}/`;
