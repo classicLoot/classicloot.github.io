@@ -54,14 +54,37 @@ export async function fetchIDS(ids: number[]) {
 
             let createdBy: wowReagent[] = [];
             if (itemJS["createdBy"]) {
-                let spell: wowReagent = itemJS["createdBy"]["spell"]["_attributes"]
-                spell = {
-                    ...spell,
-                    id: Number(spell.id),
-                    minCount: Number(spell.minCount),
-                    maxCount: Number(spell.maxCount),
+
+                //console.log(itemJS["createdBy"]);
+                let spellRaw: any;
+                if (Array.isArray(itemJS["createdBy"]["spell"])) {
+                    spellRaw = itemJS["createdBy"]["spell"][0];
+                }
+                else {
+                    spellRaw = itemJS["createdBy"]["spell"];
+                }
+
+                const spellAttr = spellRaw["_attributes"]
+
+                const spell: wowReagent = {
+                    ...spellAttr,
+                    id: Number(spellAttr.id),
+                    minCount: Number(spellAttr.minCount),
+                    maxCount: Number(spellAttr.maxCount),
                 };
-                const reagents: wowReagent[] = itemJS["createdBy"]["spell"]["reagent"].map((raw: { [x: string]: any; }) => {
+
+                let tmpArray: any[] = [];
+                const reagentsRaw = spellRaw["reagent"];
+
+                if (Array.isArray(reagentsRaw)) {
+                    tmpArray = reagentsRaw;
+                }
+                else {
+                    tmpArray = [reagentsRaw];
+                }
+
+                let reagents: wowReagent[] = [];
+                reagents = tmpArray.map((raw: { [x: string]: any; }) => {
                     const inner = raw["_attributes"];
                     return {
                         id: Number(inner["id"]),
