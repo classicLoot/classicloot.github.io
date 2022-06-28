@@ -26,5 +26,6 @@ export interface wowCraftingSpell {
     icon: string,
     minCount?: number,
     maxCount?: number,
-    reagents?: wowReagent[]
+    reagents?: wowReagent[],
+    tools?: wowReagent[]
 }

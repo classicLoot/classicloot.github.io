@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import xml from 'xml-js';
 import { wowCraftingSpell, wowItem, wowReagent } from '../../app/shared/interfaces/item';
 import { readFilesFromDirAs } from '../helper';
+import { fetchIDS } from '../items';
 import { XML_CONFIG } from './../scraper';
 
 
@@ -66,7 +67,7 @@ async function testFetchFunction(testArray: number[]) {
 }
 //await testFetchFunction([44330, 40070, 6371, 22574, 40195]); 37704
 //await testFetchFunction([37704, 22575]); 35624
-await testFetchFunction([35624, 44330]);
+//await testFetchFunction([35624, 44330]);
 
 function handleCraftingSpell(raw: any): wowCraftingSpell {
     const spellAttr = raw["_attributes"];
@@ -116,42 +117,5 @@ const testArray = [43345, 40453];
 const items = readFilesFromDirAs<wowItem>('../assets/items/', testArray.map(id => String(id)), '.json');
 //console.log(items);
 
-//console.log(readIDsAsItems(testArray));
-/* 
-
-
-function copyOverDungeons() {
-    const dung = wotlkDungeons;
-
-    dung.forEach(d => {
-        let newD: wowInstance = {
-            ...d,
-            size: 5
-        }
-
-        const itemPath = path.join(__dirname, '../../assets/data/manual/dungeons/wotlk/', String(newD.link) + '.json');
-        fs.writeFileSync(itemPath, JSON.stringify(newD));
-    })
-}
-
-//copyOverDungeons();
-
-function copyOverRaids() {
-    const raids: wowRaid[] = readFromDirAs<wowRaid>('../assets/data/raids/wotlk');
-
-    raids.forEach(r => {
-        let newR: any = {
-            ...r,
-            link: r.url,
-            phase: 1
-        }
-        delete newR['url'];
-
-        const newI: wowInstance = { ...newR };
-
-        const itemPath = path.join(__dirname, '../../assets/data/manual/raids/wotlk/', String(newI.link) + '.json');
-        fs.writeFileSync(itemPath, JSON.stringify(newI));
-    })
-}
-//copyOverRaids();
- */
+//await fetchIDS([-55628, -13240, -60691, -55016], true)60691
+await fetchIDS([-54917], true)

@@ -14,6 +14,7 @@ export class ItemSubtextPipe implements PipeTransform {
     const wowClass = +value.wowClass;
 
     switch (wowClass) {
+      case -69: return 'Spell';
       case 0: return wowConsumableTransform(value);
       case 1: return 'Container';
       case 2: return wowWeaponTransform(value);
