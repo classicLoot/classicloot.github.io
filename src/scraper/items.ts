@@ -128,7 +128,7 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                         link: link,
 
                         ilvl: 0,
-                        wowClass: 0,
+                        wowClass: -69,
                         wowSubClass: 0,
                         slot: 0,
 
