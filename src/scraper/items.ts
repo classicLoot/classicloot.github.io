@@ -5,6 +5,7 @@ import xml from 'xml-js';
 import { wowCraftingSpell, wowItem, wowReagent } from '../app/shared/interfaces/item';
 import { delay, XML_CONFIG } from './scraper';
 import progress from 'cli-progress';
+import { readIDsAsItems } from './helper';
 
 function checkFSItem(id: number): boolean {
     if (id >= 0) {
@@ -96,6 +97,27 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                     const link = `https://wotlkdb.com/?spell=${realdID}`;
 
                     const craftingSpell = handleSpell(tooltip);
+
+                    if (craftingSpell.reagents) {
+                        for (let i = 0; i < craftingSpell.reagents.length; i++) {
+                            const reagent = craftingSpell.reagents[i];
+                            if (reagent.icon === '') {
+                                if (checkFSItem(reagent.id)) {
+                                    const item = readIDsAsItems([reagent.id])[0];
+                                    craftingSpell.reagents[i].icon = item.icon;
+                                    craftingSpell.reagents[i].quality = item.quality;
+
+                                }
+                                else {
+                                    const item = await fetchSingleItem(reagent.id);
+                                    writeFSItem(item);
+                                    craftingSpell.reagents[i].icon = item.icon;
+                                    craftingSpell.reagents[i].quality = item.quality;
+                                }
+                            }
+                        }
+                    }
+
 
                     const item: wowItem = {
                         id: id,

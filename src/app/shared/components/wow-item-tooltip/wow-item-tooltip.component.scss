@@ -53,7 +53,7 @@
 }
 
 .spellList {
-    margin-left: 10px;
+    margin-left: 0rem;
 }
 
 .reagent {
@@ -68,4 +68,9 @@
 
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.countSpan {
+    min-width: 2rem;
+    text-align: end;
 }
