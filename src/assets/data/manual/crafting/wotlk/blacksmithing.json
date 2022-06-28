@@ -1,0 +1,33 @@
+{
+    "name": "Blacksmithing",
+    "subCollections": [
+        {
+            "name": "Test",
+            "ids": [
+                22194,
+                20039,
+                -55628
+            ]
+        },
+        {
+            "name": "Guardian Elixir",
+            "ids": []
+        },
+        {
+            "name": "Potion",
+            "ids": []
+        },
+        {
+            "name": "Flask",
+            "ids": []
+        },
+        {
+            "name": "Transmute",
+            "ids": []
+        },
+        {
+            "name": "Misc",
+            "ids": []
+        }
+    ]
+}

@@ -9,9 +9,9 @@ import { fetchReagents } from "../reagents";
 
 await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
-await processCollections('crafting', 'wotlk', true);
+await processCollections('crafting', 'wotlk', false);
 
-await fetchReagents(true);
+await fetchReagents(false);
 
 export async function processCollections(type: wowCollectionType, addon: 'wotlk', forceDL: boolean = false) {
     const filePath = `../assets/data/manual/${type}/${addon}/`;
@@ -338,7 +338,16 @@ async function fetchIconsFrom(colls: wowCollection[]) {
     })
 
     const fetchArray = Array.from(toFetch.values());
-    const items = readFilesFromDirAs<wowItem>(`../assets/items/`, fetchArray, '.json');
 
-    await fetchIcons(items.map(i => i.icon), 'large');
+    const fetchArrayPos = fetchArray.filter(str => !str.startsWith('-'));
+    const fetchArrayNeg = fetchArray.filter(str => str.startsWith('-')).map(str => str.replace('-', ''));
+
+
+    const itemsPos = readFilesFromDirAs<wowItem>(`../assets/items/`, fetchArrayPos, '.json');
+    const itemsNeg = readFilesFromDirAs<wowItem>(`../assets/spells/`, fetchArrayNeg, '.json');
+
+
+    await fetchIcons(itemsPos.map(i => i.icon), 'large');
+    await fetchIcons(itemsNeg.map(i => i.icon), 'large');
+
 }

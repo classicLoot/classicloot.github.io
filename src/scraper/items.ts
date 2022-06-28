@@ -142,7 +142,7 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                         name: name,
                         icon: icon,
                         htmlTooltip: fixedTooltip,
-                        quality: 0,
+                        quality: 1,
                         link: link,
 
                         ilvl: 0,
@@ -154,7 +154,6 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                     }
 
                     //console.log(item)
-
                     writeFSItem(item);
 
                     updatedArr.push(id);
@@ -249,7 +248,7 @@ function fixTooltip(tooltip: string, name: string): string {
 
     const spanMatcher = /<span class=\\{1,2}"q\\{1,2}">.*<\/span>/g
     const match = tooltip.match(spanMatcher);
-    const span = match![0];
+    const span = match![0].replaceAll("\\", "");
 
     const secondPart: string = `<table><tr><td>${span}</td></tr></table>`
 
