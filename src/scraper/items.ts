@@ -19,7 +19,7 @@ function checkFSItem(id: number): boolean {
     }
 }
 
-function writeFSItem(item: wowItem) {
+export function writeFSItem(item: wowItem) {
     if (item.id >= 0) {
         const itemPath = path.join(__dirname, '../assets/items/', String(item.id) + '.json');
         fs.writeFileSync(itemPath, JSON.stringify(item));
@@ -62,46 +62,7 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
         // => Item
         if (id >= 0) {
             try {
-                const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
-                const body = await response.text();
-
-                const jsonStr = xml.xml2json(body, XML_CONFIG);
-                const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
-
-                let spellArr: wowCraftingSpell[] = [];
-
-                if (itemJS["createdBy"]) {
-
-                    //console.log(itemJS["createdBy"]);
-
-                    let spellRaw: any = itemJS["createdBy"]["spell"];
-                    if (Array.isArray(spellRaw)) {
-                        spellArr = spellRaw.map(handleCraftingSpell);
-                    }
-                    else {
-                        spellArr = [handleCraftingSpell(spellRaw)];
-                    }
-                }
-
-                const item: wowItem = {
-                    id: itemJS["_attributes"]["id"],
-                    name: itemJS["name"]["_cdata"],
-                    quality: itemJS["quality"]["_attributes"]["id"],
-                    icon: itemJS["icon"]["_text"],
-                    htmlTooltip: itemJS["htmlTooltip"]["_cdata"],
-                    link: itemJS["link"]["_text"],
-
-                    ilvl: itemJS["level"]["_text"],
-                    wowClass: itemJS["class"]["_attributes"]["id"],
-                    wowSubClass: itemJS["subclass"]["_attributes"]["id"],
-                    slot: itemJS["inventorySlot"]["_attributes"]["id"],
-
-                    createdBy: spellArr
-                }
-
-                if (spellArr.length < 1) {
-                    delete item.createdBy;
-                }
+                const item = await fetchSingleItem(id);
 
                 writeFSItem(item);
 
@@ -112,7 +73,6 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                 console.log('ERROR: ' + id)
                 errorArr.push(id);
                 bar1.increment();
-
             }
         }
         // => Spell
@@ -288,4 +248,49 @@ function matchAttr(str: string, attrName: string): string {
     const regexStr = `${attrName}: '(.*)',`;
     const match = str.match(regexStr);
     return match![1];
+}
+
+async function fetchSingleItem(id: number) {
+    const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
+    const body = await response.text();
+
+    const jsonStr = xml.xml2json(body, XML_CONFIG);
+    const itemJS = JSON.parse(jsonStr)["aowow"]["item"];
+
+    let spellArr: wowCraftingSpell[] = [];
+
+    if (itemJS["createdBy"]) {
+
+        //console.log(itemJS["createdBy"]);
+
+        let spellRaw: any = itemJS["createdBy"]["spell"];
+        if (Array.isArray(spellRaw)) {
+            spellArr = spellRaw.map(handleCraftingSpell);
+        }
+        else {
+            spellArr = [handleCraftingSpell(spellRaw)];
+        }
+    }
+
+    const item: wowItem = {
+        id: itemJS["_attributes"]["id"],
+        name: itemJS["name"]["_cdata"],
+        quality: itemJS["quality"]["_attributes"]["id"],
+        icon: itemJS["icon"]["_text"],
+        htmlTooltip: itemJS["htmlTooltip"]["_cdata"],
+        link: itemJS["link"]["_text"],
+
+        ilvl: itemJS["level"]["_text"],
+        wowClass: itemJS["class"]["_attributes"]["id"],
+        wowSubClass: itemJS["subclass"]["_attributes"]["id"],
+        slot: itemJS["inventorySlot"]["_attributes"]["id"],
+
+        createdBy: spellArr
+    }
+
+    if (spellArr.length < 1) {
+        delete item.createdBy;
+    }
+
+    return item;
 }
