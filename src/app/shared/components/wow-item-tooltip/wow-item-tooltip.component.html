@@ -27,10 +27,10 @@
                 </div>
                 <div class="spellList">
                     <div *ngFor="let reagent of spell.reagents" class="reagent">
-                        <span> {{reagent.count}}x </span>
+                        <span class="countSpan"> {{reagent.count}}x </span>
                         <img class="itemIconSmall border" loading="lazy"
                             src="../../../../assets/icons/large/{{reagent.icon}}.jpg">
-                        <span> {{reagent.name}}
+                        <span class="q{{reagent.quality}}"> {{reagent.name}}
                         </span>
                     </div>
                 </div>

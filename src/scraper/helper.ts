@@ -49,8 +49,19 @@ export function readFilesFromDirAs<T>(pathStr: string, files: string[], ending: 
     return array;
 }
 
-export function readIDsAsItems(ids: number[]) {
-    return readFilesFromDirAs<wowItem>('../assets/items/', ids.map(id => String(id)), '.json');
+export function readIDsAsItems(ids: number[]): wowItem[] {
+    let arr: wowItem[] = [];
+    ids.forEach(id => {
+        if (id >= 0) {
+            const file = readFromDirAsSingle<wowItem>(`../assets/items/${id}.json`);
+            arr.push(file);
+        }
+        else {
+            const file = readFromDirAsSingle<wowItem>(`../assets/spells/${-1 * id}.json`);
+            arr.push(file);
+        }
+    })
+    return arr;
 }
 
 export function writeToFileAs<T>(file: T, filepath: string) {
