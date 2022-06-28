@@ -117,5 +117,5 @@ const testArray = [43345, 40453];
 const items = readFilesFromDirAs<wowItem>('../assets/items/', testArray.map(id => String(id)), '.json');
 //console.log(items);
 
-await fetchIDS([-55628, -13240, -60691, -55016], true)
-
+//await fetchIDS([-55628, -13240, -60691, -55016], true)60691
+await fetchIDS([-60691], true)

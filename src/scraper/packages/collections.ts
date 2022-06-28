@@ -9,7 +9,7 @@ import { fetchReagents } from "../reagents";
 
 await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
-await processCollections('crafting', 'wotlk', false);
+await processCollections('crafting', 'wotlk', true);
 
 await fetchReagents(false);
 

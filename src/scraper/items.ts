@@ -257,7 +257,7 @@ function matchAllReagents(str: string): wowReagent[] {
             id: Number(match[1]),
             name: match[2],
             icon: '',
-            count: Number(match[4]) | 1
+            count: Number(match[4]) ? Number(match[4]) : 1
         }
         reagents.push(reagent);
         //console.log(reagent)
