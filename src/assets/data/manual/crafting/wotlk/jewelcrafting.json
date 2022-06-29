@@ -1,0 +1,12 @@
+{
+    "name": "Jewelcrafting",
+    "subCollections": [
+        {
+            "name": "Bandages",
+            "ids": [
+                34722,
+                34721
+            ]
+        }
+    ]
+}
