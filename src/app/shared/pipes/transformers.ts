@@ -129,3 +129,22 @@ export function wowProjectileTransform(item: wowItem): string {
     }
     return 'Projectile - NYI';
 }
+
+export function wowGlyphTransform(item: wowItem): string {
+
+    switch (+item.wowSubClass) {
+        case 1: return 'Glyph - Warrior';
+        case 2: return 'Glyph - Paladin';
+        case 3: return 'Glyph - Hunter';
+        case 4: return 'Glyph - Rogue';
+        case 5: return 'Glyph - Priest';
+        case 6: return 'Glyph - Deathknight';
+        case 7: return 'Glyph - Shaman';
+        case 8: return 'Glyph - Mage';
+        case 9: return 'Glyph - Warlock';
+
+        case 11: return 'Glyph - Druid';
+
+    }
+    return 'Glyph - NYI' + item.wowSubClass;
+}

@@ -71,7 +71,7 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                 bar1.increment();
                 //console.log(item.id, item.name, item.icon);
             } catch (error) {
-                console.log('ERROR: ' + id)
+                console.log('\n' + 'ERROR: ' + id)
                 errorArr.push(id);
                 bar1.increment();
             }
@@ -92,7 +92,8 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                     const name = matchAttr(str, 'name_enus').replaceAll('\\', '');
                     const icon = matchAttr(str, 'icon');
                     const tooltip = matchAttr(str, 'tooltip_enus');
-                    const fixedTooltip = fixTooltip(tooltip, name);
+
+                    const fixedTooltip = await fixTooltip(tooltip, name);
 
                     const link = `https://wotlkdb.com/?spell=${realdID}`;
 
@@ -142,7 +143,8 @@ export async function fetchIDS(ids: number[], forceDL: boolean = false) {
                     bar1.increment();
                     //console.log(item.id, item.name, item.icon);
                 } catch (error) {
-                    console.log('ERROR: ' + id)
+                    console.log('\n' + 'ERROR: ' + id)
+                    console.log(error)
                     errorArr.push(id);
                     bar1.increment();
 
@@ -225,16 +227,60 @@ function handleSpell(tooltip: string): wowCraftingSpell {
     return craftingSpell;
 }
 
-function fixTooltip(tooltip: string, name: string): string {
+async function fixTooltip(tooltip: string, name: string): Promise<string> {
     const firstPart: string = `<table><tr><td><b>${name}</b></td></tr></table>`
 
-    const spanMatcher = /<span class=\\{1,2}"q\\{1,2}">.*<\/span>/g
-    const match = tooltip.match(spanMatcher);
-    const span = match![0].replaceAll("\\", "");
+    const spanArr = [...tooltip.matchAll(/(<span)/g)]
+    //console.log(spanArr)
+    if (spanArr.length < 2) {
+        const spanMatcher = /<span class=\\{1,2}"q\\{1,2}">.*<\/span>/g
+        const match = tooltip.match(spanMatcher);
+        const span = match![0].replaceAll("\\", "");
 
-    const secondPart: string = `<table><tr><td>${span}</td></tr></table>`
+        const secondPart: string = `<table><tr><td>${span}</td></tr></table>`
 
-    return firstPart + secondPart;
+        return firstPart + secondPart;
+    }
+    else {
+        //console.log('INSCRIPTION?!')
+
+        const firstSpanIndex = spanArr[0]["index"];
+        const secondSpanIndex = spanArr[1]["index"];
+        const splice = tooltip.slice(firstSpanIndex, secondSpanIndex! - 1);
+
+        //console.log(splice)
+
+        const hrefMatch = splice.match(/<a href=\\{1,2}"\?item=(\d*)\\{1,2}">/);
+
+        // found href => Item
+        if (hrefMatch) {
+            //console.log(hrefMatch)
+            const itemID = Number(hrefMatch[1]);
+            //console.log("hrefID", itemID)
+
+            let item: wowItem;
+
+            if (checkFSItem(itemID)) {
+                item = readIDsAsItems([itemID])[0];
+            }
+            else {
+                item = await fetchSingleItem(itemID);
+                writeFSItem(item);
+            }
+
+            const secondPart: string = item.htmlTooltip
+
+            return secondPart;
+        }
+        else {
+
+        }
+
+        // secondSpanMatchArray.
+        return ''
+    }
+
+
 }
 
 function matchSingle(str: string, matcher: string): string {
@@ -292,6 +338,13 @@ async function fetchSingleItem(id: number) {
         else {
             spellArr = [handleCraftingSpell(spellRaw)];
         }
+    }
+
+    // filter spellArr
+    spellArr = spellArr.filter(s => s.name != 'Unused');
+    const name: string = itemJS["name"]["_cdata"]
+    if (name.startsWith('Glyph')) {
+        spellArr = spellArr.filter(s => s.name === name)
     }
 
     const item: wowItem = {
