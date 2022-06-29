@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { wowItem } from '../interfaces/item';
-import { wowArmorTransform, wowConsumableTransform, wowMiscTransform, wowProjectileTransform, wowRecipeTransform, wowWeaponTransform } from './transformers';
+import { wowArmorTransform, wowConsumableTransform, wowGlyphTransform, wowMiscTransform, wowProjectileTransform, wowRecipeTransform, wowWeaponTransform } from './transformers';
 
 @Pipe({
   name: 'itemSubtext'
@@ -28,6 +28,7 @@ export class ItemSubtextPipe implements PipeTransform {
       case 12: return 'Quest Item';
       case 13: return 'Key';
       case 15: return wowMiscTransform(value);
+      case 16: return wowGlyphTransform(value);
 
       default: return 'NYI - ' + debug;
     }
