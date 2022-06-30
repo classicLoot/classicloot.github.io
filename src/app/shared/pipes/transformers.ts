@@ -65,6 +65,8 @@ export function wowArmorTransform(item: wowItem): string {
         case -5: return 'Held In Off-Hand';
         case -6: return 'Cloak';
         case -7: return 'Tabard';
+        case -8: return 'Shirt';
+
 
         default: return '*Armor* - NYI';
     }
@@ -126,8 +128,19 @@ export function wowConsumableTransform(item: wowItem): string {
 export function wowProjectileTransform(item: wowItem): string {
     switch (+item.wowSubClass) {
         case 2: return 'Projectile - Arrow';
+        case 3: return 'Projectile - Bullet';
+
     }
-    return 'Projectile - NYI';
+    return 'Projectile - NYI ' + item.wowSubClass;
+}
+
+export function wowQuiverTransform(item: wowItem): string {
+    switch (+item.wowSubClass) {
+        case 2: return 'Quiver';
+        case 3: return 'Ammo Pouch';
+
+    }
+    return 'Quiver - NYI ' + item.wowSubClass;
 }
 
 export function wowGlyphTransform(item: wowItem): string {

@@ -271,6 +271,62 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
                 break;
             }
 
+            case 'quality-ilvl': {
+                const legendary = itemData.filter(i => Number(i.quality) === 5).sort((a, b) => a.name.localeCompare(b.name));
+                const epic = itemData.filter(i => Number(i.quality) === 4).sort((a, b) => a.name.localeCompare(b.name));
+                const blue = itemData.filter(i => Number(i.quality) === 3).sort((a, b) => a.name.localeCompare(b.name));
+                const green = itemData.filter(i => Number(i.quality) === 2).sort((a, b) => a.name.localeCompare(b.name));
+                const white = itemData.filter(i => Number(i.quality) === 1).sort((a, b) => a.name.localeCompare(b.name));
+
+                // epic
+                const epicLevelSet = new Set<number>();
+                const epicArr: wowSubCollectionGroup[] = [];
+                epic.forEach(i => { epicLevelSet.add(+i.ilvl) });
+                Array.from(epicLevelSet.values()).sort((a, b) => a - b).forEach(lvl => {
+                    const items = epic.filter(i => +i.ilvl === lvl);
+                    epicArr.push({
+                        name: `${lvl}`,
+                        itemData: items
+                    })
+                })
+
+
+                // blue
+                const blueLevelSet = new Set<number>();
+                const blueArr: wowSubCollectionGroup[] = [];
+                blue.forEach(i => { blueLevelSet.add(+i.ilvl) });
+                Array.from(blueLevelSet.values()).sort((a, b) => a - b).forEach(lvl => {
+                    const items = blue.filter(i => +i.ilvl === lvl);
+                    blueArr.push({
+                        name: `${lvl}`,
+                        itemData: items
+                    })
+                })
+
+                left = [];
+                right = [];
+                mid = [
+                    {
+                        name: 'legendary',
+                        itemData: legendary
+                    },
+                    ...epicArr,
+                    ...blueArr,
+                    {
+                        name: 'green',
+                        itemData: green
+                    },
+                    {
+                        name: 'white',
+                        itemData: white
+                    }
+                ];
+
+                mid = mid.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                break;
+            }
+
 
             default: {
                 const sorted = sortBossLoot(itemData);

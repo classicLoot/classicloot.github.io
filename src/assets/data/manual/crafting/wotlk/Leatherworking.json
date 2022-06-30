@@ -3,7 +3,7 @@
     "subCollections": [
         {
             "name": "Armor - Leather",
-            "groupBy": "quality",
+            "groupBy": "quality-ilvl",
             "ids": [
                 49899,
                 49894,
@@ -77,7 +77,7 @@
         },
         {
             "name": "Armor - Mail",
-            "groupBy": "quality",
+            "groupBy": "quality-ilvl",
             "ids": [
                 49901,
                 49896,
@@ -149,7 +149,7 @@
         },
         {
             "name": "Cloak",
-            "groupBy": "quality",
+            "groupBy": "quality-ilvl",
             "ids": [
                 43565,
                 43566,
@@ -193,7 +193,7 @@
         },
         {
             "name": "Quivers",
-            "groupBy": "quality",
+            "groupBy": "quality-ilvl",
             "ids": [
                 44447,
                 44448,
