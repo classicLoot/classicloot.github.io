@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Boots",
+            "groupBy": "quality",
             "ids": [
                 -60763,
                 -47901,
@@ -16,6 +17,7 @@
         },
         {
             "name": "Bracer",
+            "groupBy": "quality",
             "ids": [
                 -62256,
                 -60767,
@@ -30,6 +32,7 @@
         },
         {
             "name": "Chest",
+            "groupBy": "quality",
             "ids": [
                 -27958,
                 -44588,
@@ -43,6 +46,7 @@
         },
         {
             "name": "Cloak",
+            "groupBy": "quality",
             "ids": [
                 -60609,
                 -44631,
@@ -62,6 +66,7 @@
         },
         {
             "name": "Gloves",
+            "groupBy": "quality",
             "ids": [
                 -71692,
                 -44625,
@@ -76,6 +81,7 @@
         },
         {
             "name": "Ring",
+            "groupBy": "quality",
             "ids": [
                 -44645,
                 -44636,
@@ -84,6 +90,7 @@
         },
         {
             "name": "Shield",
+            "groupBy": "quality",
             "ids": [
                 -44489,
                 -60653
@@ -91,6 +98,7 @@
         },
         {
             "name": "2h Weapon",
+            "groupBy": "quality",
             "ids": [
                 -60691,
                 -44595,
@@ -99,6 +107,7 @@
         },
         {
             "name": "Weapon",
+            "groupBy": "quality",
             "ids": [
                 -64441,
                 -64579,
@@ -118,6 +127,7 @@
         },
         {
             "name": "Staff",
+            "groupBy": "quality",
             "ids": [
                 -62948,
                 -62959
@@ -125,6 +135,7 @@
         },
         {
             "name": "Misc",
+            "groupBy": "quality",
             "ids": [
                 44452
             ]

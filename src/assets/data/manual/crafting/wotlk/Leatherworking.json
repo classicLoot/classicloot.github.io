@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Armor - Leather",
+            "groupBy": "quality-ilvl",
             "ids": [
                 49899,
                 49894,
@@ -76,6 +77,7 @@
         },
         {
             "name": "Armor - Mail",
+            "groupBy": "quality-ilvl",
             "ids": [
                 49901,
                 49896,
@@ -147,16 +149,17 @@
         },
         {
             "name": "Cloak",
+            "groupBy": "quality-ilvl",
             "ids": [
                 43565,
                 43566,
-                33122,
                 41238,
                 38441
             ]
         },
         {
             "name": "Enhancement",
+            "groupBy": "quality",
             "ids": [
                 -57683,
                 -57701,
@@ -190,6 +193,7 @@
         },
         {
             "name": "Quivers",
+            "groupBy": "quality-ilvl",
             "ids": [
                 44447,
                 44448,
@@ -207,6 +211,7 @@
         },
         {
             "name": "Drums",
+            "groupBy": "quality",
             "ids": [
                 44446,
                 38399,
@@ -229,6 +234,7 @@
         },
         {
             "name": "Leather",
+            "groupBy": "quality",
             "ids": [
                 38425,
                 33568,

@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Armor (<80)",
+            "groupBy": "quality",
             "ids": [
                 43969,
                 43974,
@@ -40,6 +41,7 @@
         },
         {
             "name": "Armor (80)",
+            "groupBy": "quality",
             "ids": [
                 45810,
                 42095,
@@ -80,6 +82,7 @@
         },
         {
             "name": "Bags",
+            "groupBy": "quality",
             "ids": [
                 41600,
                 41598,
@@ -90,6 +93,7 @@
         },
         {
             "name": "Misc",
+            "groupBy": "quality",
             "ids": [
                 -55769,
                 -55642,
@@ -113,6 +117,7 @@
         },
         {
             "name": "Shirts",
+            "groupBy": "quality",
             "ids": [
                 41249,
                 41253,

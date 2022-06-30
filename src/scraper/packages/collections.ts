@@ -179,64 +179,156 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
             }
 
 
-            case 'tier10':
-                {
-                    const levelOne = 251;
-                    const levelTwo = 264;
-                    const levelThree = 277;
+            case 'tier10': {
+                const levelOne = 251;
+                const levelTwo = 264;
+                const levelThree = 277;
 
-                    sub.mid?.forEach(m => {
-                        const itemData = readIDsAsItems(m.ids ? m.ids : []);
+                sub.mid?.forEach(m => {
+                    const itemData = readIDsAsItems(m.ids ? m.ids : []);
 
-                        const normal10 = itemData.filter(i => Number(i.ilvl) === levelOne);
-                        grps.push(
-                            {
-                                name: m.name,
-                                pos: m.pos,
-                                itemData: normal10,
-                                filter: "10-Normal"
+                    const normal10 = itemData.filter(i => Number(i.ilvl) === levelOne);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal10,
+                            filter: "10-Normal"
 
-                            }
-                        );
+                        }
+                    );
 
-                        const normal25 = itemData.filter(i => Number(i.ilvl) === levelTwo);
-                        grps.push(
-                            {
-                                name: m.name,
-                                pos: m.pos,
-                                itemData: normal25,
-                                filter: "25-Normal"
-                            },
-                            {
-                                name: m.name,
-                                pos: m.pos,
-                                itemData: normal25,
-                                filter: "10-Heroic"
-                            }
-                        );
+                    const normal25 = itemData.filter(i => Number(i.ilvl) === levelTwo);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal25,
+                            filter: "25-Normal"
+                        },
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: normal25,
+                            filter: "10-Heroic"
+                        }
+                    );
 
-                        const heroic25 = itemData.filter(i => Number(i.ilvl) === levelThree);
-                        grps.push(
-                            {
-                                name: m.name,
-                                pos: m.pos,
-                                itemData: heroic25,
-                                filter: "25-Heroic"
-                            }
-                        );
+                    const heroic25 = itemData.filter(i => Number(i.ilvl) === levelThree);
+                    grps.push(
+                        {
+                            name: m.name,
+                            pos: m.pos,
+                            itemData: heroic25,
+                            filter: "25-Heroic"
+                        }
+                    );
 
 
+                })
+
+                left = grps.filter(grp => grp.pos === 'left');
+                mid = grps.filter(grp => grp.pos === 'mid');
+                right = grps.filter(grp => grp.pos === 'right');
+
+                break;
+            }
+
+            case 'quality': {
+                const legendary = itemData.filter(i => Number(i.quality) === 5).sort((a, b) => a.name.localeCompare(b.name));
+                const epic = itemData.filter(i => Number(i.quality) === 4).sort((a, b) => a.name.localeCompare(b.name));
+                const blue = itemData.filter(i => Number(i.quality) === 3).sort((a, b) => a.name.localeCompare(b.name));
+                const green = itemData.filter(i => Number(i.quality) === 2).sort((a, b) => a.name.localeCompare(b.name));
+                const white = itemData.filter(i => Number(i.quality) === 1).sort((a, b) => a.name.localeCompare(b.name));
+
+                left = [];
+                right = [];
+                mid = [
+                    {
+                        name: 'legendary',
+                        itemData: legendary
+                    },
+                    {
+                        name: 'epic',
+                        itemData: epic
+                    },
+                    {
+                        name: 'blue',
+                        itemData: blue
+                    },
+                    {
+                        name: 'green',
+                        itemData: green
+                    },
+                    {
+                        name: 'white',
+                        itemData: white
+                    }
+                ];
+
+                mid = mid.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                break;
+            }
+
+            case 'quality-ilvl': {
+                const legendary = itemData.filter(i => Number(i.quality) === 5).sort((a, b) => a.name.localeCompare(b.name));
+                const epic = itemData.filter(i => Number(i.quality) === 4).sort((a, b) => a.name.localeCompare(b.name));
+                const blue = itemData.filter(i => Number(i.quality) === 3).sort((a, b) => a.name.localeCompare(b.name));
+                const green = itemData.filter(i => Number(i.quality) === 2).sort((a, b) => a.name.localeCompare(b.name));
+                const white = itemData.filter(i => Number(i.quality) === 1).sort((a, b) => a.name.localeCompare(b.name));
+
+                // epic
+                const epicLevelSet = new Set<number>();
+                const epicArr: wowSubCollectionGroup[] = [];
+                epic.forEach(i => { epicLevelSet.add(+i.ilvl) });
+                Array.from(epicLevelSet.values()).sort((a, b) => a - b).forEach(lvl => {
+                    const items = epic.filter(i => +i.ilvl === lvl);
+                    epicArr.push({
+                        name: `${lvl}`,
+                        itemData: items
                     })
-
-                    left = grps.filter(grp => grp.pos === 'left');
-                    mid = grps.filter(grp => grp.pos === 'mid');
-                    right = grps.filter(grp => grp.pos === 'right');
-
-                    break;
-                }
+                })
 
 
-            default:
+                // blue
+                const blueLevelSet = new Set<number>();
+                const blueArr: wowSubCollectionGroup[] = [];
+                blue.forEach(i => { blueLevelSet.add(+i.ilvl) });
+                Array.from(blueLevelSet.values()).sort((a, b) => a - b).forEach(lvl => {
+                    const items = blue.filter(i => +i.ilvl === lvl);
+                    blueArr.push({
+                        name: `${lvl}`,
+                        itemData: items
+                    })
+                })
+
+                left = [];
+                right = [];
+                mid = [
+                    {
+                        name: 'legendary',
+                        itemData: legendary
+                    },
+                    ...epicArr,
+                    ...blueArr,
+                    {
+                        name: 'green',
+                        itemData: green
+                    },
+                    {
+                        name: 'white',
+                        itemData: white
+                    }
+                ];
+
+                mid = mid.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                break;
+            }
+
+
+            default: {
                 const sorted = sortBossLoot(itemData);
 
                 left = [
@@ -270,11 +362,10 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
 
                 mid = [];
                 break;
+            }
+
         }
-
-
     }
-
 
     const newSub: wowSubCollection = {
         ...sub,

@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Battle Elixir",
+            "groupBy": "quality",
             "ids": [
                 44330,
                 44327,
@@ -18,6 +19,7 @@
         },
         {
             "name": "Guardian Elixir",
+            "groupBy": "quality",
             "ids": [
                 44328,
                 40109,
@@ -30,6 +32,7 @@
         },
         {
             "name": "Potion",
+            "groupBy": "quality",
             "ids": [
                 40211,
                 40212,
@@ -52,6 +55,7 @@
         },
         {
             "name": "Flask",
+            "groupBy": "quality",
             "ids": [
                 47499,
                 46377,
@@ -64,6 +68,7 @@
         },
         {
             "name": "Transmute",
+            "groupBy": "quality",
             "ids": [
                 36919,
                 36931,
@@ -74,26 +79,18 @@
                 40248,
                 41334,
                 41266,
-                23571,
-                25867,
-                25868,
                 35624,
                 35622,
                 35623,
                 35627,
-                35625,
-                35622,
                 36860,
-                35627,
-                35624,
                 35625,
-                35623,
-                36860,
                 41163
             ]
         },
         {
             "name": "Misc",
+            "groupBy": "quality",
             "ids": [
                 44323,
                 44322,
