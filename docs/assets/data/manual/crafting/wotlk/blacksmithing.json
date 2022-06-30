@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Armor",
+            "groupBy": "quality-ilvl",
             "ids": [
                 49907,
                 49906,
@@ -107,6 +108,7 @@
         },
         {
             "name": "Weapon",
+            "groupBy": "quality-ilvl",
             "ids": [
                 45085,
                 41383,
@@ -133,6 +135,7 @@
         },
         {
             "name": "Enhancement",
+            "groupBy": "quality",
             "ids": [
                 -55628,
                 -55641,
@@ -144,6 +147,7 @@
         },
         {
             "name": "Misc",
+            "groupBy": "quality",
             "ids": [
                 43853,
                 43854,

@@ -3,6 +3,7 @@
     "subCollections": [
         {
             "name": "Red",
+            "groupBy": "quality",
             "ids": [
                 40111,
                 40114,
@@ -15,6 +16,7 @@
                 39996,
                 39999,
                 39997,
+                40000,
                 40001,
                 40002,
                 40003,
@@ -31,6 +33,7 @@
         },
         {
             "name": "Blue",
+            "groupBy": "quality",
             "ids": [
                 40121,
                 40119,
@@ -48,6 +51,7 @@
         },
         {
             "name": "Yellow",
+            "groupBy": "quality",
             "ids": [
                 40123,
                 40127,
@@ -71,6 +75,7 @@
         },
         {
             "name": "Green",
+            "groupBy": "quality",
             "ids": [
                 40175,
                 40167,
@@ -133,6 +138,7 @@
         },
         {
             "name": "Orange",
+            "groupBy": "quality",
             "ids": [
                 40162,
                 40144,
@@ -204,6 +210,7 @@
         },
         {
             "name": "Purple",
+            "groupBy": "quality",
             "ids": [
                 40136,
                 40139,
@@ -248,6 +255,7 @@
         },
         {
             "name": "Meta",
+            "groupBy": "quality",
             "ids": [
                 41380,
                 41389,
@@ -269,25 +277,12 @@
                 41339,
                 41400,
                 41375,
-                41382,
-                35503,
-                35501,
-                25897,
-                25899,
-                34220,
-                25890,
-                25895,
-                25901,
-                25893,
-                25896,
-                32409,
-                25894,
-                25898,
-                32410
+                41382
             ]
         },
         {
             "name": "Prismatic",
+            "groupBy": "quality",
             "ids": [
                 49110,
                 42702,
@@ -296,6 +291,7 @@
         },
         {
             "name": "Dragon's Eye",
+            "groupBy": "quality",
             "ids": [
                 42142,
                 36766,
@@ -320,6 +316,7 @@
         },
         {
             "name": "Trinket",
+            "groupBy": "quality",
             "ids": [
                 42418,
                 44063,
@@ -330,6 +327,7 @@
         },
         {
             "name": "Ring",
+            "groupBy": "quality",
             "ids": [
                 42643,
                 42642,
@@ -354,6 +352,7 @@
         },
         {
             "name": "Neck",
+            "groupBy": "quality",
             "ids": [
                 42646,
                 42645,
@@ -369,6 +368,7 @@
         },
         {
             "name": "Misc",
+            "groupBy": "quality",
             "ids": [
                 44943,
                 42421,
