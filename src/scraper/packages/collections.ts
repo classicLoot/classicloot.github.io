@@ -234,6 +234,43 @@ function sortSubCollection(sub: wowSubCollection): wowSubCollection {
                 break;
             }
 
+            case 'quality': {
+                const legendary = itemData.filter(i => Number(i.quality) === 5).sort((a, b) => a.name.localeCompare(b.name));
+                const epic = itemData.filter(i => Number(i.quality) === 4).sort((a, b) => a.name.localeCompare(b.name));
+                const blue = itemData.filter(i => Number(i.quality) === 3).sort((a, b) => a.name.localeCompare(b.name));
+                const green = itemData.filter(i => Number(i.quality) === 2).sort((a, b) => a.name.localeCompare(b.name));
+                const white = itemData.filter(i => Number(i.quality) === 1).sort((a, b) => a.name.localeCompare(b.name));
+
+                left = [];
+                right = [];
+                mid = [
+                    {
+                        name: 'legendary',
+                        itemData: legendary
+                    },
+                    {
+                        name: 'epic',
+                        itemData: epic
+                    },
+                    {
+                        name: 'blue',
+                        itemData: blue
+                    },
+                    {
+                        name: 'green',
+                        itemData: green
+                    },
+                    {
+                        name: 'white',
+                        itemData: white
+                    }
+                ];
+
+                mid = mid.filter(entry => entry.itemData ? entry.itemData.length > 0 : false);
+
+                break;
+            }
+
 
             default: {
                 const sorted = sortBossLoot(itemData);
