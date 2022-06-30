@@ -7,7 +7,7 @@ import { delay, XML_CONFIG } from './scraper';
 import progress from 'cli-progress';
 import { readIDsAsItems } from './helper';
 
-function checkFSItem(id: number): boolean {
+export function checkFSItem(id: number): boolean {
     if (id >= 0) {
         const itemPath = path.join(__dirname, '../assets/items/', String(id) + '.json');
         const bExist = fs.existsSync(itemPath);
@@ -318,7 +318,7 @@ function matchAttr(str: string, attrName: string): string {
     return match![1];
 }
 
-async function fetchSingleItem(id: number) {
+export async function fetchSingleItem(id: number) {
     const response = await fetch(`https://wotlkdb.com/?item=${id}&xml`);
     const body = await response.text();
 
