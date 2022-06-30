@@ -1,15 +1,17 @@
 import { wowCollection, wowCollectionSubLink, wowCollectionType, wowSubCollection, wowSubCollectionGroup } from "../../app/shared/interfaces/collection";
-import { wowItem } from '../../app/shared/interfaces/item';
+import { wowCraftingSpell, wowItem } from '../../app/shared/interfaces/item';
+import { wowVendorInfo } from '../../app/shared/interfaces/vendor';
+
 import { readFilesFromDirAs, readFromDirAs, readIDsAsItems, sanitizeName, sortBossLoot, writeToFileAs, writeToFileAsAndCreateDir } from '../helper';
 import { fetchIcons } from '../icons';
-import { fetchIDS } from '../items';
+import { checkFSItem, fetchIDS, fetchSingleItem, writeFSItem } from '../items';
 import { fetchReagents } from "../reagents";
 
 
 
-await processCollections('collections', 'wotlk');
 await processCollections('reputation', 'wotlk');
 await processCollections('crafting', 'wotlk', false);
+await processCollections('collections', 'wotlk');
 
 await fetchReagents(false);
 
@@ -30,7 +32,9 @@ export async function processCollections(type: wowCollectionType, addon: 'wotlk'
 
     await fetchItems(newCollections, forceDL);
     await fetchIconsFrom(newCollections);
-
+    if (type === 'collections') {
+        await updateVendorPrice(addon);
+    }
     sortAndWriteCollections(newCollections, type, addon);
 }
 
@@ -441,4 +445,56 @@ async function fetchIconsFrom(colls: wowCollection[]) {
     await fetchIcons(itemsPos.map(i => i.icon), 'large');
     await fetchIcons(itemsNeg.map(i => i.icon), 'large');
 
+}
+
+async function updateVendorPrice(addon: 'wotlk') {
+    const filePath = `../assets/data/manual/vendor/${addon}/`;
+    const vendorInfos: wowVendorInfo[] = readFromDirAs<wowVendorInfo>(filePath);
+    vendorInfos.forEach(async info => {
+        let vendorItem: wowItem;
+        if (!checkFSItem(info.id)) {
+            vendorItem = await fetchSingleItem(info.id);
+            writeFSItem(vendorItem);
+
+        }
+        vendorItem = readIDsAsItems([info.id])[0];
+
+        info.dataArray.forEach(async data => {
+            data.ids.forEach(async id => {
+
+                let item: wowItem;
+                if (!checkFSItem(id)) {
+                    item = await fetchSingleItem(id);
+                    writeFSItem(item);
+
+                }
+
+                item = readIDsAsItems([id])[0];
+                const newEntry: wowCraftingSpell = {
+                    name: "Vendor",
+                    id: vendorItem.id,
+                    icon: vendorItem.icon,
+                    reagents: [{
+                        id: vendorItem.id,
+                        name: vendorItem.name,
+                        quality: vendorItem.quality,
+                        icon: vendorItem.icon,
+                        count: data.count
+                    }]
+                }
+                if (item.createdBy) {
+                    let created = item.createdBy.filter(e => +e.id != +vendorItem.id);
+                    created.push(newEntry);
+                    item.createdBy = created;
+                }
+                else {
+                    item.createdBy = [newEntry];
+                }
+
+                writeFSItem(item);
+
+
+            })
+        })
+    })
 }
