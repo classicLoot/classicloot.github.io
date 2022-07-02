@@ -109,7 +109,7 @@ export class FilterClassComponent implements OnInit {
       this.open()
 
       this.unlistener = this.renderer.listen('document', 'click', event => {
-        console.log('listen')
+        //console.log('listen')
         if (this.count > 0) {
           this.close()
           this.unlistener();

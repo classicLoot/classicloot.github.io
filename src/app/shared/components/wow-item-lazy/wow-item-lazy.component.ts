@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
+import { FilterStoreService } from '../../services/filter-store.service';
 import { TooltipService } from '../../services/tooltip.service';
+import { wowClass } from '../../types/options';
 
 @Component({
   selector: 'app-wow-item-lazy',
@@ -14,7 +17,11 @@ export class WowItemLazyComponent implements OnInit {
   @Input() hardmode: boolean = false;
   @Input() showLevel: boolean = false;
 
-  constructor(private tooltipService: TooltipService) { }
+  class$: Observable<wowClass | 'all'>;
+
+  constructor(private tooltipService: TooltipService, private filterStore: FilterStoreService) {
+    this.class$ = this.filterStore.class$;
+  }
 
   ngOnInit(): void {
   }

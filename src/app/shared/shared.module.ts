@@ -13,6 +13,7 @@ import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
+import { ItemVisibilityPipe } from './pipes/item-visibility.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     FilterButtonsComponent,
     FilterPipe,
     FilterClassComponent,
+    ItemVisibilityPipe,
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     OptionsButtonsComponent,
     FilterButtonsComponent,
     FilterPipe,
-    FilterClassComponent
+    FilterClassComponent,
+    ItemVisibilityPipe
   ]
 })
 export class SharedModule { }
