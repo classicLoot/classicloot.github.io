@@ -1,4 +1,5 @@
-<div class="item">
+<div class="item" [ngClass]="{'inactive': !(item |itemVisibility:selectedClass)}"
+    *ngIf="class$ | async as selectedClass">
     <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
     <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
         (mouseleave)="onMouseEvent($event,'leave')">

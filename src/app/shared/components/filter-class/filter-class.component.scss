@@ -1,0 +1,61 @@
+.image-base {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../../../assets/icons/large/class_deathknight.jpg");
+    background-size: contain;
+
+    border-radius: var(--button-rectangle-border-radius);
+    border-style: var(--button-outline-border-style);
+    border-width: var(--button-outline-border-width);
+    text-transform: var(--button-outline-text-transform);
+
+    background-color: var(--button-outline-basic-background-color);
+    border-color: var(--button-outline-basic-border-color);
+    color: var(--button-outline-basic-text-color);
+
+    filter: brightness(50%);
+
+    cursor: pointer;
+}
+
+.image-base:hover {
+    //opacity: 0.5;
+    filter: brightness(125%);
+}
+
+.image-big {
+    width: 42px;
+    height: 42px;
+}
+
+.active {
+    border-color: var(--button-outline-warning-border-color);
+    filter: brightness(100%)
+}
+
+.selected {
+    filter: brightness(100%)
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    align-self: stretch;
+    width: 100%;
+    gap: 2px
+}
+
+.first {
+    visibility: hidden;
+}
+
+.base {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    z-index: 25;
+}

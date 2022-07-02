@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FilterStoreService } from '../../services/filter-store.service';
-import { wowDifficulty, wowFaction, wowSize } from '../../types/options';
+import { wowClass, wowDifficulty, wowFaction, wowSize } from '../../types/options';
 
 @Component({
   selector: 'app-filter-buttons',
@@ -45,5 +45,4 @@ export class FilterButtonsComponent implements OnInit {
       this.filterStore.updateFaction(value);
     }
   }
-
 }

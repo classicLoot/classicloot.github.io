@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NbButtonGroupModule, NbButtonModule, NbIconModule } from '@nebular/theme';
+import { NbButtonGroupModule, NbButtonModule, NbIconModule, NbSelectModule } from '@nebular/theme';
 import { FilterButtonsComponent } from './components/filter-buttons/filter-buttons.component';
+import { FilterClassComponent } from './components/filter-class/filter-class.component';
 import { OptionsButtonsComponent } from './components/options-buttons/options-buttons.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
@@ -12,6 +13,7 @@ import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-
 import { WowItemComponent } from './components/wow-item/wow-item.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
+import { ItemVisibilityPipe } from './pipes/item-visibility.pipe';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,16 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     OptionsButtonsComponent,
     FilterButtonsComponent,
     FilterPipe,
+    FilterClassComponent,
+    ItemVisibilityPipe,
   ],
   imports: [
     CommonModule,
     RouterModule,
     NbIconModule,
     NbButtonGroupModule,
-    NbButtonModule
+    NbButtonModule,
+    NbSelectModule
   ],
   exports: [
     WowItemComponent,
@@ -44,7 +49,9 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     WowAchievementComponent,
     OptionsButtonsComponent,
     FilterButtonsComponent,
-    FilterPipe
+    FilterPipe,
+    FilterClassComponent,
+    ItemVisibilityPipe
   ]
 })
 export class SharedModule { }

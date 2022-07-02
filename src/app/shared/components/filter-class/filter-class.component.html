@@ -1,0 +1,23 @@
+<div class="base" *ngIf="classWithImg$ | async as selected">
+    <div class="image-base" [style.background-image]="'url(../../../../assets/icons/large/' + selected.img +'.jpg)'"
+        (click)="toggleOpen()" [ngClass]="{'selected': selected.class != 'all', 'active': bOpen}">
+    </div>
+
+    <div class="border overlay" *ngIf="bOpen">
+        <div class="grid">
+            <div class="image-base image-big first"
+                [style.background-image]="'url(../../../../assets/icons/large/' +'inv_misc_questionmark'+'.jpg)'"
+                (click)="handleClick('all', selected.class)">
+            </div>
+            <div class="image-base image-big"
+                [style.background-image]="'url(../../../../assets/icons/large/' +'inv_misc_questionmark'+'.jpg)'"
+                (click)="handleClick('all', selected.class)" [ngClass]="{'selected': selected.class === 'all'}">
+            </div>
+            <div class="image-base image-big" *ngFor="let item of classArr"
+                [style.background-image]="'url(../../../../assets/icons/large/'+ item.img +'.jpg)'"
+                (click)="handleClick(item.class, selected.class)"
+                [ngClass]="{'selected': selected.class === item.class}">
+            </div>
+        </div>
+    </div>
+</div>
