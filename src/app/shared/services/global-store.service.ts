@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
 import { filter, map, Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { TooltipService } from './tooltip.service';
 interface GlobalProps {
   route: string,
   id: string,
-  addon: wowAddon
+  addon: wowAddon,
+  bMobile: boolean
 }
 
 @Injectable({
@@ -20,7 +21,7 @@ export class GlobalStoreService {
 
   private store = createStore(
     { name: 'global' },
-    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk' })
+    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk', bMobile: false })
   )
   public state$ = this.store.pipe(select((state) => state));
 
@@ -31,6 +32,8 @@ export class GlobalStoreService {
   public addon$ = this.store.pipe(select((state) => state.addon));
 
   public startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
+
+  public mobile$ = this.store.pipe(select((state) => state.bMobile));
 
   constructor(private router: Router, private tooltipService: TooltipService) {
     devTools();
@@ -48,6 +51,13 @@ export class GlobalStoreService {
         return 'RIP';
       })
     )
+
+    if (window.matchMedia("(any-hover: none)").matches) {
+      this.store.update((state) => ({ ...state, bMobile: true }))
+    }
+    else {
+      this.store.update((state) => ({ ...state, bMobile: false }))
+    }
   }
 
   private subscribeRoute() {

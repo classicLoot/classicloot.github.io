@@ -1,8 +1,9 @@
 <div class="item" [ngClass]="{'inactive': !(item |itemVisibility:selectedClass)}"
     *ngIf="class$ | async as selectedClass">
-    <ng-container *ngIf="false" [ngTemplateOutlet]="itemTemplate"> </ng-container>
-    <ng-container *ngIf="true" [ngTemplateOutlet]="itemTemplateMobile"> </ng-container>
 
+    <ng-container *ngIf="mobile$ | async as mobile; else itemTemplate">
+        <ng-container [ngTemplateOutlet]="itemTemplateMobile"> </ng-container>
+    </ng-container>
 </div>
 
 <!-- Templates -->
@@ -27,7 +28,7 @@
     <div class="itemText" (click)="clickMobile($event)">
         <div>
             <div class="itemName q{{item.quality}}">
-                {{item.name}}
+                {{item.name}} (M)
                 <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
             </div>
             <div class="itemSubText">
