@@ -1,11 +1,13 @@
+import { state } from '@angular/animations';
 import { Injectable } from '@angular/core';
 import { createStore, select, withProps } from '@ngneat/elf';
-import { wowDifficulty, wowFaction, wowSize } from '../types/options';
+import { wowClass, wowDifficulty, wowFaction, wowSize } from '../types/options';
 
 interface filterProps {
   faction: wowFaction,
   difficulty: wowDifficulty,
-  size: wowSize
+  size: wowSize,
+  class: wowClass | 'all'
 }
 
 @Injectable({
@@ -15,7 +17,7 @@ export class FilterStoreService {
 
   private store = createStore(
     { name: 'filter' },
-    withProps<filterProps>({ faction: 'Alliance', difficulty: 'Normal', size: 10 })
+    withProps<filterProps>({ faction: 'Alliance', difficulty: 'Normal', size: 10, class: 'all' })
   );
 
   public state$ = this.store.pipe(select((state) => state));
@@ -23,6 +25,8 @@ export class FilterStoreService {
   public faction$ = this.store.pipe(select((state) => state.faction));
   public difficulty$ = this.store.pipe(select((state) => state.difficulty));
   public size$ = this.store.pipe(select((state) => state.size));
+  public class$ = this.store.pipe(select((state) => state.class));
+
 
   constructor() { }
 
@@ -44,6 +48,13 @@ export class FilterStoreService {
     this.store.update((state) => ({
       ...state,
       size: newSize
+    }))
+  }
+
+  public updateClass(newClass: wowClass | 'all') {
+    this.store.update((state) => ({
+      ...state,
+      class: newClass
     }))
   }
 

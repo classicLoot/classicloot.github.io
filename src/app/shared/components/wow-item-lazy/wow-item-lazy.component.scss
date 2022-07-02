@@ -37,6 +37,11 @@
 
 .item:hover {
     background-color: #2e3a59;
+    filter: brightness(100%);
+
+    img {
+        filter: brightness(100%)
+    }
 }
 
 .itemName {
@@ -60,4 +65,12 @@
 
 nb-icon {
     font-size: 18px;
+}
+
+.inactive {
+    filter: brightness(75%);
+
+    img {
+        filter: brightness(50%);
+    }
 }
