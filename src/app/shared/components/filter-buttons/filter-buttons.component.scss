@@ -20,17 +20,3 @@ nb-button-group {
 .flex-item-right {
     flex: 50%;
 }
-
-nb-select ::ng-deep {
-    .select-button {
-        max-width: 118px;
-        min-width: 0;
-
-        padding-right: 0px;
-    }
-
-}
-
-.class-container {
-    max-width: 100px;
-}

@@ -17,15 +17,11 @@ export class FilterButtonsComponent implements OnInit {
   faction$!: Observable<wowFaction>;
   size$!: Observable<wowSize>;
   difficulty$!: Observable<wowDifficulty>;
-  class$!: Observable<wowClass | 'all'>;
-
-  wowClasses: wowClass[] = ['Deathknight', 'Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior'];
 
   constructor(private filterStore: FilterStoreService) {
     this.faction$ = this.filterStore.faction$;
     this.size$ = this.filterStore.size$;
     this.difficulty$ = this.filterStore.difficulty$;
-    this.class$ = this.filterStore.class$;
   }
 
   ngOnInit(): void {
@@ -49,11 +45,4 @@ export class FilterButtonsComponent implements OnInit {
       this.filterStore.updateFaction(value);
     }
   }
-
-  public updateClass(value: wowClass | 'all', old: wowClass | 'all') {
-    if (value != old) {
-      this.filterStore.updateClass(value)
-    }
-  }
-
 }
