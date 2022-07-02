@@ -25,12 +25,38 @@ export class ItemVisibilityPipe implements PipeTransform {
       return ['Hunter'].includes(filter)
     }
 
+    else if (+item.wowClass === 15) {
+      if ([4, -2].includes(+item.wowSubClass)) {
+        return this.checkClass(item, filter);
+      }
+    }
+
     return true;
   }
 
   checkClass(item: wowItem, filter: wowClass): boolean {
+    // Armor/Weapons
+    if ([4, 2, 11].includes(+item.wowClass)) {
 
-    return true;
+    }
+    //const classMatcher = /(<a href=\\{1,2}"\?class=\d{1,2}\\" class=\\{1,2}"\w\d*\\{1,2}">(\w* {0,1}\w*)<\/a>,{0,1})/g
+    const classMatcher = /(<a href="\?class=\d*" class="\w\d*">(\w* {0,1}\w*)<\/a>)/g
+    //const classMatcher = /(<a href=\\{0,2}"\?class=\d{1,2}\\{0,2}" class=\\{0,2}"c\d{1,2}\\{0,2}">(\w* {0,1}\w*)<\/a>)/g
+
+    const tooltip: string = item.htmlTooltip.replace('\\', '');
+    //console.log(tooltip)
+
+    let classes: wowClass[] = [];
+    [...tooltip.matchAll(classMatcher)].forEach(match => {
+      if (match[2] === 'Death Knight') {
+        classes.push('Deathknight');
+      }
+      else {
+        classes.push(match[2] as wowClass)
+      }
+    })
+
+    return classes.length > 0 ? classes.includes(filter) : true;
   }
 
   checkArmor(item: wowItem, filter: wowClass): boolean {
