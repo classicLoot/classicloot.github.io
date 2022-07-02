@@ -1,1 +1,42 @@
-<p>wow-item-modal works!</p>
+<ng-template #modalTemplate let-data>
+    <div class="itemTooltip" id="modalTooltipBase">
+        <div class="itemTooltipBox">
+            <img class="itemIconBig border" id="modalTooltipIcon">
+            <div>
+                <div class="border wow" id="modalTooltipContent"></div>
+                <ng-container [ngTemplateOutlet]="createdBy" [ngTemplateOutletContext]="{item: data.item}">
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<!-- Templates -->
+
+<ng-template #createdBy let-item="item">
+    <ng-container *ngIf="item.createdBy && item.createdBy.length > 0">
+        <div class="border wow createdBy flexColumn">
+            <div *ngFor="let spell of item.createdBy" class="flexColumn">
+                <div class="spellHeader">
+                    <!-- 
+                          <img class="itemIconSmall border" loading="lazy"
+                        src="../../../../assets/icons/large/{{item.icon}}.jpg"> 
+                    -->
+                    <div class="spellName">
+                        {{spell.name}}
+                    </div>
+
+                </div>
+                <div class="spellList">
+                    <div *ngFor="let reagent of spell.reagents" class="reagent">
+                        <span class="countSpan"> {{reagent.count}}x </span>
+                        <img class="itemIconSmall border" loading="lazy"
+                            src="../../../../assets/icons/large/{{reagent.icon}}.jpg">
+                        <span class="q{{reagent.quality}}"> {{reagent.name}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>

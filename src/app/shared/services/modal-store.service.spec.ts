@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ModalStoreService } from './modal-store.service';
+import { ModalStoreService } from './modal.service';
 
 describe('ModalStoreService', () => {
   let service: ModalStoreService;

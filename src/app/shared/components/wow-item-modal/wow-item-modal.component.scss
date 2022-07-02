@@ -1,0 +1,76 @@
+#itemTooltipBase {
+    position: absolute;
+    z-index: 50;
+
+    top: 100px;
+    left: 0px;
+
+    display: none;
+}
+
+.itemTooltipBox {
+    display: flex;
+    gap: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.itemIcon {
+    width: 40px;
+    height: 40px;
+}
+
+.itemIconBig {
+    width: 60px;
+    height: 60px;
+}
+
+.itemName {
+    font-size: larger;
+    padding-left: 0.5rem;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.createdBy {
+    margin-top: 1px;
+
+
+}
+
+.flexColumn {
+    display: flex;
+    gap: 1px;
+    flex-direction: column;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.spellList {
+    margin-left: 0rem;
+}
+
+.reagent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.itemIconSmall {
+    width: 20px;
+    height: 20px;
+
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.countSpan {
+    min-width: 2rem;
+    text-align: end;
+}

@@ -53,7 +53,8 @@ import { WowItemModalComponent } from './components/wow-item-modal/wow-item-moda
     FilterButtonsComponent,
     FilterPipe,
     FilterClassComponent,
-    ItemVisibilityPipe
+    ItemVisibilityPipe,
+    WowItemModalComponent
   ]
 })
 export class SharedModule { }

@@ -4,6 +4,7 @@
         <div class="headerfix">
             <app-header *ngIf="headerItems$ | async as headerItems" [menuItems]="headerItems"></app-header>
             <app-wow-item-tooltip></app-wow-item-tooltip>
+            <app-wow-item-modal></app-wow-item-modal>
         </div>
     </nb-layout-header>
 

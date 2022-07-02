@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { FilterStoreService } from '../../services/filter-store.service';
 import { GlobalStoreService } from '../../services/global-store.service';
+import { ModalService } from '../../services/modal.service';
 import { TooltipService } from '../../services/tooltip.service';
 import { wowClass } from '../../types/options';
 
@@ -21,7 +22,7 @@ export class WowItemLazyComponent implements OnInit {
   class$: Observable<wowClass | 'all'>;
   mobile$: Observable<boolean>;
 
-  constructor(private tooltipService: TooltipService, private filterStore: FilterStoreService, private globalStore: GlobalStoreService) {
+  constructor(private tooltipService: TooltipService, private filterStore: FilterStoreService, private globalStore: GlobalStoreService, private modalService: ModalService) {
     this.class$ = this.filterStore.class$;
     this.mobile$ = this.globalStore.mobile$;
   }
@@ -35,7 +36,7 @@ export class WowItemLazyComponent implements OnInit {
   }
 
   public clickMobile(e: MouseEvent) {
-    console.log('clickMobile')
+    this.modalService.setItem(this.item);
   }
 
 }

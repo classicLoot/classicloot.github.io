@@ -1,9 +1,10 @@
 <div class="item" [ngClass]="{'inactive': !(item |itemVisibility:selectedClass)}"
     *ngIf="class$ | async as selectedClass">
 
-    <ng-container *ngIf="mobile$ | async as mobile; else itemTemplate">
+    <ng-container *ngIf="mobile$ | async as mobile; else itemTemplateMobile">
         <ng-container [ngTemplateOutlet]="itemTemplateMobile"> </ng-container>
     </ng-container>
+
 </div>
 
 <!-- Templates -->
