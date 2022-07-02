@@ -24,6 +24,16 @@
                 (click)="updateFaction('Horde', faction)">Horde</button>
         </nb-button-group>
     </ng-container>
+
+    <ng-container>
+        <nb-select *ngIf="class$ | async as selectedClass" [selected]="selectedClass" size="tiny" [optionsWidth]="110"
+            (selectedChange)="updateClass($event,selectedClass)" fullWidth>
+            <nb-option value="all">all classes</nb-option>
+            <nb-option *ngFor="let class of wowClasses" [value]="class">
+                {{class}}
+            </nb-option>
+        </nb-select>
+    </ng-container>
 </div>
 <ng-template #noSize>
     <nb-button-group size="tiny" outline="true" status="basic">
