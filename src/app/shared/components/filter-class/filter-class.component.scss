@@ -28,6 +28,11 @@
     height: 42px;
 }
 
+.active {
+    border-color: var(--button-outline-warning-border-color);
+    filter: brightness(100%)
+}
+
 .selected {
     filter: brightness(100%)
 }

@@ -1,6 +1,6 @@
 <div class="base" *ngIf="classWithImg$ | async as selected">
     <div class="image-base" [style.background-image]="'url(../../../../assets/icons/large/' + selected.img +'.jpg)'"
-        (click)="toggleOpen()" [ngClass]="{'selected': selected.class != 'all'}">
+        (click)="toggleOpen()" [ngClass]="{'selected': selected.class != 'all', 'active': bOpen}">
     </div>
 
     <div class="border overlay" *ngIf="bOpen">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { FilterStoreService } from '../../services/filter-store.service';
 import { wowClass } from '../../types/options';
@@ -9,10 +9,15 @@ import { wowClass } from '../../types/options';
   styleUrls: ['./filter-class.component.scss']
 })
 export class FilterClassComponent implements OnInit {
+
+  private unlistener!: () => void;
+  private count = 0;
+
+
   class$!: Observable<wowClass | 'all'>;
   classWithImg$: Observable<{ class: wowClass | 'all', img: string }>;
 
-  bOpen: boolean = true;
+  bOpen: boolean = false;
 
   classArr: { class: wowClass | 'all', img: string }[] = [
     {
@@ -59,7 +64,7 @@ export class FilterClassComponent implements OnInit {
 
 
 
-  constructor(private filterStore: FilterStoreService) {
+  constructor(private filterStore: FilterStoreService, private elementRef: ElementRef, private renderer: Renderer2) {
     this.class$ = this.filterStore.class$;
 
     this.classWithImg$ = this.class$.pipe(
@@ -92,11 +97,37 @@ export class FilterClassComponent implements OnInit {
       this.filterStore.updateClass(val)
     }
 
-    this.bOpen = false;
+    this.close();
   }
 
   toggleOpen() {
-    this.bOpen = !this.bOpen;
+    if (this.bOpen) {
+      this.unlistener();
+      this.close()
+    }
+    else {
+      this.open()
+
+      this.unlistener = this.renderer.listen('document', 'click', event => {
+        console.log('listen')
+        if (this.count > 0) {
+          this.close()
+          this.unlistener();
+        }
+        else {
+          this.count++;
+        }
+      })
+    }
+  }
+
+  open() {
+    this.bOpen = true;
+    this.count = 0;
+  }
+
+  close() {
+    this.bOpen = false;
   }
 
 }
