@@ -1,19 +1,38 @@
 <div class="item" [ngClass]="{'inactive': !(item |itemVisibility:selectedClass)}"
     *ngIf="class$ | async as selectedClass">
-    <ng-container>
-        <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
-        <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
-            (mouseleave)="onMouseEvent($event,'leave')">
-            <a href="{{item.link}}" target="_blank">
-                <div class="itemName q{{item.quality}}">
-                    {{item.name}}
-                    <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
-                </div>
-                <div class="itemSubText">
-                    {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
-                </div>
-            </a>
-        </div>
-    </ng-container>
+    <ng-container *ngIf="false" [ngTemplateOutlet]="itemTemplate"> </ng-container>
+    <ng-container *ngIf="true" [ngTemplateOutlet]="itemTemplateMobile"> </ng-container>
 
 </div>
+
+<!-- Templates -->
+<ng-template #itemTemplate>
+    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
+        (mouseleave)="onMouseEvent($event,'leave')">
+        <a href="{{item.link}}" target="_blank">
+            <div class="itemName q{{item.quality}}">
+                {{item.name}}
+                <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
+            </div>
+            <div class="itemSubText">
+                {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
+            </div>
+        </a>
+    </div>
+</ng-template>
+
+<ng-template #itemTemplateMobile>
+    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <div class="itemText" (click)="clickMobile($event)">
+        <div>
+            <div class="itemName q{{item.quality}}">
+                {{item.name}}
+                <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
+            </div>
+            <div class="itemSubText">
+                {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
+            </div>
+        </div>
+    </div>
+</ng-template>

@@ -30,4 +30,9 @@ export class WowItemLazyComponent implements OnInit {
     //console.log(type, item.name);
     this.tooltipService.onMouseEvent(e, type, this.item);
   }
+
+  public clickMobile(e: MouseEvent) {
+    console.log('clickMobile')
+  }
+
 }
