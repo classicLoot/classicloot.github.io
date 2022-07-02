@@ -5,6 +5,7 @@
             [bFaction]="['B','D'].includes(collectionType)" [bDifficulty]="['B','C'].includes(collectionType)"
             class="flex-item-right">
         </app-filter-buttons>
+        <app-filter-class></app-filter-class>
     </nb-card-header>
     <nb-card-body class="flex-container">
         <ng-container *ngIf="sub$ | async as sub">

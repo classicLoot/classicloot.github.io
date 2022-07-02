@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NbButtonGroupModule, NbButtonModule, NbIconModule, NbSelectModule } from '@nebular/theme';
 import { FilterButtonsComponent } from './components/filter-buttons/filter-buttons.component';
+import { FilterClassComponent } from './components/filter-class/filter-class.component';
 import { OptionsButtonsComponent } from './components/options-buttons/options-buttons.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
@@ -26,6 +27,7 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     OptionsButtonsComponent,
     FilterButtonsComponent,
     FilterPipe,
+    FilterClassComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +47,8 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
     WowAchievementComponent,
     OptionsButtonsComponent,
     FilterButtonsComponent,
-    FilterPipe
+    FilterPipe,
+    FilterClassComponent
   ]
 })
 export class SharedModule { }
