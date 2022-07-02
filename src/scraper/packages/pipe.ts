@@ -3,7 +3,7 @@ import { wowClass } from '../../app/shared/types/options';
 import { readIDsAsItems } from '../helper';
 
 //testItemVisPipe([39275, 39274, 40625, 40626, 40627, 45634, 40612], ['Druid']);
-testItemVisPipe([40612], ['Deathknight']);
+testItemVisPipe([39275], ['Deathknight']);
 
 
 function testItemVisPipe(ids: number[], classes: wowClass[]) {

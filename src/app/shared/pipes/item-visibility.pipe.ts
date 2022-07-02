@@ -14,17 +14,17 @@ export class ItemVisibilityPipe implements PipeTransform {
 
     // Armor
     if (+item.wowClass === 4) {
-      return this.checkArmor(item, filter) && this.checkClass(item, filter);
+      return this.checkArmor(item, filter) && this.checkClass(item, filter) && this.checkStats(item, filter);
     }
     // Weapon
     else if (+item.wowClass === 2) {
-      return this.checkWeapon(item, filter) && this.checkClass(item, filter);
+      return this.checkWeapon(item, filter) && this.checkClass(item, filter) && this.checkStats(item, filter);
     }
     // Quiver
     else if (+item.wowClass === 11) {
       return ['Hunter'].includes(filter)
     }
-
+    // Token
     else if (+item.wowClass === 15) {
       if ([4, -2].includes(+item.wowSubClass)) {
         return this.checkClass(item, filter);
@@ -57,6 +57,76 @@ export class ItemVisibilityPipe implements PipeTransform {
     })
 
     return classes.length > 0 ? classes.includes(filter) : true;
+  }
+
+  checkStats(item: wowItem, filter: wowClass): boolean {
+    const tooltip: string = item.htmlTooltip.replace('\\', '');
+    // ['Deathknight' ,'Druid' , 'Hunter' , 'Mage' , 'Paladin' , 'Priest' , 'Rogue' , 'Shaman' , 'Warlock' , 'Warrior']
+
+    // 
+    if ([...tooltip.matchAll(/<!--stat1-->/g)].length > 0) {
+      console.log('1111')
+    }
+    // 
+    if ([...tooltip.matchAll(/<!--stat2-->/g)].length > 0) {
+      console.log('2222')
+    }
+    // Agi
+    if ([...tooltip.matchAll(/<!--stat3-->/g)].length > 0) {
+      if (['Mage', 'Priest', 'Warlock'].includes(filter)) return false;
+    }
+    //  Str
+    if ([...tooltip.matchAll(/<!--stat4-->/g)].length > 0) {
+      if (['Hunter', 'Mage', 'Priest', 'Warlock'].includes(filter)) return false;
+    }
+    // Int
+    if ([...tooltip.matchAll(/<!--stat5-->/g)].length > 0) {
+      if (['Deathknight', 'Rogue', 'Warrior'].includes(filter)) return false;
+
+    }
+    // Spirit
+    if ([...tooltip.matchAll(/<!--stat6-->/g)].length > 0) {
+      if (['Deathknight', 'Rogue', 'Warrior'].includes(filter)) return false;
+    }
+    // Stam
+    if ([...tooltip.matchAll(/<!--stat7-->/g)].length > 0) {
+
+    }
+    // 
+    if ([...tooltip.matchAll(/<!--stat8-->/g)].length > 0) {
+      console.log('8888')
+    }
+
+
+    // Def
+    if ([...tooltip.matchAll(/defense rating/g)].length > 0) {
+      if ([, 'Hunter', 'Mage', 'Priest', 'Rogue', 'Shaman', 'Warlock'].includes(filter)) return false;
+    }
+    // spell power
+    if ([...tooltip.matchAll(/spell power/g)].length > 0) {
+      if (['Deathknight', 'Hunter', 'Rogue', 'Warrior'].includes(filter)) return false;
+    }
+    // attack power
+    if ([...tooltip.matchAll(/attack power/g)].length > 0) {
+      if (['Mage', 'Priest', 'Warlock'].includes(filter)) return false;
+    }
+    // mp5
+    if ([...tooltip.matchAll(/mana per 5/g)].length > 0) {
+      if (['Deathknight', 'Rogue', 'Warrior'].includes(filter)) return false;
+    }
+    // armor pen
+    if ([...tooltip.matchAll(/armor penetration/g)].length > 0) {
+      if (['Mage', 'Priest', 'Warlock'].includes(filter)) return false;
+    }
+    // dodge
+    if ([...tooltip.matchAll(/dodge rating/g)].length > 0) {
+      if (['Hunter', 'Mage', 'Priest', 'Shaman', 'Warlock'].includes(filter)) return false;
+    }
+
+
+
+    //console.log(item.htmlTooltip)
+    return true;
   }
 
   checkArmor(item: wowItem, filter: wowClass): boolean {
