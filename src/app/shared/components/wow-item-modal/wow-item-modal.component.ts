@@ -1,6 +1,5 @@
-import { Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { NbWindowControlButtonsConfig, NbWindowService } from '@nebular/theme';
-import { Subscription } from 'rxjs';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { ModalService } from '../../services/modal.service';
 
@@ -9,32 +8,18 @@ import { ModalService } from '../../services/modal.service';
   templateUrl: './wow-item-modal.component.html',
   styleUrls: ['./wow-item-modal.component.scss']
 })
-export class WowItemModalComponent implements OnInit, OnDestroy {
+export class WowItemModalComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('modalTemplate') modalTemplateRef!: TemplateRef<any>
   @Input() itemSize: string = 'large';
 
   private sub: Subscription;
+  public modalItem: wowItem | null = null;
 
-  private buttonCFG: NbWindowControlButtonsConfig = {
-    minimize: false,
-    maximize: false,
-    fullScreen: false,
-    close: true
-  }
-
-  constructor(private windowService: NbWindowService, private modalService: ModalService) {
-    this.sub = this.modalService.itemSubject.asObservable().subscribe(value => {
-      if (value) {
-        const windowTemplateRef = this.windowService.open(
-          this.modalTemplateRef,
-          { title: 'Tooltip', buttons: this.buttonCFG, context: { item: value } }
-        )
-        this.setupWindow(value);
-
-      }
-      else {
-        console.log('NULLS')
-      }
+  constructor(private modalService: ModalService) {
+    const item$ = this.modalService.itemSubject.asObservable();
+    this.sub = item$.subscribe(value => {
+      console.log('sub', value)
+      this.setupWindow(value);
     })
   }
 
@@ -45,20 +30,34 @@ export class WowItemModalComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  private setupWindow(item: wowItem) {
-    const tooltipBase = document.getElementById(`modalTooltipBase`);
+  ngAfterViewInit(): void {
+  }
+
+  public close() {
+    console.log('close')
+    this.modalService.setItem(null);
+  }
+
+  public setupWindow(item: wowItem | null) {
+    const modalRef = document.getElementById(`myModal`);
+    if (!modalRef) {
+      return;
+    }
+
+    modalRef.style.display = item ? 'block' : 'none';
+
     const tooltipIcon = document.getElementById(`modalTooltipIcon`) as HTMLImageElement;
     const tooltipContent = document.getElementById(`modalTooltipContent`);
 
-
-    if (item && tooltipBase && tooltipIcon && tooltipContent) {
-      console.log('setupWindow', item.name)
+    if (item && tooltipIcon && tooltipContent) {
 
       // Icon
       tooltipIcon.src = `../../../../assets/icons/${this.itemSize}/${item.icon}.jpg`
 
       // HTML
       tooltipContent.innerHTML = item.htmlTooltip;
+
+      this.modalItem = item;
     }
   }
 
