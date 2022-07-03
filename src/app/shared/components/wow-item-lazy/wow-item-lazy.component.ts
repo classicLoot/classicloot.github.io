@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { FilterStoreService } from '../../services/filter-store.service';
+import { GlobalStoreService } from '../../services/global-store.service';
+import { ModalService } from '../../services/modal.service';
 import { TooltipService } from '../../services/tooltip.service';
 import { wowClass } from '../../types/options';
 
@@ -18,9 +20,11 @@ export class WowItemLazyComponent implements OnInit {
   @Input() showLevel: boolean = false;
 
   class$: Observable<wowClass | 'all'>;
+  mobile$: Observable<boolean>;
 
-  constructor(private tooltipService: TooltipService, private filterStore: FilterStoreService) {
+  constructor(private tooltipService: TooltipService, private filterStore: FilterStoreService, private globalStore: GlobalStoreService, private modalService: ModalService) {
     this.class$ = this.filterStore.class$;
+    this.mobile$ = this.globalStore.mobile$;
   }
 
   ngOnInit(): void {
@@ -30,4 +34,9 @@ export class WowItemLazyComponent implements OnInit {
     //console.log(type, item.name);
     this.tooltipService.onMouseEvent(e, type, this.item);
   }
+
+  public clickMobile(e: MouseEvent) {
+    this.modalService.setItem(this.item);
+  }
+
 }
