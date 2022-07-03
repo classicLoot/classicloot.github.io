@@ -1,5 +1,14 @@
 <div class="item" [ngClass]="{'inactive': !(item |itemVisibility:selectedClass)}"
     *ngIf="class$ | async as selectedClass">
+
+    <ng-container *ngIf="mobile$ | async as mobile; else itemTemplate">
+        <ng-container [ngTemplateOutlet]="itemTemplateMobile"> </ng-container>
+    </ng-container>
+
+</div>
+
+<!-- Templates -->
+<ng-template #itemTemplate>
     <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
     <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
         (mouseleave)="onMouseEvent($event,'leave')">
@@ -13,4 +22,19 @@
             </div>
         </a>
     </div>
-</div>
+</ng-template>
+
+<ng-template #itemTemplateMobile>
+    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+    <div class="itemText" (click)="clickMobile($event)">
+        <div>
+            <div class="itemName q{{item.quality}}">
+                {{item.name}}
+                <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
+            </div>
+            <div class="itemSubText">
+                {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
+            </div>
+        </div>
+    </div>
+</ng-template>
