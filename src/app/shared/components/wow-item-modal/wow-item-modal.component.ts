@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { wowItem } from '../../interfaces/item';
 import { ModalService } from '../../services/modal.service';
@@ -15,10 +15,12 @@ export class WowItemModalComponent implements OnInit, OnDestroy, AfterViewInit {
   private sub: Subscription;
   public modalItem: wowItem | null = null;
 
-  constructor(private modalService: ModalService) {
+  private unlistener!: () => void;
+
+  constructor(private modalService: ModalService, private renderer: Renderer2) {
     const item$ = this.modalService.itemSubject.asObservable();
     this.sub = item$.subscribe(value => {
-      console.log('sub', value)
+      //console.log('sub', value)
       this.setupWindow(value);
     })
   }
@@ -34,8 +36,13 @@ export class WowItemModalComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public close() {
-    console.log('close')
+    //console.log('close')
     this.modalService.setItem(null);
+    this.unlistener();
+  }
+
+  public doNothing() {
+    //console.log('DO NOTHING')
   }
 
   public setupWindow(item: wowItem | null) {
@@ -46,6 +53,25 @@ export class WowItemModalComponent implements OnInit, OnDestroy, AfterViewInit {
 
     modalRef.style.display = item ? 'block' : 'none';
 
+
+    if (this.unlistener) {
+      this.unlistener();
+    }
+
+    this.unlistener = this.renderer.listen(modalRef, 'click', event => {
+      const pEvent = event as PointerEvent;
+
+      const modalContent = document.getElementById('modalBase');
+      if (!modalContent) {
+        return;
+      }
+      const bounds = modalContent.getBoundingClientRect();
+
+      if (pEvent.clientX < bounds.x || pEvent.clientX > bounds.x + bounds.width || pEvent.clientY < bounds.y || pEvent.clientY > bounds.y + bounds.height) {
+        this.close();
+      }
+    })
+
     const tooltipIcon = document.getElementById(`modalTooltipIcon`) as HTMLImageElement;
     const tooltipContent = document.getElementById(`modalTooltipContent`);
 
@@ -55,10 +81,18 @@ export class WowItemModalComponent implements OnInit, OnDestroy, AfterViewInit {
       tooltipIcon.src = `../../../../assets/icons/${this.itemSize}/${item.icon}.jpg`
 
       // HTML
-      tooltipContent.innerHTML = item.htmlTooltip;
+      tooltipContent.innerHTML = this.removeLinks(item.htmlTooltip);
+      //console.log(tooltipContent.innerHTML);
 
       this.modalItem = item;
     }
   }
 
+  private removeLinks(html: string): string {
+    let fixed = html.replace('\\', '').replace('<a', '<span').replace('a>', 'span>');
+    fixed = fixed.replace('<a', '<span').replace('a>', 'span>');
+    fixed = fixed.replace('<a', '<span').replace('a>', 'span>');
+    fixed = fixed.replace('<a', '<span').replace('a>', 'span>');
+    return fixed;
+  }
 }

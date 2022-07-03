@@ -1,7 +1,10 @@
-<div id="myModal" class="modal">
+<div id="myModal" class="modal itemTooltip">
     <!-- Modal content -->
-    <div class="modal-content">
-        <div>
+    <div class="modal-content" (click)="doNothing()" id="modalBase">
+        <div class="buttonBase">
+            <a href="{{modalItem.link}}" target="_blank" nbButton *ngIf="modalItem">
+                <nb-icon icon="external-link-outline"></nb-icon>
+            </a>
             <button nbButton status="danger" (click)="close()">
                 <nb-icon icon="close-outline"></nb-icon>
             </button>

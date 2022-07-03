@@ -88,7 +88,8 @@
 /* Modal Content/Box */
 .modal-content {
     //background-color: #fefefe;
-    margin: 30% auto;
+    //margin: 30% auto;
+    margin: 95px auto;
     /* 15% from the top and centered */
     //padding-top: 20px;
     //border: 1px solid #888;
@@ -99,4 +100,12 @@
     justify-content: center;
     gap: 5px;
     max-width: 400px;
+}
+
+.buttonBase {
+    margin-right: 10px;
+
+    a {
+        margin-right: 10px;
+    }
 }
