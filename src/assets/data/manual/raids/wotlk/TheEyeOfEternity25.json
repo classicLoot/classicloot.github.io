@@ -39,11 +39,16 @@
                 44664,
                 44662,
                 44665,
-                44661
+                44661,
+                40753
             ],
             "lootHeroic": [],
             "hardmodeLoot": [],
             "hardmode": [
+                {
+                    "name": "Realm First! Magic Seeker",
+                    "id": 1400
+                },
                 {
                     "name": "The Spellweaver's Downfall (25 player)",
                     "id": 623

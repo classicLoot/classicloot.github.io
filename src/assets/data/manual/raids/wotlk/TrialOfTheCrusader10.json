@@ -67,7 +67,16 @@
                 47993,
                 47995
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Upper Back Pain (10 player), ",
+                    "id": 3797
+                },
+                {
+                    "name": " Not One, But Two Jormungars (10 player)",
+                    "id": 3936
+                }
+            ]
         },
         {
             "name": "Lord Jaraxxus",
@@ -131,7 +140,12 @@
                 48007,
                 48010
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Three Sixty Pain Spike (10 player),",
+                    "id": 3996
+                }
+            ]
         },
         {
             "name": "Faction Champions",
@@ -183,7 +197,12 @@
                 48020,
                 48013
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Resilience Will Fix It (10 player),",
+                    "id": 3798
+                }
+            ]
         },
         {
             "name": "Twin Valkyrs",
@@ -247,7 +266,12 @@
                 48036,
                 48022
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Salt and Pepper (10 player)",
+                    "id": 3799
+                }
+            ]
         },
         {
             "name": "Anub'arak",
@@ -331,11 +355,32 @@
                 48040,
                 48052
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " The Traitor King (10 player),",
+                    "id": 3800
+                }
+            ]
         },
         {
             "name": "Tribute",
-            "loot": [],
+            "loot": [
+                47242,
+                48712,
+                48708,
+                48713,
+                48709,
+                48714,
+                48710,
+                48711,
+                47242,
+                48673,
+                48675,
+                48674,
+                48671,
+                48672,
+                49044
+            ],
             "lootHeroic": [
                 47242,
                 48712,
@@ -353,7 +398,23 @@
                 48672,
                 49044
             ],
-            "lootHorde": [],
+            "lootHorde": [
+                47242,
+                48703,
+                48701,
+                48695,
+                48693,
+                48699,
+                48705,
+                48697,
+                47242,
+                48668,
+                48669,
+                48670,
+                48666,
+                48667,
+                49046
+            ],
             "lootHeroicHorde": [
                 47242,
                 48703,
@@ -371,7 +432,24 @@
                 48667,
                 49046
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " A Tribute to Skill (10 player)",
+                    "id": 3808
+                },
+                {
+                    "name": "A Tribute to Mad Skill (10 player)",
+                    "id": 3809
+                },
+                {
+                    "name": " A Tribute to Insanity (10 player),",
+                    "id": 3810
+                },
+                {
+                    "name": " A Tribute to Dedicated Insanity,",
+                    "id": 4080
+                }
+            ]
         }
     ]
 }

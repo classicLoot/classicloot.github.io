@@ -1,5 +1,6 @@
 {
     "name": "Alchemy",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Battle Elixir",

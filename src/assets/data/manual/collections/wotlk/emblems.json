@@ -1,5 +1,6 @@
 {
     "name": "Emblems",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Emblem of Heroism",
@@ -183,6 +184,7 @@
         {
             "name": "Emblem of Triumph",
             "ids": [
+                45624,
                 47694,
                 47693,
                 47713,
