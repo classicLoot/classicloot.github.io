@@ -4,6 +4,7 @@
     "subCollections": [
         {
             "name": "Off-Hand",
+            "groupBy": "quality",
             "ids": [
                 44210,
                 38322,

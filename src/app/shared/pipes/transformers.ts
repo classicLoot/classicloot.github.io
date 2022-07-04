@@ -7,6 +7,8 @@ export function wowRecipeTransform(item: wowItem): string {
         case 2: return base + ' Tailoring';
         case 3: return base + ' Engineering';
         case 4: return base + ' Blacksmithing';
+        case 6: return base + ' Alchemy';
+
 
         case 10: return base + ' Jewelcrafting';
 
@@ -45,6 +47,7 @@ export function wowWeaponTransform(item: wowItem): string {
 export function wowArmorTransform(item: wowItem): string {
     switch (+item.wowSubClass) {
         // classic
+        case 0: return 'Miscellaneous (Armor)'
         case 1: return wowSlotTransform(item.slot) + ', Cloth';
         case 2: return wowSlotTransform(item.slot) + ', Leather';
         case 3: return wowSlotTransform(item.slot) + ', Mail';
