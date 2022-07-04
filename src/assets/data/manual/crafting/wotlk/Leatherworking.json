@@ -1,5 +1,6 @@
 {
     "name": "Leatherworking",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Armor - Leather",

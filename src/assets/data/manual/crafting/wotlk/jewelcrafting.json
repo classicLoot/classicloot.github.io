@@ -1,5 +1,6 @@
 {
     "name": "Jewelcrafting",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Red",

@@ -1,9 +1,9 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{subLink.name}}</h2>
-        <app-filter-buttons *ngIf="['A','B','C','D'].includes(collectionType)"
-            [bFaction]="['B','D'].includes(collectionType)" [bDifficulty]="['B','C'].includes(collectionType)"
-            class="flex-item-right">
+        <app-filter-buttons *ngIf="['A','B','C','D', 'Z'].includes(collectionType)"
+            [bSize]="['A','B','C','D'].includes(collectionType)" [bFaction]="['B','D'].includes(collectionType)"
+            [bDifficulty]="['B','C'].includes(collectionType)" class="flex-item-right">
         </app-filter-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container">

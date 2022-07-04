@@ -1,5 +1,6 @@
 {
     "name": "Tailoring",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Armor (<80)",

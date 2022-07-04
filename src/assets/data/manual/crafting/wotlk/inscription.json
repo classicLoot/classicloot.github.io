@@ -1,5 +1,6 @@
 {
     "name": "Inscription",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Off-Hand",

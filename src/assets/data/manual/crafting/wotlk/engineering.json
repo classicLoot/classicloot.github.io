@@ -1,5 +1,6 @@
 {
     "name": "Engineering",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Ammo",
