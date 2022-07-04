@@ -1,5 +1,6 @@
 {
     "name": "Blacksmithing",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Armor",

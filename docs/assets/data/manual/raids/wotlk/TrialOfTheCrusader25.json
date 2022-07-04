@@ -83,7 +83,16 @@
                 47416,
                 47421
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Upper Back Pain (25 player), ",
+                    "id": 3813
+                },
+                {
+                    "name": " Not One, But Two Jormungars (25 player)",
+                    "id": 3937
+                }
+            ]
         },
         {
             "name": "Lord Jaraxxus",
@@ -159,7 +168,12 @@
                 47427,
                 47428
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Three Sixty Pain Spike (25 player),",
+                    "id": 3997
+                }
+            ]
         },
         {
             "name": "Faction Champions",
@@ -235,7 +249,12 @@
                 47446,
                 47448
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Resilience Will Fix It (25 player),",
+                    "id": 3814
+                }
+            ]
         },
         {
             "name": "Twin Valkyrs",
@@ -311,7 +330,12 @@
                 47461,
                 47463
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " Salt and Pepper (25 player)",
+                    "id": 3815
+                }
+            ]
         },
         {
             "name": "Anub'arak",
@@ -407,11 +431,35 @@
                 47483,
                 47491
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": " The Traitor King (10 player),",
+                    "id": 3816
+                }
+            ]
         },
         {
             "name": "Tribute",
-            "loot": [],
+            "loot": [
+                47557,
+                47558,
+                47559,
+                47517,
+                47506,
+                47515,
+                47526,
+                47519,
+                47524,
+                47521,
+                47557,
+                47558,
+                47559,
+                47553,
+                47552,
+                47549,
+                47545,
+                47547
+            ],
             "lootHeroic": [
                 47557,
                 47558,
@@ -432,7 +480,26 @@
                 47545,
                 47547
             ],
-            "lootHorde": [],
+            "lootHorde": [
+                47557,
+                47558,
+                47559,
+                47518,
+                47513,
+                47516,
+                47528,
+                47520,
+                47525,
+                47523,
+                47557,
+                47558,
+                47559,
+                47551,
+                47550,
+                47548,
+                47554,
+                47546
+            ],
             "lootHeroicHorde": [
                 47557,
                 47558,
@@ -453,7 +520,24 @@
                 47554,
                 47546
             ],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": "Realm First! Grand Crusader",
+                    "id": 4078
+                },
+                {
+                    "name": " A Tribute to Skill (25 player)",
+                    "id": 3817
+                },
+                {
+                    "name": "A Tribute to Mad Skill (25 player)",
+                    "id": 3818
+                },
+                {
+                    "name": " A Tribute to Insanity (25 player),",
+                    "id": 3819
+                }
+            ]
         }
     ]
 }
