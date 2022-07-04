@@ -1,5 +1,6 @@
 {
     "name": "Mounts",
+    "type": "Z",
     "subCollections": [
         {
             "name": "Alliance",

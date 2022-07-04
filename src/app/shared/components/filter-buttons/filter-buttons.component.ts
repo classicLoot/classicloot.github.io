@@ -11,7 +11,7 @@ import { wowClass, wowDifficulty, wowFaction, wowSize } from '../../types/option
 export class FilterButtonsComponent implements OnInit {
 
   @Input() bFaction: boolean = false;
-  @Input() bSize: boolean = true;
+  @Input() bSize: boolean = false;
   @Input() bDifficulty: boolean = false;
 
   faction$!: Observable<wowFaction>;

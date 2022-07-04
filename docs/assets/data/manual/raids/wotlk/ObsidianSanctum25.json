@@ -37,7 +37,8 @@
                 44007,
                 44011,
                 44006,
-                43954
+                43954,
+                40753
             ],
             "lootHeroic": [],
             "hardmodeLoot": [
@@ -49,6 +50,10 @@
                 43954
             ],
             "hardmode": [
+                {
+                    "name": "Realm First! Obsidian Slayer",
+                    "id": 456
+                },
                 {
                     "name": "Besting the Black Dragonflight (25 player)",
                     "id": 625
