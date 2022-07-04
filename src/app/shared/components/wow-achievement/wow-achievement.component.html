@@ -1,5 +1,11 @@
 <ng-container *ngIf="av$ | async as av; else loading">
-    <ng-container [ngTemplateOutlet]="normal" [ngTemplateOutletContext]="{av: av}">
+    <ng-container *ngIf="mobile$ | async  as mobile">
+        <ng-container [ngTemplateOutlet]="mobileAV" [ngTemplateOutletContext]="{av: av}">
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="!(mobile$ | async) as mobile">
+        <ng-container [ngTemplateOutlet]="normalAV" [ngTemplateOutletContext]="{av: av}">
+        </ng-container>
     </ng-container>
 </ng-container>
 
@@ -10,7 +16,7 @@
     AV loading...
 </ng-template>
 
-<ng-template #normal let-av="av">
+<ng-template #normalAV let-av="av">
     <div class="container border">
         <div class="av">
             <img class="icon-left border" loading="lazy" src="/assets/icons/{{'large'}}/{{av.iconName}}.jpg">
@@ -40,7 +46,36 @@
             </div>
         </div>
     </div>
+</ng-template>
 
+<ng-template #mobileAV let-av="av">
+    <div class="container border">
+        <div class="av">
+            <img class="icon-left border" loading="lazy" src="/assets/icons/{{'large'}}/{{av.iconName}}.jpg">
 
+            <div class="center">
+                <a class="name" href="https://wotlkdb.com/?achievement={{av.id}}" target="_blank">{{av.name}}</a>
+                <div class=" descr">
+                    {{av.descr}}
+                </div>
 
+                <div class="reward">
+                    {{av.reward}}
+                </div>
+            </div>
+
+            <div class="av-box">
+                <img class="icon-right" loading="lazy" src="/assets/external/images/ui-achievement-shields_one.png">
+                <div class="points">
+                    {{av.points}}
+                </div>
+            </div>
+        </div>
+        <div class="bonus" *ngIf="descr">
+            <div class="bonus border">
+                <img class="border" loading="lazy" src="/assets/external/images/Gift_05.png">
+                <span>{{descr}}</span>
+            </div>
+        </div>
+    </div>
 </ng-template>
