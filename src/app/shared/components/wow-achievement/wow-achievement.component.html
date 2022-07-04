@@ -11,32 +11,36 @@
 </ng-template>
 
 <ng-template #normal let-av="av">
-    <div class="av border">
-        <img class="icon-left border" loading="lazy" src="/assets/icons/{{'large'}}/{{av.iconName}}.jpg">
+    <div class="container border">
+        <div class="av">
+            <img class="icon-left border" loading="lazy" src="/assets/icons/{{'large'}}/{{av.iconName}}.jpg">
 
-        <div class="center">
-            <a class="name" href="https://wotlkdb.com/?achievement={{av.id}}" target="_blank">{{av.name}}</a>
-            <div class=" descr">
-                {{av.descr}}
+            <div class="center">
+                <a class="name" href="https://wotlkdb.com/?achievement={{av.id}}" target="_blank">{{av.name}}</a>
+                <div class=" descr">
+                    {{av.descr}}
+                </div>
+
+                <div class="reward">
+                    {{av.reward}}
+                </div>
             </div>
 
-            <div class="reward">
-                {{av.reward}}
+            <div class="av-box">
+                <img class="icon-right" loading="lazy" src="/assets/external/images/ui-achievement-shields_one.png">
+                <div class="points">
+                    {{av.points}}
+                </div>
             </div>
         </div>
-
-        <div class="av-box">
-            <img class="icon-right" loading="lazy" src="/assets/external/images/ui-achievement-shields_one.png">
-            <div class="points">
-                {{av.points}}
+        <div class="bonus" *ngIf="descr">
+            <div class="bonus border">
+                <img class="border" loading="lazy" src="/assets/external/images/Gift_05.png">
+                <span>{{descr}}</span>
             </div>
         </div>
     </div>
 
-    <div class="bonus" *ngIf="descr">
-        <div class="bonus border">
-            <img class="border" loading="lazy" src="/assets/external/images/Gift_05.png">
-            <span>{{descr}}</span>
-        </div>
-    </div>
+
+
 </ng-template>
