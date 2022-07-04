@@ -524,6 +524,10 @@
             "lootHeroic": [],
             "hardmode": [
                 {
+                    "name": "Realm First! Conqueror of Naxxramas",
+                    "id": 1402
+                },
+                {
                     "name": "Just Can't Get Enough (25 player)",
                     "id": 2185
                 },

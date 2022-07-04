@@ -346,6 +346,10 @@
             "hardmodeLoot": [],
             "hardmode": [
                 {
+                    "name": "Realm First! Celestial Defender",
+                    "id": 3259
+                },
+                {
                     "name": "He Feeds On Your Tears (25 player)",
                     "id": 3005
                 },

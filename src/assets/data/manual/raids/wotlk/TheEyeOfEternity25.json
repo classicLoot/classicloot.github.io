@@ -46,6 +46,10 @@
             "hardmodeLoot": [],
             "hardmode": [
                 {
+                    "name": "Realm First! Magic Seeker",
+                    "id": 1400
+                },
+                {
                     "name": "The Spellweaver's Downfall (25 player)",
                     "id": 623
                 },

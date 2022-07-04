@@ -51,6 +51,10 @@
             ],
             "hardmode": [
                 {
+                    "name": "Realm First! Obsidian Slayer",
+                    "id": 456
+                },
+                {
                     "name": "Besting the Black Dragonflight (25 player)",
                     "id": 625
                 },
