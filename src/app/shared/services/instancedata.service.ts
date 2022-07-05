@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, shareReplay, switchMap } from 'rxjs';
+import { map, Observable, of, shareReplay, switchMap } from 'rxjs';
 import { wowInstance, wowInstanceBoss } from '../interfaces/instance';
 import { wowAddon } from '../types/addon';
 import { GlobalStoreService } from './global-store.service';
@@ -45,6 +45,11 @@ export class InstancedataService {
 
       const current$ = state$.pipe(
         switchMap(state => {
+          if (state.route === '/raids' || state.route === '/dungeons') {
+            const emptyInstance: wowInstance = { name: 'ERROR', link: '', phase: -666, size: 40 }
+            return of(emptyInstance)
+          }
+
           return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${state.route}.json`);
         })
       )

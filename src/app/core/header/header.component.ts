@@ -20,4 +20,8 @@ export class HeaderComponent implements OnInit {
   public toggleSidebar() {
     this.nbSidebarService.toggle(false, 'leftSidebar');
   }
+
+  public toggleFragmentbar() {
+    this.nbSidebarService.toggle(false, 'rightSidebar');
+  }
 }
