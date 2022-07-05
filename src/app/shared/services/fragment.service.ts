@@ -25,7 +25,6 @@ export class FragmentService {
       switchMap(([route, addon]) => {
 
         if (route.startsWith('/collections')) {
-          console.log('coll')
           return this.collectionsFragment$();
         }
 
