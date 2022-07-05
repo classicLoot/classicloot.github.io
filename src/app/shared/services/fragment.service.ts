@@ -24,6 +24,10 @@ export class FragmentService {
     const fragment$ = combineLatest([route$, addon$]).pipe(
       switchMap(([route, addon]) => {
 
+        if (['/collections', '/crafting', '/reputation', '/raids', '/dungeons'].includes(route)) {
+          return of([]);
+        }
+
         if (route.startsWith('/crafting')) {
           return this.collectionsFragment$('/crafting/');
         }

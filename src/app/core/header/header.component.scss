@@ -49,9 +49,38 @@
         align-items: center;
         margin: 0 -0.5rem;
 
-        @media(max-width: 768px){
-            nb-menu{
+        @media(max-width: 768px) {
+            nb-menu {
                 display: none;
+            }
+        }
+    }
+
+    &.right {
+        width: 16rem;
+
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+
+        button {
+            display: none;
+            color: white;
+
+            padding-top: 0;
+            padding-bottom: 0;
+
+            justify-self: flex-end;
+
+            nb-icon {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        @media(max-width: 1200px) {
+            button {
+                display: inline
             }
         }
     }
