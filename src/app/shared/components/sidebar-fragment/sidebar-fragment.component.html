@@ -1,9 +1,11 @@
-<p>sidebar-fragment works!s</p>
+<p *ngIf="items.length > 0">Overview</p>
 
 <ul class="menu-items">
     <ng-container *ngFor="let item of items">
         <li>
-            {{item.title}}
+            <a [routerLink]="item.link" [fragment]="item.fragment" [replaceUrl]="true">
+                {{item.title}}
+            </a>
         </li>
     </ng-container>
 

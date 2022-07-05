@@ -35,13 +35,22 @@ export class CollectionCardComponent implements OnInit, OnChanges {
         //return `${size}-${diff}`;
       })
     )
+    console.log('CONSTRUCTOR')
   }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.sub$ = this.collectionsDataService.getCurrentSubCollection$(this.subLink.link);
+    if (!this.sub$) {
+      this.sub$ = this.collectionsDataService.getCurrentSubCollection$(this.subLink.link);
+    }
+    for (let propName in changes) {
+      let change = changes[propName];
+      let curVal = JSON.stringify(change.currentValue);
+      let prevVal = JSON.stringify(change.previousValue);
+      //console.log(change, curVal, prevVal);
+    }
   }
 
 }

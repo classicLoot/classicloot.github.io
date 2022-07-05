@@ -25,7 +25,7 @@ export class FragmentService {
       switchMap(([route, addon]) => {
 
         if (route.startsWith('/collections')) {
-          return this.collectionsFragment$();
+          return this.collectionsFragment$('/collections/');
         }
 
         return of([]);
@@ -35,7 +35,7 @@ export class FragmentService {
     return fragment$;
   }
 
-  private collectionsFragment$(): Observable<menuItemExtended[]> {
+  private collectionsFragment$(base: string): Observable<menuItemExtended[]> {
     const current$ = this.collectionsDataService.getCurrentCollection$();
     const fragmentMenu$ = current$.pipe(
       map(current => {
@@ -44,7 +44,8 @@ export class FragmentService {
         current.subLinks?.forEach(sub => {
           const newItem: menuItemExtended = {
             title: sub.name,
-            link: sub.link
+            link: base + current.link,
+            fragment: sub.link
           }
           arr.push(newItem);
         })

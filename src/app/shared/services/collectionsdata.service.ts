@@ -55,7 +55,8 @@ export class CollectionsdataService {
 
       const current$ = state$.pipe(
         switchMap(state => {
-          return this.http.get<wowCollection>(`../../../assets/data/gen/${state.addon}${state.route}.json`);
+          const route = state.route.split('#')[0];
+          return this.http.get<wowCollection>(`../../../assets/data/gen/${state.addon}${route}.json`);
         })
       )
       this.currentCollection$ = current$;
@@ -66,8 +67,9 @@ export class CollectionsdataService {
 
   public getCurrentSubCollection$(sub: string): Observable<wowSubCollection> {
     const state = this.globalStore.getStoreValue();
+    const route = state.route.split('#')[0];
 
-    const current$ = this.http.get<wowSubCollection>(`../../../assets/data/gen/${state.addon}${state.route}/${sub}.json`);
+    const current$ = this.http.get<wowSubCollection>(`../../../assets/data/gen/${state.addon}${route}/${sub}.json`);
 
     return current$;
   }
