@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, shareReplay, switchMap } from 'rxjs';
+import { Observable, of, shareReplay, switchMap } from 'rxjs';
 import { wowCollection, wowSubCollection } from '../interfaces/collection';
 import { wowAddon } from '../types/addon';
 import { GlobalStoreService } from './global-store.service';
@@ -55,6 +55,11 @@ export class CollectionsdataService {
 
       const current$ = state$.pipe(
         switchMap(state => {
+          if (state.route === '/collections' || state.route === '/crafting' || state.route === '/reputations') {
+            const emptyColl: wowCollection = { name: 'ERROR' };
+            return of(emptyColl)
+          }
+
           const route = state.route.split('#')[0];
           return this.http.get<wowCollection>(`../../../assets/data/gen/${state.addon}${route}.json`);
         })

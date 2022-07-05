@@ -27,6 +27,12 @@ export class FragmentService {
         if (route.startsWith('/crafting')) {
           return this.collectionsFragment$('/crafting/');
         }
+        if (route.startsWith('/dungeons')) {
+          return this.instanceFragments$('/dungeons/');
+        }
+        if (route.startsWith('/raids')) {
+          return this.instanceFragments$('/raids/');
+        }
         if (route.startsWith('/reputation')) {
           return this.collectionsFragment$('/reputation/');
         }
@@ -48,6 +54,37 @@ export class FragmentService {
         const arr: menuItemExtended[] = []
 
         current.subLinks?.forEach(sub => {
+          const newItem: menuItemExtended = {
+            title: sub.name,
+            link: base + current.link,
+            fragment: sub.link
+          }
+          arr.push(newItem);
+        })
+
+        return arr;
+      }),
+      catchError(err => {
+        if (err.error.statusCode === 404) {
+          return of([]);
+        }
+        else {
+          console.log('?!');
+          return of([]);
+        }
+      })
+    )
+
+    return fragmentMenu$;
+  }
+
+  private instanceFragments$(base: string): Observable<menuItemExtended[]> {
+    const current$ = this.instanceDataService.getCurrentInstance$();
+    const fragmentMenu$ = current$.pipe(
+      map(current => {
+        const arr: menuItemExtended[] = []
+
+        current.bossLinks?.forEach(sub => {
           const newItem: menuItemExtended = {
             title: sub.name,
             link: base + current.link,
