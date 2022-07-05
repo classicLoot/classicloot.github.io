@@ -35,11 +35,11 @@ export class CollectionCardComponent implements OnInit, OnChanges {
         //return `${size}-${diff}`;
       })
     )
-    console.log('CONSTRUCTOR', this.subLink?.name)
+    //console.log('CONSTRUCTOR', this.subLink?.name)
   }
 
   ngOnInit(): void {
-    console.log('ONINIT', this.subLink?.name)
+    //console.log('ONINIT', this.subLink?.name)
   }
 
   ngOnChanges(changes: SimpleChanges): void {

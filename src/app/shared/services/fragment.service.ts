@@ -24,6 +24,12 @@ export class FragmentService {
     const fragment$ = combineLatest([route$, addon$]).pipe(
       switchMap(([route, addon]) => {
 
+        if (route.startsWith('/crafting')) {
+          return this.collectionsFragment$('/crafting/');
+        }
+        if (route.startsWith('/reputation')) {
+          return this.collectionsFragment$('/reputation/');
+        }
         if (route.startsWith('/collections')) {
           return this.collectionsFragment$('/collections/');
         }

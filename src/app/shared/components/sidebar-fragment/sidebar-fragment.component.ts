@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { menuItemExtended } from '../../interfaces/menuItemExtended';
 
@@ -10,9 +11,14 @@ export class SidebarFragmentComponent implements OnInit {
 
   @Input() items: menuItemExtended[] = [];
 
-  constructor() { }
+  constructor(private viewportScroller: ViewportScroller) { }
 
   ngOnInit(): void {
+  }
+
+  scrollTo(fragment: string) {
+    //console.log('scrollTo', fragment)
+    this.viewportScroller.scrollToAnchor(fragment);
   }
 
 }
