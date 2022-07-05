@@ -25,6 +25,12 @@
         <router-outlet></router-outlet>
     </nb-layout-column>
 
+    <nb-sidebar right [tag]="'rightSidebar'" class="fragment-sidebar" [responsive]="true"
+        [collapsedBreakpoints]="['xs','is','sm','md','lg']" [compactedBreakpoints]="[]">
+        TEST
+        <app-sidebar-fragment *ngIf="fragmentItems$ | async as fragments" [items]="fragments"></app-sidebar-fragment>
+    </nb-sidebar>
+
     <nb-layout-footer fixed>
         <!-- Insert footer here -->
         FOOTER
