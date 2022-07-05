@@ -15,6 +15,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 import { ItemVisibilityPipe } from './pipes/item-visibility.pipe';
 import { WowItemModalComponent } from './components/wow-item-modal/wow-item-modal.component';
+import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-fragment.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { WowItemModalComponent } from './components/wow-item-modal/wow-item-moda
     FilterClassComponent,
     ItemVisibilityPipe,
     WowItemModalComponent,
+    SidebarFragmentComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +56,8 @@ import { WowItemModalComponent } from './components/wow-item-modal/wow-item-moda
     FilterPipe,
     FilterClassComponent,
     ItemVisibilityPipe,
-    WowItemModalComponent
+    WowItemModalComponent,
+    SidebarFragmentComponent
   ]
 })
 export class SharedModule { }
