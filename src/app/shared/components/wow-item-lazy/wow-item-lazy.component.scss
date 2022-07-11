@@ -29,11 +29,6 @@
 
 .itemText {
     padding-left: 0.5rem;
-    cursor: pointer;
-
-    a {
-        text-decoration: none;
-    }
 }
 
 .item:hover {
@@ -74,4 +69,11 @@ nb-icon {
     img {
         filter: brightness(50%);
     }
+}
+
+.item-container {
+    display: flex;
+    cursor: pointer;
+    text-decoration: none;
+
 }
