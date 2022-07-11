@@ -51,12 +51,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4610,
-                    "name": " Boned (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Lady Deathwhisper",
@@ -100,12 +95,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4611,
-                    "name": " Full House (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Gunship Battle",
@@ -149,12 +139,7 @@
                 50654
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4612,
-                    "name": " I'm on a Boat (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Saurfang",
@@ -187,12 +172,7 @@
                 52025
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4613,
-                    "name": " I've Gone and Made a Mess (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Festergut",
@@ -239,12 +219,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4615,
-                    "name": " Flu Shot Shortage (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Rotface",
@@ -290,12 +265,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4614,
-                    "name": " Dances with Oozes (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Putricide",
@@ -328,12 +298,7 @@
                 52025
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4616,
-                    "name": "Nausea, Heartburn, Indigestion... (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Council",
@@ -377,12 +342,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4617,
-                    "name": "The Orb Whisperer (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Lanathel",
@@ -417,12 +377,7 @@
                 52025
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4618,
-                    "name": "Once Bitten, Twice Shy (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Valithria",
@@ -466,12 +421,7 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4619,
-                    "name": "Portal Jockey (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Sindragosa",
@@ -506,12 +456,7 @@
                 52025
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4620,
-                    "name": "All You Can Eat (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Lich King",
@@ -553,28 +498,7 @@
                 52025
             ],
             "hardmodeLoot": [],
-            "hardmode": [
-                {
-                    "id": 4576,
-                    "name": "Realm First! Fall of the Lich King"
-                },
-                {
-                    "id": 4584,
-                    "name": "The Light of Dawn"
-                },
-                {
-                    "id": 4597,
-                    "name": "The Frozen Throne (25 player)"
-                },
-                {
-                    "id": 4621,
-                    "name": "Been Waiting a Long Time for This (25 player)"
-                },
-                {
-                    "id": 4622,
-                    "name": "Neck-Deep in Vile (25 player)"
-                }
-            ]
+            "hardmode": []
         },
         {
             "name": "Trash",
