@@ -58,7 +58,20 @@
             ],
             "lootHeroic": [],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "name": "More Dots! (25 player)",
+                    "id": 4405
+                },
+                {
+                    "name": "Many Whelps! Handle It! (25 player)",
+                    "id": 4406
+                },
+                {
+                    "name": "She Deep Breaths More (25 player)",
+                    "id": 4407
+                }
+            ]
         }
     ]
 }

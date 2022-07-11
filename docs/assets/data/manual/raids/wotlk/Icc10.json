@@ -41,7 +41,12 @@
                 51937
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4534,
+                    "name": " Boned (10 player)"
+                }
+            ]
         },
         {
             "name": "Lady Deathwhisper",
@@ -75,7 +80,12 @@
                 51927
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4535,
+                    "name": " Full House (10 player)"
+                }
+            ]
         },
         {
             "name": "Gunship Battle",
@@ -109,7 +119,12 @@
                 51909
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4536,
+                    "name": " I'm on a Boat (10 player)"
+                }
+            ]
         },
         {
             "name": "Saurfang",
@@ -146,7 +161,12 @@
                 51898
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4537,
+                    "name": " I've Gone and Made a Mess (10 player)"
+                }
+            ]
         },
         {
             "name": "Festergut",
@@ -180,7 +200,12 @@
                 51887
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4577,
+                    "name": " Flu Shot Shortage (10 player)"
+                }
+            ]
         },
         {
             "name": "Rotface",
@@ -214,7 +239,12 @@
                 51880
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4538,
+                    "name": " Dances with Oozes (10 player)"
+                }
+            ]
         },
         {
             "name": "Putricide",
@@ -251,7 +281,12 @@
                 51869
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4578,
+                    "name": "Nausea, Heartburn, Indigestion... (10 player)"
+                }
+            ]
         },
         {
             "name": "Council",
@@ -285,7 +320,12 @@
                 51852
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4582,
+                    "name": "The Orb Whisperer (10 player)"
+                }
+            ]
         },
         {
             "name": "Lanathel",
@@ -356,7 +396,12 @@
                 51834
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4579,
+                    "name": "Portal Jockey (10 player)"
+                }
+            ]
         },
         {
             "name": "Sindragosa",
@@ -394,7 +439,12 @@
                 51812
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4580,
+                    "name": "All You Can Eat (10 player)"
+                }
+            ]
         },
         {
             "name": "Lich King",
@@ -426,7 +476,24 @@
                 49908
             ],
             "hardmodeLoot": [],
-            "hardmode": []
+            "hardmode": [
+                {
+                    "id": 4583,
+                    "name": " Bane of the Fallen King"
+                },
+                {
+                    "id": 4530,
+                    "name": "The Frozen Throne (10 player)"
+                },
+                {
+                    "id": 4601,
+                    "name": "Been Waiting a Long Time for This (10 player)"
+                },
+                {
+                    "id": 4581,
+                    "name": "Neck-Deep in Vile (10 player)"
+                }
+            ]
         }
     ]
 }
