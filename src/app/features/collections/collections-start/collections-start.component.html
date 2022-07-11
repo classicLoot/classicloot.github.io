@@ -1,5 +1,4 @@
 <ng-container *ngIf="startType$ | async as collType" [ngSwitch]="collType">
-    {{collType}}
     <ng-container *ngSwitchCase="'crafting'">
         <app-crafting-start></app-crafting-start>
     </ng-container>
