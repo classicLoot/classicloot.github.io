@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Ormorok",
+            "name": "Ormorok the Tree-Shaper",
             "loot": [
                 35602,
                 35603,
@@ -38,10 +38,16 @@
                 37144,
                 37150,
                 37141
+            ],
+            "hardmode": [
+                {
+                    "id": 2037,
+                    "name": " Chaos Theory"
+                }
             ]
         },
         {
-            "name": "Telestra",
+            "name": "Grand Magus Telestra",
             "loot": [
                 35605,
                 35604,
@@ -55,10 +61,16 @@
                 37135,
                 37134,
                 21524
+            ],
+            "hardmode": [
+                {
+                    "id": 2150,
+                    "name": " Split Personality"
+                }
             ]
         },
         {
-            "name": "KolurgStoutbeard",
+            "name": "Kolurg Stoutbeard",
             "loot": [],
             "lootHeroic": [
                 40752,
@@ -87,6 +99,12 @@
                 37162,
                 41794,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 2036,
+                    "name": " Intense Cold"
+                }
             ]
         }
     ],

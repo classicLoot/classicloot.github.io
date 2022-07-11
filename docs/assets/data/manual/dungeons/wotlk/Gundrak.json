@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Sladran",
+            "name": "Slad'ran",
             "loot": [
                 35584,
                 35585,
@@ -23,10 +23,16 @@
                 37628,
                 37627,
                 37626
+            ],
+            "hardmode": [
+                {
+                    "id": 2058,
+                    "name": " Snakes. Why'd It Have To Be Snakes?"
+                }
             ]
         },
         {
-            "name": "Colossus",
+            "name": "Drakkari Colossus",
             "loot": [
                 35591,
                 35592,
@@ -53,10 +59,16 @@
                 37633,
                 37632,
                 37631
+            ],
+            "hardmode": [
+                {
+                    "id": 2040,
+                    "name": " Less-rabi"
+                }
             ]
         },
         {
-            "name": "Eck",
+            "name": "Eck the Ferocious",
             "loot": [],
             "lootHeroic": [
                 40752,
@@ -67,7 +79,7 @@
             ]
         },
         {
-            "name": "Galdarah",
+            "name": "Gal'darah",
             "loot": [
                 43305,
                 43309,
@@ -84,6 +96,16 @@
                 37639,
                 37638,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 1864,
+                    "name": " What the Eck?"
+                },
+                {
+                    "id": 2152,
+                    "name": " Share The Love"
+                }
             ]
         },
         {

@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Bjarngrim",
+            "name": "General Gjarngrin",
             "loot": [
                 36982,
                 36979,
@@ -24,6 +24,12 @@
                 37818,
                 37814,
                 37826
+            ],
+            "hardmode": [
+                {
+                    "id": 1834,
+                    "name": " Lightning Struck"
+                }
             ]
         },
         {
@@ -40,6 +46,12 @@
                 37843,
                 37842,
                 37841
+            ],
+            "hardmode": [
+                {
+                    "id": 2042,
+                    "name": " Shatter Resistant"
+                }
             ]
         },
         {
@@ -84,6 +96,12 @@
                 37848,
                 41799,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 1867,
+                    "name": " Timely Death"
+                }
             ]
         },
         {

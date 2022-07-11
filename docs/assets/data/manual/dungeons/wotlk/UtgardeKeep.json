@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Keleseth",
+            "name": "Prince Keleseth",
             "loot": [
                 35572,
                 35571,
@@ -23,10 +23,16 @@
                 37178,
                 37179,
                 37177
+            ],
+            "hardmode": [
+                {
+                    "id": 1919,
+                    "name": " On The Rocks"
+                }
             ]
         },
         {
-            "name": "Skarvald",
+            "name": "Skarvald the Constructor",
             "loot": [
                 35575,
                 35574,
@@ -41,7 +47,7 @@
             ]
         },
         {
-            "name": "Ingvar",
+            "name": "Ingvar the Plunderer",
             "loot": [
                 35577,
                 35578,

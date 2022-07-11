@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Krikthir",
+            "name": "Krik'thir the Gatewatcher",
             "loot": [
                 35657,
                 35656,
@@ -23,6 +23,12 @@
                 37219,
                 37217,
                 37216
+            ],
+            "hardmode": [
+                {
+                    "id": 1296,
+                    "name": " Watch Him Die"
+                }
             ]
         },
         {
@@ -38,10 +44,16 @@
                 37230,
                 37221,
                 37220
+            ],
+            "hardmode": [
+                {
+                    "id": 1297,
+                    "name": " Hadronox Denied"
+                }
             ]
         },
         {
-            "name": "Anubarak",
+            "name": "Anub'arak",
             "loot": [
                 35663,
                 35662,
@@ -60,6 +72,12 @@
                 37235,
                 41796,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 1860,
+                    "name": "Gotta Go!"
+                }
             ]
         },
         {

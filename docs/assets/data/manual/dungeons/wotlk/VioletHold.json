@@ -24,7 +24,7 @@
             ]
         },
         {
-            "name": "Zuramat",
+            "name": "Zuramat the Obliterator",
             "loot": [
                 43353,
                 43358
@@ -34,6 +34,12 @@
                 43403,
                 43402,
                 43404
+            ],
+            "hardmode": [
+                {
+                    "id": 2153,
+                    "name": " A Void Dance"
+                }
             ]
         },
         {
@@ -60,6 +66,12 @@
                 43401,
                 37862,
                 37869
+            ],
+            "hardmode": [
+                {
+                    "id": 2041,
+                    "name": " Dehydration"
+                }
             ]
         },
         {
@@ -107,6 +119,12 @@
                 37873,
                 41791,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 1816,
+                    "name": " Defenseless"
+                }
             ]
         },
         {
@@ -121,6 +139,12 @@
                 37890,
                 37891,
                 37889
+            ],
+            "hardmode": [
+                {
+                    "id": 1865,
+                    "name": " Lockdown!"
+                }
             ]
         }
     ],

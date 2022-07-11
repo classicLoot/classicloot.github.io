@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Maiden",
+            "name": "Maiden of Grief",
             "loot": [
                 38614,
                 38613,
@@ -23,6 +23,12 @@
                 38615,
                 38617,
                 38618
+            ],
+            "hardmode": [
+                {
+                    "id": 1866,
+                    "name": " Good Grief"
+                }
             ]
         },
         {
@@ -40,7 +46,7 @@
             ]
         },
         {
-            "name": "Tribunal",
+            "name": "Tribunal of Ages",
             "loot": [
                 35677,
                 35676,
@@ -52,10 +58,16 @@
                 37656,
                 37654,
                 37653
+            ],
+            "hardmode": [
+                {
+                    "id": 2154,
+                    "name": " Brann Spankin' New"
+                }
             ]
         },
         {
-            "name": "Sjonnir",
+            "name": "Sjonnir The Ironshaper",
             "loot": [
                 35679,
                 35678,
@@ -73,6 +85,12 @@
                 37660,
                 41792,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 2155,
+                    "name": " Abuse the Ooze"
+                }
             ]
         },
         {
