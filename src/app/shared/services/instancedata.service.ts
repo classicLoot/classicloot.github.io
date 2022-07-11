@@ -50,10 +50,12 @@ export class InstancedataService {
             return of(emptyInstance)
           }
 
+
           if (state.route.includes('#')) {
             const fixed = state.route.slice(0, state.route.indexOf('#'));
             return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${fixed}.json`);
           }
+
           return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${state.route}.json`);
         })
       )
