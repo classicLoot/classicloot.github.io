@@ -27,7 +27,7 @@
             ]
         },
         {
-            "name": "Salramm",
+            "name": "Salramm the Fleshcrafter",
             "loot": [
                 37084,
                 37095,
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "name": "Epoch",
+            "name": "Chrono-Lord Epoch",
             "loot": [
                 37106,
                 37105,
@@ -67,7 +67,7 @@
             ]
         },
         {
-            "name": "MalGanis",
+            "name": "Mal'Ganis",
             "loot": [
                 37113,
                 37114,
@@ -99,7 +99,13 @@
                 37116,
                 37115
             ],
-            "lootHeroic": []
+            "lootHeroic": [],
+            "hardmode": [
+                {
+                    "id": 1872,
+                    "name": " Zombiefest!"
+                }
+            ]
         }
     ],
     "size": 5

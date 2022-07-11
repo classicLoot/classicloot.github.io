@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Sorrowgrave",
+            "name": "Svala Sorrowgrave",
             "loot": [
                 37043,
                 37040,
@@ -24,10 +24,16 @@
                 37369,
                 37368,
                 37367
+            ],
+            "hardmode": [
+                {
+                    "id": 2043,
+                    "name": " The Incredible Hulk"
+                }
             ]
         },
         {
-            "name": "Palehoof",
+            "name": "Gortok Palehoof",
             "loot": [
                 37048,
                 37052,
@@ -43,7 +49,7 @@
             ]
         },
         {
-            "name": "Skadi",
+            "name": "Skadi the Ruthless",
             "loot": [
                 37055,
                 37057,
@@ -57,10 +63,20 @@
                 37379,
                 37377,
                 37384
+            ],
+            "hardmode": [
+                {
+                    "id": 1873,
+                    "name": " Lodi Dodi We Loves the Skadi"
+                },
+                {
+                    "id": 2156,
+                    "name": " My Girl Loves to Skadi All the Time"
+                }
             ]
         },
         {
-            "name": "Ymiron",
+            "name": "King Ymiron",
             "loot": [
                 37067,
                 37062,
@@ -84,6 +100,12 @@
                 37390,
                 41797,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 2157,
+                    "name": " King's Bane"
+                }
             ]
         },
         {

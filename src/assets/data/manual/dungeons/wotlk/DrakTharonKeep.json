@@ -23,10 +23,16 @@
                 37714,
                 37717,
                 37712
+            ],
+            "hardmode": [
+                {
+                    "id": 2151,
+                    "name": " Consumption Junction"
+                }
             ]
         },
         {
-            "name": "Novos",
+            "name": "Novos the Summoner",
             "loot": [
                 35632,
                 35631,
@@ -37,10 +43,16 @@
                 37722,
                 37718,
                 37721
+            ],
+            "hardmode": [
+                {
+                    "id": 2057,
+                    "name": " Oh Novos!"
+                }
             ]
         },
         {
-            "name": "KingDred",
+            "name": "King Dred",
             "loot": [
                 35635,
                 35634,
@@ -52,10 +64,16 @@
                 37724,
                 37726,
                 37723
+            ],
+            "hardmode": [
+                {
+                    "id": 2039,
+                    "name": " Better Off Dred"
+                }
             ]
         },
         {
-            "name": "Tharonja",
+            "name": "The Prophet Tharon'ja",
             "loot": [
                 35638,
                 35637,

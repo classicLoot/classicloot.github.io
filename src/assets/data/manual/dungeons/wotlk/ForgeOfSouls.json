@@ -31,10 +31,16 @@
                 50169,
                 50317,
                 50316
+            ],
+            "hardmode": [
+                {
+                    "id": 4522,
+                    "name": " Soul Power"
+                }
             ]
         },
         {
-            "name": "Devourer",
+            "name": "Devourer of Souls",
             "loot": [
                 49792,
                 49796,
@@ -62,6 +68,12 @@
                 50198,
                 50203,
                 50210
+            ],
+            "hardmode": [
+                {
+                    "id": 4523,
+                    "name": " Three Faced"
+                }
             ]
         }
     ],
