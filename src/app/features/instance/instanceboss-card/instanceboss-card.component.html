@@ -1,7 +1,7 @@
 <nb-card>
     <nb-card-header>
         <h2 class="flex-item-left">{{bossLink.name}}</h2>
-        <app-options-buttons *ngIf="['A','B','C','D'].includes(instanceType)"
+        <app-options-buttons *ngIf="['A','B','C','D', 'DD'].includes(instanceType)"
             [bFaction]="['B','D'].includes(instanceType)" [bDifficulty]="['B','C'].includes(instanceType)"
             class="flex-item-right">
         </app-options-buttons>
