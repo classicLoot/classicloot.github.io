@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Drakos",
+            "name": "Drakos the Interrogator",
             "loot": [
                 36945,
                 36946,
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "name": "Cloudstrider",
+            "name": "Varos Cloudstrider",
             "loot": [
                 36947,
                 36949,
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "name": "Urom",
+            "name": "Mage-Lord Urom",
             "loot": [
                 36954,
                 36951,
@@ -61,7 +61,7 @@
             ]
         },
         {
-            "name": "Eregos",
+            "name": "Ley-Guardian Eregos",
             "loot": [
                 36973,
                 36971,
@@ -85,6 +85,28 @@
                 37292,
                 43102,
                 52676
+            ],
+            "hardmode": [
+                {
+                    "id": 1868,
+                    "name": " Make It Count"
+                },
+                {
+                    "id": 2044,
+                    "name": " Ruby Void"
+                },
+                {
+                    "id": 2046,
+                    "name": " Amber Void"
+                },
+                {
+                    "id": 2045,
+                    "name": " Emerald Void"
+                },
+                {
+                    "id": 1871,
+                    "name": " Experienced Drake Rider"
+                }
             ]
         },
         {

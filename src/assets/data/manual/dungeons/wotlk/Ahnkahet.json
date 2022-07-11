@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Nadox",
+            "name": "Elder Nadox",
             "loot": [
                 35607,
                 35608,
@@ -23,10 +23,16 @@
                 37593,
                 37592,
                 37591
+            ],
+            "hardmode": [
+                {
+                    "id": 2038,
+                    "name": " Respect Your Elders"
+                }
             ]
         },
         {
-            "name": "Taldaram",
+            "name": "Prince Taldaram",
             "loot": [
                 35611,
                 35610,
@@ -52,7 +58,7 @@
             ]
         },
         {
-            "name": "Jedoga",
+            "name": "Jedoga Shadowseeker",
             "loot": [
                 43278,
                 43279,
@@ -66,10 +72,16 @@
                 43282,
                 43281,
                 21524
+            ],
+            "hardmode": [
+                {
+                    "id": 2056,
+                    "name": " Volunteer Work"
+                }
             ]
         },
         {
-            "name": "Volazj",
+            "name": "Herald Volazj",
             "loot": [
                 35612,
                 35613,
@@ -87,6 +99,12 @@
                 37615,
                 41790,
                 43102
+            ],
+            "hardmode": [
+                {
+                    "id": 1862,
+                    "name": " Volazj's Quick Demise"
+                }
             ]
         },
         {

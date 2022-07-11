@@ -11,7 +11,7 @@
     "type": "DD",
     "bosses": [
         {
-            "name": "Garfrost",
+            "name": "Forgemaster Garfrost",
             "loot": [
                 49805,
                 49806,
@@ -27,10 +27,16 @@
                 50229,
                 50228,
                 50227
+            ],
+            "hardmode": [
+                {
+                    "id": 4524,
+                    "name": " Doesn't Go to Eleven"
+                }
             ]
         },
         {
-            "name": "KrickIck",
+            "name": "Krick&Ick",
             "loot": [
                 49809,
                 49810,
@@ -49,7 +55,7 @@
             ]
         },
         {
-            "name": "Tyrannus",
+            "name": "Scourgelord Tyrannus",
             "loot": [
                 49823,
                 49825,
@@ -77,6 +83,12 @@
                 50268,
                 50267,
                 50273
+            ],
+            "hardmode": [
+                {
+                    "id": 4525,
+                    "name": " Don't Look Up"
+                }
             ]
         }
     ],
