@@ -1,0 +1,29 @@
+<h1>Crafting</h1>
+
+<nb-card>
+    <nb-card-header>
+        <h2>Primary Professions</h2>
+    </nb-card-header>
+    <nb-card-body>
+        <table>
+            <tr class="tableRow">
+                <th class="left">Profession</th>
+                <th class="center">Bonus</th>
+            </tr>
+            <tr *ngFor="let craft of craftingArr" class="tableRow borderD">
+                <ng-container>
+                    <td class="left cRaid"> <a [routerLink]="craft.link">{{craft.name}}</a></td>
+                    <td class="center cPhase" style="display: flex; flex-direction: column">
+                        <div>
+                            {{craft.src}}
+                        </div>
+                        <div>
+                            {{craft.bonus}}
+                        </div>
+                    </td>
+
+                </ng-container>
+            </tr>
+        </table>
+    </nb-card-body>
+</nb-card>

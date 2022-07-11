@@ -6,6 +6,7 @@ import { filter, map, Observable } from 'rxjs';
 import { wowAddon } from '../types/addon';
 import { TooltipService } from './tooltip.service';
 
+export type startType = 'dungeons' | 'raids' | 'crafting' | 'pvp' | 'reputation' | 'collections' | 'RIP';
 
 interface GlobalProps {
   route: string,
@@ -31,7 +32,7 @@ export class GlobalStoreService {
 
   public addon$ = this.store.pipe(select((state) => state.addon));
 
-  public startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
+  public startType$: Observable<startType>;
 
   public mobile$ = this.store.pipe(select((state) => state.bMobile));
 
@@ -46,6 +47,18 @@ export class GlobalStoreService {
         }
         if (r.startsWith('/raids')) {
           return 'raids';
+        }
+        if (r.startsWith('/crafting')) {
+          return 'crafting';
+        }
+        if (r.startsWith('/pvp')) {
+          return 'pvp';
+        }
+        if (r.startsWith('/collections')) {
+          return 'collections';
+        }
+        if (r.startsWith('/reputation')) {
+          return 'reputation';
         }
 
         return 'RIP';

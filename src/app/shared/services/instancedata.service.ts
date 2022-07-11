@@ -50,6 +50,12 @@ export class InstancedataService {
             return of(emptyInstance)
           }
 
+
+          if (state.route.includes('#')) {
+            const fixed = state.route.slice(0, state.route.indexOf('#'));
+            return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${fixed}.json`);
+          }
+
           return this.http.get<wowInstance>(`../../../assets/data/gen/${state.addon}${state.route}.json`);
         })
       )
@@ -62,7 +68,15 @@ export class InstancedataService {
   public getCurrentInstanceBoss$(boss: string): Observable<wowInstanceBoss> {
     const state = this.globalStore.getStoreValue();
 
-    const current$ = this.http.get<wowInstanceBoss>(`../../../assets/data/gen/${state.addon}${state.route}/${boss}.json`);
+    let current$: Observable<wowInstanceBoss>;
+
+    if (state.route.includes('#')) {
+      const fixed = state.route.slice(0, state.route.indexOf('#'));
+      current$ = this.http.get<wowInstanceBoss>(`../../../assets/data/gen/${state.addon}${fixed}/${boss}.json`)
+    }
+    else {
+      current$ = this.http.get<wowInstanceBoss>(`../../../assets/data/gen/${state.addon}${state.route}/${boss}.json`)
+    };
 
     return current$;
   }

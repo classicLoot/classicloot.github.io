@@ -118,4 +118,16 @@ const items = readFilesFromDirAs<wowItem>('../assets/items/', testArray.map(id =
 //console.log(items);
 
 //await fetchIDS([-55628, -13240, -60691, -55016], true)60691
-await fetchIDS([-59504], true)
+//await fetchIDS([-59504], true)
+
+
+function combineArrays(ids: string, names: string) {
+    const idArray = ids.split(',');
+    const nameArray = names.split(',');
+
+    for (let i = 0; i < idArray.length; i++) {
+        console.log(`{"id": ${idArray[i]},"name":"${nameArray[i]}"}`);
+    }
+}
+combineArrays(`4580, 4620, 4583, 4601, 4621, 4534, 4610, 4538, 4614, 4577, 4615, 4535, 4611, 4628, 4632, 4630, 4634, 4631, 4635, 4629, 4633, 4536, 4612, 4537, 4613, 4578, 4616, 4581, 4622, 4618, 4579, 4619, 4576, 4531, 4604, 4529, 4606, 4527, 4607, 4530, 4597, 4584, 4582, 4617, 4528, 4605
+`, `All You Can Eat (10 player), All You Can Eat (25 player), Bane of the Fallen King, Been Waiting a Long Time for This (10 player), Been Waiting a Long Time for This (25 player), Boned (10 player), Boned (25 player), Dances with Oozes (10 player), Dances with Oozes (25 player), Flu Shot Shortage (10 player), Flu Shot Shortage (25 player), Full House (10 player), Full House (25 player), Heroic: Storming the Citadel (10 player), Heroic: Storming the Citadel (25 player), Heroic: The Crimson Hall (10 player), Heroic: The Crimson Hall (25 player), Heroic: The Frostwing Halls (10 player), Heroic: The Frostwing Halls (25 player), Heroic: The Plagueworks (10 player), Heroic: The Plagueworks (25 player), I'm on a Boat (10 player), I'm on a Boat (25 player), I've Gone and Made a Mess (10 player), I've Gone and Made a Mess (25 player), "Nausea, Heartburn, Indigestion... (10 player)", "Nausea, Heartburn, Indigestion... (25 player)", Neck-Deep in Vile (10 player), Neck-Deep in Vile (25 player), "Once Bitten, Twice Shy (25 player)", Portal Jockey (10 player), Portal Jockey (25 player), Realm First! Fall of the Lich King, Storming the Citadel (10 player), Storming the Citadel (25 player), The Crimson Hall (10 player), The Crimson Hall (25 player), The Frostwing Halls (10 player), The Frostwing Halls (25 player), The Frozen Throne (10 player), The Frozen Throne (25 player), The Light of Dawn, The Orb Whisperer (10 player), The Orb Whisperer (25 player), The Plagueworks (10 player), The Plagueworks (25 player)`)

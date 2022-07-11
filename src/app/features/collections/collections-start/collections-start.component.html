@@ -1,3 +1,14 @@
-<ng-container *ngIf="collectionsMeta$ | async as meta">
-    {{meta | json}}
+<ng-container *ngIf="startType$ | async as collType" [ngSwitch]="collType">
+    <ng-container *ngSwitchCase="'crafting'">
+        <app-crafting-start></app-crafting-start>
+    </ng-container>
+    <ng-container *ngSwitchCase="'pvp'">
+        <app-pvp-start></app-pvp-start>
+    </ng-container>
+    <ng-container *ngSwitchCase="'reputation'">
+        <app-reputation-start></app-reputation-start>
+    </ng-container>
+    <ng-container *ngSwitchCase="'collections'">
+        <app-collections-start-c></app-collections-start-c>
+    </ng-container>
 </ng-container>

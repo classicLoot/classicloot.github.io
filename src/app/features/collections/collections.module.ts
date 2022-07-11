@@ -7,13 +7,21 @@ import { CollectionCardComponent } from './collection-card/collection-card.compo
 import { CollectionsRoutingModule } from './collections-routing.module';
 import { CollectionsStartComponent } from './collections-start/collections-start.component';
 import { CollectionsComponent } from './collections/collections.component';
+import { ReputationStartComponent } from './reputation-start/reputation-start.component';
+import { CraftingStartComponent } from './crafting-start/crafting-start.component';
+import { PvpStartComponent } from './pvp-start/pvp-start.component';
+import { CollectionsStartCComponent } from './collections-start-c/collections-start-c.component';
 
 
 @NgModule({
   declarations: [
     CollectionsComponent,
     CollectionsStartComponent,
-    CollectionCardComponent
+    CollectionCardComponent,
+    ReputationStartComponent,
+    CraftingStartComponent,
+    PvpStartComponent,
+    CollectionsStartCComponent
   ],
   imports: [
     CommonModule,
