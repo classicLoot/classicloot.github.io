@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { wowInstance } from 'src/app/shared/interfaces/instance';
-import { GlobalStoreService } from 'src/app/shared/services/global-store.service';
+import { GlobalStoreService, startType } from 'src/app/shared/services/global-store.service';
 import { InstancedataService } from 'src/app/shared/services/instancedata.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class InstanceStartComponent implements OnInit {
   dungeonsMeta$: Observable<wowInstance[]>;
   raidsMeta$: Observable<wowInstance[]>;
 
-  startType$: Observable<'dungeons' | 'raids' | 'RIP'>;
+  startType$: Observable<startType>;
 
 
   constructor(private globalStoreService: GlobalStoreService, private instanceDataService: InstancedataService) {
