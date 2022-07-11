@@ -31,7 +31,7 @@ const routes: Routes = [
       },
       {
         path: 'pvp',
-        loadChildren: () => import('src/app/features/pvp/pvp.module').then(m => m.PvpModule)
+        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
       },
       {
         path: 'raids',
