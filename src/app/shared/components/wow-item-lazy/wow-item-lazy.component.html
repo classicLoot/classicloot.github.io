@@ -9,10 +9,10 @@
 
 <!-- Templates -->
 <ng-template #itemTemplate>
-    <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
-    <div class="itemText" (mousemove)="onMouseEvent($event,'move')" (mouseenter)="onMouseEvent($event,'enter')"
-        (mouseleave)="onMouseEvent($event,'leave')">
-        <a href="{{item.link}}" target="_blank">
+    <a href="{{item.link}}" target="_blank" class="item-container" (mousemove)="onMouseEvent($event,'move')"
+        (mouseenter)="onMouseEvent($event,'enter')" (mouseleave)="onMouseEvent($event,'leave')">
+        <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
+        <div class="itemText">
             <div class="itemName q{{item.quality}}">
                 {{item.name}}
                 <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>
@@ -20,8 +20,9 @@
             <div class="itemSubText">
                 {{item | itemSubtext}} <span *ngIf="showLevel">*{{item.ilvl }}*</span>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
+
 </ng-template>
 
 <ng-template #itemTemplateMobile>
