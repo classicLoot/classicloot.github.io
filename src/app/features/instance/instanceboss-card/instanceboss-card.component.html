@@ -169,6 +169,9 @@
                 <ng-container *ngFor="let item of boss.sortedLootHeroicItems.tokens">
                     <app-wow-item-lazy [item]="item" [itemSize]="'large'"></app-wow-item-lazy>
                 </ng-container>
+                <ng-container *ngFor="let item of boss.sortedLootHeroicItems.weapons">
+                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"></app-wow-item-lazy>
+                </ng-container>
             </div>
         </ng-container>
 
@@ -187,6 +190,9 @@
                     <app-wow-item-lazy [item]="item" [itemSize]="'large'"></app-wow-item-lazy>
                 </ng-container>
                 <ng-container *ngFor="let item of boss.sortedLootItems.tokens">
+                    <app-wow-item-lazy [item]="item" [itemSize]="'large'"></app-wow-item-lazy>
+                </ng-container>
+                <ng-container *ngFor="let item of boss.sortedLootItems.weapons">
                     <app-wow-item-lazy [item]="item" [itemSize]="'large'"></app-wow-item-lazy>
                 </ng-container>
             </div>
