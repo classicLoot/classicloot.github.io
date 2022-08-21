@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
+import { wowCollection } from '../../app/shared/interfaces/collection';
 import { wowInstance } from "../../app/shared/interfaces/instance";
 import { readFromDirAs, sanitizeName } from "../helper";
 
 migrateDungeons()
+migrateCrafting()
 
 function migrateDungeons() {
     const dPath = '../assets/data/manual/dungeons/wotlk'
@@ -51,6 +53,51 @@ function migrateDungeons() {
         }
         const writePath = path.join(__dirname, newPath, newD.name + '.json');
         fs.writeFileSync(writePath, JSON.stringify(newD));
+        // console.log(newD)
+    })
+}
+
+function migrateCrafting() {
+    const dPath = '../assets/data/manual/crafting/wotlk'
+    const crafting = readFromDirAs<wowCollection>(dPath);
+    console.log('crafting:', crafting.length)
+
+    const newPath = '../../wowdata/input/crafting'
+
+    crafting.forEach(c => {
+        let newSubColl: any[] = [];
+
+        c.subCollections?.forEach(sub => {
+            // "normal"
+            if (sub.ids) {
+                const newSub = {
+                    name: sub.name,
+                    groups: [
+                        {
+                            ids: sub.ids,
+                            pos: 'mid',
+                            groupBy: sub.groupBy ? sub.groupBy : 'defaultCrafting'
+                        }
+                    ]
+                }
+                newSubColl.push(newSub)
+            }
+            // groups
+            else {
+                const newSub = {
+                    name: sub.name,
+                    groups: sub.groups
+                }
+                newSubColl.push(newSub)
+            }
+        })
+
+        const newC = {
+            name: sanitizeName(c.name),
+            subCollections: newSubColl
+        }
+        const writePath = path.join(__dirname, newPath, newC.name + '.json');
+        fs.writeFileSync(writePath, JSON.stringify(newC));
         // console.log(newD)
     })
 }
