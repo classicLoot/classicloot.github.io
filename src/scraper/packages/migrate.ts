@@ -38,7 +38,8 @@ function migrateDungeons() {
         })
 
         const newD = {
-            name: sanitizeName(d.name),
+            name: d.name,
+            link: sanitizeName(d.name),
             meta: {
                 descr: d.descr,
                 levelMin: d.levelMin,
@@ -51,7 +52,7 @@ function migrateDungeons() {
             subCollections: newSubColl
 
         }
-        const writePath = path.join(__dirname, newPath, newD.name + '.json');
+        const writePath = path.join(__dirname, newPath, newD.link + '.json');
         fs.writeFileSync(writePath, JSON.stringify(newD));
         // console.log(newD)
     })
@@ -93,7 +94,8 @@ function migrateCrafting() {
         })
 
         const newC = {
-            name: sanitizeName(c.name),
+            name: c.name,
+            link: sanitizeName(c.name),
             subCollections: newSubColl
         }
         const writePath = path.join(__dirname, newPath, newC.name + '.json');
