@@ -12,7 +12,7 @@ function migrateDungeons() {
     const dungeons = readFromDirAs<wowInstance>(dPath);
     console.log('dungeons:', dungeons.length)
 
-    const newPath = '../../wowdata/input/dungeons'
+    const newPath = '../../wowdata/input/Dungeons'
 
     dungeons.forEach(d => {
         let newSubColl: any[] = [];
@@ -62,7 +62,7 @@ function migrateCrafting() {
     const crafting = readFromDirAs<wowCollection>(dPath);
     console.log('crafting:', crafting.length)
 
-    const newPath = '../../wowdata/input/crafting'
+    const newPath = '../../wowdata/input/Crafting'
 
     crafting.forEach(c => {
         let newSubColl: any[] = [];
