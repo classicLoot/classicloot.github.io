@@ -14,32 +14,32 @@ const routes: Routes = [
       },
 
       {
-        path: 'crafting',
-        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
+        path: 'Crafting',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
-        path: 'collections',
-        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
+        path: 'Collections',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
-        path: 'dungeons',
-        loadChildren: () => import('src/app/features/instance/instance.module').then(m => m.InstanceModule)
+        path: 'Dungeons',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
         path: 'home',
         loadChildren: () => import('src/app/features/home/home.module').then(m => m.HomeModule)
       },
       {
-        path: 'pvp',
-        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
+        path: 'Pvp',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
-        path: 'raids',
-        loadChildren: () => import('src/app/features/instance/instance.module').then(m => m.InstanceModule)
+        path: 'Raids',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
-        path: 'reputation',
-        loadChildren: () => import('src/app/features/collections/collections.module').then(m => m.CollectionsModule)
+        path: 'Reputation',
+        loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {
         path: '*',
