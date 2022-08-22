@@ -4,8 +4,9 @@ import { wowCollection } from '../../app/shared/interfaces/collection';
 import { wowInstance } from "../../app/shared/interfaces/instance";
 import { readFromDirAs, sanitizeName } from "../helper";
 
-migrateDungeons()
-migrateCrafting()
+//migrateDungeons()
+//migrateCrafting()
+migrateRaids()
 
 function migrateDungeons() {
     const dPath = '../assets/data/manual/dungeons/wotlk'
@@ -102,4 +103,64 @@ function migrateCrafting() {
         fs.writeFileSync(writePath, JSON.stringify(newC));
         // console.log(newD)
     })
+}
+
+function migrateRaids() {
+    const dPath = '../assets/data/manual/raids/wotlk'
+    const raids = readFromDirAs<wowInstance>(dPath);
+    console.log('raids:', raids.length)
+
+    const newPath = '../../wowdata/input/Raids'
+
+    raids.forEach(r => {
+
+        if (r.size === 10) {
+            let newSubColl: any[] = [];
+            r.bosses?.forEach(b => {
+                const newB = {
+                    name: b.name,
+                    groups: [
+                        {
+                            name: 'Heroic',
+                            ids: b.lootHeroic,
+                            groupBy: 'Raidboss',
+                            filter: '10-heroic'
+                        },
+                        {
+                            name: 'Normal',
+                            ids: b.loot,
+                            groupBy: 'Raidboss',
+                            filter: '10-normal'
+                        }
+                    ],
+                    hardmode: b.hardmode?.map(h => {
+                        return { id: h.id, filter: '10' }
+                    })
+                }
+                newSubColl.push(newB)
+            })
+            const newR = {
+                name: r.name,
+                link: sanitizeName(r.name),
+                meta: {
+                    descr: r.descr,
+                    levelMin: r.levelMin,
+                    levelMax: r.levelMax,
+                    levelEnter: r.levelEnter,
+                    ilvlMin: r.ilvlMin,
+                    ilvlMax: r.ilvlMax,
+                    phase: r.phase,
+                },
+                subCollections: newSubColl
+
+            }
+            const writePath = path.join(__dirname, newPath, newR.link + '.json');
+            fs.writeFileSync(writePath, JSON.stringify(newR));
+            // console.log(newD)
+        }
+        else {
+
+        }
+    })
+
 }
