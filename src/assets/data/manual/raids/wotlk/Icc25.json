@@ -575,22 +575,6 @@
                     "name": "Neck-Deep in Vile (25 player)"
                 }
             ]
-        },
-        {
-            "name": "Trash",
-            "descr": "descr",
-            "loot": [
-                50449,
-                50450,
-                50451,
-                50452,
-                50447,
-                50453,
-                50444
-            ],
-            "lootHeroic": [],
-            "hardmodeLoot": [],
-            "hardmode": []
         }
     ]
 }
