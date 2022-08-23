@@ -1,0 +1,57 @@
+<nb-card #bossList>
+    <nb-card-header>
+        <h2 class="flex-item-left">{{sub.name}}</h2>
+        <app-filter-buttons class="flex-item-right" [bDifficulty]="true" [bSize]="true" [bFaction]="true">
+        </app-filter-buttons>
+    </nb-card-header>
+    <nb-card-body class="flex-container">
+        <ng-container *ngIf="filter$ | async as filter">
+            <div class="flex-item-left flex-column" *ngIf="left && left.length > 0">
+                <ng-container *ngFor="let entry of left">
+                    <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                        [ngTemplateOutlet]="itemList"
+                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <div class="flex-item-right flex-column" *ngIf="right && right.length > 0">
+                <ng-container *ngFor="let entry of right">
+                    <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                        [ngTemplateOutlet]="itemList"
+                        [ngTemplateOutletContext]="{array: entry.itemData , title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+
+            <div class="mid-container" *ngIf="mid && mid.length > 0">
+                <ng-container *ngFor="let entry of mid">
+                    <ng-container *ngIf="entry.itemData && (filter | filterPipe:entry.filter?entry.filter:'')"
+                        [ngTemplateOutlet]="itemListFree"
+                        [ngTemplateOutletContext]="{array: entry.itemData, title: entry.name}">
+                    </ng-container>
+                </ng-container>
+            </div>
+        </ng-container>
+    </nb-card-body>
+</nb-card>
+
+<!-- Templates -->
+
+<ng-template #itemList let-array="array" let-title="title" let-filterStr="filterStr">
+    <div *ngIf="array.length > 0">
+        <h6 *ngIf="title">{{title}}</h6>
+        <div *ngFor="let item of array">
+            <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #itemListFree let-array="array" let-title="title" let-filterStr="filterStr">
+    <div *ngIf="array.length > 0" class="mid">
+        <h6 *ngIf="title">{{title}}</h6>
+        <div *ngFor="let item of array">
+            <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
+        </div>
+    </div>
+</ng-template>
