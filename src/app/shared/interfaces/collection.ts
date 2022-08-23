@@ -4,18 +4,33 @@ import { wowItem } from "./item";
 export interface wowCollection {
     name: string,
     link?: string,
+    meta?: wowCollectionMeta,
+    subCollections?: wowSubCollection[],
+
     descr?: string,
     type?: wowBossType,
-    subCollections?: wowSubCollection[],
     subLinks?: wowCollectionSubLink[]
+}
+
+export interface wowCollectionMeta {
+    descr?: string,
+    levelMin?: number,
+    levelMax?: number,
+    levelEnter?: number,
+    ilvlMin?: number,
+    ilvlMax?: number,
+    tier?: string,
+    phase?: number
 }
 // e.g. Emblem of Heroism
 export interface wowSubCollection {
     name: string,
+    groups?: wowSubCollectionGroup[],
+    hardmode?: { id: number, filter: string }[],
+
     descr?: string,
     ids?: number[],
     itemData?: wowItem[],
-    groups?: wowSubCollectionGroup[],
     left?: wowSubCollectionGroup[],
     mid?: wowSubCollectionGroup[],
     right?: wowSubCollectionGroup[],
@@ -24,12 +39,14 @@ export interface wowSubCollection {
 
 export interface wowSubCollectionGroup {
     name?: string,
-    descr?: string,
     ids?: number[],
-    itemData?: wowItem[],
     sortBy?: string,
     pos?: 'left' | 'mid' | 'right',
+    groupBy?: string,
     filter?: string
+    itemData?: wowItem[],
+
+    descr?: string,
 }
 
 export interface wowCollectionSubLink {

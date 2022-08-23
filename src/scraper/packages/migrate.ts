@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import { wowCollection } from '../../app/shared/interfaces/collection';
+import { wowCollection, wowSubCollection, wowSubCollectionGroup } from '../../app/shared/interfaces/collection';
 import { wowInstance } from "../../app/shared/interfaces/instance";
-import { readFromDirAs, sanitizeName } from "../helper";
+import { readFromDirAs, readFromDirAsSingle, sanitizeName } from "../helper";
 
 //migrateDungeons()
 //migrateCrafting()
@@ -113,53 +113,87 @@ function migrateRaids() {
     const newPath = '../../wowdata/input/Raids'
 
     raids.forEach(r => {
-
-        if (r.size === 10) {
-            let newSubColl: any[] = [];
-            r.bosses?.forEach(b => {
-                const newB = {
-                    name: b.name,
-                    groups: [
-                        {
-                            name: 'Heroic',
-                            ids: b.lootHeroic,
-                            groupBy: 'Raidboss',
-                            filter: '10-heroic'
-                        },
-                        {
-                            name: 'Normal',
-                            ids: b.loot,
-                            groupBy: 'Raidboss',
-                            filter: '10-normal'
-                        }
-                    ],
-                    hardmode: b.hardmode?.map(h => {
-                        return { id: h.id, filter: '10' }
-                    })
-                }
-                newSubColl.push(newB)
-            })
-            const newR = {
-                name: r.name,
-                link: sanitizeName(r.name),
-                meta: {
-                    descr: r.descr,
-                    levelMin: r.levelMin,
-                    levelMax: r.levelMax,
-                    levelEnter: r.levelEnter,
-                    ilvlMin: r.ilvlMin,
-                    ilvlMax: r.ilvlMax,
-                    phase: r.phase,
-                },
-                subCollections: newSubColl
-
+        let newSubColl: any[] = [];
+        const smallRaid = r.size === 10;
+        r.bosses?.forEach(b => {
+            let newB: wowSubCollection = {
+                name: b.name,
+                groups: [
+                    {
+                        name: 'Heroic',
+                        ids: b.lootHeroic,
+                        groupBy: 'Raidboss',
+                        filter: smallRaid ? '10-heroic' : '25-heroic'
+                    },
+                    {
+                        name: 'Normal',
+                        ids: b.loot,
+                        groupBy: 'Raidboss',
+                        filter: smallRaid ? '10-normal' : '25-normal'
+                    }
+                ],
+                hardmode: b.hardmode?.map(h => {
+                    return { id: h.id!, filter: '10' }
+                })
             }
+
+            if (b.lootHeroicHorde) {
+                newB.groups!.push({
+                    name: 'Heroic',
+                    ids: b.lootHeroicHorde,
+                    groupBy: 'Raidboss',
+                    filter: smallRaid ? '10-heroic-horde' : '25-heroic-horde'
+                })
+            }
+            if (b.lootHorde) {
+                newB.groups!.push({
+                    name: 'Normal',
+                    ids: b.lootHorde,
+                    groupBy: 'Raidboss',
+                    filter: smallRaid ? '10-normal-horde' : '25-normal-horde'
+                })
+            }
+
+            newSubColl.push(newB)
+        })
+        const newR: wowCollection = {
+            name: r.name,
+            link: sanitizeName(r.name),
+            meta: {
+                descr: r.descr,
+                levelMin: r.levelMin,
+                levelMax: r.levelMax,
+                levelEnter: r.levelEnter,
+                ilvlMin: r.ilvlMin,
+                ilvlMax: r.ilvlMax,
+                phase: r.phase,
+            },
+            subCollections: newSubColl
+
+        }
+        if (smallRaid) {
             const writePath = path.join(__dirname, newPath, newR.link + '.json');
             fs.writeFileSync(writePath, JSON.stringify(newR));
             // console.log(newD)
         }
         else {
+            const writePath = path.join(__dirname, newPath, newR.link + '.json');
 
+            const fileRaw = fs.readFileSync(writePath).toString();
+            let r10: wowCollection = JSON.parse(fileRaw);
+            console.log(r10.name, r10.subCollections?.length)
+
+            for (let i = 0; i < newR.subCollections!.length; i++) {
+                let boss25 = newR.subCollections![i];
+                const boss10 = r10.subCollections![i];
+                //console.log('boss ', boss25.name, boss10.name)
+
+                boss25.groups = [...boss25.groups!, ...boss10.groups!]
+
+                r10.subCollections![i] = boss25;
+            }
+
+            fs.writeFileSync(writePath, JSON.stringify(r10));
         }
     })
 
