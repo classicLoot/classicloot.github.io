@@ -123,13 +123,13 @@ function migrateRaids() {
                         name: 'Heroic',
                         ids: b.lootHeroic,
                         groupBy: 'Raidboss',
-                        filter: smallRaid ? '10-heroic' : '25-heroic'
+                        filter: smallRaid ? '10-Heroic' : '25-Heroic'
                     },
                     {
                         name: 'Normal',
                         ids: b.loot,
                         groupBy: 'Raidboss',
-                        filter: smallRaid ? '10-normal' : '25-normal'
+                        filter: smallRaid ? '10-Normal' : '25-Normal'
                     }
                 ],
                 hardmode: b.hardmode?.map(h => {
@@ -137,12 +137,16 @@ function migrateRaids() {
                 })
             }
 
+            if (newB.groups![0]!.ids!.length < 1) {
+                newB.groups = newB.groups?.slice(1);
+            }
+
             if (b.lootHeroicHorde) {
                 newB.groups!.push({
                     name: 'Heroic',
                     ids: b.lootHeroicHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-heroic-horde' : '25-heroic-horde'
+                    filter: smallRaid ? '10-Heroic-horde' : '25-Heroic-horde'
                 })
             }
             if (b.lootHorde) {
@@ -150,7 +154,7 @@ function migrateRaids() {
                     name: 'Normal',
                     ids: b.lootHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-normal-horde' : '25-normal-horde'
+                    filter: smallRaid ? '10-Normal-horde' : '25-Normal-horde'
                 })
             }
 
