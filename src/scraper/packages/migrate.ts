@@ -33,7 +33,12 @@ function migrateDungeons() {
                         pos: 'right'
                     }
                 ],
-                hardmode: b.hardmode?.map(h => h.id)
+                hardmode: b.hardmode?.map(h => {
+                    return {
+                        id: h.id,
+                        filter: ''
+                    }
+                })
             }
             newSubColl.push(newB)
         })
@@ -132,9 +137,10 @@ function migrateRaids() {
                         filter: smallRaid ? '10-Normal' : '25-Normal'
                     }
                 ],
-                hardmode: b.hardmode?.map(h => {
-                    return { id: h.id!, filter: '10' }
-                })
+                hardmode: b.hardmode ? b.hardmode?.map(h => {
+                    return { id: h.id!, filter: smallRaid ? '10' : '25' }
+                }) : [],
+                hardmodeLoot: b.hardmodeLoot ? b.hardmodeLoot : []
             }
 
             if (newB.groups![0]!.ids!.length < 1) {
@@ -211,6 +217,9 @@ function migrateRaids() {
                 //console.log('boss ', boss25.name, boss10.name)
 
                 boss25.groups = [...boss25.groups!, ...boss10.groups!]
+                boss25.hardmode = [...boss25.hardmode!, ...boss10.hardmode!];
+                boss25.hardmodeLoot = [...boss25.hardmodeLoot!, ...boss10.hardmodeLoot!];
+
 
                 r10.subCollections![i] = boss25;
             }

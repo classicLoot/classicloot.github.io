@@ -27,6 +27,7 @@ export interface wowSubCollection {
     name: string,
     groups?: wowSubCollectionGroup[],
     hardmode?: { id: number, filter: string }[],
+    hardmodeLoot?: number[],
 
     descr?: string,
     ids?: number[],

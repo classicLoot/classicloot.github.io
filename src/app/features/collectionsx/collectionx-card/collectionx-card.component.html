@@ -42,7 +42,8 @@
     <div *ngIf="array.length > 0">
         <h6 *ngIf="title && ['Normal','Heroic'].includes(title)">{{title}}</h6>
         <div *ngFor="let item of array">
-            <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
+            <app-wow-item-lazy [item]="item" [itemSize]="'large'"
+                [hardmode]="sub.hardmodeLoot?.includes(+item.id) || false"> </app-wow-item-lazy>
         </div>
     </div>
 </ng-template>
