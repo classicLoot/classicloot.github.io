@@ -146,7 +146,7 @@ function migrateRaids() {
                     name: 'Heroic',
                     ids: b.lootHeroicHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-Heroic-horde' : '25-Heroic-horde'
+                    filter: smallRaid ? '10-Heroic-Horde' : '25-Heroic-Horde'
                 })
             }
             if (b.lootHorde) {
@@ -154,7 +154,24 @@ function migrateRaids() {
                     name: 'Normal',
                     ids: b.lootHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-Normal-horde' : '25-Normal-horde'
+                    filter: smallRaid ? '10-Normal-Horde' : '25-Normal-Horde'
+                })
+            }
+
+            const horde = newB.groups?.find(x => x.filter?.includes('Horde'))
+            if (horde) {
+                newB.groups = newB.groups?.map(g => {
+                    if (g.filter?.includes('Horde')) {
+                        return g;
+                    }
+                    else {
+                        return {
+                            name: g.name,
+                            ids: g.ids,
+                            groupBy: g.groupBy,
+                            filter: g.filter + '-Alliance'
+                        }
+                    }
                 })
             }
 

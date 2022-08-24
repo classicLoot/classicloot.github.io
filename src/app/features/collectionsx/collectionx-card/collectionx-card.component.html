@@ -1,7 +1,7 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{sub.name}}</h2>
-        <app-filter-buttons class="flex-item-right" [bDifficulty]="true" [bSize]="true" [bFaction]="true">
+        <app-filter-buttons class="flex-item-right" [bDifficulty]="bDiff" [bSize]="bSize" [bFaction]="bFaction">
         </app-filter-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container">
@@ -40,7 +40,7 @@
 
 <ng-template #itemList let-array="array" let-title="title" let-filterStr="filterStr">
     <div *ngIf="array.length > 0">
-        <h6 *ngIf="title">{{title}}</h6>
+        <h6 *ngIf="title && ['Normal','Heroic'].includes(title)">{{title}}</h6>
         <div *ngFor="let item of array">
             <app-wow-item-lazy [item]="item" [itemSize]="'large'"> </app-wow-item-lazy>
         </div>
