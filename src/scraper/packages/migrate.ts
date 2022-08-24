@@ -188,6 +188,7 @@ function migrateRaids() {
                 ilvlMin: r.ilvlMin,
                 ilvlMax: r.ilvlMax,
                 phase: r.phase,
+                tier: r.tier
             },
             subCollections: newSubColl
 
