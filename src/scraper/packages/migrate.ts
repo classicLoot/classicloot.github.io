@@ -4,7 +4,7 @@ import { wowCollection, wowSubCollection, wowSubCollectionGroup } from '../../ap
 import { wowInstance } from "../../app/shared/interfaces/instance";
 import { readFromDirAs, readFromDirAsSingle, sanitizeName } from "../helper";
 
-//migrateDungeons()
+migrateDungeons()
 //migrateCrafting()
 migrateRaids()
 
