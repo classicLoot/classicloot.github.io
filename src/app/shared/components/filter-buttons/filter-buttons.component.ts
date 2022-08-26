@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FilterStoreService } from '../../services/filter-store.service';
+import { FragmentService } from '../../services/fragment.service';
+import { GlobalStoreService } from '../../services/global-store.service';
 import { wowClass, wowDifficulty, wowFaction, wowSize } from '../../types/options';
 
 @Component({
@@ -18,7 +20,11 @@ export class FilterButtonsComponent implements OnInit {
   size$!: Observable<wowSize>;
   difficulty$!: Observable<wowDifficulty>;
 
-  constructor(private filterStore: FilterStoreService) {
+  scrollDelay = 50;
+
+  @Input() fragment: string = '';
+
+  constructor(private filterStore: FilterStoreService, private globalStore: GlobalStoreService, private fragmentService: FragmentService) {
     this.faction$ = this.filterStore.faction$;
     this.size$ = this.filterStore.size$;
     this.difficulty$ = this.filterStore.difficulty$;
@@ -32,17 +38,20 @@ export class FilterButtonsComponent implements OnInit {
     if (value != old) {
       this.filterStore.updateDifficulty(value);
     }
+    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 
   public updateSize(value: wowSize, old: wowSize): void {
     if (value != old) {
       this.filterStore.updateSize(value);
     }
+    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 
   public updateFaction(value: wowFaction, old: wowFaction): void {
     if (value != old) {
       this.filterStore.updateFaction(value);
     }
+    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 }

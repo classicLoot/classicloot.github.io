@@ -1,7 +1,8 @@
 <nb-card #bossList>
     <nb-card-header>
         <h2 class="flex-item-left">{{sub.name}}</h2>
-        <app-filter-buttons class="flex-item-right" [bDifficulty]="bDiff" [bSize]="bSize" [bFaction]="bFaction">
+        <app-filter-buttons class="flex-item-right" [bDifficulty]="bDiff" [bSize]="bSize" [bFaction]="bFaction"
+            [fragment]="sub.name | sanitizeName">
         </app-filter-buttons>
     </nb-card-header>
     <nb-card-body class="flex-container">

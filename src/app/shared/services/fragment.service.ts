@@ -1,9 +1,12 @@
+import { ViewportScroller } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { wowCollection } from '../interfaces/collection';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
 import { sanitizeName } from '../pipes/sanitize-name.pipe';
 import { GlobalStoreService } from './global-store.service';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +15,7 @@ export class FragmentService {
 
   fragmentItems$: Observable<menuItemExtended[]>;
 
-  constructor(private globalStore: GlobalStoreService
-  ) {
+  constructor(private globalStore: GlobalStoreService, private viewportScroller: ViewportScroller, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
     this.fragmentItems$ = this.newFragments$();
   }
 
@@ -47,5 +49,20 @@ export class FragmentService {
     )
 
     return fragmentMenu$;
+  }
+
+  public scrollTo(fragment: string) {
+    //console.log('scrollTo', fragment)
+    this.viewportScroller.scrollToAnchor(fragment);
+    const url = this.router.createUrlTree([], { relativeTo: this.activatedRoute, fragment: fragment }).toString();
+
+    this.location.go(url);
+    this.globalStore.updateFragment(fragment);
+  }
+
+  public scrollToDelay(fragment: string, delay: number) {
+    setTimeout(() => {
+      this.scrollTo(fragment);
+    }, delay);
   }
 }

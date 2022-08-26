@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Observable, switchMap, tap } from 'rxjs';
 import { wowCollection } from 'src/app/shared/interfaces/collection';
 import { FragmentService } from 'src/app/shared/services/fragment.service';
@@ -10,7 +10,7 @@ import { GlobalStoreService } from 'src/app/shared/services/global-store.service
   templateUrl: './collectionsx.component.html',
   styleUrls: ['./collectionsx.component.scss']
 })
-export class CollectionsxComponent implements OnInit {
+export class CollectionsxComponent implements OnInit, AfterViewInit {
 
   route$: Observable<string>;
   collection$: Observable<wowCollection>
@@ -29,6 +29,18 @@ export class CollectionsxComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //console.log('onInit')
   }
 
+  ngAfterViewInit(): void {
+    //console.log('afterViewInit')
+
+    setTimeout(() => {
+      const fragment = this.globalStore.getFragment();
+      //console.log('Fragment', fragment)
+      if (fragment != '') {
+        this.fragmentService.scrollTo(fragment);
+      }
+    }, 100);
+  }
 }
