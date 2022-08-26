@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
-import { filter, map, Observable, pipe } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { wowAddon } from '../types/addon';
 import { TooltipService } from './tooltip.service';
 

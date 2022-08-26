@@ -1,5 +1,4 @@
 import { wowAchievement } from "./achievement";
-import { wowBossType } from "./instance";
 import { wowItem } from "./item";
 
 export interface wowHardmode {
@@ -13,7 +12,7 @@ export interface wowCollection {
     subCollections?: wowSubCollection[],
 
     descr?: string,
-    type?: wowBossType,
+    type?: string,
     subLinks?: wowCollectionSubLink[]
 }
 
