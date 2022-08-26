@@ -16,6 +16,7 @@ import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 import { ItemVisibilityPipe } from './pipes/item-visibility.pipe';
 import { WowItemModalComponent } from './components/wow-item-modal/wow-item-modal.component';
 import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-fragment.component';
+import { WowAchievementLazyComponent } from './components/wow-achievement-lazy/wow-achievement-lazy.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-
     ItemVisibilityPipe,
     WowItemModalComponent,
     SidebarFragmentComponent,
+    WowAchievementLazyComponent,
   ],
   imports: [
     CommonModule,
@@ -57,7 +59,8 @@ import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-
     FilterClassComponent,
     ItemVisibilityPipe,
     WowItemModalComponent,
-    SidebarFragmentComponent
+    SidebarFragmentComponent,
+    WowAchievementLazyComponent
   ]
 })
 export class SharedModule { }

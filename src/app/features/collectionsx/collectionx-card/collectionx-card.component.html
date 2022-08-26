@@ -32,6 +32,13 @@
                     </ng-container>
                 </ng-container>
             </div>
+
+            <div class="flex-item-left hardmode" *ngIf="sub.hardmode">
+                <ng-container *ngFor="let hm of sub.hardmode">
+                    <app-wow-achievement-lazy [av]="hm.data!" [descr]="''"
+                        *ngIf="filter | filterPipe:hm.filter? hm.filter : ''"> </app-wow-achievement-lazy>
+                </ng-container>
+            </div>
         </ng-container>
     </nb-card-body>
 </nb-card>
