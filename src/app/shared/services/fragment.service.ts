@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { catchError, combineLatest, map, Observable, of, switchMap } from 'rxjs';
+import { wowCollection } from '../interfaces/collection';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
+import { sanitizeName } from '../pipes/sanitize-name.pipe';
 import { CollectionsdataService } from './collectionsdata.service';
 import { GlobalStoreService } from './global-store.service';
 import { InstancedataService } from './instancedata.service';
@@ -14,7 +16,7 @@ export class FragmentService {
 
   constructor(private globalStore: GlobalStoreService,
     private instanceDataService: InstancedataService, private collectionsDataService: CollectionsdataService) {
-    this.fragmentItems$ = this.setupFragmentItems$();
+    this.fragmentItems$ = this.newFragments$();
   }
 
   private setupFragmentItems$(): Observable<menuItemExtended[]> {
@@ -107,6 +109,38 @@ export class FragmentService {
           console.log('?!')
           return of([]);
         }
+      })
+    )
+
+    return fragmentMenu$;
+  }
+
+  public setFragments(collection: wowCollection) {
+    //const fragments = collection.subCollections?.map(sub => sanitizeName(sub.name))
+    const fragments = collection.subCollections?.map(sub => sub.name)
+
+    this.globalStore.setFragments(fragments || []);
+    //console.log(fragments)
+  }
+
+  private newFragments$(): Observable<menuItemExtended[]> {
+    const fragments$ = this.globalStore.fragments$;
+
+    const fragmentMenu$ = fragments$.pipe(
+      map(fragments => {
+        const arr: menuItemExtended[] = [];
+
+        fragments.forEach(f => {
+          const newItem: menuItemExtended = {
+            title: f,
+            link: f,
+            fragment: sanitizeName(f)
+          }
+
+          arr.push(newItem)
+        })
+
+        return arr;
       })
     )
 

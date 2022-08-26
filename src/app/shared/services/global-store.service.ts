@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, Observable, pipe } from 'rxjs';
 import { wowAddon } from '../types/addon';
 import { TooltipService } from './tooltip.service';
 
@@ -12,7 +12,8 @@ interface GlobalProps {
   route: string,
   id: string,
   addon: wowAddon,
-  bMobile: boolean
+  bMobile: boolean,
+  fragments: string[]
 }
 
 @Injectable({
@@ -22,7 +23,7 @@ export class GlobalStoreService {
 
   private store = createStore(
     { name: 'global' },
-    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk', bMobile: false })
+    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk', bMobile: false, fragments: [] })
   )
   public state$ = this.store.pipe(select((state) => state));
 
@@ -35,6 +36,8 @@ export class GlobalStoreService {
   public startType$: Observable<startType>;
 
   public mobile$ = this.store.pipe(select((state) => state.bMobile));
+
+  public fragments$ = this.store.pipe(select((state) => state.fragments))
 
   constructor(private router: Router, private tooltipService: TooltipService) {
     devTools();
@@ -103,5 +106,12 @@ export class GlobalStoreService {
 
   public getStoreValue() {
     return this.store.value;
+  }
+
+  public setFragments(newFragments: string[]) {
+    this.store.update((state) => ({
+      ...state,
+      fragments: newFragments
+    }))
   }
 }
