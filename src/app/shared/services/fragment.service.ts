@@ -1,7 +1,7 @@
 import { ViewportScroller } from '@angular/common';
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { wowCollection } from '../interfaces/collection';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
 import { sanitizeName } from '../pipes/sanitize-name.pipe';
@@ -14,6 +14,8 @@ import { Location } from '@angular/common';
 export class FragmentService {
 
   fragmentItems$: Observable<menuItemExtended[]>;
+
+  public fragmentEventSubject = new BehaviorSubject<string>('');
 
   constructor(private globalStore: GlobalStoreService, private viewportScroller: ViewportScroller, private router: Router, private activatedRoute: ActivatedRoute, private location: Location) {
     this.fragmentItems$ = this.newFragments$();
@@ -60,9 +62,8 @@ export class FragmentService {
     this.globalStore.updateFragment(fragment);
   }
 
-  public scrollToDelay(fragment: string, delay: number) {
-    setTimeout(() => {
-      this.scrollTo(fragment);
-    }, delay);
+  public onFilterEvent(fragment: string) {
+    //console.log('onFilterEvent', fragment);
+    this.fragmentEventSubject.next(fragment);
   }
 }

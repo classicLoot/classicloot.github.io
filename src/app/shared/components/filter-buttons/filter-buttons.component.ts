@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FilterStoreService } from '../../services/filter-store.service';
 import { FragmentService } from '../../services/fragment.service';
@@ -37,21 +37,21 @@ export class FilterButtonsComponent implements OnInit {
   public updateDifficulty(value: wowDifficulty, old: wowDifficulty): void {
     if (value != old) {
       this.filterStore.updateDifficulty(value);
+      this.fragmentService.onFilterEvent(this.fragment);
     }
-    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 
   public updateSize(value: wowSize, old: wowSize): void {
     if (value != old) {
       this.filterStore.updateSize(value);
+      this.fragmentService.onFilterEvent(this.fragment);
     }
-    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 
   public updateFaction(value: wowFaction, old: wowFaction): void {
     if (value != old) {
       this.filterStore.updateFaction(value);
+      this.fragmentService.onFilterEvent(this.fragment);
     }
-    //this.fragmentService.scrollToDelay(this.fragment, this.scrollDelay);
   }
 }
