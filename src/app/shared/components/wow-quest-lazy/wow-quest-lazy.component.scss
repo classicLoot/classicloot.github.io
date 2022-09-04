@@ -17,9 +17,14 @@
 }
 
 .rewards {
-    padding-left: 20px;
+    padding-left: 0;
     padding-top: 5px;
 
     display: flex;
     gap: 5px;
+}
+
+.header-small {
+    padding-top: 0;
+    padding-bottom: 0;
 }
