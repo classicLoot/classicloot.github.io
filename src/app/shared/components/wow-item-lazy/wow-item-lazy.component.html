@@ -12,7 +12,7 @@
     <a href="{{item.link}}" target="_blank" class="item-container" (mousemove)="onMouseEvent($event,'move')"
         (mouseenter)="onMouseEvent($event,'enter')" (mouseleave)="onMouseEvent($event,'leave')">
         <img class="itemIcon border" loading="lazy" src="../../../../assets/icons/{{itemSize}}/{{item.icon}}.jpg">
-        <div class="itemText">
+        <div class="itemText" *ngIf="showText">
             <div class="itemName q{{item.quality}}">
                 {{item.name}}
                 <nb-icon *ngIf="hardmode" icon="flash-outline" status="warning"></nb-icon>

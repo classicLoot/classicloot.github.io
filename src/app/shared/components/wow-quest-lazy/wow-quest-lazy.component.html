@@ -12,6 +12,12 @@
             [{{quest.name}}]
         </div>
     </a>
+    <div *ngIf="quest.rewardData" class="rewards">
+        <ng-container *ngFor="let item of quest.rewardData">
+            <app-wow-item-lazy [item]="item" [showText]="false"></app-wow-item-lazy>
+        </ng-container>
+    </div>
+
 </ng-template>
 
 <ng-template #questTemplateMobile>

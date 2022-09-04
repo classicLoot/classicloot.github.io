@@ -8,7 +8,7 @@
         <ng-container *ngIf="faction$ | async as filter">
             <ul>
                 <ng-container *ngFor="let quest of quests">
-                    <li>
+                    <li *ngIf="(quest.faction === 'Both')||(quest.faction && (filter | filterPipe:quest.faction))">
                         <app-wow-quest-lazy [quest]="quest"></app-wow-quest-lazy>
                     </li>
                 </ng-container>
