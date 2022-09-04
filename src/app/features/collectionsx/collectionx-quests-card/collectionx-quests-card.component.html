@@ -1,0 +1,14 @@
+<nb-card>
+    <nb-card-header>
+        <h2 class="flex-item-left">Quests</h2>
+        <app-filter-buttons class="flex-item-right" [bDifficulty]="false" [bSize]="false" [bFaction]="true">
+        </app-filter-buttons>
+    </nb-card-header>
+    <nb-card-body class="flex-container">
+        <ng-container *ngIf="faction$ | async as filter">
+            <ng-container *ngFor="let quest of quests">
+                <app-wow-quest-lazy [quest]="quest"></app-wow-quest-lazy>
+            </ng-container>
+        </ng-container>
+    </nb-card-body>
+</nb-card>

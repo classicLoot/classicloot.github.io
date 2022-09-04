@@ -1,5 +1,8 @@
 <div *ngIf="collection$ | async as collection">
     <h1>{{collection.name}}</h1>
+
+    <app-collectionx-quests-card *ngIf="collection.quests" [quests]="collection.quests"></app-collectionx-quests-card>
+
     <app-collectionx-card *ngFor="let sub of collection.subCollections" [sub]="sub" [id]="sub.name | sanitizeName">
     </app-collectionx-card>
 </div>

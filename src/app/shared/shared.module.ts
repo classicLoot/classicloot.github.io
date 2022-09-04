@@ -5,18 +5,19 @@ import { NbButtonGroupModule, NbButtonModule, NbIconModule, NbSelectModule } fro
 import { FilterButtonsComponent } from './components/filter-buttons/filter-buttons.component';
 import { FilterClassComponent } from './components/filter-class/filter-class.component';
 import { OptionsButtonsComponent } from './components/options-buttons/options-buttons.component';
+import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-fragment.component';
 import { SidebarItemComponent } from './components/sidebar-item/sidebar-item.component';
 import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.component';
+import { WowAchievementLazyComponent } from './components/wow-achievement-lazy/wow-achievement-lazy.component';
 import { WowAchievementComponent } from './components/wow-achievement/wow-achievement.component';
 import { WowItemLazyComponent } from './components/wow-item-lazy/wow-item-lazy.component';
+import { WowItemModalComponent } from './components/wow-item-modal/wow-item-modal.component';
 import { WowItemTooltipComponent } from './components/wow-item-tooltip/wow-item-tooltip.component';
 import { WowItemComponent } from './components/wow-item/wow-item.component';
+import { WowQuestLazyComponent } from './components/wow-quest-lazy/wow-quest-lazy.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ItemSubtextPipe } from './pipes/item-subtext.pipe';
 import { ItemVisibilityPipe } from './pipes/item-visibility.pipe';
-import { WowItemModalComponent } from './components/wow-item-modal/wow-item-modal.component';
-import { SidebarFragmentComponent } from './components/sidebar-fragment/sidebar-fragment.component';
-import { WowAchievementLazyComponent } from './components/wow-achievement-lazy/wow-achievement-lazy.component';
 import { SanitizeNamePipe } from './pipes/sanitize-name.pipe';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SanitizeNamePipe } from './pipes/sanitize-name.pipe';
     SidebarFragmentComponent,
     WowAchievementLazyComponent,
     SanitizeNamePipe,
+    WowQuestLazyComponent,
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { SanitizeNamePipe } from './pipes/sanitize-name.pipe';
     WowItemModalComponent,
     SidebarFragmentComponent,
     WowAchievementLazyComponent,
-    SanitizeNamePipe
+    SanitizeNamePipe,
+    WowQuestLazyComponent
   ]
 })
 export class SharedModule { }
