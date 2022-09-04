@@ -15,16 +15,15 @@ import { SidebarService } from 'src/app/shared/services/sidebar.service';
 export class LayoutComponent implements OnInit {
 
   headerItems$: Observable<menuItemExtended[]>;
-  menuItems$: Observable<menuItemExtended[]>;
   fragmentItems$: Observable<menuItemExtended[]>;
 
   newMenu$: Observable<NbMenuItem[]>;
 
 
-  constructor(private sidebarService: SidebarService, private headerService: HeaderService, private fragmentService: FragmentService) {
+  constructor(private headerService: HeaderService, private fragmentService: FragmentService) {
     this.headerItems$ = this.headerService.getHeader$();
 
-    this.menuItems$ = this.sidebarService.menuItems$;
+
     this.fragmentItems$ = this.fragmentService.fragmentItems$;
 
     this.newMenu$ = this.headerService.getMenu$().pipe(
