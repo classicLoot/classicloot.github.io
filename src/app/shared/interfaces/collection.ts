@@ -39,7 +39,8 @@ export interface wowQuest {
     name?: string,
     tooltip?: string,
     sharable?: boolean,
-    rewardData?: wowItem[]
+    rewardData?: wowItem[],
+    preQuestData?: wowQuest[]
 }
 
 // e.g. Emblem of Heroism
