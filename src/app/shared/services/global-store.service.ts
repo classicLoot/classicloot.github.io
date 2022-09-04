@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { devTools } from '@ngneat/elf-devtools';
-import { filter, map, Observable } from 'rxjs';
-import { wowAddon } from '../types/addon';
+import { filter, map } from 'rxjs';
 import { TooltipService } from './tooltip.service';
 
 export type startType = 'dungeons' | 'raids' | 'crafting' | 'pvp' | 'reputation' | 'collections' | 'RIP';
@@ -11,8 +10,10 @@ export type startType = 'dungeons' | 'raids' | 'crafting' | 'pvp' | 'reputation'
 interface GlobalProps {
   route: string,
   id: string,
-  addon: wowAddon,
-  bMobile: boolean
+  fragment: string,
+
+  bMobile: boolean,
+  fragments: string[]
 }
 
 @Injectable({
@@ -22,7 +23,7 @@ export class GlobalStoreService {
 
   private store = createStore(
     { name: 'global' },
-    withProps<GlobalProps>({ route: '', id: '', addon: 'wotlk', bMobile: false })
+    withProps<GlobalProps>({ route: '', id: '', fragment: '', bMobile: false, fragments: [] })
   )
   public state$ = this.store.pipe(select((state) => state));
 
@@ -30,40 +31,14 @@ export class GlobalStoreService {
   public id$ = this.store.pipe(select((state) => state.id));
   public routeAndId$ = this.store.pipe(select((state) => [state.route, state.id]));
 
-  public addon$ = this.store.pipe(select((state) => state.addon));
-
-  public startType$: Observable<startType>;
-
   public mobile$ = this.store.pipe(select((state) => state.bMobile));
+
+  public fragments$ = this.store.pipe(select((state) => state.fragments))
 
   constructor(private router: Router, private tooltipService: TooltipService) {
     devTools();
     this.subscribeRoute();
 
-    this.startType$ = this.route$.pipe(
-      map(r => {
-        if (r.startsWith('/dungeon')) {
-          return 'dungeons';
-        }
-        if (r.startsWith('/raids')) {
-          return 'raids';
-        }
-        if (r.startsWith('/crafting')) {
-          return 'crafting';
-        }
-        if (r.startsWith('/pvp')) {
-          return 'pvp';
-        }
-        if (r.startsWith('/collections')) {
-          return 'collections';
-        }
-        if (r.startsWith('/reputation')) {
-          return 'reputation';
-        }
-
-        return 'RIP';
-      })
-    )
 
     if (window.matchMedia("(any-hover: none)").matches) {
       this.store.update((state) => ({ ...state, bMobile: true }))
@@ -82,7 +57,14 @@ export class GlobalStoreService {
 
 
     eventsFiltered$.subscribe(e => {
-      const url = e.urlAfterRedirects;
+      let url = e.urlAfterRedirects;
+      let fragment: string = '';
+
+      if (url.includes('#')) {
+        const split = url.split('#');
+        url = split[0];
+        fragment = split[1];
+      }
 
       let route = this.router.routerState.root;
       //console.log(route)
@@ -94,7 +76,8 @@ export class GlobalStoreService {
       this.store.update((state) => ({
         ...state,
         route: url,
-        id: id
+        id: id,
+        fragment: fragment
       }))
 
       this.tooltipService.hideTooltip();
@@ -103,5 +86,23 @@ export class GlobalStoreService {
 
   public getStoreValue() {
     return this.store.value;
+  }
+
+  public getFragment() {
+    return this.store.value.fragment;
+  }
+
+  public updateFragment(newFragment: string) {
+    this.store.update((state) => ({
+      ...state,
+      fragment: newFragment
+    }))
+  }
+
+  public setFragments(newFragments: string[]) {
+    this.store.update((state) => ({
+      ...state,
+      fragments: newFragments
+    }))
   }
 }

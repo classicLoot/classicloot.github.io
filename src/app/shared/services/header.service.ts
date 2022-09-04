@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
 import { BehaviorSubject } from 'rxjs';
 import { menuItemExtended } from '../interfaces/menuItemExtended';
 import { wowMetaData } from '../interfaces/meta';

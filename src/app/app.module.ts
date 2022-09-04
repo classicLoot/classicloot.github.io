@@ -35,7 +35,7 @@ export class AppModule {
   constructor(router: Router, viewportScroller: ViewportScroller) {
     // https://quandh19.medium.com/how-to-enable-anchor-scrolling-of-angular-router-in-the-right-way-42e9b19657b5
     viewportScroller.setOffset([0, 100]);
-
+    viewportScroller.setHistoryScrollRestoration('auto');
     return;
     const scroll$ = router.events.pipe((filter(e => e instanceof Scroll))) as Observable<Scroll>;
 

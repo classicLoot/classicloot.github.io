@@ -1,5 +1,9 @@
-import { wowBossType } from "./instance";
+import { wowAchievement } from "./achievement";
 import { wowItem } from "./item";
+
+export interface wowHardmode {
+    id: number, filter: string, data?: wowAchievement
+}
 // e.g. Emblems
 export interface wowCollection {
     name: string,
@@ -8,7 +12,7 @@ export interface wowCollection {
     subCollections?: wowSubCollection[],
 
     descr?: string,
-    type?: wowBossType,
+    type?: string,
     subLinks?: wowCollectionSubLink[]
 }
 
@@ -26,7 +30,8 @@ export interface wowCollectionMeta {
 export interface wowSubCollection {
     name: string,
     groups?: wowSubCollectionGroup[],
-    hardmode?: { id: number, filter: string }[],
+    hardmode?: wowHardmode[],
+    hardmodeLoot?: number[],
 
     descr?: string,
     ids?: number[],
