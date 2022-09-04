@@ -1,0 +1,30 @@
+{
+    "id": "33568",
+    "name": "Borean Leather",
+    "quality": "1",
+    "icon": "inv_misc_leatherscrap_15",
+    "htmlTooltip": "<table><tr><td><b class=\"q1\">Borean Leather</b><br /><!--e--><!--ps--></td></tr></table><table><tr><td><div class=\"q1 whtt-sellprice\">Sell Price: <span class=\"moneysilver\">22</span> <span class=\"moneycopper\">50</span></div></td></tr></table><!--?33568:1:1:80-->",
+    "link": "https://wotlkdb.com?item=33568",
+    "ilvl": "70",
+    "wowClass": "7",
+    "wowSubClass": "6",
+    "slot": "0",
+    "createdBy": [
+        {
+            "name": "Borean Leather",
+            "icon": "inv_misc_leatherscrap_15",
+            "id": 64661,
+            "minCount": 1,
+            "maxCount": 1,
+            "reagents": [
+                {
+                    "id": 33567,
+                    "name": "Borean Leather Scraps",
+                    "icon": "inv_misc_leatherscrap_16",
+                    "quality": 1,
+                    "count": 5
+                }
+            ]
+        }
+    ]
+}
