@@ -4,7 +4,7 @@ import { wowCollection, wowSubCollection, wowSubCollectionGroup } from '../../ap
 import { wowInstance } from "../../app/shared/interfaces/instance";
 import { readFromDirAs, readFromDirAsSingle, sanitizeName } from "../helper";
 
-//migrateDungeons()
+migrateDungeons()
 //migrateCrafting()
 migrateRaids()
 
@@ -33,7 +33,12 @@ function migrateDungeons() {
                         pos: 'right'
                     }
                 ],
-                hardmode: b.hardmode?.map(h => h.id)
+                hardmode: b.hardmode?.map(h => {
+                    return {
+                        id: h.id,
+                        filter: ''
+                    }
+                })
             }
             newSubColl.push(newB)
         })
@@ -132,9 +137,10 @@ function migrateRaids() {
                         filter: smallRaid ? '10-Normal' : '25-Normal'
                     }
                 ],
-                hardmode: b.hardmode?.map(h => {
-                    return { id: h.id!, filter: '10' }
-                })
+                hardmode: b.hardmode ? b.hardmode?.map(h => {
+                    return { id: h.id!, filter: smallRaid ? '10' : '25' }
+                }) : [],
+                hardmodeLoot: b.hardmodeLoot ? b.hardmodeLoot : []
             }
 
             if (newB.groups![0]!.ids!.length < 1) {
@@ -146,7 +152,7 @@ function migrateRaids() {
                     name: 'Heroic',
                     ids: b.lootHeroicHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-Heroic-horde' : '25-Heroic-horde'
+                    filter: smallRaid ? '10-Heroic-Horde' : '25-Heroic-Horde'
                 })
             }
             if (b.lootHorde) {
@@ -154,7 +160,24 @@ function migrateRaids() {
                     name: 'Normal',
                     ids: b.lootHorde,
                     groupBy: 'Raidboss',
-                    filter: smallRaid ? '10-Normal-horde' : '25-Normal-horde'
+                    filter: smallRaid ? '10-Normal-Horde' : '25-Normal-Horde'
+                })
+            }
+
+            const horde = newB.groups?.find(x => x.filter?.includes('Horde'))
+            if (horde) {
+                newB.groups = newB.groups?.map(g => {
+                    if (g.filter?.includes('Horde')) {
+                        return g;
+                    }
+                    else {
+                        return {
+                            name: g.name,
+                            ids: g.ids,
+                            groupBy: g.groupBy,
+                            filter: g.filter + '-Alliance'
+                        }
+                    }
                 })
             }
 
@@ -171,6 +194,7 @@ function migrateRaids() {
                 ilvlMin: r.ilvlMin,
                 ilvlMax: r.ilvlMax,
                 phase: r.phase,
+                tier: r.tier
             },
             subCollections: newSubColl
 
@@ -193,6 +217,9 @@ function migrateRaids() {
                 //console.log('boss ', boss25.name, boss10.name)
 
                 boss25.groups = [...boss25.groups!, ...boss10.groups!]
+                boss25.hardmode = [...boss25.hardmode!, ...boss10.hardmode!];
+                boss25.hardmodeLoot = [...boss25.hardmodeLoot!, ...boss10.hardmodeLoot!];
+
 
                 r10.subCollections![i] = boss25;
             }

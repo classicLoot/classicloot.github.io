@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { createStore, select, withProps } from '@ngneat/elf';
 import { wowDifficulty, wowFaction, wowSize } from '../types/options';
 
-
-
 interface optionsProps {
   faction: wowFaction,
   difficulty: wowDifficulty,

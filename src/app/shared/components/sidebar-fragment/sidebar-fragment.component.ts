@@ -1,8 +1,6 @@
-import { ViewportScroller } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { menuItemExtended } from '../../interfaces/menuItemExtended';
-import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FragmentService } from '../../services/fragment.service';
 
 @Component({
   selector: 'app-sidebar-fragment',
@@ -13,17 +11,14 @@ export class SidebarFragmentComponent implements OnInit {
 
   @Input() items: menuItemExtended[] = [];
 
-  constructor(private viewportScroller: ViewportScroller, private location: Location, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private fragmentService: FragmentService) { }
 
   ngOnInit(): void {
   }
 
   scrollTo(fragment: string) {
-    //console.log('scrollTo', fragment)
-    this.viewportScroller.scrollToAnchor(fragment);
-    const url = this.router.createUrlTree([], { relativeTo: this.activatedRoute, fragment: fragment }).toString();
-
-    this.location.go(url);
+    this.fragmentService.scrollTo(fragment);
+    return;
   }
 
 }

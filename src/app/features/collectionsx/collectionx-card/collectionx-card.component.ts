@@ -17,6 +17,10 @@ export class CollectionxCardComponent implements OnInit, OnChanges {
   right: wowSubCollectionGroup[] = [];
   mid: wowSubCollectionGroup[] = [];
 
+  bFaction: boolean = false;
+  bDiff: boolean = false;
+  bSize: boolean = false;
+
 
   faction$: Observable<wowFaction>;
   difficulty$: Observable<wowDifficulty>
@@ -47,6 +51,30 @@ export class CollectionxCardComponent implements OnInit, OnChanges {
       this.left = this.sub.groups.filter(x => x.pos === 'left')
       this.right = this.sub.groups.filter(x => x.pos === 'right')!
       this.mid = this.sub.groups.filter(x => x.pos === 'mid')
+
+      const nonEmpty = this.sub.groups.find(x => x.filter != '')
+      if (nonEmpty) {
+        this.bSize = true;
+      }
+      else {
+        this.bSize = false;
+      }
+
+      const heroic = this.sub.groups.find(x => x.filter?.includes('Heroic'));
+      if (heroic) {
+        this.bDiff = true;
+      }
+      else {
+        this.bDiff = false;
+      }
+
+      const horde = this.sub.groups.find(x => x.filter?.includes('Horde'));
+      if (horde) {
+        this.bFaction = true;
+      }
+      else {
+        this.bFaction = false;
+      }
     }
 
   }

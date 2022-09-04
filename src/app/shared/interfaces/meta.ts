@@ -22,4 +22,5 @@ export interface wowCollectionMeta {
     ilvlMin?: number,
     ilvlMax?: number,
     tier?: string,
+    phase?: number
 }
