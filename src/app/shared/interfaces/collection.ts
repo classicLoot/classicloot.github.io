@@ -31,12 +31,15 @@ export interface wowCollectionMeta {
 // Quests
 export interface wowQuest {
     id: number,
+    faction?: 'Alliance' | 'Horde' | 'Both',
     preQuests?: number[],
     rewards?: number[],
 
+    link?: string,
     name?: string,
     tooltip?: string,
     sharable?: boolean,
+    rewardData?: wowItem[]
 }
 
 // e.g. Emblem of Heroism
