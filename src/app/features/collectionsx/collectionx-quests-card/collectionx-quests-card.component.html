@@ -6,9 +6,13 @@
     </nb-card-header>
     <nb-card-body class="flex-container">
         <ng-container *ngIf="faction$ | async as filter">
-            <ng-container *ngFor="let quest of quests">
-                <app-wow-quest-lazy [quest]="quest"></app-wow-quest-lazy>
-            </ng-container>
+            <ul>
+                <ng-container *ngFor="let quest of quests">
+                    <li>
+                        <app-wow-quest-lazy [quest]="quest"></app-wow-quest-lazy>
+                    </li>
+                </ng-container>
+            </ul>
         </ng-container>
     </nb-card-body>
 </nb-card>

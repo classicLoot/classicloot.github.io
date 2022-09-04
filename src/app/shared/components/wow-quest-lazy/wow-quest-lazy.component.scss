@@ -1,0 +1,13 @@
+.questLink {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.questLink:hover {
+    .questName {
+        //color: white !important;
+        text-decoration-style: solid;
+        text-decoration-line: underline;
+    }
+}

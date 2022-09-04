@@ -1,1 +1,19 @@
-<div> {{quest.name}}</div>
+<div class="quest">
+    <ng-container *ngIf="mobile$ | async as mobile; else questTemplate">
+        <ng-container [ngTemplateOutlet]="questTemplateMobile">
+        </ng-container>
+    </ng-container>
+</div>
+
+<ng-template #questTemplate>
+    <a href="{{quest.link}}" target="_blank" class="questLink" (mousemove)="onMouseEvent($event,'move')"
+        (mouseenter)="onMouseEvent($event,'enter')" (mouseleave)="onMouseEvent($event,'leave')">
+        <div class="questName q">
+            [{{quest.name}}]
+        </div>
+    </a>
+</ng-template>
+
+<ng-template #questTemplateMobile>
+    MOBILE QUEST
+</ng-template>
