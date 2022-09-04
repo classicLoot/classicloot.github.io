@@ -15,6 +15,27 @@
     border-collapse: collapse;
     margin: 0;
     width: 100%;
+
+    // wowhead Tooltip fixes (double br)
+    .q0+br+br {
+        display: none;
+    }
+
+    span+br+br {
+        display: none;
+    }
+
+    .q+br+br {
+        display: block;
+    }
+
+    table+span+br+br {
+        display: block;
+    }
+}
+
+.itemTooltip td th {
+    padding: 0 0 0 30px;
 }
 
 .itemTooltip td table td table {
