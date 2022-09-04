@@ -1,1 +1,173 @@
-{"name":"Halls of Stone","link":"HallsofStone","meta":{"descr":"descr","levelMin":77,"levelMax":79,"levelEnter":73,"ilvlMin":183,"ilvlMax":200,"phase":1},"subCollections":[{"name":"Maiden of Grief","groups":[{"name":"Heroic","ids":[40752,38616,38615,38617,38618],"pos":"left"},{"name":"Normal","ids":[38614,38613,38611],"pos":"right"}],"hardmode":[{"id":1866,"filter":""}]},{"name":"Krystallus","groups":[{"name":"Heroic","ids":[40752,37652,37650,37651],"pos":"left"},{"name":"Normal","ids":[35673,35672,35670],"pos":"right"}]},{"name":"Tribunal of Ages","groups":[{"name":"Heroic","ids":[40752,37655,37656,37654,37653],"pos":"left"},{"name":"Normal","ids":[35677,35676,35675],"pos":"right"}],"hardmode":[{"id":2154,"filter":""}]},{"name":"Sjonnir The Ironshaper","groups":[{"name":"Heroic","ids":[40752,37669,37668,37670,37667,37666,37658,37657,37660,41792,43102],"pos":"left"},{"name":"Normal","ids":[35679,35678,35680],"pos":"right"}],"hardmode":[{"id":2155,"filter":""}]},{"name":"Trash","groups":[{"name":"Heroic","ids":[37673,37672,37671],"pos":"left"},{"name":"Normal","ids":[35682,35683,35681],"pos":"right"}]}]}
+{
+    "name": "Halls of Stone",
+    "link": "HallsofStone",
+    "meta": {
+        "descr": "descr",
+        "levelMin": 77,
+        "levelMax": 79,
+        "levelEnter": 73,
+        "ilvlMin": 183,
+        "ilvlMax": 200,
+        "phase": 1
+    },
+    "quests": [
+        {
+            "id": 13207,
+            "faction": "Both",
+            "rewards": [
+                44370,
+                44371,
+                44372,
+                44373
+            ]
+        }
+    ],
+    "subCollections": [
+        {
+            "name": "Maiden of Grief",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        38616,
+                        38615,
+                        38617,
+                        38618
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        38614,
+                        38613,
+                        38611
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 1866,
+                    "filter": ""
+                }
+            ]
+        },
+        {
+            "name": "Krystallus",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37652,
+                        37650,
+                        37651
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35673,
+                        35672,
+                        35670
+                    ],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Tribunal of Ages",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37655,
+                        37656,
+                        37654,
+                        37653
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35677,
+                        35676,
+                        35675
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 2154,
+                    "filter": ""
+                }
+            ]
+        },
+        {
+            "name": "Sjonnir The Ironshaper",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37669,
+                        37668,
+                        37670,
+                        37667,
+                        37666,
+                        37658,
+                        37657,
+                        37660,
+                        41792,
+                        43102
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35679,
+                        35678,
+                        35680
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 2155,
+                    "filter": ""
+                }
+            ]
+        },
+        {
+            "name": "Trash",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        37673,
+                        37672,
+                        37671
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35682,
+                        35683,
+                        35681
+                    ],
+                    "pos": "right"
+                }
+            ]
+        }
+    ]
+}

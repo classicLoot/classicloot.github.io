@@ -13,7 +13,7 @@
     </ng-container>
 
     <!-- Main Quest Rewards -->
-    <ng-container *ngIf="quest.rewardData">
+    <ng-container *ngIf="quest.rewardData && quest.rewardData.length > 0">
         <span class="header-small">Reward: </span>
         <div class="rewards">
 
