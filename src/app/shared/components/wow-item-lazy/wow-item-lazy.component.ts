@@ -19,6 +19,8 @@ export class WowItemLazyComponent implements OnInit {
   @Input() hardmode: boolean = false;
   @Input() showLevel: boolean = false;
 
+  @Input() showText: boolean = true;
+
   class$: Observable<wowClass | 'all'>;
   mobile$: Observable<boolean>;
 

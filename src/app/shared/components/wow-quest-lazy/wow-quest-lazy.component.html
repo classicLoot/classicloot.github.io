@@ -1,0 +1,58 @@
+<div class="quest">
+    <ng-container *ngIf="mobile$ | async as mobile; else questTemplate">
+        <ng-container [ngTemplateOutlet]="questTemplateMobile">
+        </ng-container>
+    </ng-container>
+</div>
+
+<!-- Templates -->
+
+<ng-template #questTemplate>
+    <!-- Main Quest -->
+    <ng-container [ngTemplateOutlet]="questLink" [ngTemplateOutletContext]="{questData: quest}">
+    </ng-container>
+
+    <!-- Main Quest Rewards -->
+    <ng-container *ngIf="quest.rewardData && quest.rewardData.length > 0">
+        <span class="header-small">Reward: </span>
+        <div class="rewards">
+
+            <ng-container *ngFor="let item of quest.rewardData">
+                <app-wow-item-lazy [item]="item" [showText]="false"></app-wow-item-lazy>
+            </ng-container>
+        </div>
+    </ng-container>
+
+
+    <!-- Pre Quests (without Rewards) -->
+    <ng-container *ngIf="quest.preQuestData && quest.preQuestData.length > 0">
+        <span class="header-small">Pre-Quests:</span>
+        <ng-container [ngTemplateOutlet]="preQuests"> </ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #questTemplateMobile>
+    MOBILE QUEST
+</ng-template>
+
+<ng-template #questLink let-questData="questData">
+    <a href="{{questData.link}}" target="_blank" class="questLink" (mousemove)="onMouseEvent($event,'move',questData)"
+        (mouseenter)="onMouseEvent($event,'enter',questData)" (mouseleave)="onMouseEvent($event,'leave',questData)">
+        <div class="questName q">
+            [{{questData.name}}]
+        </div>
+    </a>
+</ng-template>
+
+<ng-template #preQuests>
+    <div class="preQuests">
+        <ol>
+            <ng-container *ngFor="let pre of quest.preQuestData">
+                <li>
+                    <ng-container [ngTemplateOutlet]="questLink" [ngTemplateOutletContext]="{questData: pre}">
+                    </ng-container>
+                </li>
+            </ng-container>
+        </ol>
+    </div>
+</ng-template>

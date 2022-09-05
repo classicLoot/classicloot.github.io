@@ -1,14 +1,16 @@
 import fs from 'fs';
 import path from 'path';
-import { wowCollection, wowSubCollection, wowSubCollectionGroup } from '../../app/shared/interfaces/collection';
-import { wowInstance } from "../../app/shared/interfaces/instance";
+import { wowCollection, wowHardmode, wowSubCollection, wowSubCollectionGroup } from '../../app/shared/interfaces/collection';
+// import { wowInstance } from "../../app/shared/interfaces/instance";
 import { readFromDirAs, readFromDirAsSingle, sanitizeName } from "../helper";
 
-migrateDungeons()
+/* migrateDungeons()
 //migrateCrafting()
-migrateRaids()
+migrateRaids() */
+migrateCollections();
 
-function migrateDungeons() {
+
+/* function migrateDungeons() {
     const dPath = '../assets/data/manual/dungeons/wotlk'
     const dungeons = readFromDirAs<wowInstance>(dPath);
     console.log('dungeons:', dungeons.length)
@@ -63,7 +65,7 @@ function migrateDungeons() {
         // console.log(newD)
     })
 }
-
+ */
 function migrateCrafting() {
     const dPath = '../assets/data/manual/crafting/wotlk'
     const crafting = readFromDirAs<wowCollection>(dPath);
@@ -110,7 +112,7 @@ function migrateCrafting() {
     })
 }
 
-function migrateRaids() {
+/* function migrateRaids() {
     const dPath = '../assets/data/manual/raids/wotlk'
     const raids = readFromDirAs<wowInstance>(dPath);
     console.log('raids:', raids.length)
@@ -228,4 +230,52 @@ function migrateRaids() {
         }
     })
 
+} */
+
+function migrateCollections() {
+    const dPath = '../assets/data/manual/collections/wotlk'
+    const collections = readFromDirAs<wowCollection>(dPath);
+    console.log('collections:', collections.length)
+
+    const newPath = '../../wowdata/input/Collections'
+
+    collections.forEach(c => {
+        let newSubColl: any[] = [];
+
+        c.subCollections?.forEach(sub => {
+            // "normal"
+            if (sub.ids) {
+                const newSub = {
+                    name: sub.name,
+                    groups: [
+                        {
+                            ids: sub.ids,
+                            pos: 'mid',
+                            groupBy: sub.groupBy ? sub.groupBy : 'Raidboss'
+                        }
+                    ]
+                }
+                newSubColl.push(newSub)
+            }
+            // groups
+            else {
+                const newSub = {
+                    name: sub.name,
+                    groups: sub.groups?.map(grp => {
+                        return { ...grp, groupBy: sub.groupBy ? sub.groupBy : 'Default' }
+                    })
+                }
+                newSubColl.push(newSub)
+            }
+        })
+
+        const newC = {
+            name: c.name,
+            link: sanitizeName(c.name),
+            subCollections: newSubColl
+        }
+        const writePath = path.join(__dirname, newPath, newC.name + '.json');
+        fs.writeFileSync(writePath, JSON.stringify(newC));
+        // console.log(newD)
+    })
 }

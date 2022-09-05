@@ -67,6 +67,25 @@ export class LayoutComponent implements OnInit {
         }
       }
 
+      case 'Collections': {
+        let tier = meta.links.filter(x => x.name.startsWith('Tier'));
+        let rest = meta.links.filter(x => !tier.includes(x));
+
+        let emblems = meta.links.find(x => x.name === 'Emblems')!;
+        let tier7 = meta.links.find(x => x.name === 'Tier 7')!;
+        let tier8 = meta.links.find(x => x.name === 'Tier 8')!;
+        let tier9 = meta.links.find(x => x.name === 'Tier 9')!;
+        let tier10 = meta.links.find(x => x.name === 'Tier 10')!;
+
+        let start = [emblems, tier7, tier8, tier9, tier10]
+
+
+        return {
+          name: meta.name,
+          links: [...start, ...meta.links.filter(x => !start.includes(x))]
+        }
+      }
+
       default: {
         return meta;
       }

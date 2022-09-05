@@ -1,1 +1,230 @@
-{"name":"The Nexus","link":"TheNexus","meta":{"descr":"","levelMin":69,"levelMax":73,"levelEnter":67,"ilvlMin":159,"ilvlMax":200,"phase":1},"subCollections":[{"name":"Ormorok the Tree-Shaper","groups":[{"name":"Heroic","ids":[40752,37153,37155,37152,37151],"pos":"left"},{"name":"Normal","ids":[35602,35603,35601],"pos":"right"}]},{"name":"Anomalus","groups":[{"name":"Heroic","ids":[40752,37149,37144,37150,37141],"pos":"left"},{"name":"Normal","ids":[35599,35600,35598],"pos":"right"}],"hardmode":[{"id":2037,"filter":""}]},{"name":"Grand Magus Telestra","groups":[{"name":"Heroic","ids":[40752,37139,37138,37135,37134,21524],"pos":"left"},{"name":"Normal","ids":[35605,35604,35617,21524],"pos":"right"}],"hardmode":[{"id":2150,"filter":""}]},{"name":"Kolurg Stoutbeard","groups":[{"name":"Heroic","ids":[40752,37728,37731,37730,37729],"pos":"left"},{"name":"Normal","ids":[],"pos":"right"}]},{"name":"Keristrasza","groups":[{"name":"Heroic","ids":[40752,37172,37170,37171,37169,37165,37167,37166,37162,41794,43102],"pos":"left"},{"name":"Normal","ids":[35596,35595,35597],"pos":"right"}],"hardmode":[{"id":2036,"filter":""}]}]}
+{
+    "name": "The Nexus",
+    "link": "TheNexus",
+    "meta": {
+        "descr": "",
+        "levelMin": 69,
+        "levelMax": 73,
+        "levelEnter": 67,
+        "ilvlMin": 159,
+        "ilvlMax": 200,
+        "phase": 1
+    },
+    "quests": [
+        {
+            "id": 13094,
+            "faction": "Alliance",
+            "rewards": [
+                43181,
+                43182,
+                43183,
+                43184
+            ]
+        },
+        {
+            "id": 13095,
+            "faction": "Horde",
+            "rewards": [
+                43181,
+                43182,
+                43183,
+                43184
+            ]
+        },
+        {
+            "id": 11905,
+            "faction": "Both",
+            "rewards": [
+                42758,
+                42761,
+                42763,
+                42765
+            ],
+            "preQuests": [
+                11900
+            ]
+        },
+        {
+            "id": 11973,
+            "faction": "Both",
+            "rewards": [
+                38223,
+                38222,
+                38221
+            ],
+            "preQuests": [
+                11941,
+                11943,
+                11946,
+                11951,
+                11957,
+                11967,
+                11969,
+                11973
+            ]
+        },
+        {
+            "id": 11911,
+            "faction": "Both",
+            "rewards": [
+                42760,
+                42762,
+                42766,
+                42767,
+                42768
+            ],
+            "preQuests": [
+                11910
+            ]
+        }
+    ],
+    "subCollections": [
+        {
+            "name": "Ormorok the Tree-Shaper",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37153,
+                        37155,
+                        37152,
+                        37151
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35602,
+                        35603,
+                        35601
+                    ],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Anomalus",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37149,
+                        37144,
+                        37150,
+                        37141
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35599,
+                        35600,
+                        35598
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 2037,
+                    "filter": ""
+                }
+            ]
+        },
+        {
+            "name": "Grand Magus Telestra",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37139,
+                        37138,
+                        37135,
+                        37134,
+                        21524
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35605,
+                        35604,
+                        35617,
+                        21524
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 2150,
+                    "filter": ""
+                }
+            ]
+        },
+        {
+            "name": "Kolurg Stoutbeard",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37728,
+                        37731,
+                        37730,
+                        37729
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [],
+                    "pos": "right"
+                }
+            ]
+        },
+        {
+            "name": "Keristrasza",
+            "groups": [
+                {
+                    "name": "Heroic",
+                    "ids": [
+                        40752,
+                        37172,
+                        37170,
+                        37171,
+                        37169,
+                        37165,
+                        37167,
+                        37166,
+                        37162,
+                        41794,
+                        43102
+                    ],
+                    "pos": "left"
+                },
+                {
+                    "name": "Normal",
+                    "ids": [
+                        35596,
+                        35595,
+                        35597
+                    ],
+                    "pos": "right"
+                }
+            ],
+            "hardmode": [
+                {
+                    "id": 2036,
+                    "filter": ""
+                }
+            ]
+        }
+    ]
+}

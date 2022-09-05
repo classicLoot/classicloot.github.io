@@ -10,6 +10,7 @@ export interface wowCollection {
     link?: string,
     meta?: wowCollectionMeta,
     subCollections?: wowSubCollection[],
+    quests?: wowQuest[],
 
     descr?: string,
     type?: string,
@@ -26,6 +27,22 @@ export interface wowCollectionMeta {
     tier?: string,
     phase?: number
 }
+
+// Quests
+export interface wowQuest {
+    id: number,
+    faction?: 'Alliance' | 'Horde' | 'Both',
+    preQuests?: number[],
+    rewards?: number[],
+
+    link?: string,
+    name?: string,
+    tooltip?: string,
+    sharable?: boolean,
+    rewardData?: wowItem[],
+    preQuestData?: wowQuest[]
+}
+
 // e.g. Emblem of Heroism
 export interface wowSubCollection {
     name: string,
