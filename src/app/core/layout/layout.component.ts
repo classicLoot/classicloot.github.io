@@ -36,10 +36,13 @@ export class LayoutComponent implements OnInit {
           return {
             title: cat.name,
             children: cat.links.map(sub => {
-              return {
+              let newItem: NbMenuItem = {
                 title: sub.name,
-                link: `${cat.name}/${sub.link}`
+                link: `/${cat.name}/${sub.link}`,
+                pathMatch: 'full'
+
               }
+              return newItem;
             })
           }
         })
