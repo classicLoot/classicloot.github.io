@@ -251,7 +251,7 @@ function migrateCollections() {
                         {
                             ids: sub.ids,
                             pos: 'mid',
-                            groupBy: sub.groupBy ? sub.groupBy : 'defaultCrafting'
+                            groupBy: sub.groupBy ? sub.groupBy : 'Raidboss'
                         }
                     ]
                 }
@@ -261,7 +261,9 @@ function migrateCollections() {
             else {
                 const newSub = {
                     name: sub.name,
-                    groups: sub.groups
+                    groups: sub.groups?.map(grp => {
+                        return { ...grp, groupBy: sub.groupBy ? sub.groupBy : 'Default' }
+                    })
                 }
                 newSubColl.push(newSub)
             }

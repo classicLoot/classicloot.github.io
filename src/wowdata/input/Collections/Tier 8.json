@@ -1,1 +1,512 @@
-{"name":"Tier 8","link":"Tier8","subCollections":[{"name":"Deathknight","groups":[{"name":"DPS 10","ids":[45342,45344,45340,45341,45343],"pos":"left","filter":"10"},{"name":"DPS 25","ids":[46115,46117,46111,46113,46116],"pos":"left","filter":"25"},{"name":"Tank 10","ids":[45336,45339,45335,45337,45338],"pos":"right","filter":"10"},{"name":"Tank 25","ids":[46120,46122,46118,46119,46121],"pos":"right","filter":"25"}]},{"name":"Druid","groups":[{"name":"Feral 10","ids":[45356,45359,45358,45355,45357],"pos":"left","filter":"10"},{"name":"Feral 25","ids":[46161,46157,46159,46158,46160],"pos":"left","filter":"25"},{"name":"Restoration 10","ids":[45346,45349,45348,45345,45347],"pos":"right","filter":"10"},{"name":"Restoration 25","ids":[46184,46187,46186,46183,46185],"pos":"right","filter":"25"},{"name":"Balance 10","ids":[46313,45352,45354,45351,45353],"pos":"right","filter":"10"},{"name":"Balance 25","ids":[46191,46196,46194,46189,46192],"pos":"right","filter":"25"}]},{"name":"Hunter","groups":[{"name":"DPS 10","ids":[45361,45363,45364,45360,45362],"pos":"left","filter":"10"},{"name":"DPS 25","ids":[46143,46145,46141,46142,46144],"pos":"left","filter":"25"}]},{"name":"Mage","groups":[{"name":"DPS 10","ids":[45365,45369,45368,46131,45367],"pos":"left","filter":"10"},{"name":"DPS 25","ids":[46129,46134,46130,46132,46133],"pos":"left","filter":"25"}]},{"name":"Paladin","groups":[{"name":"Holy 10","ids":[45372,45373,45374,45370,45371],"pos":"left","filter":"10"},{"name":"Holy 25","ids":[46180,46182,46178,46179,46181],"pos":"left","filter":"25"},{"name":"Retribution 10","ids":[45377,45380,45375,45376,45379],"pos":"left","filter":"10"},{"name":"Retribution 25","ids":[46156,46152,46154,46155,46153],"pos":"left","filter":"25"},{"name":"Protection 10","ids":[45382,45385,45381,45383,45384],"pos":"right","filter":"10"},{"name":"Protection 25","ids":[46175,46177,46173,46174,46176],"pos":"right","filter":"25"}]},{"name":"Priest","groups":[{"name":"Shadow 10","ids":[45391,45393,45395,45392,45394],"pos":"left","filter":"10"},{"name":"Shadow 25","ids":[46172,46165,46168,46163,46170],"pos":"left","filter":"25"},{"name":"Holy 10","ids":[45386,45390,45389,45387,45388],"pos":"right","filter":"10"},{"name":"Holy 25","ids":[46197,46190,46193,46188,46195],"pos":"right","filter":"25"}]},{"name":"Rogue","groups":[{"name":"DPS 10","ids":[45398,45400,45396,45397,45399],"pos":"left","filter":"10"},{"name":"DPS 25","ids":[46125,46127,46123,46124,46126],"pos":"left","filter":"25"}]},{"name":"Shaman","groups":[{"name":"Restoration 10","ids":[45402,45404,45405,45401,45403],"pos":"left","filter":"10"},{"name":"Restoration 25","ids":[46201,46204,46198,46199,46202],"pos":"left","filter":"25"},{"name":"Enhancement 10","ids":[45412,45415,45413,45414,45416],"pos":"right","filter":"10"},{"name":"Enhancement 25","ids":[46212,46203,46205,46200,46208],"pos":"right","filter":"25"},{"name":"Elemental 10","ids":[45408,45410,45411,45406,45409],"pos":"left","filter":"10"},{"name":"Elemental 25","ids":[46209,46211,46206,46207,46210],"pos":"left","filter":"25"}]},{"name":"Warlock","groups":[{"name":"DPS 10","ids":[45417,45422,45421,45419,45420],"pos":"left","filter":"10"},{"name":"DPS 25","ids":[46140,46136,46137,46135,46139],"pos":"left","filter":"25"}]},{"name":"Warrior","groups":[{"name":"Fury 10","ids":[45431,45433,45429,45430,45432],"pos":"left","filter":"10"},{"name":"Fury 25","ids":[46151,46149,46146,46148,46150],"pos":"left","filter":"25"},{"name":"Protection 10","ids":[45425,45428,45424,45426,45427],"pos":"right","filter":"10"},{"name":"Protection 25","ids":[46166,46167,46162,46164,46169],"pos":"right","filter":"25"}]}]}
+{
+    "name": "Tier 8",
+    "link": "Tier8",
+    "subCollections": [
+        {
+            "name": "Deathknight",
+            "groups": [
+                {
+                    "name": "DPS 10",
+                    "ids": [
+                        45342,
+                        45344,
+                        45340,
+                        45341,
+                        45343
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [
+                        46115,
+                        46117,
+                        46111,
+                        46113,
+                        46116
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Tank 10",
+                    "ids": [
+                        45336,
+                        45339,
+                        45335,
+                        45337,
+                        45338
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Tank 25",
+                    "ids": [
+                        46120,
+                        46122,
+                        46118,
+                        46119,
+                        46121
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Druid",
+            "groups": [
+                {
+                    "name": "Feral 10",
+                    "ids": [
+                        45356,
+                        45359,
+                        45358,
+                        45355,
+                        45357
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Feral 25",
+                    "ids": [
+                        46161,
+                        46157,
+                        46159,
+                        46158,
+                        46160
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Restoration 10",
+                    "ids": [
+                        45346,
+                        45349,
+                        45348,
+                        45345,
+                        45347
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Restoration 25",
+                    "ids": [
+                        46184,
+                        46187,
+                        46186,
+                        46183,
+                        46185
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                },
+                {
+                    "name": "Balance 10",
+                    "ids": [
+                        46313,
+                        45352,
+                        45354,
+                        45351,
+                        45353
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Balance 25",
+                    "ids": [
+                        46191,
+                        46196,
+                        46194,
+                        46189,
+                        46192
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Hunter",
+            "groups": [
+                {
+                    "name": "DPS 10",
+                    "ids": [
+                        45361,
+                        45363,
+                        45364,
+                        45360,
+                        45362
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [
+                        46143,
+                        46145,
+                        46141,
+                        46142,
+                        46144
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Mage",
+            "groups": [
+                {
+                    "name": "DPS 10",
+                    "ids": [
+                        45365,
+                        45369,
+                        45368,
+                        46131,
+                        45367
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [
+                        46129,
+                        46134,
+                        46130,
+                        46132,
+                        46133
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Paladin",
+            "groups": [
+                {
+                    "name": "Holy 10",
+                    "ids": [
+                        45372,
+                        45373,
+                        45374,
+                        45370,
+                        45371
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Holy 25",
+                    "ids": [
+                        46180,
+                        46182,
+                        46178,
+                        46179,
+                        46181
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Retribution 10",
+                    "ids": [
+                        45377,
+                        45380,
+                        45375,
+                        45376,
+                        45379
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Retribution 25",
+                    "ids": [
+                        46156,
+                        46152,
+                        46154,
+                        46155,
+                        46153
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Protection 10",
+                    "ids": [
+                        45382,
+                        45385,
+                        45381,
+                        45383,
+                        45384
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Protection 25",
+                    "ids": [
+                        46175,
+                        46177,
+                        46173,
+                        46174,
+                        46176
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Priest",
+            "groups": [
+                {
+                    "name": "Shadow 10",
+                    "ids": [
+                        45391,
+                        45393,
+                        45395,
+                        45392,
+                        45394
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Shadow 25",
+                    "ids": [
+                        46172,
+                        46165,
+                        46168,
+                        46163,
+                        46170
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Holy 10",
+                    "ids": [
+                        45386,
+                        45390,
+                        45389,
+                        45387,
+                        45388
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Holy 25",
+                    "ids": [
+                        46197,
+                        46190,
+                        46193,
+                        46188,
+                        46195
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Rogue",
+            "groups": [
+                {
+                    "name": "DPS 10",
+                    "ids": [
+                        45398,
+                        45400,
+                        45396,
+                        45397,
+                        45399
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [
+                        46125,
+                        46127,
+                        46123,
+                        46124,
+                        46126
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Shaman",
+            "groups": [
+                {
+                    "name": "Restoration 10",
+                    "ids": [
+                        45402,
+                        45404,
+                        45405,
+                        45401,
+                        45403
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Restoration 25",
+                    "ids": [
+                        46201,
+                        46204,
+                        46198,
+                        46199,
+                        46202
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Enhancement 10",
+                    "ids": [
+                        45412,
+                        45415,
+                        45413,
+                        45414,
+                        45416
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Enhancement 25",
+                    "ids": [
+                        46212,
+                        46203,
+                        46205,
+                        46200,
+                        46208
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                },
+                {
+                    "name": "Elemental 10",
+                    "ids": [
+                        45408,
+                        45410,
+                        45411,
+                        45406,
+                        45409
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Elemental 25",
+                    "ids": [
+                        46209,
+                        46211,
+                        46206,
+                        46207,
+                        46210
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Warlock",
+            "groups": [
+                {
+                    "name": "DPS 10",
+                    "ids": [
+                        45417,
+                        45422,
+                        45421,
+                        45419,
+                        45420
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "DPS 25",
+                    "ids": [
+                        46140,
+                        46136,
+                        46137,
+                        46135,
+                        46139
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                }
+            ]
+        },
+        {
+            "name": "Warrior",
+            "groups": [
+                {
+                    "name": "Fury 10",
+                    "ids": [
+                        45431,
+                        45433,
+                        45429,
+                        45430,
+                        45432
+                    ],
+                    "pos": "left",
+                    "filter": "10"
+                },
+                {
+                    "name": "Fury 25",
+                    "ids": [
+                        46151,
+                        46149,
+                        46146,
+                        46148,
+                        46150
+                    ],
+                    "pos": "left",
+                    "filter": "25"
+                },
+                {
+                    "name": "Protection 10",
+                    "ids": [
+                        45425,
+                        45428,
+                        45424,
+                        45426,
+                        45427
+                    ],
+                    "pos": "right",
+                    "filter": "10"
+                },
+                {
+                    "name": "Protection 25",
+                    "ids": [
+                        46166,
+                        46167,
+                        46162,
+                        46164,
+                        46169
+                    ],
+                    "pos": "right",
+                    "filter": "25"
+                }
+            ]
+        }
+    ]
+}

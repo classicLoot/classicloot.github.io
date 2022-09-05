@@ -23,7 +23,11 @@ export class FragmentService {
 
   public setFragments(collection: wowCollection) {
     //const fragments = collection.subCollections?.map(sub => sanitizeName(sub.name))
-    const fragments = collection.subCollections?.map(sub => sub.name)
+    let fragments = collection.subCollections?.map(sub => sub.name)!
+
+    if (collection.quests) {
+      fragments = [...fragments, 'Quests']
+    }
 
     this.globalStore.setFragments(fragments || []);
     //console.log(fragments)
