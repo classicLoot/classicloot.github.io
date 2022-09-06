@@ -30,7 +30,7 @@ const routes: Routes = [
         loadChildren: () => import('src/app/features/home/home.module').then(m => m.HomeModule)
       },
       {
-        path: 'Pvp',
+        path: 'PVP',
         loadChildren: () => import('src/app/features/collectionsx/collectionsx.module').then(m => m.CollectionsxModule)
       },
       {

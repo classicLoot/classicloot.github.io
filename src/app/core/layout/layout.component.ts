@@ -89,6 +89,19 @@ export class LayoutComponent implements OnInit {
         }
       }
 
+      case 'PVP': {
+        let wintergrasp = meta.links.find(x => x.name === 'Wintergrasp')!;
+        let venture = meta.links.find(x => x.name === 'Venture Bay')!;
+
+        let start = [venture, wintergrasp]
+
+        return {
+          name: meta.name,
+          links: [...start, ...meta.links.filter(x => !start.includes(x))]
+        }
+
+      }
+
       default: {
         return meta;
       }
